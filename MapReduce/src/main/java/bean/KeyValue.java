@@ -1,4 +1,4 @@
-package mr;
+package bean;
 
 public class KeyValue implements Comparable<KeyValue>{
     private String key;

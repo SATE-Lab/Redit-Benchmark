@@ -1,4 +1,4 @@
-package mr;
+package bean;
 
 public class MapSet {
 }

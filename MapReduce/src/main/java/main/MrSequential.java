@@ -1,6 +1,6 @@
 package main;
 
-import mr.*;
+import bean.KeyValue;
 import mrapps.WordCount;
 import java.io.*;
 import java.util.ArrayList;
@@ -13,7 +13,10 @@ public class MrSequential {
     private static ArrayList<KeyValue> keyValues = new ArrayList<>();
     private static ArrayList<KeyValue> intermediate = new ArrayList<>();
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
+        if (args.length < 2){
+            throw new Exception("Usage: MrSequential.java input_folderPath output_filePath");
+        }
         String folderPath = args[0];
         File file = new File(folderPath);
         File[] files = file.listFiles();
