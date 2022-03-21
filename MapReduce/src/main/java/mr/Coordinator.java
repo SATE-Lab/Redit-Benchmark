@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import java.util.concurrent.locks.ReentrantLock;
 import java.io.File;
 
+
 public class Coordinator {
     private static final Logger logger = LoggerFactory.getLogger(Coordinator.class);
     private File[] files;
