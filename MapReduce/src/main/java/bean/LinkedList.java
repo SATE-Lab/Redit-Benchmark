@@ -84,9 +84,9 @@ public class LinkedList {
      * @return first node's data.
      * @throws Exception
      */
-    public Object popFront() throws Exception {
+    public Object popFront() {
         if (this.size == 0){
-            throw new Exception("popping empty list");
+            return null;
         }
         Object data = this.head.next.data;
         Node nextNode = head.next.next;
@@ -101,9 +101,9 @@ public class LinkedList {
      * @return last node's data.
      * @throws Exception
      */
-    public Object popBack() throws Exception {
+    public Object popBack() {
         if (this.size == 0){
-            throw new Exception("popping empty list");
+            return null;
         }
         Object data = this.head.prev.data;
         Node prevNode = head.prev.prev;

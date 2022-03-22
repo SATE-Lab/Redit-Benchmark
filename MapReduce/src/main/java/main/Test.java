@@ -2,6 +2,9 @@ package main;
 
 import bean.LinkedList;
 
+import static mr.Coordinator.formatCurTime;
+import static mr.Coordinator.getNowTimeSecond;
+
 public class Test {
     public static void main(String[] args) throws Exception {
         LinkedList list = new LinkedList();
@@ -17,5 +20,6 @@ public class Test {
         System.out.println(list.getSize());
 
         System.out.println(System.currentTimeMillis()/1000);
+        System.out.println(formatCurTime(getNowTimeSecond() * 1000));
     }
 }

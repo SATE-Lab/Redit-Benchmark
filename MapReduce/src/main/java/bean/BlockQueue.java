@@ -72,7 +72,7 @@ public class BlockQueue {
      * @return head element's data
      * @throws Exception
      */
-    public Object PopFront() throws Exception {
+    public Object PopFront() {
         this.lock.lock();
         Object data = this.list.popFront();
         this.lock.unlock();
@@ -84,7 +84,7 @@ public class BlockQueue {
      * @return end element's data
      * @throws Exception
      */
-    public Object PopBack() throws Exception {
+    public Object PopBack() {
         this.lock.lock();
         Object data = this.list.popBack();
         this.lock.unlock();

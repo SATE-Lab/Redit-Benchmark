@@ -1,11 +1,11 @@
 package mr;
 
-import bean.BlockQueue;
-import bean.MapSet;
-import bean.TaskState;
+import bean.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.locks.ReentrantLock;
 import java.io.File;
@@ -74,6 +74,128 @@ public class Coordinator {
         return coordinator;
     }
 
+    /**
+     * Assign map task to worker, mr/Worker.java calls this function.
+     * @param coordinator
+     * @param args contains workerId.
+     * @return a MapTaskReply object.
+     */
+    public static MapTaskReply giveMapTask(Coordinator coordinator, MapTaskArgs args) {
+        MapTaskReply reply = new MapTaskReply();
+        if (args.getWorkerId() == -1){
+            // simply allocate
+            reply.setWorkId(coordinator.curWorkerId);
+            coordinator.curWorkerId++;
+        }else {
+            reply.setWorkId(args.getWorkerId());
+        }
+        logger.info("worker " + reply.getWorkId() + " asks for a map task");
+
+        coordinator.issuedMapReentrantLock.lock();
+
+        if (coordinator.mapDone){
+            coordinator.issuedMapReentrantLock.unlock();
+            mapDoneProcess(reply);
+        }
+        if (coordinator.unIssuedMapTasks.getSize() == 0 && coordinator.issuedMapTasks.getCount() == 0){
+            coordinator.issuedMapReentrantLock.unlock();
+            mapDoneProcess(reply);
+            prepareAllReduceTasks(coordinator);
+            coordinator.mapDone = true;
+        }
+        logger.info(coordinator.unIssuedMapTasks.getSize() + " unissued map tasks, " + coordinator.issuedMapTasks.getCount() + " issued map tasks at hand");
+
+        // release lock to allow unissued update
+        coordinator.issuedMapReentrantLock.unlock();
+
+        long curTime = getNowTimeSecond();
+        int fileId;
+        Object popData = coordinator.unIssuedMapTasks.PopBack();
+        if (popData == null){
+            logger.warn("no map task yet, let worker wait...");
+            fileId = -1;
+        }else {
+            fileId = (int)popData;
+            coordinator.issuedMapReentrantLock.lock();
+            reply.setFile(coordinator.files[fileId]);
+            coordinator.mapTasks[fileId].setBeginSecond(curTime);
+            coordinator.mapTasks[fileId].setWorkerId(reply.getWorkId());
+            coordinator.issuedMapTasks.Insert(fileId);
+            coordinator.issuedMapReentrantLock.unlock();
+            logger.info("giving map task " + fileId + " on file " + reply.getFile().getName() + " at second " + formatCurTime(curTime * 1000));
+        }
+        reply.setFileId(fileId);
+        reply.setAllDone(false);
+        reply.setnReduce(coordinator.nReduce);
+        return reply;
+    }
+
+    /**
+     * Prepare all reduce tasks and add them to unIssuedReduceTasks.
+     * @param coordinator
+     */
+    private static void prepareAllReduceTasks(Coordinator coordinator) {
+        for (int i = 0; i < coordinator.nReduce; i++){
+            logger.info("putting " + i + "th reduce task into channel");
+            coordinator.unIssuedReduceTasks.PutFront(i);
+        }
+    }
+
+    /**
+     * Signal completion of all map tasks.
+     * @param reply
+     */
+    private static void mapDoneProcess(MapTaskReply reply) {
+        logger.info("all map tasks complete, telling workers to switch to reduce mode");
+        reply.setFileId(-1);
+        reply.setAllDone(true);
+    }
+
+    /**
+     * Check current time for whether the worker has timed out.
+     * @param coordinator
+     * @param args
+     * @return a MapTaskJoinReply object.
+     */
+    public static MapTaskJoinReply joinMapTask(Coordinator coordinator, MapTaskJoinArgs args){
+        MapTaskJoinReply reply = new MapTaskJoinReply();
+        logger.info("got join request from worker " + args.getWorkId() + " on file " + args.getFileId() + " : " + coordinator.files[args.getFileId()].getName());
+
+        coordinator.issuedMapReentrantLock.lock();
+
+        long curTime = getNowTimeSecond();
+        long taskTime = coordinator.mapTasks[args.getFileId()].getBeginSecond();
+        if (!coordinator.issuedMapTasks.Has(args.getFileId())){
+            logger.info("task abandoned or does not exists, ignoring...");
+            coordinator.issuedMapReentrantLock.unlock();
+            reply.setAccept(false);
+        }
+        if (coordinator.mapTasks[args.getFileId()].getWorkerId() != args.getWorkId()){
+            logger.info("map task belongs to worker " + coordinator.mapTasks[args.getFileId()].getWorkerId() + " not this " + args.getWorkId() + ", ignoring...");
+            coordinator.issuedMapReentrantLock.unlock();
+            reply.setAccept(false);
+        }
+        if (curTime - taskTime > maxTaskTime){
+            logger.info("task exceeds max wait time, abandoning...");
+            reply.setAccept(false);
+            coordinator.unIssuedMapTasks.PutFront(args.getFileId());
+        }else {
+            logger.info("task within max wait time, accepting...");
+            reply.setAccept(true);
+            coordinator.issuedMapTasks.Remove(args.getFileId());
+        }
+        coordinator.issuedMapReentrantLock.unlock();
+        return reply;
+    }
+
+    public static void GiveReduceTask(){
+        // TODO
+    }
+
+    public static void JoinReduceTask(){
+        // TODO
+    }
+
     private static void startServer(Coordinator coordinator) {
         new Thread(() -> {
             while (true){
@@ -122,7 +244,7 @@ public class Coordinator {
      */
     private static void removeTimeoutMapTasks(TaskState[] mapTasks, MapSet issuedMapTasks, BlockQueue unIssuedMapTasks) {
         for (Map.Entry<Object, Boolean> entry: issuedMapTasks.getMapBool().entrySet()){
-            long nowSecond = System.currentTimeMillis() / 1000;
+            long nowSecond = getNowTimeSecond();
             if (entry.getValue()){
                 int key = (int) entry.getKey();
                 if (nowSecond - mapTasks[key].getBeginSecond() > maxTaskTime){
@@ -152,6 +274,25 @@ public class Coordinator {
                 }
             }
         }
+    }
+
+    /**
+     * Gets the current time in seconds.
+     * @return
+     */
+    public static long getNowTimeSecond(){
+        return System.currentTimeMillis() / 1000;
+    }
+
+    /**
+     * Format the current time.
+     * @param curTime
+     * @return yyyy年MM月dd日 HH时mm分ss秒
+     */
+    public static String formatCurTime(long curTime){
+        SimpleDateFormat sdf = new SimpleDateFormat("", Locale.SIMPLIFIED_CHINESE);
+        sdf.applyPattern("yyyy年MM月dd日 HH时mm分ss秒");
+        return sdf.format(curTime);
     }
 
     /**
