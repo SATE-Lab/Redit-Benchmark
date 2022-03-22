@@ -15,5 +15,7 @@ public class Test {
         System.out.println(list.getSize());
         System.out.println(list.popFront());
         System.out.println(list.getSize());
+
+        System.out.println(System.currentTimeMillis()/1000);
     }
 }

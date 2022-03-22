@@ -1,21 +1,21 @@
 package bean;
 
 public class TaskState {
-    private int beginSecond;
+    private long beginSecond;
     private int workerId;
     private int fileId;
 
-    public TaskState(int beginSecond, int workerId, int fileId) {
+    public TaskState(long beginSecond, int workerId, int fileId) {
         this.beginSecond = beginSecond;
         this.workerId = workerId;
         this.fileId = fileId;
     }
 
-    public int getBeginSecond() {
+    public long getBeginSecond() {
         return beginSecond;
     }
 
-    public void setBeginSecond(int beginSecond) {
+    public void setBeginSecond(long beginSecond) {
         this.beginSecond = beginSecond;
     }
 
