@@ -16,7 +16,7 @@ public class WordCount {
         String[] results = new String(content).split("\\s+|,|\\.|: |\\?|\'|\"|;|!|#|\\$|\\(|\\)|\\*|-|%|\\[|]");
         ArrayList<KeyValue> keyValues = new ArrayList<>();
         for (String word:results){
-            KeyValue keyValue = new KeyValue(word, 1);
+            KeyValue keyValue = new KeyValue(word, "1");
             keyValues.add(keyValue);
         }
         return keyValues;
@@ -28,9 +28,8 @@ public class WordCount {
      * @param values is a list of all the values created for that key by any map task.
      * @return values size.
      */
-    public static int reduce(ArrayList<Integer> values){
+    public static int reduce(ArrayList<String> values){
         return values.size();
     }
-
 
 }

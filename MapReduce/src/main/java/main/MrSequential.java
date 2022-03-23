@@ -44,7 +44,7 @@ public class MrSequential {
             while (j < intermediate.size() && intermediate.get(j).getKey().equals(intermediate.get(i).getKey())){
                 j++;
             }
-            ArrayList<Integer> values = new ArrayList<>();
+            ArrayList<String> values = new ArrayList<>();
             for (int k = i; k < j; k++){
                 values.add(intermediate.get(k).getValue());
             }

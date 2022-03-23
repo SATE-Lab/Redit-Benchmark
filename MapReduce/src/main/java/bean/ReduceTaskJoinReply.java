@@ -1,6 +1,6 @@
 package bean;
 
-public class MapTaskJoinReply implements TaskReply{
+public class ReduceTaskJoinReply implements TaskReply{
     private boolean accept;
 
     public boolean isAccept() {

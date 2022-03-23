@@ -16,7 +16,7 @@
 
 **Difficulty:**
 
-1. Implementation of data structures: custom KeyValue, doubly circular linked list, queue, etc
+1. Implementation of data structures: custom KeyValue, doubly circular linked list, blockQueue, mapSet, etc
 
 2. RPC implementation (requires learning)
 

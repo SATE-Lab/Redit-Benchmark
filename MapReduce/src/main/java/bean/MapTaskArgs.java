@@ -1,6 +1,6 @@
 package bean;
 
-public class MapTaskArgs {
+public class MapTaskArgs implements TaskArgs{
     // -1 if does not have one
     private int workerId;
 

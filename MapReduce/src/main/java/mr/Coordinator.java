@@ -33,45 +33,44 @@ public class Coordinator {
     private boolean mapDone;
     private boolean allDone;
 
+    public Coordinator(File[] files, int nReduce) {
+        logger.info("making coordinator");
+        this.files = files;
+        this.nReduce = nReduce;
+        this.curWorkerId = 0;
+        this.mapTasks = new TaskState[files.length];
+        this.reduceTasks = new TaskState[nReduce];
+        this.unIssuedMapTasks = new BlockQueue();
+        this.issuedMapTasks = new MapSet();
+        this.unIssuedReduceTasks = new BlockQueue();
+        this.issuedReduceTasks = new MapSet();
+        this.allDone = false;
+        this.mapDone = false;
+        this.issuedMapReentrantLock = new ReentrantLock();
+        this.issuedReduceReentrantLock = new ReentrantLock();
+    }
 
     /**
-     * Create a Coordinator, main/mrCoordinator.java calls this function.
-     * @param files is a collection of all input files.
-     * @param nReduce is the number of reduce tasks to use.
-     * @return a created Coordinator object.
+     * Start a Coordinator, main/mrCoordinator.java calls this function.
      */
-    public static Coordinator makeCoordinator(File[] files, int nReduce){
-        Coordinator coordinator = new Coordinator();
-        logger.info("making coordinator");
-
-        // initialization
-        coordinator.files = files;
-        coordinator.nReduce = nReduce;
-        coordinator.curWorkerId = 0;
-        coordinator.mapTasks = new TaskState[files.length];
-        coordinator.reduceTasks = new TaskState[nReduce];
-        coordinator.unIssuedMapTasks = new BlockQueue();
-        coordinator.issuedMapTasks = new MapSet();
-        coordinator.unIssuedReduceTasks = new BlockQueue();
-        coordinator.issuedReduceTasks = new MapSet();
-        coordinator.allDone = false;
-        coordinator.mapDone = false;
+    public void start() throws Exception {
+        // Create output directory
+        createAllDir();
 
         // start a thread that listens for RPCs from worker.java
-        startServer(coordinator);
+        startServer(this);
         logger.info("listening started...");
 
         // starts a thread that abandons timeout tasks
-        loopRemoveTimeoutMapTasks(coordinator);
+        loopRemoveTimeoutMapTasks(this);
 
         // all are unissued map tasks
         // send to channel after everything else initializes
         logger.info("file count: " + files.length);
         for (int i = 0; i < files.length; i++){
             logger.info("sending " + i + "th file map task to channel");
-            coordinator.unIssuedMapTasks.PutFront(i);
+            this.unIssuedMapTasks.PutFront(i);
         }
-        return coordinator;
     }
 
     /**
@@ -80,8 +79,7 @@ public class Coordinator {
      * @param args contains workerId.
      * @return a MapTaskReply object.
      */
-    public static MapTaskReply giveMapTask(Coordinator coordinator, MapTaskArgs args) {
-        MapTaskReply reply = new MapTaskReply();
+    public static MapTaskReply giveMapTask(Coordinator coordinator, MapTaskArgs args, MapTaskReply reply) {
         if (args.getWorkerId() == -1){
             // simply allocate
             reply.setWorkId(coordinator.curWorkerId);
@@ -126,7 +124,7 @@ public class Coordinator {
         }
         reply.setFileId(fileId);
         reply.setAllDone(false);
-        reply.setnReduce(coordinator.nReduce);
+        reply.setNReduce(coordinator.nReduce);
         return reply;
     }
 
@@ -157,8 +155,7 @@ public class Coordinator {
      * @param args
      * @return a MapTaskJoinReply object.
      */
-    public static MapTaskJoinReply joinMapTask(Coordinator coordinator, MapTaskJoinArgs args){
-        MapTaskJoinReply reply = new MapTaskJoinReply();
+    public static MapTaskJoinReply joinMapTask(Coordinator coordinator, MapTaskJoinArgs args, MapTaskJoinReply reply){
         logger.info("got join request from worker " + args.getWorkId() + " on file " + args.getFileId() + " : " + coordinator.files[args.getFileId()].getName());
 
         coordinator.issuedMapReentrantLock.lock();
@@ -188,12 +185,83 @@ public class Coordinator {
         return reply;
     }
 
-    public static void GiveReduceTask(){
-        // TODO
+    /**
+     * Assign reduce task to worker, mr/Worker.java calls this function.
+     * @param coordinator
+     * @param args contains workId
+     * @return a ReduceTaskReply object.
+     */
+    public static ReduceTaskReply GiveReduceTask(Coordinator coordinator, ReduceTaskArgs args, ReduceTaskReply reply){
+        logger.info("worker " + args.getWorkId() + " asking for a reduce task");
+
+        coordinator.issuedReduceReentrantLock.lock();
+
+        if (coordinator.unIssuedReduceTasks.getSize() == 0 && coordinator.issuedReduceTasks.getCount() == 0){
+            logger.info("all reduce tasks complete, telling workers to terminate");
+            coordinator.issuedReduceReentrantLock.unlock();
+            coordinator.allDone = true;
+            reply.setRIndex(-1);
+            reply.setAllDone(true);
+        }
+        logger.info(coordinator.unIssuedReduceTasks.getSize() + " unissued reduce tasks, " + coordinator.issuedReduceTasks + " issued reduce tasks at hand");
+        // release lock to allow unissued update
+        coordinator.issuedReduceReentrantLock.unlock();
+
+        long curTime = getNowTimeSecond();
+        int rIndex;
+        Object popData = coordinator.unIssuedReduceTasks.PopBack();
+        if (popData == null){
+            logger.warn("no reduce task yet, let worker wait...");
+            rIndex = -1;
+        }else {
+            rIndex = (int)popData;
+            coordinator.issuedReduceReentrantLock.lock();
+            coordinator.reduceTasks[rIndex].setBeginSecond(curTime);
+            coordinator.reduceTasks[rIndex].setWorkerId(args.getWorkId());
+            coordinator.issuedReduceTasks.Insert(rIndex);
+            coordinator.issuedReduceReentrantLock.unlock();
+            logger.info("giving reduce task " + rIndex + " at second " + formatCurTime(curTime * 1000));
+        }
+        reply.setRIndex(rIndex);
+        reply.setAllDone(false);
+        reply.setNReduce(coordinator.nReduce);
+        reply.setFileCount(coordinator.files.length);
+        return reply;
     }
 
-    public static void JoinReduceTask(){
-        // TODO
+    /**
+     * Check current time for whether the worker has timed out.
+     * @param coordinator
+     * @param args
+     * @return a ReduceTaskJoinReply object.
+     */
+    public static ReduceTaskJoinReply JoinReduceTask(Coordinator coordinator, ReduceTaskJoinArgs args, ReduceTaskJoinReply reply){
+        logger.info("got join request from worker " + args.getWorkId() + " on reduce task " + args.getRIndex());
+
+        coordinator.issuedReduceReentrantLock.lock();
+
+        long curTime = getNowTimeSecond();
+        long taskTime = coordinator.reduceTasks[args.getRIndex()].getBeginSecond();
+        if (!coordinator.issuedReduceTasks.Has(args.getRIndex())){
+            logger.info("task abandoned or does not exists, ignoring...");
+            coordinator.issuedReduceReentrantLock.unlock();
+        }
+        if (coordinator.reduceTasks[args.getRIndex()].getWorkerId() != args.getWorkId()){
+            logger.info("reduce task belongs to worker " + coordinator.reduceTasks[args.getRIndex()].getWorkerId() + " not this " + args.getWorkId() + ", ignoring...");
+            coordinator.issuedReduceReentrantLock.unlock();
+            reply.setAccept(false);
+        }
+        if (curTime - taskTime > maxTaskTime){
+            logger.info("task exceeds max wait time, abandoning...");
+            reply.setAccept(false);
+            coordinator.unIssuedReduceTasks.PutFront(args.getRIndex());
+        }else {
+            logger.info("task within max wait time, accepting...");
+            reply.setAccept(true);
+            coordinator.issuedReduceTasks.Remove(args.getRIndex());
+        }
+        coordinator.issuedReduceReentrantLock.unlock();
+        return reply;
     }
 
     private static void startServer(Coordinator coordinator) {
@@ -297,15 +365,40 @@ public class Coordinator {
 
     /**
      * Check that all tasks have been completed.
-     * @param coordinator
      * @return whether i am done.
      */
-    public static boolean isDone(Coordinator coordinator){
-        if (coordinator.allDone){
+    public boolean isDone(){
+        if (this.allDone){
             logger.info("asked whether i am done, replying yes...");
         }else {
             logger.info("asked whether i am done, replying no...");
         }
-        return coordinator.allDone;
+        return this.allDone;
     }
+
+    /**
+     * Create output directory.
+     */
+    public static void createAllDir() throws Exception {
+        String userDir = System.getProperty("user.dir");
+        File outputDirFile = new File(userDir + File.separator + "output");
+        File tempDirFile = new File(userDir + File.separator + "output" + File.separator + "temp");
+        createDir(outputDirFile);
+        createDir(tempDirFile);
+    }
+
+    public static void createDir(File file) throws Exception {
+        boolean isDirExisted = file.exists();
+        if (isDirExisted){
+            logger.warn(file.getAbsoluteFile() + " is existed ...");
+        }else {
+            isDirExisted = file.mkdirs();
+            if (isDirExisted){
+                logger.info("Create " + file.getAbsoluteFile() + " successfully!");
+            }else {
+                throw new Exception("Disable to make the folder,please check the disk is full or not.");
+            }
+        }
+    }
+
 }

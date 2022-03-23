@@ -2,9 +2,9 @@ package bean;
 
 public class KeyValue implements Comparable<KeyValue>{
     private String key;
-    private int value;
+    private String value;
 
-    public KeyValue(String Key, int Value) {
+    public KeyValue(String Key, String Value) {
         this.key = Key;
         this.value = Value;
     }
@@ -17,11 +17,11 @@ public class KeyValue implements Comparable<KeyValue>{
         key = key;
     }
 
-    public int getValue() {
+    public String getValue() {
         return value;
     }
 
-    public void setValue(int value) {
+    public void setValue(String value) {
         value = value;
     }
 

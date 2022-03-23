@@ -1,6 +1,6 @@
 package bean;
 
-public class MapTaskJoinArgs {
+public class MapTaskJoinArgs implements TaskArgs{
     private int fileId;
     private int workId;
 

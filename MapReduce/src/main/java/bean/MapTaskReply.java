@@ -2,7 +2,7 @@ package bean;
 
 import java.io.File;
 
-public class MapTaskReply {
+public class MapTaskReply implements TaskReply{
     // worker passes this to the os package
     private File file;
 
@@ -36,11 +36,11 @@ public class MapTaskReply {
         this.fileId = fileId;
     }
 
-    public int getnReduce() {
+    public int getNReduce() {
         return nReduce;
     }
 
-    public void setnReduce(int nReduce) {
+    public void setNReduce(int nReduce) {
         this.nReduce = nReduce;
     }
 
