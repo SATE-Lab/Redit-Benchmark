@@ -18,7 +18,7 @@ public class MrCoordinator {
         String output_filePath = args[1];
         File file = new File(input_folderPath);
         File[] files = file.listFiles();
-        Coordinator coordinator = new Coordinator(files, 10);
+        Coordinator coordinator = new Coordinator(files, 10, 12000);
         logger.info("create coordinator success");
         coordinator.start();
 

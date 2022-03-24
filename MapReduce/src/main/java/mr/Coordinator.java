@@ -4,15 +4,24 @@ import bean.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 import java.util.Map;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 import java.io.File;
 
 public class Coordinator {
     private static final Logger logger = LoggerFactory.getLogger(Coordinator.class);
     public static final int maxTaskTime = 10;  //seconds
+    private ServerSocket serverSocket;
+    private int servPort;
+
     private File[] files;
     private int nReduce;
     private int curWorkerId;
@@ -33,8 +42,10 @@ public class Coordinator {
     private boolean mapDone;
     private boolean allDone;
 
-    public Coordinator(File[] files, int nReduce) {
+    public Coordinator(File[] files, int nReduce, int port) throws IOException {
         logger.info("making coordinator");
+        this.servPort = port;
+        this.serverSocket = new ServerSocket(this.servPort);
         this.files = files;
         this.nReduce = nReduce;
         this.curWorkerId = 0;
@@ -54,15 +65,15 @@ public class Coordinator {
      * Start a Coordinator, main/mrCoordinator.java calls this function.
      */
     public void start() throws Exception {
-        // Create output directory
+        // create output directory
         createAllDir();
 
         // start a thread that listens for RPCs from worker.java
-        startServer(this);
+        this.startServer();
         logger.info("listening started...");
 
         // starts a thread that abandons timeout tasks
-        loopRemoveTimeoutMapTasks(this);
+        this.loopRemoveTimeoutMapTasks();
 
         // all are unissued map tasks
         // send to channel after everything else initializes
@@ -75,56 +86,56 @@ public class Coordinator {
 
     /**
      * Assign map task to worker, mr/Worker.java calls this function.
-     * @param coordinator
      * @param args contains workerId.
+     * @param reply
      * @return a MapTaskReply object.
      */
-    public static MapTaskReply giveMapTask(Coordinator coordinator, MapTaskArgs args, MapTaskReply reply) {
+    public MapTaskReply giveMapTask(MapTaskArgs args, MapTaskReply reply) {
         if (args.getWorkerId() == -1){
             // simply allocate
-            reply.setWorkId(coordinator.curWorkerId);
-            coordinator.curWorkerId++;
+            reply.setWorkId(this.curWorkerId);
+            this.curWorkerId++;
         }else {
             reply.setWorkId(args.getWorkerId());
         }
         logger.info("worker " + reply.getWorkId() + " asks for a map task");
 
-        coordinator.issuedMapReentrantLock.lock();
+        this.issuedMapReentrantLock.lock();
 
-        if (coordinator.mapDone){
-            coordinator.issuedMapReentrantLock.unlock();
+        if (this.mapDone){
+            this.issuedMapReentrantLock.unlock();
             mapDoneProcess(reply);
         }
-        if (coordinator.unIssuedMapTasks.getSize() == 0 && coordinator.issuedMapTasks.getCount() == 0){
-            coordinator.issuedMapReentrantLock.unlock();
+        if (this.unIssuedMapTasks.getSize() == 0 && this.issuedMapTasks.getCount() == 0){
+            this.issuedMapReentrantLock.unlock();
             mapDoneProcess(reply);
-            prepareAllReduceTasks(coordinator);
-            coordinator.mapDone = true;
+            prepareAllReduceTasks(this);
+            this.mapDone = true;
         }
-        logger.info(coordinator.unIssuedMapTasks.getSize() + " unissued map tasks, " + coordinator.issuedMapTasks.getCount() + " issued map tasks at hand");
+        logger.info(this.unIssuedMapTasks.getSize() + " unissued map tasks, " + this.issuedMapTasks.getCount() + " issued map tasks at hand");
 
         // release lock to allow unissued update
-        coordinator.issuedMapReentrantLock.unlock();
+        this.issuedMapReentrantLock.unlock();
 
         long curTime = getNowTimeSecond();
         int fileId;
-        Object popData = coordinator.unIssuedMapTasks.PopBack();
+        Object popData = this.unIssuedMapTasks.PopBack();
         if (popData == null){
             logger.warn("no map task yet, let worker wait...");
             fileId = -1;
         }else {
             fileId = (int)popData;
-            coordinator.issuedMapReentrantLock.lock();
-            reply.setFile(coordinator.files[fileId]);
-            coordinator.mapTasks[fileId].setBeginSecond(curTime);
-            coordinator.mapTasks[fileId].setWorkerId(reply.getWorkId());
-            coordinator.issuedMapTasks.Insert(fileId);
-            coordinator.issuedMapReentrantLock.unlock();
+            this.issuedMapReentrantLock.lock();
+            reply.setFile(this.files[fileId]);
+            this.mapTasks[fileId].setBeginSecond(curTime);
+            this.mapTasks[fileId].setWorkerId(reply.getWorkId());
+            this.issuedMapTasks.Insert(fileId);
+            this.issuedMapReentrantLock.unlock();
             logger.info("giving map task " + fileId + " on file " + reply.getFile().getName() + " at second " + formatCurTime(curTime * 1000));
         }
         reply.setFileId(fileId);
         reply.setAllDone(false);
-        reply.setNReduce(coordinator.nReduce);
+        reply.setNReduce(this.nReduce);
         return reply;
     }
 
@@ -151,138 +162,146 @@ public class Coordinator {
 
     /**
      * Check current time for whether the worker has timed out.
-     * @param coordinator
      * @param args
+     * @param reply
      * @return a MapTaskJoinReply object.
      */
-    public static MapTaskJoinReply joinMapTask(Coordinator coordinator, MapTaskJoinArgs args, MapTaskJoinReply reply){
-        logger.info("got join request from worker " + args.getWorkId() + " on file " + args.getFileId() + " : " + coordinator.files[args.getFileId()].getName());
+    public MapTaskJoinReply joinMapTask(MapTaskJoinArgs args, MapTaskJoinReply reply){
+        logger.info("got join request from worker " + args.getWorkId() + " on file " + args.getFileId() + " : " + this.files[args.getFileId()].getName());
 
-        coordinator.issuedMapReentrantLock.lock();
+        this.issuedMapReentrantLock.lock();
 
         long curTime = getNowTimeSecond();
-        long taskTime = coordinator.mapTasks[args.getFileId()].getBeginSecond();
-        if (!coordinator.issuedMapTasks.Has(args.getFileId())){
+        long taskTime = this.mapTasks[args.getFileId()].getBeginSecond();
+        if (!this.issuedMapTasks.Has(args.getFileId())){
             logger.info("task abandoned or does not exists, ignoring...");
-            coordinator.issuedMapReentrantLock.unlock();
+            this.issuedMapReentrantLock.unlock();
             reply.setAccept(false);
         }
-        if (coordinator.mapTasks[args.getFileId()].getWorkerId() != args.getWorkId()){
-            logger.info("map task belongs to worker " + coordinator.mapTasks[args.getFileId()].getWorkerId() + " not this " + args.getWorkId() + ", ignoring...");
-            coordinator.issuedMapReentrantLock.unlock();
+        if (this.mapTasks[args.getFileId()].getWorkerId() != args.getWorkId()){
+            logger.info("map task belongs to worker " + this.mapTasks[args.getFileId()].getWorkerId() + " not this " + args.getWorkId() + ", ignoring...");
+            this.issuedMapReentrantLock.unlock();
             reply.setAccept(false);
         }
         if (curTime - taskTime > maxTaskTime){
             logger.info("task exceeds max wait time, abandoning...");
             reply.setAccept(false);
-            coordinator.unIssuedMapTasks.PutFront(args.getFileId());
+            this.unIssuedMapTasks.PutFront(args.getFileId());
         }else {
             logger.info("task within max wait time, accepting...");
             reply.setAccept(true);
-            coordinator.issuedMapTasks.Remove(args.getFileId());
+            this.issuedMapTasks.Remove(args.getFileId());
         }
-        coordinator.issuedMapReentrantLock.unlock();
+        this.issuedMapReentrantLock.unlock();
         return reply;
     }
 
     /**
      * Assign reduce task to worker, mr/Worker.java calls this function.
-     * @param coordinator
      * @param args contains workId
+     * @param reply
      * @return a ReduceTaskReply object.
      */
-    public static ReduceTaskReply GiveReduceTask(Coordinator coordinator, ReduceTaskArgs args, ReduceTaskReply reply){
+    public ReduceTaskReply GiveReduceTask(ReduceTaskArgs args, ReduceTaskReply reply){
         logger.info("worker " + args.getWorkId() + " asking for a reduce task");
 
-        coordinator.issuedReduceReentrantLock.lock();
+        this.issuedReduceReentrantLock.lock();
 
-        if (coordinator.unIssuedReduceTasks.getSize() == 0 && coordinator.issuedReduceTasks.getCount() == 0){
+        if (this.unIssuedReduceTasks.getSize() == 0 && this.issuedReduceTasks.getCount() == 0){
             logger.info("all reduce tasks complete, telling workers to terminate");
-            coordinator.issuedReduceReentrantLock.unlock();
-            coordinator.allDone = true;
+            this.issuedReduceReentrantLock.unlock();
+            this.allDone = true;
             reply.setRIndex(-1);
             reply.setAllDone(true);
         }
-        logger.info(coordinator.unIssuedReduceTasks.getSize() + " unissued reduce tasks, " + coordinator.issuedReduceTasks + " issued reduce tasks at hand");
+        logger.info(this.unIssuedReduceTasks.getSize() + " unissued reduce tasks, " + this.issuedReduceTasks + " issued reduce tasks at hand");
         // release lock to allow unissued update
-        coordinator.issuedReduceReentrantLock.unlock();
+        this.issuedReduceReentrantLock.unlock();
 
         long curTime = getNowTimeSecond();
         int rIndex;
-        Object popData = coordinator.unIssuedReduceTasks.PopBack();
+        Object popData = this.unIssuedReduceTasks.PopBack();
         if (popData == null){
             logger.warn("no reduce task yet, let worker wait...");
             rIndex = -1;
         }else {
             rIndex = (int)popData;
-            coordinator.issuedReduceReentrantLock.lock();
-            coordinator.reduceTasks[rIndex].setBeginSecond(curTime);
-            coordinator.reduceTasks[rIndex].setWorkerId(args.getWorkId());
-            coordinator.issuedReduceTasks.Insert(rIndex);
-            coordinator.issuedReduceReentrantLock.unlock();
+            this.issuedReduceReentrantLock.lock();
+            this.reduceTasks[rIndex].setBeginSecond(curTime);
+            this.reduceTasks[rIndex].setWorkerId(args.getWorkId());
+            this.issuedReduceTasks.Insert(rIndex);
+            this.issuedReduceReentrantLock.unlock();
             logger.info("giving reduce task " + rIndex + " at second " + formatCurTime(curTime * 1000));
         }
         reply.setRIndex(rIndex);
         reply.setAllDone(false);
-        reply.setNReduce(coordinator.nReduce);
-        reply.setFileCount(coordinator.files.length);
+        reply.setNReduce(this.nReduce);
+        reply.setFileCount(this.files.length);
         return reply;
     }
 
     /**
      * Check current time for whether the worker has timed out.
-     * @param coordinator
      * @param args
+     * @param reply
      * @return a ReduceTaskJoinReply object.
      */
-    public static ReduceTaskJoinReply JoinReduceTask(Coordinator coordinator, ReduceTaskJoinArgs args, ReduceTaskJoinReply reply){
+    public ReduceTaskJoinReply JoinReduceTask(ReduceTaskJoinArgs args, ReduceTaskJoinReply reply){
         logger.info("got join request from worker " + args.getWorkId() + " on reduce task " + args.getRIndex());
 
-        coordinator.issuedReduceReentrantLock.lock();
+        this.issuedReduceReentrantLock.lock();
 
         long curTime = getNowTimeSecond();
-        long taskTime = coordinator.reduceTasks[args.getRIndex()].getBeginSecond();
-        if (!coordinator.issuedReduceTasks.Has(args.getRIndex())){
+        long taskTime = this.reduceTasks[args.getRIndex()].getBeginSecond();
+        if (!this.issuedReduceTasks.Has(args.getRIndex())){
             logger.info("task abandoned or does not exists, ignoring...");
-            coordinator.issuedReduceReentrantLock.unlock();
+            this.issuedReduceReentrantLock.unlock();
         }
-        if (coordinator.reduceTasks[args.getRIndex()].getWorkerId() != args.getWorkId()){
-            logger.info("reduce task belongs to worker " + coordinator.reduceTasks[args.getRIndex()].getWorkerId() + " not this " + args.getWorkId() + ", ignoring...");
-            coordinator.issuedReduceReentrantLock.unlock();
+        if (this.reduceTasks[args.getRIndex()].getWorkerId() != args.getWorkId()){
+            logger.info("reduce task belongs to worker " + this.reduceTasks[args.getRIndex()].getWorkerId() + " not this " + args.getWorkId() + ", ignoring...");
+            this.issuedReduceReentrantLock.unlock();
             reply.setAccept(false);
         }
         if (curTime - taskTime > maxTaskTime){
             logger.info("task exceeds max wait time, abandoning...");
             reply.setAccept(false);
-            coordinator.unIssuedReduceTasks.PutFront(args.getRIndex());
+            this.unIssuedReduceTasks.PutFront(args.getRIndex());
         }else {
             logger.info("task within max wait time, accepting...");
             reply.setAccept(true);
-            coordinator.issuedReduceTasks.Remove(args.getRIndex());
+            this.issuedReduceTasks.Remove(args.getRIndex());
         }
-        coordinator.issuedReduceReentrantLock.unlock();
+        this.issuedReduceReentrantLock.unlock();
         return reply;
     }
 
-    private static void startServer(Coordinator coordinator) {
+    private void startServer() {
+        ThreadPoolExecutor threadPool =new ThreadPoolExecutor(5, 10,
+                200, TimeUnit.SECONDS, new ArrayBlockingQueue<Runnable>(10));
         new Thread(() -> {
             while (true){
-                logger.info("call server()");
-                // TODO
+                logger.info("start rpc server...");
+                try {
+                    Socket socket = this.serverSocket.accept();
+                    ServerService service = new ServerService(socket);
+                    service.registerService(Coordinator.class);
+                    threadPool.execute(service);
+                } catch (IOException e){
+                    System.out.println(e.getMessage());
+                }
             }
         }).start();
     }
 
     /**
      * Starts a thread that abandons timeout tasks.
-     * @param coordinator
      */
-    private static void loopRemoveTimeoutMapTasks(Coordinator coordinator) {
+    private void loopRemoveTimeoutMapTasks() {
         new Thread(() -> {
             while (true){
                 try {
                     Thread.sleep(2000);
-                    removeTimeoutTasks(coordinator);
+                    this.removeTimeoutTasks();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -292,16 +311,15 @@ public class Coordinator {
 
     /**
      * Remove map and reduce timeout tasks.
-     * @param coordinator
      */
-    private static void removeTimeoutTasks(Coordinator coordinator) {
+    private void removeTimeoutTasks() {
         logger.info("removing timeout map tasks...");
-        coordinator.issuedMapReentrantLock.lock();
-        removeTimeoutMapTasks(coordinator.mapTasks, coordinator.issuedMapTasks, coordinator.unIssuedMapTasks);
-        coordinator.issuedMapReentrantLock.unlock();
-        coordinator.issuedReduceReentrantLock.lock();
-        removeTimeoutReduceTasks(coordinator.reduceTasks, coordinator.issuedReduceTasks, coordinator.unIssuedReduceTasks);
-        coordinator.issuedReduceReentrantLock.unlock();
+        this.issuedMapReentrantLock.lock();
+        removeTimeoutMapTasks(this.mapTasks, this.issuedMapTasks, this.unIssuedMapTasks);
+        this.issuedMapReentrantLock.unlock();
+        this.issuedReduceReentrantLock.lock();
+        removeTimeoutReduceTasks(this.reduceTasks, this.issuedReduceTasks, this.unIssuedReduceTasks);
+        this.issuedReduceReentrantLock.unlock();
     }
 
     /**
@@ -399,6 +417,17 @@ public class Coordinator {
                 throw new Exception("Disable to make the folder,please check the disk is full or not.");
             }
         }
+    }
+
+    /**
+     * An example RPC handler.
+     * The RPC argument and reply types are defined in rpc.go.
+     * @param args
+     * @param reply
+     */
+    public void CallExample(ExampleArgs args, ExampleReply reply){
+        logger.info("get call from worker, set y = x + 1");
+        reply.setY(args.getX() + 1);
     }
 
 }

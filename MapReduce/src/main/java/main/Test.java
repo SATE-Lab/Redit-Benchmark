@@ -32,13 +32,13 @@ public class Test {
         String c = "ssss";
         String d = " ";
         String e = "1";
-        System.out.println(a.hashCode());
-        System.out.println(aa.hashCode());
-        System.out.println(b.hashCode());
-        System.out.println(bb.hashCode());
-        System.out.println(c.hashCode());
-        System.out.println(d.hashCode());
-        System.out.println(e.hashCode());
+        System.out.println(a.hashCode() + " " + a.hashCode() % 10);
+        System.out.println(aa.hashCode() + " " + Math.abs(aa.hashCode() % 10));
+        System.out.println(b.hashCode() + " " + b.hashCode() % 10);
+        System.out.println(bb.hashCode() + " " + bb.hashCode() % 10);
+        System.out.println(c.hashCode() + " " + c.hashCode() % 10);
+        System.out.println(d.hashCode() + " " + d.hashCode() % 10);
+        System.out.println(e.hashCode() + " " + e.hashCode() % 10);
     }
 
 }
