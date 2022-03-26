@@ -1,8 +1,9 @@
 package bean;
 
 import java.io.File;
+import java.io.Serializable;
 
-public class MapTaskReply implements TaskReply{
+public class MapTaskReply implements TaskReply, Serializable {
     // worker passes this to the os package
     private File file;
 
@@ -14,7 +15,7 @@ public class MapTaskReply implements TaskReply{
     private int nReduce;
 
     // assign worker id as this reply is the first sent to workers
-    private int workId;
+    private int workerId;
 
     // whether this kind of tasks are all done
     // if not, and fileId is -1, the worker waits
@@ -44,12 +45,12 @@ public class MapTaskReply implements TaskReply{
         this.nReduce = nReduce;
     }
 
-    public int getWorkId() {
-        return workId;
+    public int getWorkerId() {
+        return workerId;
     }
 
-    public void setWorkId(int workId) {
-        this.workId = workId;
+    public void setWorkerId(int workerId) {
+        this.workerId = workerId;
     }
 
     public boolean isAllDone() {

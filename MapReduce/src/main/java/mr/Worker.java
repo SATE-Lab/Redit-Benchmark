@@ -2,8 +2,6 @@ package mr;
 
 import bean.*;
 import mrapps.WordCount;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.net.Socket;
@@ -12,19 +10,17 @@ import java.util.Collections;
 import java.util.List;
 
 public class Worker {
-    private static final Logger logger = LoggerFactory.getLogger(Worker.class);
     private Socket socket;
     private ArrayList<KeyValue> intermediate;
     // false on map, true on reduce
     private boolean mapOrReduce;
     // must exit if true
     public boolean allDone;
-    private int workerId;
+    public int workerId;
 
     public Worker() throws IOException {
-        logger.info("making worker");
-        this.socket = new Socket("127.0.0.1",12000);
-        this.intermediate = new ArrayList<KeyValue>();;
+        System.out.println("Worker: making worker");
+        this.intermediate = new ArrayList<>();;
         this.mapOrReduce = false;
         this.allDone = false;
         this.workerId = -1;
@@ -35,7 +31,7 @@ public class Worker {
      */
     public void process() throws Exception {
         if (this.allDone){
-            logger.info("tasks all done");
+            return;
         }
         if (!this.mapOrReduce){
             // process map task
@@ -76,20 +72,20 @@ public class Worker {
         MapTaskArgs args = new MapTaskArgs();
         args.setWorkerId(this.workerId);
         MapTaskReply reply = new MapTaskReply();
-        logger.info("requesting for map task...");
-        reply = (MapTaskReply) call("GiveMapTask", args, reply);
-        this.workerId = reply.getWorkId();
+        System.out.println("Worker: requesting for map task...");
+        reply = (MapTaskReply) call("GiveMapTask", args.getParamTypes(), args, reply);
+        this.workerId = reply.getWorkerId();
 
         if (reply.getFileId() == -1){
             // refused to give a task, notify the caller
             if (reply.isAllDone()){
-                logger.info("no more map tasks, switch to reduce mode");
+                System.out.println("Worker " + this.workerId + " : no more map tasks, switch to reduce mode");
                 return null;
             }else {
                 return reply;
             }
         }
-        logger.info("get map task on file " + reply.getFileId() + " : " + reply.getFile().getName());
+        System.out.println("Worker " + this.workerId + " : get map task on file " + reply.getFileId() + " : " + reply.getFile().getName());
         return reply;
     }
 
@@ -100,7 +96,7 @@ public class Worker {
      */
     private void executeMap(MapTaskReply reply) throws Exception {
         ArrayList<KeyValue> intermediate = makeIntermediateFromFile(reply.getFile());
-        logger.info("writing map results to file");
+        System.out.println("Worker " + this.workerId + " : writing map results to file");
         writeToFiles(reply.getFileId(), reply.getNReduce(), intermediate);
         this.joinMapTask(reply.getFileId());
     }
@@ -134,7 +130,7 @@ public class Worker {
     private void writeToFiles(int fileId, int nReduce, ArrayList<KeyValue> intermediate) throws Exception {
         ArrayList<ArrayList<KeyValue>> keyValues = new ArrayList<>(nReduce);
         for (int i = 0; i < nReduce; i++){
-            keyValues.add(i, new ArrayList<KeyValue>(0));
+            keyValues.add(i, new ArrayList<>(0));
         }
         for (KeyValue kv : intermediate){
             int index = keyReduceIndex(kv.getKey(), nReduce);
@@ -144,10 +140,10 @@ public class Worker {
             File tempFile = createWriteFile(fileId, i);
             FileWriter fileWriter = new FileWriter(tempFile, true);
             for (KeyValue kv : keyValues.get(i)){
-                fileWriter.write(kv.getKey() + " " + kv.getValue());
+                fileWriter.write(kv.getKey() + " " + kv.getValue() + "\r\n");
             }
             fileWriter.close();
-            logger.info("write map result to file " + tempFile.getName());
+            System.out.println("Worker " + this.workerId + " : write map result to file " + tempFile.getName());
         }
     }
 
@@ -168,14 +164,15 @@ public class Worker {
     private void joinMapTask(int fileId) throws IOException {
         MapTaskJoinArgs args = new MapTaskJoinArgs();
         args.setFileId(fileId);
+        args.setWorkerId(this.workerId);
         MapTaskJoinReply reply = new MapTaskJoinReply();
-        logger.info("join map task...");
-        reply = (MapTaskJoinReply) call("JoinMapTask", args, reply);
+        System.out.println("Worker " + this.workerId + " : join map task...");
+        reply = (MapTaskJoinReply) call("JoinMapTask", args.getParamTypes(), args, reply);
 
         if (reply.isAccept()){
-            logger.info("map task accepted");
+            System.out.println("Worker " + this.workerId + " : map task accepted");
         }else {
-            logger.info("map task not accepted");
+            System.out.println("Worker " + this.workerId + " : map task not accepted");
         }
     }
 
@@ -185,22 +182,22 @@ public class Worker {
      */
     private ReduceTaskReply askReduceTask() throws IOException {
         ReduceTaskArgs args = new ReduceTaskArgs();
-        args.setWorkId(this.workerId);
+        args.setWorkerId(this.workerId);
         ReduceTaskReply reply = new ReduceTaskReply();
-        logger.info("requesting for reduce task...");
-        reply = (ReduceTaskReply) call("GiveReduceTask", args, reply);
+        System.out.println("Worker " + this.workerId + " : requesting for reduce task...");
+        reply = (ReduceTaskReply) call("GiveReduceTask", args.getParamTypes(), args, reply);
 
         if (reply.getRIndex() == -1){
             // refused to give a task, notify the caller
             if (reply.isAllDone()){
-                logger.info("no more reduce tasks, try to terminate worker");
+                System.out.println("Worker " + this.workerId + " : no more reduce tasks, try to terminate worker");
                 return null;
             }else {
-                logger.info("there is no task available for now. there will be more just a moment...");
+                System.out.println("Worker " + this.workerId + " : there is no task available for now. there will be more just a moment...");
                 return reply;
             }
         }
-        logger.info("got reduce task on " + reply.getRIndex() + "th cluster");
+        System.out.println("Worker " + this.workerId + " : get " + reply.getRIndex() + "th reduce task");
         return reply;
     }
 
@@ -211,12 +208,12 @@ public class Worker {
      */
     private void executeReduce(ReduceTaskReply reply) throws Exception {
         File outputFile = getOutputFile(reply.getRIndex());
-        ArrayList<KeyValue> intermediate = new ArrayList<KeyValue>(0);
+        ArrayList<KeyValue> intermediate = new ArrayList<>(0);
         for (int i = 0; i < reply.getFileCount(); i++){
-            logger.info("generating intermediates on cluster " + i);
+            System.out.println("Worker " + this.workerId + " : add reduce intermediates on file" + i);
             intermediate.addAll(readIntermediates(i, reply.getRIndex()));
         }
-        logger.info("total intermediate count " + intermediate.size());
+        System.out.println("Worker " + this.workerId + " : total intermediate count " + intermediate.size());
         reduceKVSlice(intermediate, outputFile);
         this.joinReduceTask(reply.getRIndex());
     }
@@ -229,7 +226,7 @@ public class Worker {
      * @throws Exception
      */
     private ArrayList<KeyValue> readIntermediates(int fileId, int reduceId) throws Exception {
-        ArrayList<KeyValue> keyValues = new ArrayList<KeyValue>(0);
+        ArrayList<KeyValue> keyValues = new ArrayList<>(0);
         File readFile = getReadFile(fileId, reduceId);
         FileReader fr = new FileReader(readFile);
         BufferedReader br = new BufferedReader(fr);
@@ -279,14 +276,14 @@ public class Worker {
     private void joinReduceTask(int rIndex) throws IOException {
         ReduceTaskJoinArgs args = new ReduceTaskJoinArgs();
         args.setRIndex(rIndex);
-        args.setWorkId(this.workerId);
+        args.setWorkerId(this.workerId);
         ReduceTaskJoinReply reply = new ReduceTaskJoinReply();
-        reply = (ReduceTaskJoinReply) call("JoinReduceTask", args, reply);
+        reply = (ReduceTaskJoinReply) call("JoinReduceTask", args.getParamTypes(),args, reply);
 
         if (reply.isAccept()){
-            logger.info("reduce task accepted");
+            System.out.println("Worker " + this.workerId + " : reduce task accepted");
         }else {
-            logger.info("reduce task not accepted");
+            System.out.println("Worker " + this.workerId + " : reduce task not accepted");
         }
     }
 
@@ -352,13 +349,15 @@ public class Worker {
      * @return a TaskReply object.
      * @throws IOException
      */
-    private TaskReply call(String rpcName, TaskArgs args, TaskReply reply) throws IOException {
+    private TaskReply call(String rpcName, Class<?>[] paramTypes, TaskArgs args, TaskReply reply) throws IOException {
+        socket = new Socket("127.0.0.1",12000);
         InputStream in = socket.getInputStream();
         OutputStream out = socket.getOutputStream();
         try {
             ObjectOutputStream outputStream = new ObjectOutputStream(out);
             List<Object> list = new ArrayList<>();
             list.add(rpcName);
+            list.add(paramTypes);
             list.add(args);
             list.add(reply);
             outputStream.writeObject(list);
@@ -371,7 +370,7 @@ public class Worker {
                 throw new RuntimeException("incorrect return object !!!");
             }
         }catch (Exception e){
-            logger.warn("error: " + e.getMessage());
+            e.printStackTrace();
         }finally {
             out.close();
             in.close();
@@ -384,12 +383,12 @@ public class Worker {
      * Example function to show how to make an RPC call to the coordinator.
      * The RPC argument and reply types are defined in rpc.go.
      */
-    private void CallExample() throws IOException {
+    public void CallExample() throws IOException {
         ExampleArgs args = new ExampleArgs();
         args.setX(99);
         ExampleReply reply = new ExampleReply();
-        reply = (ExampleReply) call("CallExample", args, reply);
-        logger.info("reply.getY() = " + reply.getY());
+        reply = (ExampleReply) call("CallExample", args.getParamTypes(), args, reply);
+        System.out.println("Worker " + this.workerId + " : reply.getY() = " + reply.getY());
     }
 
 }

@@ -22,8 +22,8 @@ public class BlockQueue {
     public void PutFront(Object data){
         this.lock.lock();
         this.list.pushFront(data);
-        this.lock.unlock();
         this.condition.signalAll();
+        this.lock.unlock();
     }
 
     /**
@@ -33,8 +33,8 @@ public class BlockQueue {
     public void PutBack (Object data){
         this.lock.lock();
         this.list.pushBack(data);
-        this.lock.unlock();
         this.condition.signalAll();
+        this.lock.unlock();
     }
 
     /**

@@ -2,8 +2,6 @@ package mr;
 
 import bean.TaskArgs;
 import bean.TaskReply;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.lang.reflect.Method;
@@ -11,13 +9,14 @@ import java.net.Socket;
 import java.util.List;
 
 public class ServerService implements Runnable{
-    private static final Logger logger = LoggerFactory.getLogger(ServerService.class);
     private Socket sockClient;
     private Class serviceRegistryClass;
+    private Coordinator coordinator;
 
-    public ServerService(Socket sock) {
+    public ServerService(Socket sock, Coordinator coordinator) {
         super();
         this.sockClient = sock;
+        this.coordinator = coordinator;
     }
 
     public void registerService(Class c) {
@@ -37,15 +36,15 @@ public class ServerService implements Runnable{
             // get the request data and force the parameter type
             List<Object> list = (List<Object>) inputStream.readObject();
             String rpcName = (String) list.get(0);
-            TaskArgs args = (TaskArgs) list.get(1);
-            TaskReply reply = (TaskReply) list.get(2);
+            Class<?>[] paramTypes = (Class<?>[]) list.get(1);
+            TaskArgs args = (TaskArgs) list.get(2);
+            TaskReply reply = (TaskReply) list.get(3);
 
             // find and execute service methods
-            logger.info("execute methods：" + rpcName);
             if(serviceRegistryClass != null) {
-                Method method = serviceRegistryClass.getMethod(rpcName);
+                Method method = serviceRegistryClass.getMethod(rpcName, paramTypes);
                 Object[] objects = new Object[]{args, reply};
-                reply = (TaskReply) method.invoke(serviceRegistryClass.newInstance(), objects);
+                reply = (TaskReply) method.invoke(coordinator, objects);
             }
             outputStream.writeObject(reply);
             outputStream.flush();

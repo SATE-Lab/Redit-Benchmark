@@ -1,6 +1,8 @@
 package bean;
 
-public class MapTaskJoinReply implements TaskReply{
+import java.io.Serializable;
+
+public class MapTaskJoinReply implements TaskReply, Serializable {
     private boolean accept;
 
     public boolean isAccept() {

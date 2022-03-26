@@ -1,6 +1,8 @@
 package bean;
 
-public class ReduceTaskReply implements TaskReply{
+import java.io.Serializable;
+
+public class ReduceTaskReply implements TaskReply, Serializable {
     private int rIndex;
     private int nReduce;
     private int fileCount;

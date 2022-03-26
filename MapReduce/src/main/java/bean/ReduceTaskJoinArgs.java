@@ -1,15 +1,22 @@
 package bean;
 
-public class ReduceTaskJoinArgs implements TaskArgs{
-    private int workId;
-    private int rIndex;
+import java.io.Serializable;
 
-    public int getWorkId() {
-        return workId;
+public class ReduceTaskJoinArgs implements TaskArgs, Serializable {
+    private int workerId;
+    private int rIndex;
+    private Class<?>[] paramTypes = new Class[]{ReduceTaskJoinArgs.class, ReduceTaskJoinReply.class};
+
+    public Class<?>[] getParamTypes() {
+        return paramTypes;
     }
 
-    public void setWorkId(int workId) {
-        this.workId = workId;
+    public int getWorkerId() {
+        return workerId;
+    }
+
+    public void setWorkerId(int workerId) {
+        this.workerId = workerId;
     }
 
     public int getRIndex() {

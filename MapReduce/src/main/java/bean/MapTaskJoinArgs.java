@@ -1,8 +1,15 @@
 package bean;
 
-public class MapTaskJoinArgs implements TaskArgs{
+import java.io.Serializable;
+
+public class MapTaskJoinArgs implements TaskArgs, Serializable {
     private int fileId;
-    private int workId;
+    private int workerId;
+    private Class<?>[] paramTypes = new Class[]{MapTaskJoinArgs.class, MapTaskJoinReply.class};
+
+    public Class<?>[] getParamTypes() {
+        return paramTypes;
+    }
 
     public int getFileId() {
         return fileId;
@@ -12,12 +19,12 @@ public class MapTaskJoinArgs implements TaskArgs{
         this.fileId = fileId;
     }
 
-    public int getWorkId() {
-        return workId;
+    public int getWorkerId() {
+        return workerId;
     }
 
-    public void setWorkId(int workId) {
-        this.workId = workId;
+    public void setWorkerId(int workerId) {
+        this.workerId = workerId;
     }
 
 }

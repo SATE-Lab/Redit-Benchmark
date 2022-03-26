@@ -5,12 +5,6 @@ public class TaskState {
     private int workerId;
     private int fileId;
 
-    public TaskState(long beginSecond, int workerId, int fileId) {
-        this.beginSecond = beginSecond;
-        this.workerId = workerId;
-        this.fileId = fileId;
-    }
-
     public long getBeginSecond() {
         return beginSecond;
     }

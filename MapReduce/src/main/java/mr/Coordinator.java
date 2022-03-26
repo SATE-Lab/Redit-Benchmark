@@ -1,13 +1,11 @@
 package mr;
 
 import bean.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -17,7 +15,6 @@ import java.util.concurrent.locks.ReentrantLock;
 import java.io.File;
 
 public class Coordinator {
-    private static final Logger logger = LoggerFactory.getLogger(Coordinator.class);
     public static final int maxTaskTime = 10;  //seconds
     private ServerSocket serverSocket;
     private int servPort;
@@ -35,22 +32,22 @@ public class Coordinator {
     private ReentrantLock issuedReduceReentrantLock;
 
     // task states
-    private TaskState[] mapTasks;
-    private TaskState[] reduceTasks;
+    private ArrayList<TaskState> mapTasks;
+    private ArrayList<TaskState> reduceTasks;
 
     // states
     private boolean mapDone;
-    private boolean allDone;
+    public boolean allDone;
 
     public Coordinator(File[] files, int nReduce, int port) throws IOException {
-        logger.info("making coordinator");
+        System.out.println("Coordinator: " + "making coordinator");
         this.servPort = port;
         this.serverSocket = new ServerSocket(this.servPort);
         this.files = files;
         this.nReduce = nReduce;
-        this.curWorkerId = 0;
-        this.mapTasks = new TaskState[files.length];
-        this.reduceTasks = new TaskState[nReduce];
+        this.curWorkerId = 1;
+        this.mapTasks = new ArrayList<>(files.length);
+        this.reduceTasks = new ArrayList<>(nReduce);
         this.unIssuedMapTasks = new BlockQueue();
         this.issuedMapTasks = new MapSet();
         this.unIssuedReduceTasks = new BlockQueue();
@@ -59,6 +56,12 @@ public class Coordinator {
         this.mapDone = false;
         this.issuedMapReentrantLock = new ReentrantLock();
         this.issuedReduceReentrantLock = new ReentrantLock();
+        for (int i = 0; i < files.length; i++){
+            mapTasks.add(new TaskState());
+        }
+        for (int i = 0; i < nReduce; i++){
+            reduceTasks.add(new TaskState());
+        }
     }
 
     /**
@@ -70,16 +73,15 @@ public class Coordinator {
 
         // start a thread that listens for RPCs from worker.java
         this.startServer();
-        logger.info("listening started...");
 
         // starts a thread that abandons timeout tasks
         this.loopRemoveTimeoutMapTasks();
 
         // all are unissued map tasks
         // send to channel after everything else initializes
-        logger.info("file count: " + files.length);
+        System.out.println("Coordinator: " + "file count: " + files.length);
         for (int i = 0; i < files.length; i++){
-            logger.info("sending " + i + "th file map task to channel");
+            System.out.println("Coordinator: " + "sending " + i + "th file map task to 'unIssuedMapTasks'");
             this.unIssuedMapTasks.PutFront(i);
         }
     }
@@ -90,29 +92,31 @@ public class Coordinator {
      * @param reply
      * @return a MapTaskReply object.
      */
-    public MapTaskReply giveMapTask(MapTaskArgs args, MapTaskReply reply) {
+    public MapTaskReply GiveMapTask(MapTaskArgs args, MapTaskReply reply) {
         if (args.getWorkerId() == -1){
             // simply allocate
-            reply.setWorkId(this.curWorkerId);
+            reply.setWorkerId(this.curWorkerId);
             this.curWorkerId++;
         }else {
-            reply.setWorkId(args.getWorkerId());
+            reply.setWorkerId(args.getWorkerId());
         }
-        logger.info("worker " + reply.getWorkId() + " asks for a map task");
+        System.out.println("Coordinator: " + "worker " + reply.getWorkerId() + " asks for a map task");
 
         this.issuedMapReentrantLock.lock();
 
         if (this.mapDone){
             this.issuedMapReentrantLock.unlock();
             mapDoneProcess(reply);
+            return reply;
         }
         if (this.unIssuedMapTasks.getSize() == 0 && this.issuedMapTasks.getCount() == 0){
             this.issuedMapReentrantLock.unlock();
             mapDoneProcess(reply);
             prepareAllReduceTasks(this);
             this.mapDone = true;
+            return reply;
         }
-        logger.info(this.unIssuedMapTasks.getSize() + " unissued map tasks, " + this.issuedMapTasks.getCount() + " issued map tasks at hand");
+        System.out.println("Coordinator: " + this.unIssuedMapTasks.getSize() + " unissued map tasks, " + this.issuedMapTasks.getCount() + " issued map tasks at hand");
 
         // release lock to allow unissued update
         this.issuedMapReentrantLock.unlock();
@@ -121,17 +125,17 @@ public class Coordinator {
         int fileId;
         Object popData = this.unIssuedMapTasks.PopBack();
         if (popData == null){
-            logger.warn("no map task yet, let worker wait...");
+            System.out.println("Coordinator: " + "no map task yet, let worker wait...");
             fileId = -1;
         }else {
             fileId = (int)popData;
             this.issuedMapReentrantLock.lock();
             reply.setFile(this.files[fileId]);
-            this.mapTasks[fileId].setBeginSecond(curTime);
-            this.mapTasks[fileId].setWorkerId(reply.getWorkId());
+            this.mapTasks.get(fileId).setBeginSecond(curTime);
+            this.mapTasks.get(fileId).setWorkerId(reply.getWorkerId());
             this.issuedMapTasks.Insert(fileId);
             this.issuedMapReentrantLock.unlock();
-            logger.info("giving map task " + fileId + " on file " + reply.getFile().getName() + " at second " + formatCurTime(curTime * 1000));
+            System.out.println("Coordinator: " + "giving Worker " + reply.getWorkerId() + " a map task on file " + reply.getFile().getName() + " at second " + formatCurTime(curTime * 1000));
         }
         reply.setFileId(fileId);
         reply.setAllDone(false);
@@ -145,7 +149,7 @@ public class Coordinator {
      */
     private static void prepareAllReduceTasks(Coordinator coordinator) {
         for (int i = 0; i < coordinator.nReduce; i++){
-            logger.info("putting " + i + "th reduce task into channel");
+            System.out.println("Coordinator: " + "putting " + i + "th reduce task into 'unIssuedReduceTasks'");
             coordinator.unIssuedReduceTasks.PutFront(i);
         }
     }
@@ -155,7 +159,7 @@ public class Coordinator {
      * @param reply
      */
     private static void mapDoneProcess(MapTaskReply reply) {
-        logger.info("all map tasks complete, telling workers to switch to reduce mode");
+        System.out.println("Coordinator: " + "all map tasks complete, telling workers to switch to reduce mode");
         reply.setFileId(-1);
         reply.setAllDone(true);
     }
@@ -166,29 +170,29 @@ public class Coordinator {
      * @param reply
      * @return a MapTaskJoinReply object.
      */
-    public MapTaskJoinReply joinMapTask(MapTaskJoinArgs args, MapTaskJoinReply reply){
-        logger.info("got join request from worker " + args.getWorkId() + " on file " + args.getFileId() + " : " + this.files[args.getFileId()].getName());
+    public MapTaskJoinReply JoinMapTask(MapTaskJoinArgs args, MapTaskJoinReply reply){
+        System.out.println("Coordinator: " + "got join request from worker " + args.getWorkerId() + " on file " + args.getFileId() + " : " + this.files[args.getFileId()].getName());
 
         this.issuedMapReentrantLock.lock();
 
         long curTime = getNowTimeSecond();
-        long taskTime = this.mapTasks[args.getFileId()].getBeginSecond();
+        long taskTime = this.mapTasks.get(args.getFileId()).getBeginSecond();
         if (!this.issuedMapTasks.Has(args.getFileId())){
-            logger.info("task abandoned or does not exists, ignoring...");
+            System.out.println("Coordinator: " + "task abandoned or does not exists, ignoring...");
             this.issuedMapReentrantLock.unlock();
             reply.setAccept(false);
         }
-        if (this.mapTasks[args.getFileId()].getWorkerId() != args.getWorkId()){
-            logger.info("map task belongs to worker " + this.mapTasks[args.getFileId()].getWorkerId() + " not this " + args.getWorkId() + ", ignoring...");
+        if (this.mapTasks.get(args.getFileId()).getWorkerId() != args.getWorkerId()){
+            System.out.println("Coordinator: " + "map task belongs to worker " + this.mapTasks.get(args.getFileId()).getWorkerId() + " not this " + args.getWorkerId() + ", ignoring...");
             this.issuedMapReentrantLock.unlock();
             reply.setAccept(false);
         }
         if (curTime - taskTime > maxTaskTime){
-            logger.info("task exceeds max wait time, abandoning...");
+            System.out.println("Coordinator: " + "task exceeds max wait time, abandoning...");
             reply.setAccept(false);
             this.unIssuedMapTasks.PutFront(args.getFileId());
         }else {
-            logger.info("task within max wait time, accepting...");
+            System.out.println("Coordinator: " + "task within max wait time, accepting...");
             reply.setAccept(true);
             this.issuedMapTasks.Remove(args.getFileId());
         }
@@ -203,18 +207,19 @@ public class Coordinator {
      * @return a ReduceTaskReply object.
      */
     public ReduceTaskReply GiveReduceTask(ReduceTaskArgs args, ReduceTaskReply reply){
-        logger.info("worker " + args.getWorkId() + " asking for a reduce task");
+        System.out.println("Coordinator: " + "worker " + args.getWorkerId() + " asking for a reduce task");
 
         this.issuedReduceReentrantLock.lock();
 
         if (this.unIssuedReduceTasks.getSize() == 0 && this.issuedReduceTasks.getCount() == 0){
-            logger.info("all reduce tasks complete, telling workers to terminate");
+            System.out.println("Coordinator: " + "all reduce tasks complete, telling workers to terminate");
             this.issuedReduceReentrantLock.unlock();
             this.allDone = true;
             reply.setRIndex(-1);
             reply.setAllDone(true);
+            return reply;
         }
-        logger.info(this.unIssuedReduceTasks.getSize() + " unissued reduce tasks, " + this.issuedReduceTasks + " issued reduce tasks at hand");
+        System.out.println("Coordinator: " + this.unIssuedReduceTasks.getSize() + " unissued reduce tasks, " + this.issuedReduceTasks.getCount() + " issued reduce tasks at hand");
         // release lock to allow unissued update
         this.issuedReduceReentrantLock.unlock();
 
@@ -222,16 +227,16 @@ public class Coordinator {
         int rIndex;
         Object popData = this.unIssuedReduceTasks.PopBack();
         if (popData == null){
-            logger.warn("no reduce task yet, let worker wait...");
+            System.out.println("Coordinator: " + "no reduce task yet, let worker wait...");
             rIndex = -1;
         }else {
             rIndex = (int)popData;
             this.issuedReduceReentrantLock.lock();
-            this.reduceTasks[rIndex].setBeginSecond(curTime);
-            this.reduceTasks[rIndex].setWorkerId(args.getWorkId());
+            this.reduceTasks.get(rIndex).setBeginSecond(curTime);
+            this.reduceTasks.get(rIndex).setWorkerId(args.getWorkerId());
             this.issuedReduceTasks.Insert(rIndex);
             this.issuedReduceReentrantLock.unlock();
-            logger.info("giving reduce task " + rIndex + " at second " + formatCurTime(curTime * 1000));
+            System.out.println("Coordinator: " + "giving reduce task " + rIndex + " at second " + formatCurTime(curTime * 1000));
         }
         reply.setRIndex(rIndex);
         reply.setAllDone(false);
@@ -247,27 +252,27 @@ public class Coordinator {
      * @return a ReduceTaskJoinReply object.
      */
     public ReduceTaskJoinReply JoinReduceTask(ReduceTaskJoinArgs args, ReduceTaskJoinReply reply){
-        logger.info("got join request from worker " + args.getWorkId() + " on reduce task " + args.getRIndex());
+        System.out.println("Coordinator: " + "got join request from worker " + args.getWorkerId() + " on reduce task " + args.getRIndex());
 
         this.issuedReduceReentrantLock.lock();
 
         long curTime = getNowTimeSecond();
-        long taskTime = this.reduceTasks[args.getRIndex()].getBeginSecond();
+        long taskTime = this.reduceTasks.get(args.getRIndex()).getBeginSecond();
         if (!this.issuedReduceTasks.Has(args.getRIndex())){
-            logger.info("task abandoned or does not exists, ignoring...");
+            System.out.println("Coordinator: " + "task abandoned or does not exists, ignoring...");
             this.issuedReduceReentrantLock.unlock();
         }
-        if (this.reduceTasks[args.getRIndex()].getWorkerId() != args.getWorkId()){
-            logger.info("reduce task belongs to worker " + this.reduceTasks[args.getRIndex()].getWorkerId() + " not this " + args.getWorkId() + ", ignoring...");
+        if (this.reduceTasks.get(args.getRIndex()).getWorkerId() != args.getWorkerId()){
+            System.out.println("Coordinator: " + "reduce task belongs to worker " + this.reduceTasks.get(args.getRIndex()).getWorkerId() + " not this " + args.getWorkerId() + ", ignoring...");
             this.issuedReduceReentrantLock.unlock();
             reply.setAccept(false);
         }
         if (curTime - taskTime > maxTaskTime){
-            logger.info("task exceeds max wait time, abandoning...");
+            System.out.println("Coordinator: " + "task exceeds max wait time, abandoning...");
             reply.setAccept(false);
             this.unIssuedReduceTasks.PutFront(args.getRIndex());
         }else {
-            logger.info("task within max wait time, accepting...");
+            System.out.println("Coordinator: " + "task within max wait time, accepting...");
             reply.setAccept(true);
             this.issuedReduceTasks.Remove(args.getRIndex());
         }
@@ -279,18 +284,20 @@ public class Coordinator {
         ThreadPoolExecutor threadPool =new ThreadPoolExecutor(5, 10,
                 200, TimeUnit.SECONDS, new ArrayBlockingQueue<Runnable>(10));
         new Thread(() -> {
-            while (true){
-                logger.info("start rpc server...");
+            System.out.println("Coordinator: " + "start rpc server...");
+            while (!this.allDone){
                 try {
                     Socket socket = this.serverSocket.accept();
-                    ServerService service = new ServerService(socket);
+                    ServerService service = new ServerService(socket, this);
                     service.registerService(Coordinator.class);
                     threadPool.execute(service);
-                } catch (IOException e){
-                    System.out.println(e.getMessage());
+                    Thread.sleep(200);
+                } catch (IOException | InterruptedException e){
+                    e.printStackTrace();
                 }
             }
         }).start();
+        System.out.println("Coordinator: " + "rpc server stopping...");
     }
 
     /**
@@ -298,14 +305,16 @@ public class Coordinator {
      */
     private void loopRemoveTimeoutMapTasks() {
         new Thread(() -> {
-            while (true){
-                try {
+            try {
+                while (!this.allDone){
                     Thread.sleep(2000);
                     this.removeTimeoutTasks();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
                 }
+                System.out.println("Coordinator: " + "loopRemoveTimeoutMapTasks stopping...");
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
+
         }).start();
     }
 
@@ -313,7 +322,6 @@ public class Coordinator {
      * Remove map and reduce timeout tasks.
      */
     private void removeTimeoutTasks() {
-        logger.info("removing timeout map tasks...");
         this.issuedMapReentrantLock.lock();
         removeTimeoutMapTasks(this.mapTasks, this.issuedMapTasks, this.unIssuedMapTasks);
         this.issuedMapReentrantLock.unlock();
@@ -328,13 +336,13 @@ public class Coordinator {
      * @param issuedMapTasks
      * @param unIssuedMapTasks
      */
-    private static void removeTimeoutMapTasks(TaskState[] mapTasks, MapSet issuedMapTasks, BlockQueue unIssuedMapTasks) {
+    private static void removeTimeoutMapTasks(ArrayList<TaskState> mapTasks, MapSet issuedMapTasks, BlockQueue unIssuedMapTasks) {
         for (Map.Entry<Object, Boolean> entry: issuedMapTasks.getMapBool().entrySet()){
             long nowSecond = getNowTimeSecond();
             if (entry.getValue()){
                 int key = (int) entry.getKey();
-                if (nowSecond - mapTasks[key].getBeginSecond() > maxTaskTime){
-                    logger.info("worker do map task " + mapTasks[key].getWorkerId() + " on file " + mapTasks[key].getFileId() + " abandoned due to timeout.");
+                if (nowSecond - mapTasks.get(key).getBeginSecond() > maxTaskTime){
+                    System.out.println("Coordinator: " + "worker do map task " + mapTasks.get(key).getWorkerId() + " on file " + mapTasks.get(key).getFileId() + " abandoned due to timeout.");
                     issuedMapTasks.Remove(key);
                     unIssuedMapTasks.PutFront(key);
                 }
@@ -348,13 +356,13 @@ public class Coordinator {
      * @param issuedReduceTasks
      * @param unIssuedReduceTasks
      */
-    private static void removeTimeoutReduceTasks(TaskState[] reduceTasks, MapSet issuedReduceTasks, BlockQueue unIssuedReduceTasks) {
+    private static void removeTimeoutReduceTasks(ArrayList<TaskState> reduceTasks, MapSet issuedReduceTasks, BlockQueue unIssuedReduceTasks) {
         for (Map.Entry<Object, Boolean> entry: issuedReduceTasks.getMapBool().entrySet()){
             long nowSecond = System.currentTimeMillis() / 1000;
             if (entry.getValue()){
                 int key = (int) entry.getKey();
-                if (nowSecond - reduceTasks[key].getBeginSecond() > maxTaskTime){
-                    logger.info("worker do reduce task " + reduceTasks[key].getWorkerId() + " on file " + reduceTasks[key].getFileId() + " abandoned due to timeout.");
+                if (nowSecond - reduceTasks.get(key).getBeginSecond() > maxTaskTime){
+                    System.out.println("Coordinator: " + "worker do reduce task " + reduceTasks.get(key).getWorkerId() + " on file " + reduceTasks.get(key).getFileId() + " abandoned due to timeout.");
                     issuedReduceTasks.Remove(key);
                     unIssuedReduceTasks.PutFront(key);
                 }
@@ -386,11 +394,6 @@ public class Coordinator {
      * @return whether i am done.
      */
     public boolean isDone(){
-        if (this.allDone){
-            logger.info("asked whether i am done, replying yes...");
-        }else {
-            logger.info("asked whether i am done, replying no...");
-        }
         return this.allDone;
     }
 
@@ -408,11 +411,11 @@ public class Coordinator {
     public static void createDir(File file) throws Exception {
         boolean isDirExisted = file.exists();
         if (isDirExisted){
-            logger.warn(file.getAbsoluteFile() + " is existed ...");
+            System.out.println("Coordinator: " + file.getAbsoluteFile() + " is existed ...");
         }else {
             isDirExisted = file.mkdirs();
             if (isDirExisted){
-                logger.info("Create " + file.getAbsoluteFile() + " successfully!");
+                System.out.println("Coordinator: " + "Create " + file.getAbsoluteFile() + " successfully!");
             }else {
                 throw new Exception("Disable to make the folder,please check the disk is full or not.");
             }
@@ -425,9 +428,10 @@ public class Coordinator {
      * @param args
      * @param reply
      */
-    public void CallExample(ExampleArgs args, ExampleReply reply){
-        logger.info("get call from worker, set y = x + 1");
+    public ExampleReply CallExample(ExampleArgs args, ExampleReply reply){
+        System.out.println("Coordinator: " + "get example call from worker, set y = x + 1");
         reply.setY(args.getX() + 1);
+        return reply;
     }
 
 }

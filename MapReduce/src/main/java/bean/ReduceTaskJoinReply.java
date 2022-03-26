@@ -1,6 +1,8 @@
 package bean;
 
-public class ReduceTaskJoinReply implements TaskReply{
+import java.io.Serializable;
+
+public class ReduceTaskJoinReply implements TaskReply, Serializable {
     private boolean accept;
 
     public boolean isAccept() {
