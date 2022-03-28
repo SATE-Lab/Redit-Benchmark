@@ -13,7 +13,7 @@
 - Each `worker` process requests a task from the `Coordinator`, reads the task's input from one or more files, executes the task, and writes the task's output to one or more files.
 
 
-## Role
+### Role
 
 **Coordinator :**
 
@@ -37,7 +37,7 @@
 - It is divided into two operation modes: map and reduce. When the map mode is completed, the intermediate results are written to the temp file, and then switched to the reduce mode. When the reduce mode is completed, the final result file is output.
 
 
-## Difficulty
+### Difficulty
 
 1. Implementation of data structures: custom KeyValue, doubly circular linked list, blockQueue, mapSet, etc
 
