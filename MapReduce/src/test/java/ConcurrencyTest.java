@@ -1,11 +1,11 @@
-import mr.Coordinator;
-import mr.Worker;
+import mapreduce.mr.Coordinator;
+import mapreduce.mr.Worker;
 import java.io.File;
 
 public class ConcurrencyTest {
 
     public static void main(String[] args) throws Exception{
-        String input_folderPath = "D:\\product\\Redit\\Redit-push\\Redit-Benchmark\\MapReduce\\src\\main\\java\\files";
+        String input_folderPath = "/home/zmb/test/Redit-Benchmark/MapReduce/src/main/java/mapreduce/files";
         File file = new File(input_folderPath);
         File[] files = file.listFiles();
         Coordinator coordinator = new Coordinator(files, 10, 12000);

@@ -10,7 +10,7 @@
 - The `Coordinator` is responsible for assigning tasks and noting that a `Worker` completes its tasks in a reasonable amount of time, and recycles if not.
 
 
-- Each `worker` process requests a task from the `Coordinator`, reads the task's input from one or more files, executes the task, and writes the task's output to one or more files.
+- Each `worker` process requests a task from the `Coordinator`, reads the task's input from one or more mapreduce.files, executes the task, and writes the task's output to one or more mapreduce.files.
 
 
 ### Role
