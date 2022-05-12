@@ -2,15 +2,42 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="Mistletoe-java" />
+        <module name="raft-java-admin" />
+        <module name="Redit-Raft-Java" />
+        <module name="jlitespider" />
+        <module name="raft-java-core" />
+        <module name="JLiteSpider-Core" />
+        <module name="Redit-Distributed-Id" />
         <module name="MapReduce" />
+        <module name="Distributed-Id" />
+        <module name="JLiteSpider-Demo" />
+        <module name="raft-java-example" />
+        <module name="Redit-MapReduce" />
+        <module name="Redit-JLiteSpider" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="MapReduce" target="8" />
+      <module name="Distributed-Id" target="1.8" />
+      <module name="jlitespider" target="8" />
+      <module name="JLiteSpider" target="1.5" />
+      <module name="JLiteSpider-Core" target="8" />
+      <module name="JLiteSpider-Demo" target="1.8" />
+      <module name="MapReduce" target="1.8" />
+      <module name="Mistletoe-java" target="8" />
+      <module name="Raft-Java" target="1.5" />
+      <module name="raft-java-admin" target="1.7" />
+      <module name="raft-java-core" target="1.7" />
+      <module name="raft-java-example" target="1.7" />
+      <module name="Redit-Distributed-Id" target="8" />
+      <module name="Redit-JLiteSpider" target="8" />
+      <module name="Redit-MapReduce" target="8" />
+      <module name="Redit-Raft-Java" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>

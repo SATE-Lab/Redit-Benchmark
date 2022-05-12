@@ -4,10 +4,32 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/MapReduce/pom.xml" />
+        <option value="$PROJECT_DIR$/Raft-Java/pom.xml" />
+        <option value="$PROJECT_DIR$/DistributedId/pom.xml" />
+        <option value="$PROJECT_DIR$/Distributed-Id/pom.xml" />
+        <option value="$PROJECT_DIR$/Redit-Distributed-Id/pom.xml" />
+        <option value="$PROJECT_DIR$/Benchmark/Distributed-Id/pom.xml" />
+        <option value="$PROJECT_DIR$/Benchmark/MapReduce/pom.xml" />
+        <option value="$PROJECT_DIR$/Redit-MapReduce/pom.xml" />
+        <option value="$PROJECT_DIR$/Benchmark/Raft-Java/pom.xml" />
+        <option value="$PROJECT_DIR$/Redit-Raft-Java/pom.xml" />
+        <option value="$PROJECT_DIR$/Mistletoe-java/pom.xml" />
+        <option value="$PROJECT_DIR$/Benchmark/JLiteSpider/pom.xml" />
+        <option value="$PROJECT_DIR$/Benchmark/JLiteSpider/jlitespider/jlitespider/pom.xml" />
+        <option value="$PROJECT_DIR$/Benchmark/JLiteSpider/JLiteSpider-Demo/pom.xml" />
+        <option value="$PROJECT_DIR$/Benchmark/JLiteSpider/Jlitespider-Core/pom.xml" />
+        <option value="$PROJECT_DIR$/Redit-JLiteSpider/pom.xml" />
       </list>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
+  </component>
+  <component name="SuppressABINotification">
+    <option name="modulesWithSuppressedNotConfigured">
+      <set>
+        <option value="Raft-Java" />
+      </set>
+    </option>
   </component>
 </project>

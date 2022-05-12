@@ -2,8 +2,22 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MapReduce/MapReduce.iml" filepath="$PROJECT_DIR$/MapReduce/MapReduce.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Benchmark/Distributed-Id/Distributed-Id.iml" filepath="$PROJECT_DIR$/Benchmark/Distributed-Id/Distributed-Id.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Benchmark/JLiteSpider/JLiteSpider.iml" filepath="$PROJECT_DIR$/Benchmark/JLiteSpider/JLiteSpider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Benchmark/JLiteSpider/JLiteSpider-Core/JLiteSpider-Core.iml" filepath="$PROJECT_DIR$/Benchmark/JLiteSpider/JLiteSpider-Core/JLiteSpider-Core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Benchmark/JLiteSpider/JLiteSpider-Demo/JLiteSpider-Demo.iml" filepath="$PROJECT_DIR$/Benchmark/JLiteSpider/JLiteSpider-Demo/JLiteSpider-Demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Benchmark/MapReduce/MapReduce.iml" filepath="$PROJECT_DIR$/Benchmark/MapReduce/MapReduce.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Mistletoe-java/Mistletoe-java.iml" filepath="$PROJECT_DIR$/Mistletoe-java/Mistletoe-java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Benchmark/Raft-Java/Raft-Java.iml" filepath="$PROJECT_DIR$/Benchmark/Raft-Java/Raft-Java.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Redit-Benchmark.iml" filepath="$PROJECT_DIR$/.idea/Redit-Benchmark.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Redit-Distributed-Id/Redit-Distributed-Id.iml" filepath="$PROJECT_DIR$/Redit-Distributed-Id/Redit-Distributed-Id.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Redit-JLiteSpider/Redit-JLiteSpider.iml" filepath="$PROJECT_DIR$/Redit-JLiteSpider/Redit-JLiteSpider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Redit-MapReduce/Redit-MapReduce.iml" filepath="$PROJECT_DIR$/Redit-MapReduce/Redit-MapReduce.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Redit-Raft-Java/Redit-Raft-Java.iml" filepath="$PROJECT_DIR$/Redit-Raft-Java/Redit-Raft-Java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Benchmark/JLiteSpider/JLiteSpider-Core/jlitespider/jlitespider.iml" filepath="$PROJECT_DIR$/Benchmark/JLiteSpider/JLiteSpider-Core/jlitespider/jlitespider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Benchmark/Raft-Java/raft-java-admin/raft-java-admin.iml" filepath="$PROJECT_DIR$/Benchmark/Raft-Java/raft-java-admin/raft-java-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Benchmark/Raft-Java/raft-java-core/raft-java-core.iml" filepath="$PROJECT_DIR$/Benchmark/Raft-Java/raft-java-core/raft-java-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Benchmark/Raft-Java/raft-java-example/raft-java-example.iml" filepath="$PROJECT_DIR$/Benchmark/Raft-Java/raft-java-example/raft-java-example.iml" />
     </modules>
   </component>
 </project>
