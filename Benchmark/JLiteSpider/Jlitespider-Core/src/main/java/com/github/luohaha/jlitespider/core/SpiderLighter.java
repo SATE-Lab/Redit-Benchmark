@@ -2,13 +2,15 @@ package com.github.luohaha.jlitespider.core;
 
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
-import java.util.logging.Logger;
+
 import com.github.luohaha.jlitespider.mq.MQItem;
 import com.google.gson.Gson;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.MessageProperties;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 启动爬虫的点火器，用于向消息队列中添加初始内容
@@ -21,16 +23,21 @@ public class SpiderLighter {
 	private Channel sendChannel;
 	private String queueName;
 	private Gson gson = new Gson();
-	private Logger logger = Logger.getLogger("SpiderLighter");
+	private static final Logger logger = LoggerFactory.getLogger(SpiderLighter.class);
 
-	public SpiderLighter(String host, int port, String queue_name) throws IOException, TimeoutException {
+	public SpiderLighter(String host, int port, String queue_name) {
 		super();
 		factory.setHost(host);
 		factory.setPort(port);
-		connection = factory.newConnection();
-		sendChannel = connection.createChannel();
-		sendChannel.queueDeclare(queue_name, true, false, false, null);
-		this.queueName = queue_name;
+		try {
+			connection = factory.newConnection();
+			sendChannel = connection.createChannel();
+			sendChannel.queueDeclare(queue_name, true, false, false, null);
+			this.queueName = queue_name;
+		}catch (Exception e){
+			logger.error(e.getMessage());
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -74,6 +81,7 @@ public class SpiderLighter {
 	 * @throws TimeoutException
 	 */
 	public SpiderLighter addUrl(Object url) throws IOException, TimeoutException {
+		logger.info("add new url...");
 		return add("url", url);
 	}
 

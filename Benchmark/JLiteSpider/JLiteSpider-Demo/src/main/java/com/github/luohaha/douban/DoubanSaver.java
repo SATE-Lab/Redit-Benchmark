@@ -13,11 +13,13 @@ import com.github.luohaha.jlitespider.core.Saver;
 import com.github.luohaha.jlitespider.extension.AsyncNetwork;
 import com.github.luohaha.jlitespider.extension.AsyncNetwork.DownloadCallback;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import us.codecraft.xsoup.Xsoup;
 
 public class DoubanSaver implements Saver {
 	private AsyncNetwork asyncNetwork;
-
+	private static final Logger logger = LoggerFactory.getLogger(DoubanSaver.class);
 	public DoubanSaver(AsyncNetwork asyncNetwork) {
 		this.asyncNetwork = asyncNetwork;
 	}
@@ -38,11 +40,12 @@ public class DoubanSaver implements Saver {
 
 		public void onReceived(String result, String url) {
 			// 下载成功，则进行解析，并将结果存入文件
+			logger.info("parse and the result will be stored in the file...");
 			Document document = Jsoup.parse((String) result);
 			String name = Xsoup.compile("//*[@id=\"content\"]/h1/span[1]/text()").evaluate(document).get();
 			String content = Xsoup.compile("//*[@id=\"link-report\"]/span[1]/text()").evaluate(document).get();
-			System.out.println(content);
 			File file = new File("./output/" + name + ".txt");
+			logger.info("store file in " + file.getAbsolutePath());
 			try {
 				FileWriter fileWriter = new FileWriter(file, true);
 				fileWriter.write(content);
@@ -60,6 +63,7 @@ public class DoubanSaver implements Saver {
 			System.out.println(exception.getMessage());
 			try {
 				// 如果失败，则重新加入队列，再来一次
+				logger.info("fail, rejoin the queue and do it again...");
 				mQueue.get("mq-1").sendResult(url);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block

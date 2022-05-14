@@ -6,8 +6,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.concurrent.TimeoutException;
-import java.util.logging.Logger;
-
 import com.github.luohaha.jlitespider.exception.SpiderLackOfMethodException;
 import com.github.luohaha.jlitespider.exception.SpiderSettingFileException;
 import com.github.luohaha.jlitespider.mq.MQItem;
@@ -18,6 +16,8 @@ import com.github.luohaha.jlitespider.setting.SettingObject;
 import com.github.luohaha.jlitespider.setting.SettingReader;
 import com.rabbitmq.client.ConsumerCancelledException;
 import com.rabbitmq.client.ShutdownSignalException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 /**
@@ -37,6 +37,7 @@ public class Spider {
 	private Freeman freeman;
 	//配置文件位置
 	private String settingFile;
+	private String rabbitmqIp;
 	//配置文件信息
 	private SettingObject settingObject;
 	//读取和写入的队列
@@ -44,7 +45,7 @@ public class Spider {
 	private Map<String, MessageQueue> sendtoMap = new HashMap<>();
 	private Map<String, MQRecver> recvfromMap = new HashMap<>();
 	//log
-	private Logger logger = Logger.getLogger("spider");
+	private static final Logger logger = LoggerFactory.getLogger(Spider.class);
 	
 	public static Spider create() {
 		return new Spider();
@@ -70,8 +71,9 @@ public class Spider {
 		return this;
 	}
 	
-	public Spider setSettingFile(String filename) {
+	public Spider setSettingFile(String filename, String rabbitmqIp) {
 		this.settingFile = filename;
+		this.rabbitmqIp = rabbitmqIp;
 		return this;
 	}
 
@@ -83,8 +85,10 @@ public class Spider {
 	 */
 	private void readSetting() throws IOException, TimeoutException, SpiderSettingFileException {
 		if (this.settingFile == null) {
+			logger.error("settingFile not found...");
 			throw new FileNotFoundException();
 		} else {
+			logger.info("read settingFile: " + this.settingFile);
 			this.settingObject = SettingReader.read(this.settingFile);
 			for (MqObject each : this.settingObject.getMq()) {
 				this.mqMap.put(each.getName(), each);
@@ -92,13 +96,13 @@ public class Spider {
 			for (String each : this.settingObject.getSendto()) {
 				MqObject object = this.mqMap.get(each);
 				if (object == null) throw new SpiderSettingFileException();
-				MQSender sender = new MQSender(object.getHost(), object.getPort(), object.getQueue());
+				MQSender sender = new MQSender(this.rabbitmqIp, object.getPort(), object.getQueue());
 				this.sendtoMap.put(object.getName(), sender);
 			}
 			for (String each : this.settingObject.getRecvfrom()) {
 				MqObject object = this.mqMap.get(each);
 				if (object == null) throw new SpiderSettingFileException();
-				MQRecver recver = new MQRecver(object.getHost(), object.getPort(), object.getQueue(), object.getQos());
+				MQRecver recver = new MQRecver(this.rabbitmqIp, object.getPort(), object.getQueue(), object.getQos());
 				this.recvfromMap.put(object.getName(), recver);
 			}
 		}
@@ -116,7 +120,7 @@ public class Spider {
 	public void begin() throws IOException, TimeoutException, ShutdownSignalException, 
 	                    ConsumerCancelledException, InterruptedException, SpiderSettingFileException{
 		readSetting();
-		logger.info("worker [" + this.settingObject.getWorkerid() + "] start...");
+		logger.info("worker [" + this.settingObject.getWorkerid() + "] start download and parse...");
 		for (Entry<String, MQRecver> recv : this.recvfromMap.entrySet()) {
 			new Thread(new RecvThread(this, recv.getKey(), recv.getValue(), this.sendtoMap)).start();
 		}
@@ -153,17 +157,17 @@ public class Spider {
 					case "url":
 						if (spider.downloader == null) throw new SpiderLackOfMethodException();
 						spider.downloader.download(item.getValue(), this.senderMap);
-						logger.info("downloader finish!");
+						logger.info("get url, downloader finish!");
 						break;
 					case "page":
 						if (spider.processor == null) throw new SpiderLackOfMethodException();
 						spider.processor.process(item.getValue(), this.senderMap);
-						logger.info("processor finish!");
+						logger.info("get page, processor finish!");
 						break;
 					case "result":
 						if (spider.saver == null) throw new SpiderLackOfMethodException();
 						spider.saver.save(item.getValue(), this.senderMap);
-						logger.info("saver finish!");
+						logger.info("get result, saver finish!");
 						break;
 					default:
 						if (spider.freeman == null) throw new SpiderLackOfMethodException();

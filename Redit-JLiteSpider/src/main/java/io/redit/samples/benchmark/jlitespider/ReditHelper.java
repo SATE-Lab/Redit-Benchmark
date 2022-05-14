@@ -12,6 +12,7 @@ public class ReditHelper {
     public static final Logger logger = LoggerFactory.getLogger(ReditHelper.class);
     public static int numOfMq = 1;
     public static int numOfSpider = 2;
+    public static int numOfLighter = 2;
     public static final int SERVER_PORT = 5672;
 
     public static String getHomeDir(){
@@ -23,6 +24,7 @@ public class ReditHelper {
         String dir = "jlitespider-1.0.0";
         Deployment.Builder builder = Deployment.builder("sample-rabbitmq")
                 .withService("rabbitmq")
+                .applicationPath("etc/rabbitmq/rabbitmq.config","/etc/rabbitmq/rabbitmq.config")
                 .dockerImageName("mengpo1106/jlitespider-rabbitmq:1.0").dockerFileAddress("docker/rabbitmq", true)
                 .serviceType(ServiceType.JAVA).and()
 
@@ -34,7 +36,9 @@ public class ReditHelper {
         builder.withService("rabbitmq", "rabbitmq").tcpPort(SERVER_PORT).and()
                 .nodeInstances(numOfMq, "rabbitmq", "rabbitmq", true)
                 .withService("spider", "jlitespider").and()
-                .nodeInstances(numOfSpider, "spider", "spider", true);
+                .nodeInstances(numOfSpider, "spider", "spider", true)
+                .withService("lighter", "jlitespider").and()
+                .nodeInstances(numOfLighter, "lighter", "lighter", true);;
 
         return builder.build();
     }
@@ -50,6 +54,8 @@ public class ReditHelper {
             }
             for (String node : runner.runtime().nodeNames())
                 if (node.startsWith("spider")) runner.runtime().startNode(node);
+            for (String node : runner.runtime().nodeNames())
+                if (node.startsWith("lighter")) runner.runtime().startNode(node);
         } catch (InterruptedException e) {
             logger.warn("startNodesInOrder sleep got interrupted");
         }

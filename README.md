@@ -9,8 +9,8 @@
 | MapReduce | 2022_03_30 | https://github.com/OneSizeFitsQuorum/MIT6.824-2021 | coordinator、worker |
 | Raft-Java | 2022_04_27 | https://github.com/wenweihu86/raft-java | client、server |
 | Distributed-Id | 2022_04_30 | https://github.com/beyondfengyu/DistributedID | client、server |
+| JLiteSpider | 2022_05_14 |         https://github.com/luohaha/jlitespider         |      spider、lighter、rabbitmq      |
 | Distributed-Redis-Tool | to be determined | https://github.com/crossoverJie/distributed-redis-tool | redis |
-| JLiteSpider | to be determined |         https://github.com/luohaha/jlitespider         |      worker、mq      |
 | xxl-cache | to be determined |          https://github.com/xuxueli/xxl-cache          | redis、mysql、client |
 | Distributed-Bitcoin-Miner | to be determined |         https://github.com/cmu440/p1          |        client、miner、server        |
 | Tribbler | to be determined |         https://github.com/cmu440/p2          |        client、application、server        |
@@ -114,5 +114,20 @@ Provides a lightweight, high-concurrency, and high-availability service for gene
 5. Simple deployment and support for distributed deployment
 
 
+## JLiteSpider
 
+A lite distributed Java spider framework.
 
+- JLiteSpider is inherently distributed, and each worker needs to be connected through one or more message queues. My choice for message queue is rabbitmq. There can be one-to-one, one-to-many, many-to-one or many-to-many relationships between workers and messages, all of which can be configured freely and simply. There are four types of messages stored in the message queue: url, page source code, parsed results, and custom messages. Similarly, the work of workers is also divided into four parts: downloading pages, parsing pages, data persistence and custom operations.
+
+- Users only need to specify the relationship between workers and message queues in the configuration file. Then in the code, define the four parts of the worker's work. You can complete the writing of the crawler.
+
+#### Usage
+
+1. Start rabbitmq.
+
+2. Define the relationship between workers and message queues in the configuration file.
+
+3. Write the worker's job in code.
+
+4. Finally, start the spiders and lighters.

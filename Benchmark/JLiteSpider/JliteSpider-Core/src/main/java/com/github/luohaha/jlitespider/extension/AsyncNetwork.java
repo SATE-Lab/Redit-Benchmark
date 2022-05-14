@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
+import com.github.luohaha.jlitespider.core.Spider;
 import org.apache.http.HttpHost;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.CookieStore;
@@ -19,8 +20,11 @@ import org.apache.http.nio.IOControl;
 import org.apache.http.nio.client.methods.AsyncCharConsumer;
 import org.apache.http.nio.client.methods.HttpAsyncMethods;
 import org.apache.http.protocol.HttpContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class AsyncNetwork {
+	private static final Logger logger = LoggerFactory.getLogger(AsyncNetwork.class);
 	public interface DownloadCallback {
 		public void onReceived(String result, String url);
 		public void onFailed(Exception exception, String url);
@@ -95,12 +99,14 @@ public class AsyncNetwork {
 		@Override
 		public void completed(Object arg0) {
 			// 下载成功
+			logger.info("download successful !!!");
 			this.url.callback.onReceived(this.url.result, this.url.url);
 		}
 
 		@Override
 		public void failed(Exception exception) {
 			// 下载失败
+			logger.info("download fail !!!");
 			this.url.callback.onFailed(exception, this.url.url);
 		}
 		
@@ -152,6 +158,7 @@ public class AsyncNetwork {
 	@SuppressWarnings("unchecked")
 	public void begin() throws InterruptedException {
 		CloseableHttpAsyncClient httpclient = httpAsyncClientBuilder.build();
+		logger.info("httpAsyncClientBuilder build...");
 		httpclient.start();
 		new Thread(() -> {
 			while (true) {

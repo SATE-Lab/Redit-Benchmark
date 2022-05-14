@@ -1,9 +1,6 @@
 package com.github.luohaha.jlitespider.setting;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 import com.google.gson.Gson;
 
@@ -26,10 +23,10 @@ public class SettingReader {
 	 */
 	public static String readFile(String filename) {
 		String ret = "";
-		File file = new File(filename);
+        InputStream inputStream = SettingReader.class.getClassLoader().getResourceAsStream(filename);
         BufferedReader reader = null;  
         try {  
-            reader = new BufferedReader(new FileReader(file));
+            reader = new BufferedReader(new InputStreamReader(inputStream));
             String tempString = null;
             StringBuffer buffer = new StringBuffer();
             while ((tempString = reader.readLine()) != null) {  

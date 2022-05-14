@@ -33,17 +33,41 @@ public class SampleTest {
     public void sampleTest() throws InterruptedException, RuntimeEngineException {
         logger.info("wait for jlitespider...");
         logger.info("rabbitmqIp: " + rabbitmqIp);
-        Thread.sleep(1000);
+        Thread.sleep(20000);
+        startSpider(1);
+        startSpider(2);
+        Thread.sleep(5000);
+        startLighter(1);
+        Thread.sleep(5000);
+        startLighter(2);
+        Thread.sleep(10000);
         logger.info("completed !!!");
     }
 
-
-    private static void printResult(CommandResults commandResults){
-        logger.info(commandResults.nodeName() + ": " + commandResults.command());
-        if (commandResults.stdOut() != null){
-            logger.info(commandResults.stdOut());
-        }else {
-            logger.warn(commandResults.stdErr());
-        }
+    private static void startSpider(int spiderId) {
+        String command = "cd " + ReditHelper.getHomeDir() + " && chmod +x bin/*.sh &&  bin/run_spider.sh " + rabbitmqIp;
+        logger.info("Spider" + spiderId + " command: " + command);
+        logger.info("Spider" + spiderId + " startSpider...");
+        new Thread(() -> {
+            try {
+                runner.runtime().runCommandInNode("spider" + spiderId, command);
+            } catch (RuntimeEngineException e) {
+                e.printStackTrace();
+            }
+        }).start();
     }
+
+    private static void startLighter(int lighterId) {
+        String command = "cd " + ReditHelper.getHomeDir() + " && chmod +x bin/*.sh &&  bin/run_lighter.sh " + rabbitmqIp;
+        logger.info("Lighter" + lighterId + " command: " + command);
+        logger.info("Lighter" + lighterId + " startLighter...");
+        new Thread(() -> {
+            try {
+                runner.runtime().runCommandInNode("lighter" + lighterId, command);
+            } catch (RuntimeEngineException e) {
+                e.printStackTrace();
+            }
+        }).start();
+    }
+
 }
