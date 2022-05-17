@@ -21,6 +21,7 @@ target/
 !/Benchmark/MapReduce/hadoop-3.3.1-build/hadoop-dist/target
 !/Benchmark/Raft-Java/raft-java-1.9.0-build/raft-java-dist/target
 !/Benchmark/Distributed-Id/distributed-id-1.0.0-build/distributed-id-dist/target
+!/Benchmark/JLiteSpider/jlitespider-1.0.0-build/jlitespider-dist/target
 .Redit*
 .redit*
 
