@@ -9,7 +9,7 @@
 | MapReduce | 2022_03_30 | https://github.com/OneSizeFitsQuorum/MIT6.824-2021 | coordinator、worker |
 | Raft-Java | 2022_04_27 | https://github.com/wenweihu86/raft-java | client、server |
 | Distributed-Id | 2022_04_30 | https://github.com/beyondfengyu/DistributedID | client、server |
-| JLiteSpider | 2022_05_14 |         https://github.com/luohaha/jlitespider         |      spider、lighter、rabbitmq      |
+| JLiteSpider | 2022_05_14 (to be determined) |         https://github.com/luohaha/jlitespider         |      spider、lighter、rabbitmq      |
 | Distributed-Redis-Tool | to be determined | https://github.com/crossoverJie/distributed-redis-tool | redis |
 | xxl-cache | to be determined |          https://github.com/xuxueli/xxl-cache          | redis、mysql、client |
 | Distributed-Bitcoin-Miner | to be determined |         https://github.com/cmu440/p1          |        client、miner、server        |
