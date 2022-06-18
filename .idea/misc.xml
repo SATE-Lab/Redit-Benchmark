@@ -19,10 +19,24 @@
         <option value="$PROJECT_DIR$/Benchmark/JLiteSpider/JLiteSpider-Demo/pom.xml" />
         <option value="$PROJECT_DIR$/Benchmark/JLiteSpider/Jlitespider-Core/pom.xml" />
         <option value="$PROJECT_DIR$/Redit-JLiteSpider/pom.xml" />
+        <option value="$PROJECT_DIR$/Benchmark/apache-zookeeper-3.7.1/pom.xml" />
+        <option value="$PROJECT_DIR$/Redit-Zookeeper/pom.xml" />
+        <option value="$PROJECT_DIR$/Redit-Kafka/pom.xml" />
+        <option value="$PROJECT_DIR$/Benchmark/zookeeper-3.7.1/apache-zookeeper-3.7.1/pom.xml" />
+        <option value="$PROJECT_DIR$/Benchmark/hbase-2.4.12/hbase-2.4.12-src/hbase-2.4.12/pom.xml" />
+        <option value="$PROJECT_DIR$/Redit-Hbase/pom.xml" />
+        <option value="$PROJECT_DIR$/Redit-Hadoop-MapReduce/pom.xml" />
+        <option value="$PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/pom.xml" />
+        <option value="$PROJECT_DIR$/Benchmark/zookeeper-3.7.1/apache-zookeeper-3.7.1/zookeeper-contrib/pom.xml" />
+        <option value="$PROJECT_DIR$/Benchmark/zookeeper-3.7.1/apache-zookeeper-3.7.1/zookeeper-it/pom.xml" />
+        <option value="$PROJECT_DIR$/Benchmark/Raft-Java-sleep/pom.xml" />
+        <option value="$PROJECT_DIR$/Benchmark/hazelcast/pom.xml" />
+        <option value="$PROJECT_DIR$/Benchmark/zipkin/pom.xml" />
+        <option value="$PROJECT_DIR$/Redit-Elasticsearch/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
   <component name="SuppressABINotification">

@@ -1,6 +1,7 @@
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
+import com.github.javaparser.ast.body.FieldDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.expr.AssignExpr;
 import com.github.javaparser.ast.expr.FieldAccessExpr;
@@ -10,26 +11,35 @@ import com.github.javaparser.ast.stmt.BlockStmt;
 import com.github.javaparser.ast.stmt.ExpressionStmt;
 import com.github.javaparser.ast.stmt.ReturnStmt;
 import com.github.javaparser.ast.Modifier;
+import com.github.javaparser.ast.type.Type;
+import op.Lock;
 import op.Sleep;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class MethodScanner {
 
     public static void main(String[] args) throws FileNotFoundException {
-        System.out.println(getPath());
-        MethodScanner ms=new MethodScanner();
+        String filePath = System.getProperty("user.dir") + "/Mistletoe-java/src/main/resources/Coordinator.java";
+        String className = "Coordinator";
+        System.out.println(filePath);
+        MethodScanner ms = new MethodScanner();
         System.out.println("——————————Scan Start——————————");
-        ms.scanTest();
+//        ms.scanTest(filePath, className);
+        ms.checkLock(filePath, className);
         System.out.println("——————————Scan End——————————");
-        CompilationUnit cu = StaticJavaParser.parse(new File(getPath()));
-        cu= Sleep.addSleep(cu,300);
+        CompilationUnit cu = StaticJavaParser.parse(new File(filePath));
+
+//        cu = Sleep.addSleep(cu, className, 300);
+//        cu = Lock.addLock(cu, className);
+
         FileWriter writer;
         try {
-            writer = new FileWriter(getPath());
+            writer = new FileWriter(filePath);
             assert cu != null;
             writer.write(cu.toString());
             writer.flush();
@@ -38,6 +48,27 @@ public class MethodScanner {
             e.printStackTrace();
         }
     }
+
+
+    private void scanTest(String filePath, String className) throws FileNotFoundException{
+        CompilationUnit cu = StaticJavaParser.parse(new File(filePath));
+        ClassOrInterfaceDeclaration hw = cu.getClassByName(className).get();
+        List<MethodDeclaration> x = hw.getMethods();
+        for(MethodDeclaration md:x){
+            System.out.println(md.getName());
+        }
+    }
+
+    private void checkLock(String filePath, String className) throws FileNotFoundException {
+        CompilationUnit cu = StaticJavaParser.parse(new File(filePath));
+        ClassOrInterfaceDeclaration hw = cu.getClassByName(className).get();
+        List<FieldDeclaration> fieldDeclarations = hw.getFields();
+        for(FieldDeclaration fd : fieldDeclarations){
+            if (fd.getElementType().toString().equals("ReentrantLock"))
+                System.out.println(fd.getElementType() + ", find ReentrantLock...");
+        }
+    }
+
 
     private void bookTest() throws FileNotFoundException{
         CompilationUnit cu = StaticJavaParser.parse(new File(""));
@@ -66,22 +97,6 @@ public class MethodScanner {
                 new BlockStmt().addStatement(new ReturnStmt(new NameExpr("author"))));
 
         System.out.println(cu.toString());
-    }
-
-    private void scanTest() throws FileNotFoundException{
-        // The directory where we store the examples
-        // Parse the code of an entire source file, a.k.a. a Compilation Unit
-        CompilationUnit cu = StaticJavaParser.parse(new File(getPath()));
-        ClassOrInterfaceDeclaration hw = cu.getClassByName("hw").get();
-        List<MethodDeclaration> x= hw.getMethods();
-        for(MethodDeclaration md:x){
-            System.out.println(md.getName());
-        }
-    }
-
-    private static String getPath(){
-        return System.getProperty("user.dir") + File.separator + "Mistletoe-java" + File.separator +
-                "src" + File.separator + "main" + File.separator + "resources"  + File.separator + "hw.java";
     }
 
 }

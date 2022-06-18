@@ -20,8 +20,12 @@ target/
 
 !/Benchmark/MapReduce/hadoop-3.3.1-build/hadoop-dist/target
 !/Benchmark/Raft-Java/raft-java-1.9.0-build/raft-java-dist/target
+!/Benchmark/Raft-Java-sleep/raft-java-1.9.0-build/raft-java-dist/target
 !/Benchmark/Distributed-Id/distributed-id-1.0.0-build/distributed-id-dist/target
 !/Benchmark/JLiteSpider/jlitespider-1.0.0-build/jlitespider-dist/target
+!/Benchmark/zookeeper-3.7.1/zookeeper-3.7.1-build/zookeeper-dist/target
+!/Benchmark/kafka-3.2.0/kafka-3.2.0-build/kafka-dist/target
+!/Benchmark/hbase-2.4.12/hbase-2.4.12-build/hbase-dist/target
 .Redit*
 .redit*
 

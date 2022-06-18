@@ -9,15 +9,13 @@ import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class Lock {
-    public static CompilationUnit addLock(CompilationUnit cu){
-        ReentrantLock lock=new ReentrantLock();
+    public static CompilationUnit addLock(CompilationUnit cu, String className){
         try {
-            ClassOrInterfaceDeclaration hw = cu.getClassByName("hw").get();
-
-            List<MethodDeclaration> x= hw.getMethods();
-            String st1 = "ReentrantLock lock=new ReentrantLock();";
+            ClassOrInterfaceDeclaration hw = cu.getClassByName(className).get();
+            List<MethodDeclaration> x = hw.getMethods();
+            String st1 = "ReentrantLock lock = new ReentrantLock();";
             String st2 = "lock.lock();" ;
-            String st3 = "lock.unlock();//解锁";
+            String st3 = "lock.unlock();//to do";
             for(MethodDeclaration md:x){
                 System.out.println(md.getName());
                 md.getBody().get()

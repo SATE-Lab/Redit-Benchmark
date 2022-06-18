@@ -77,7 +77,7 @@ public class SampleTest {
     }
 
     private static void startServers() throws InterruptedException {
-        for(int i = 1; i <= io.redit.samples.benchmark.test.ReditHelper.numOfServers; i++){
+        for(int i = 1; i <= ReditHelper.numOfServers; i++){
             startServer(i);
             Thread.sleep(1000);
         }

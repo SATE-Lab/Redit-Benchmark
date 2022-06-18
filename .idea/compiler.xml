@@ -7,37 +7,579 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Mistletoe-java" />
-        <module name="raft-java-admin" />
-        <module name="Redit-Raft-Java" />
-        <module name="jlitespider" />
-        <module name="raft-java-core" />
-        <module name="JLiteSpider-Core" />
+        <module name="hadoop-client" />
+        <module name="hadoop-azure" />
+        <module name="hadoop-yarn-server-applicationhistoryservice" />
+        <module name="zipkin-storage-mysql-v1" />
+        <module name="hazelcast-jet-files-gcs" />
+        <module name="hadoop-resourceestimator" />
+        <module name="hadoop-common" />
+        <module name="hadoop-yarn-services-api" />
+        <module name="modulepath-tests" />
         <module name="Redit-Distributed-Id" />
-        <module name="MapReduce" />
+        <module name="zipkin-storage-elasticsearch" />
+        <module name="hadoop-aliyun" />
+        <module name="hazelcast" />
+        <module name="hbase-logging" />
+        <module name="hbase-checkstyle" />
+        <module name="hadoop-kafka" />
+        <module name="zookeeper" />
+        <module name="zipkin" />
+        <module name="hbase-hbtop" />
+        <module name="hadoop-client-minicluster" />
         <module name="Distributed-Id" />
+        <module name="hadoop-hdfs-httpfs" />
+        <module name="zipkin-tests" />
+        <module name="hbase-mapreduce" />
+        <module name="hazelcast-build-utils" />
+        <module name="hazelcast-jet-files-s3" />
+        <module name="hadoop-yarn-services-core" />
+        <module name="hadoop-mapreduce-client-common" />
+        <module name="hazelcast-3-connector-common" />
+        <module name="hazelcast-distribution" />
+        <module name="hadoop-yarn-registry" />
+        <module name="hbase-shaded-client-byo-hadoop" />
+        <module name="hbase-http" />
+        <module name="hazelcast-jet-protobuf" />
+        <module name="hazelcast-jet-cdc-postgres" />
+        <module name="hadoop-mapreduce-client-uploader" />
+        <module name="hadoop-yarn-server-timelineservice-hbase-client" />
+        <module name="hazelcast-jet-cdc-debezium" />
+        <module name="hadoop-gridmix" />
+        <module name="hadoop-aws" />
+        <module name="hazelcast-jet-grpc" />
+        <module name="hadoop-yarn-applications-mawo-core" />
+        <module name="hazelcast-jet-python" />
+        <module name="JLiteSpider-Core" />
+        <module name="hbase-external-blockcache" />
+        <module name="zookeeper-recipes-queue" />
+        <module name="zipkin-collector-rabbitmq" />
+        <module name="zookeeper-jute" />
+        <module name="hazelcast-jet-cdc-mysql" />
+        <module name="zookeeper-prometheus-metrics" />
+        <module name="hadoop-yarn-server-resourcemanager" />
+        <module name="hbase-shaded-client" />
+        <module name="MapReduce" />
+        <module name="hadoop-yarn-csi" />
+        <module name="hbase-shaded-testing-util-tester" />
+        <module name="zipkin-server" />
+        <module name="zookeeper-compatibility-tests-curator" />
+        <module name="hadoop-fs2img" />
+        <module name="hadoop-kms" />
+        <module name="hadoop-yarn-server-router" />
+        <module name="zookeeper-it" />
+        <module name="Mistletoe-java" />
+        <module name="hadoop-archive-logs" />
+        <module name="hadoop-sls" />
+        <module name="hbase-annotations" />
+        <module name="hazelcast-jet-hadoop-all" />
+        <module name="hbase-testing-util" />
+        <module name="Redit-Hadoop-MapReduce" />
+        <module name="hbase-zookeeper" />
         <module name="JLiteSpider-Demo" />
-        <module name="raft-java-example" />
+        <module name="hadoop-yarn-api" />
+        <module name="hbase-thrift" />
+        <module name="zipkin-collector-scribe" />
+        <module name="hbase-shaded-mapreduce" />
+        <module name="hbase-hadoop-compat" />
+        <module name="hadoop-cloud-storage" />
+        <module name="hadoop-yarn-common" />
+        <module name="hadoop-mapreduce-client-jobclient" />
+        <module name="hazelcast-spring-tests" />
+        <module name="hadoop-dynamometer-infra" />
+        <module name="Redit-Zookeeper" />
+        <module name="hadoop-hdfs" />
+        <module name="hadoop-mapreduce-client-hs" />
+        <module name="hbase-server" />
+        <module name="hadoop-mapreduce-client-nativetask" />
+        <module name="raft-java-example-sleep" />
+        <module name="hadoop-minikdc" />
+        <module name="hadoop-rumen" />
+        <module name="hadoop-hdfs-native-client" />
+        <module name="hadoop-azure-datalake" />
+        <module name="hazelcast-jet-kinesis" />
+        <module name="hazelcast-jet-files-azure" />
+        <module name="hadoop-yarn-client" />
+        <module name="hadoop-build-tools" />
+        <module name="Redit-Kafka" />
+        <module name="hadoop-yarn-server-timelineservice-hbase-server-1" />
+        <module name="hadoop-cos" />
+        <module name="hadoop-mapreduce-examples" />
+        <module name="hazelcast-3-connector-interface" />
+        <module name="zipkin-storage-cassandra" />
+        <module name="hbase-shaded-testing-util" />
+        <module name="Redit-Hbase" />
+        <module name="hadoop-archives" />
+        <module name="hadoop-yarn-server-timelineservice" />
+        <module name="hadoop-yarn-server-web-proxy" />
+        <module name="zipkin-lens" />
+        <module name="hadoop-yarn-server-timelineservice-documentstore" />
+        <module name="hbase-replication" />
+        <module name="hadoop-mapreduce-client-core" />
+        <module name="hadoop-yarn-server-sharedcachemanager" />
+        <module name="hadoop-datajoin" />
+        <module name="hadoop-nfs" />
+        <module name="raft-java-admin" />
+        <module name="hbase-common" />
+        <module name="hadoop-dynamometer-dist" />
+        <module name="hazelcast-sql" />
+        <module name="hbase-rest" />
+        <module name="hadoop-distcp" />
         <module name="Redit-MapReduce" />
         <module name="Redit-JLiteSpider" />
+        <module name="raft-java-admin-sleep" />
+        <module name="hazelcast-jet-kafka" />
+        <module name="hbase-metrics" />
+        <module name="hbase-resource-bundle" />
+        <module name="hadoop-yarn-server-common" />
+        <module name="hadoop-client-api" />
+        <module name="hadoop-hdfs-rbf" />
+        <module name="hbase-rsgroup" />
+        <module name="hadoop-mapreduce-client-app" />
+        <module name="hazelcast-jet-avro" />
+        <module name="hadoop-mapreduce-client-shuffle" />
+        <module name="hazelcast-archunit-rules" />
+        <module name="hadoop-annotations" />
+        <module name="hbase-procedure" />
+        <module name="Redit-Raft-Java" />
+        <module name="zipkin-collector-activemq" />
+        <module name="raft-java-core" />
+        <module name="hazelcast-jet-elasticsearch-7" />
+        <module name="hazelcast-jet-elasticsearch-6" />
+        <module name="hadoop-mapreduce-client-hs-plugins" />
+        <module name="hbase-client" />
+        <module name="hadoop-registry" />
+        <module name="zookeeper-recipes-lock" />
+        <module name="hadoop-client-runtime" />
+        <module name="zookeeper-recipes-election" />
+        <module name="hbase-asyncfs" />
+        <module name="hadoop-dynamometer-workload" />
+        <module name="hadoop-extras" />
+        <module name="hadoop-tools-dist" />
+        <module name="hadoop-dynamometer-blockgen" />
+        <module name="hbase-metrics-api" />
+        <module name="hazelcast-spring" />
+        <module name="raft-java-core-sleep" />
+        <module name="hbase-examples" />
+        <module name="hadoop-yarn-server-timeline-pluginstorage" />
+        <module name="hbase-it" />
+        <module name="benchmarks" />
+        <module name="hazelcast-jet-hadoop-core" />
+        <module name="hadoop-yarn-server-nodemanager" />
+        <module name="hadoop-hdfs-client" />
+        <module name="hbase-shell" />
+        <module name="hadoop-assemblies" />
+        <module name="hazelcast-jet-hadoop" />
+        <module name="hadoop-yarn-applications-catalog-webapp" />
+        <module name="hbase-shaded-client-project" />
+        <module name="hadoop-minicluster" />
+        <module name="hadoop-yarn-server-tests" />
+        <module name="hadoop-yarn-server-timelineservice-hbase-tests" />
+        <module name="hbase-client-project" />
+        <module name="hadoop-client-integration-tests" />
+        <module name="hbase-endpoint" />
+        <module name="hadoop-streaming" />
+        <module name="hbase-hadoop2-compat" />
+        <module name="jlitespider" />
+        <module name="hadoop-hdfs-nfs" />
+        <module name="hadoop-openstack" />
+        <module name="zipkin-collector" />
+        <module name="raft-java-example" />
+        <module name="hbase-protocol-shaded" />
+        <module name="hazelcast-3-connector-impl" />
+        <module name="hadoop-auth-examples" />
+        <module name="zipkin-junit" />
+        <module name="hadoop-auth" />
+        <module name="hadoop-yarn-server-timelineservice-hbase-common" />
+        <module name="Redit-Elasticsearch" />
+        <module name="zipkin-collector-kafka" />
+        <module name="hbase-protocol" />
+        <module name="hadoop-yarn-applications-distributedshell" />
+        <module name="hadoop-yarn-applications-unmanaged-am-launcher" />
+        <module name="hazelcast-jet-csv" />
+        <module name="hadoop-maven-plugins" />
+        <module name="hadoop-dist" />
+        <module name="hazelcast-jet-s3" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="benchmarks" target="1.8" />
       <module name="Distributed-Id" target="1.8" />
+      <module name="hadoop-aliyun" target="1.8" />
+      <module name="hadoop-annotations" target="1.8" />
+      <module name="hadoop-archive-logs" target="1.8" />
+      <module name="hadoop-archives" target="1.8" />
+      <module name="hadoop-assemblies" target="1.8" />
+      <module name="hadoop-auth" target="1.8" />
+      <module name="hadoop-auth-examples" target="1.8" />
+      <module name="hadoop-aws" target="1.8" />
+      <module name="hadoop-azure" target="1.8" />
+      <module name="hadoop-azure-datalake" target="1.8" />
+      <module name="hadoop-build-tools" target="1.5" />
+      <module name="hadoop-client" target="1.8" />
+      <module name="hadoop-client-api" target="1.8" />
+      <module name="hadoop-client-check-invariants" target="1.5" />
+      <module name="hadoop-client-check-test-invariants" target="1.5" />
+      <module name="hadoop-client-integration-tests" target="1.8" />
+      <module name="hadoop-client-minicluster" target="1.8" />
+      <module name="hadoop-client-modules" target="1.5" />
+      <module name="hadoop-client-runtime" target="1.8" />
+      <module name="hadoop-cloud-storage" target="1.8" />
+      <module name="hadoop-cloud-storage-project" target="1.5" />
+      <module name="hadoop-common" target="1.8" />
+      <module name="hadoop-common-project" target="1.5" />
+      <module name="hadoop-cos" target="1.8" />
+      <module name="hadoop-datajoin" target="1.8" />
+      <module name="hadoop-dist" target="1.8" />
+      <module name="hadoop-distcp" target="1.8" />
+      <module name="hadoop-dynamometer" target="1.5" />
+      <module name="hadoop-dynamometer-blockgen" target="1.8" />
+      <module name="hadoop-dynamometer-dist" target="1.8" />
+      <module name="hadoop-dynamometer-infra" target="1.8" />
+      <module name="hadoop-dynamometer-workload" target="1.8" />
+      <module name="hadoop-extras" target="1.8" />
+      <module name="hadoop-fs2img" target="1.8" />
+      <module name="hadoop-gridmix" target="1.8" />
+      <module name="hadoop-hdfs" target="1.8" />
+      <module name="hadoop-hdfs-client" target="1.8" />
+      <module name="hadoop-hdfs-httpfs" target="1.8" />
+      <module name="hadoop-hdfs-native-client" target="1.8" />
+      <module name="hadoop-hdfs-nfs" target="1.8" />
+      <module name="hadoop-hdfs-project" target="1.5" />
+      <module name="hadoop-hdfs-rbf" target="1.8" />
+      <module name="hadoop-kafka" target="1.8" />
+      <module name="hadoop-kms" target="1.8" />
+      <module name="hadoop-main" target="1.5" />
+      <module name="hadoop-mapreduce" target="1.5" />
+      <module name="hadoop-mapreduce-client" target="1.5" />
+      <module name="hadoop-mapreduce-client-app" target="1.8" />
+      <module name="hadoop-mapreduce-client-common" target="1.8" />
+      <module name="hadoop-mapreduce-client-core" target="1.8" />
+      <module name="hadoop-mapreduce-client-hs" target="1.8" />
+      <module name="hadoop-mapreduce-client-hs-plugins" target="1.8" />
+      <module name="hadoop-mapreduce-client-jobclient" target="1.8" />
+      <module name="hadoop-mapreduce-client-nativetask" target="1.8" />
+      <module name="hadoop-mapreduce-client-shuffle" target="1.8" />
+      <module name="hadoop-mapreduce-client-uploader" target="1.8" />
+      <module name="hadoop-mapreduce-examples" target="1.8" />
+      <module name="hadoop-maven-plugins" target="1.8" />
+      <module name="hadoop-minicluster" target="1.8" />
+      <module name="hadoop-minikdc" target="1.8" />
+      <module name="hadoop-nfs" target="1.8" />
+      <module name="hadoop-openstack" target="1.8" />
+      <module name="hadoop-pipes" target="1.5" />
+      <module name="hadoop-project" target="1.5" />
+      <module name="hadoop-project-dist" target="1.5" />
+      <module name="hadoop-registry" target="1.8" />
+      <module name="hadoop-resourceestimator" target="1.8" />
+      <module name="hadoop-rumen" target="1.8" />
+      <module name="hadoop-sls" target="1.8" />
+      <module name="hadoop-streaming" target="1.8" />
+      <module name="hadoop-tools" target="1.5" />
+      <module name="hadoop-tools-dist" target="1.8" />
+      <module name="hadoop-yarn" target="1.5" />
+      <module name="hadoop-yarn-api" target="1.8" />
+      <module name="hadoop-yarn-applications" target="1.5" />
+      <module name="hadoop-yarn-applications-catalog" target="1.5" />
+      <module name="hadoop-yarn-applications-catalog-docker" target="1.5" />
+      <module name="hadoop-yarn-applications-catalog-webapp" target="1.8" />
+      <module name="hadoop-yarn-applications-distributedshell" target="1.8" />
+      <module name="hadoop-yarn-applications-mawo" target="1.5" />
+      <module name="hadoop-yarn-applications-mawo-core" target="1.8" />
+      <module name="hadoop-yarn-applications-unmanaged-am-launcher" target="1.8" />
+      <module name="hadoop-yarn-client" target="1.8" />
+      <module name="hadoop-yarn-common" target="1.8" />
+      <module name="hadoop-yarn-csi" target="1.8" />
+      <module name="hadoop-yarn-project" target="1.5" />
+      <module name="hadoop-yarn-registry" target="1.8" />
+      <module name="hadoop-yarn-server" target="1.5" />
+      <module name="hadoop-yarn-server-applicationhistoryservice" target="1.8" />
+      <module name="hadoop-yarn-server-common" target="1.8" />
+      <module name="hadoop-yarn-server-nodemanager" target="1.8" />
+      <module name="hadoop-yarn-server-resourcemanager" target="1.8" />
+      <module name="hadoop-yarn-server-router" target="1.8" />
+      <module name="hadoop-yarn-server-sharedcachemanager" target="1.8" />
+      <module name="hadoop-yarn-server-tests" target="1.8" />
+      <module name="hadoop-yarn-server-timeline-pluginstorage" target="1.8" />
+      <module name="hadoop-yarn-server-timelineservice" target="1.8" />
+      <module name="hadoop-yarn-server-timelineservice-documentstore" target="1.8" />
+      <module name="hadoop-yarn-server-timelineservice-hbase" target="1.5" />
+      <module name="hadoop-yarn-server-timelineservice-hbase-client" target="1.8" />
+      <module name="hadoop-yarn-server-timelineservice-hbase-common" target="1.8" />
+      <module name="hadoop-yarn-server-timelineservice-hbase-server" target="1.5" />
+      <module name="hadoop-yarn-server-timelineservice-hbase-server-1" target="1.8" />
+      <module name="hadoop-yarn-server-timelineservice-hbase-tests" target="1.8" />
+      <module name="hadoop-yarn-server-web-proxy" target="1.8" />
+      <module name="hadoop-yarn-services" target="1.5" />
+      <module name="hadoop-yarn-services-api" target="1.8" />
+      <module name="hadoop-yarn-services-core" target="1.8" />
+      <module name="hadoop-yarn-site" target="1.5" />
+      <module name="hadoop-yarn-ui" target="1.5" />
+      <module name="hazelcast" target="8" />
+      <module name="hazelcast-3-connector-common" target="8" />
+      <module name="hazelcast-3-connector-impl" target="8" />
+      <module name="hazelcast-3-connector-interface" target="8" />
+      <module name="hazelcast-3-connector-root" target="8" />
+      <module name="hazelcast-archunit-rules" target="8" />
+      <module name="hazelcast-build-utils" target="8" />
+      <module name="hazelcast-distribution" target="8" />
+      <module name="hazelcast-it" target="8" />
+      <module name="hazelcast-jet-avro" target="8" />
+      <module name="hazelcast-jet-cdc-debezium" target="8" />
+      <module name="hazelcast-jet-cdc-mysql" target="8" />
+      <module name="hazelcast-jet-cdc-postgres" target="8" />
+      <module name="hazelcast-jet-csv" target="8" />
+      <module name="hazelcast-jet-elasticsearch-6" target="8" />
+      <module name="hazelcast-jet-elasticsearch-7" target="8" />
+      <module name="hazelcast-jet-extensions" target="8" />
+      <module name="hazelcast-jet-files-azure" target="8" />
+      <module name="hazelcast-jet-files-gcs" target="8" />
+      <module name="hazelcast-jet-files-s3" target="8" />
+      <module name="hazelcast-jet-grpc" target="8" />
+      <module name="hazelcast-jet-hadoop" target="8" />
+      <module name="hazelcast-jet-hadoop-all" target="8" />
+      <module name="hazelcast-jet-hadoop-core" target="8" />
+      <module name="hazelcast-jet-hadoop-dist" target="8" />
+      <module name="hazelcast-jet-kafka" target="8" />
+      <module name="hazelcast-jet-kinesis" target="8" />
+      <module name="hazelcast-jet-protobuf" target="8" />
+      <module name="hazelcast-jet-python" target="8" />
+      <module name="hazelcast-jet-s3" target="8" />
+      <module name="hazelcast-root" target="8" />
+      <module name="hazelcast-spring" target="8" />
+      <module name="hazelcast-spring-tests" target="8" />
+      <module name="hazelcast-sql" target="8" />
+      <module name="hbase" target="1.7" />
+      <module name="hbase-annotations" target="1.8" />
+      <module name="hbase-archetype-builder" target="1.7" />
+      <module name="hbase-archetypes" target="1.7" />
+      <module name="hbase-assembly" target="1.7" />
+      <module name="hbase-asyncfs" target="1.8" />
+      <module name="hbase-build-configuration" target="1.7" />
+      <module name="hbase-checkstyle" target="1.8" />
+      <module name="hbase-client" target="1.8" />
+      <module name="hbase-client-project" target="1.8" />
+      <module name="hbase-common" target="1.8" />
+      <module name="hbase-endpoint" target="1.8" />
+      <module name="hbase-examples" target="1.8" />
+      <module name="hbase-external-blockcache" target="1.8" />
+      <module name="hbase-hadoop-compat" target="1.8" />
+      <module name="hbase-hadoop2-compat" target="1.8" />
+      <module name="hbase-hbtop" target="1.8" />
+      <module name="hbase-http" target="1.8" />
+      <module name="hbase-it" target="1.8" />
+      <module name="hbase-logging" target="1.8" />
+      <module name="hbase-mapreduce" target="1.8" />
+      <module name="hbase-metrics" target="1.8" />
+      <module name="hbase-metrics-api" target="1.8" />
+      <module name="hbase-procedure" target="1.8" />
+      <module name="hbase-protocol" target="1.8" />
+      <module name="hbase-protocol-shaded" target="1.8" />
+      <module name="hbase-replication" target="1.8" />
+      <module name="hbase-resource-bundle" target="1.8" />
+      <module name="hbase-rest" target="1.8" />
+      <module name="hbase-rsgroup" target="1.8" />
+      <module name="hbase-server" target="1.8" />
+      <module name="hbase-shaded" target="1.7" />
+      <module name="hbase-shaded-check-invariants" target="1.7" />
+      <module name="hbase-shaded-client" target="1.8" />
+      <module name="hbase-shaded-client-byo-hadoop" target="1.8" />
+      <module name="hbase-shaded-client-project" target="1.8" />
+      <module name="hbase-shaded-mapreduce" target="1.8" />
+      <module name="hbase-shaded-testing-util" target="1.8" />
+      <module name="hbase-shaded-testing-util-tester" target="1.8" />
+      <module name="hbase-shaded-with-hadoop-check-invariants" target="1.7" />
+      <module name="hbase-shell" target="1.8" />
+      <module name="hbase-testing-util" target="1.8" />
+      <module name="hbase-thrift" target="1.8" />
+      <module name="hbase-zookeeper" target="1.8" />
       <module name="jlitespider" target="8" />
       <module name="JLiteSpider" target="1.5" />
       <module name="JLiteSpider-Core" target="1.8" />
       <module name="JLiteSpider-Demo" target="1.8" />
       <module name="MapReduce" target="1.8" />
       <module name="Mistletoe-java" target="8" />
+      <module name="modulepath-tests" target="9" />
+      <module name="parent" target="1.8" />
       <module name="Raft-Java" target="1.5" />
       <module name="raft-java-admin" target="1.7" />
+      <module name="raft-java-admin-sleep" target="1.7" />
       <module name="raft-java-core" target="1.7" />
+      <module name="raft-java-core-sleep" target="1.7" />
       <module name="raft-java-example" target="1.7" />
+      <module name="raft-java-example-sleep" target="1.7" />
+      <module name="Raft-Java-sleep" target="1.5" />
       <module name="Redit-Distributed-Id" target="8" />
+      <module name="Redit-Elasticsearch" target="8" />
+      <module name="Redit-Hadoop-MapReduce" target="8" />
+      <module name="Redit-Hbase" target="8" />
       <module name="Redit-JLiteSpider" target="8" />
+      <module name="Redit-Kafka" target="8" />
       <module name="Redit-MapReduce" target="8" />
       <module name="Redit-Raft-Java" target="8" />
+      <module name="Redit-Zookeeper" target="8" />
+      <module name="zipkin" target="1.7" />
+      <module name="zipkin-collector" target="1.8" />
+      <module name="zipkin-collector-activemq" target="1.8" />
+      <module name="zipkin-collector-kafka" target="1.8" />
+      <module name="zipkin-collector-parent" target="1.5" />
+      <module name="zipkin-collector-rabbitmq" target="1.8" />
+      <module name="zipkin-collector-scribe" target="1.8" />
+      <module name="zipkin-junit" target="1.8" />
+      <module name="zipkin-lens" target="1.8" />
+      <module name="zipkin-parent" target="1.5" />
+      <module name="zipkin-server" target="1.8" />
+      <module name="zipkin-storage-cassandra" target="1.8" />
+      <module name="zipkin-storage-elasticsearch" target="1.8" />
+      <module name="zipkin-storage-mysql-v1" target="1.8" />
+      <module name="zipkin-storage-parent" target="1.5" />
+      <module name="zipkin-tests" target="1.8" />
+      <module name="zookeeper" target="1.8" />
+      <module name="zookeeper-assembly" target="1.8" />
+      <module name="zookeeper-client" target="1.8" />
+      <module name="zookeeper-compatibility-tests" target="1.8" />
+      <module name="zookeeper-compatibility-tests-curator" target="1.8" />
+      <module name="zookeeper-contrib" target="1.8" />
+      <module name="zookeeper-docs" target="1.8" />
+      <module name="zookeeper-it" target="1.8" />
+      <module name="zookeeper-jute" target="1.8" />
+      <module name="zookeeper-metrics-providers" target="1.8" />
+      <module name="zookeeper-prometheus-metrics" target="1.8" />
+      <module name="zookeeper-recipes" target="1.8" />
+      <module name="zookeeper-recipes-election" target="1.8" />
+      <module name="zookeeper-recipes-lock" target="1.8" />
+      <module name="zookeeper-recipes-queue" target="1.8" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="hadoop-aliyun" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-tools/hadoop-aliyun/target/native/javah/" />
+      <module name="hadoop-annotations" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-common-project/hadoop-annotations/target/native/javah/" />
+      <module name="hadoop-archive-logs" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-tools/hadoop-archive-logs/target/native/javah/" />
+      <module name="hadoop-archives" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-tools/hadoop-archives/target/native/javah/" />
+      <module name="hadoop-assemblies" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-assemblies/target/native/javah/" />
+      <module name="hadoop-auth" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-common-project/hadoop-auth/target/native/javah/" />
+      <module name="hadoop-auth-examples" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-common-project/hadoop-auth-examples/target/native/javah/" />
+      <module name="hadoop-aws" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-tools/hadoop-aws/target/native/javah/" />
+      <module name="hadoop-azure" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-tools/hadoop-azure/target/native/javah/" />
+      <module name="hadoop-azure-datalake" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-tools/hadoop-azure-datalake/target/native/javah/" />
+      <module name="hadoop-client" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-client-modules/hadoop-client/target/native/javah/" />
+      <module name="hadoop-client-api" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-client-modules/hadoop-client-api/target/native/javah/" />
+      <module name="hadoop-client-integration-tests" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-client-modules/hadoop-client-integration-tests/target/native/javah/" />
+      <module name="hadoop-client-minicluster" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-client-modules/hadoop-client-minicluster/target/native/javah/" />
+      <module name="hadoop-client-runtime" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-client-modules/hadoop-client-runtime/target/native/javah/" />
+      <module name="hadoop-cloud-storage" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-cloud-storage-project/hadoop-cloud-storage/target/native/javah/" />
+      <module name="hadoop-common" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-common-project/hadoop-common/target/native/javah/" />
+      <module name="hadoop-cos" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-cloud-storage-project/hadoop-cos/target/native/javah/" />
+      <module name="hadoop-datajoin" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-tools/hadoop-datajoin/target/native/javah/" />
+      <module name="hadoop-dist" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-dist/target/native/javah/" />
+      <module name="hadoop-distcp" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-tools/hadoop-distcp/target/native/javah/" />
+      <module name="hadoop-dynamometer-blockgen" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-tools/hadoop-dynamometer/hadoop-dynamometer-blockgen/target/native/javah/" />
+      <module name="hadoop-dynamometer-dist" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-tools/hadoop-dynamometer/hadoop-dynamometer-dist/target/native/javah/" />
+      <module name="hadoop-dynamometer-infra" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-tools/hadoop-dynamometer/hadoop-dynamometer-infra/target/native/javah/" />
+      <module name="hadoop-dynamometer-workload" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-tools/hadoop-dynamometer/hadoop-dynamometer-workload/target/native/javah/" />
+      <module name="hadoop-extras" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-tools/hadoop-extras/target/native/javah/" />
+      <module name="hadoop-fs2img" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-tools/hadoop-fs2img/target/native/javah/" />
+      <module name="hadoop-gridmix" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-tools/hadoop-gridmix/target/native/javah/" />
+      <module name="hadoop-hdfs" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-hdfs-project/hadoop-hdfs/target/native/javah/" />
+      <module name="hadoop-hdfs-client" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-hdfs-project/hadoop-hdfs-client/target/native/javah/" />
+      <module name="hadoop-hdfs-httpfs" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-hdfs-project/hadoop-hdfs-httpfs/target/native/javah/" />
+      <module name="hadoop-hdfs-native-client" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-hdfs-project/hadoop-hdfs-native-client/target/native/javah/" />
+      <module name="hadoop-hdfs-nfs" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-hdfs-project/hadoop-hdfs-nfs/target/native/javah/" />
+      <module name="hadoop-hdfs-rbf" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-hdfs-project/hadoop-hdfs-rbf/target/native/javah/" />
+      <module name="hadoop-kafka" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-tools/hadoop-kafka/target/native/javah/" />
+      <module name="hadoop-kms" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-common-project/hadoop-kms/target/native/javah/" />
+      <module name="hadoop-mapreduce-client-app" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-mapreduce-project/hadoop-mapreduce-client/hadoop-mapreduce-client-app/target/native/javah/" />
+      <module name="hadoop-mapreduce-client-common" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-mapreduce-project/hadoop-mapreduce-client/hadoop-mapreduce-client-common/target/native/javah/" />
+      <module name="hadoop-mapreduce-client-core" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-mapreduce-project/hadoop-mapreduce-client/hadoop-mapreduce-client-core/target/native/javah/" />
+      <module name="hadoop-mapreduce-client-hs" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-mapreduce-project/hadoop-mapreduce-client/hadoop-mapreduce-client-hs/target/native/javah/" />
+      <module name="hadoop-mapreduce-client-hs-plugins" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-mapreduce-project/hadoop-mapreduce-client/hadoop-mapreduce-client-hs-plugins/target/native/javah/" />
+      <module name="hadoop-mapreduce-client-jobclient" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-mapreduce-project/hadoop-mapreduce-client/hadoop-mapreduce-client-jobclient/target/native/javah/" />
+      <module name="hadoop-mapreduce-client-nativetask" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-mapreduce-project/hadoop-mapreduce-client/hadoop-mapreduce-client-nativetask/target/native/javah/" />
+      <module name="hadoop-mapreduce-client-shuffle" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-mapreduce-project/hadoop-mapreduce-client/hadoop-mapreduce-client-shuffle/target/native/javah/" />
+      <module name="hadoop-mapreduce-client-uploader" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-mapreduce-project/hadoop-mapreduce-client/hadoop-mapreduce-client-uploader/target/native/javah/" />
+      <module name="hadoop-mapreduce-examples" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-mapreduce-project/hadoop-mapreduce-examples/target/native/javah/" />
+      <module name="hadoop-maven-plugins" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-maven-plugins/target/native/javah/" />
+      <module name="hadoop-minicluster" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-minicluster/target/native/javah/" />
+      <module name="hadoop-minikdc" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-common-project/hadoop-minikdc/target/native/javah/" />
+      <module name="hadoop-nfs" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-common-project/hadoop-nfs/target/native/javah/" />
+      <module name="hadoop-openstack" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-tools/hadoop-openstack/target/native/javah/" />
+      <module name="hadoop-registry" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-common-project/hadoop-registry/target/native/javah/" />
+      <module name="hadoop-resourceestimator" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-tools/hadoop-resourceestimator/target/native/javah/" />
+      <module name="hadoop-rumen" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-tools/hadoop-rumen/target/native/javah/" />
+      <module name="hadoop-sls" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-tools/hadoop-sls/target/native/javah/" />
+      <module name="hadoop-streaming" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-tools/hadoop-streaming/target/native/javah/" />
+      <module name="hadoop-tools-dist" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-tools/hadoop-tools-dist/target/native/javah/" />
+      <module name="hadoop-yarn-api" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-yarn-project/hadoop-yarn/hadoop-yarn-api/target/native/javah/" />
+      <module name="hadoop-yarn-applications-catalog-webapp" options="-endorseddirs $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-yarn-project/hadoop-yarn/hadoop-yarn-applications/hadoop-yarn-applications-catalog/hadoop-yarn-applications-catalog-webapp/target/endorsed -h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-yarn-project/hadoop-yarn/hadoop-yarn-applications/hadoop-yarn-applications-catalog/hadoop-yarn-applications-catalog-webapp/target/native/javah/" />
+      <module name="hadoop-yarn-applications-distributedshell" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-yarn-project/hadoop-yarn/hadoop-yarn-applications/hadoop-yarn-applications-distributedshell/target/native/javah/" />
+      <module name="hadoop-yarn-applications-mawo-core" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-yarn-project/hadoop-yarn/hadoop-yarn-applications/hadoop-yarn-applications-mawo/hadoop-yarn-applications-mawo-core/target/native/javah/" />
+      <module name="hadoop-yarn-applications-unmanaged-am-launcher" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-yarn-project/hadoop-yarn/hadoop-yarn-applications/hadoop-yarn-applications-unmanaged-am-launcher/target/native/javah/" />
+      <module name="hadoop-yarn-client" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-yarn-project/hadoop-yarn/hadoop-yarn-client/target/native/javah/" />
+      <module name="hadoop-yarn-common" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-yarn-project/hadoop-yarn/hadoop-yarn-common/target/native/javah/" />
+      <module name="hadoop-yarn-csi" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-yarn-project/hadoop-yarn/hadoop-yarn-csi/target/native/javah/" />
+      <module name="hadoop-yarn-registry" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-yarn-project/hadoop-yarn/hadoop-yarn-registry/target/native/javah/" />
+      <module name="hadoop-yarn-server-applicationhistoryservice" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-yarn-project/hadoop-yarn/hadoop-yarn-server/hadoop-yarn-server-applicationhistoryservice/target/native/javah/" />
+      <module name="hadoop-yarn-server-common" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-yarn-project/hadoop-yarn/hadoop-yarn-server/hadoop-yarn-server-common/target/native/javah/" />
+      <module name="hadoop-yarn-server-nodemanager" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-yarn-project/hadoop-yarn/hadoop-yarn-server/hadoop-yarn-server-nodemanager/target/native/javah/" />
+      <module name="hadoop-yarn-server-resourcemanager" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-yarn-project/hadoop-yarn/hadoop-yarn-server/hadoop-yarn-server-resourcemanager/target/native/javah/" />
+      <module name="hadoop-yarn-server-router" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-yarn-project/hadoop-yarn/hadoop-yarn-server/hadoop-yarn-server-router/target/native/javah/" />
+      <module name="hadoop-yarn-server-sharedcachemanager" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-yarn-project/hadoop-yarn/hadoop-yarn-server/hadoop-yarn-server-sharedcachemanager/target/native/javah/" />
+      <module name="hadoop-yarn-server-tests" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-yarn-project/hadoop-yarn/hadoop-yarn-server/hadoop-yarn-server-tests/target/native/javah/" />
+      <module name="hadoop-yarn-server-timeline-pluginstorage" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-yarn-project/hadoop-yarn/hadoop-yarn-server/hadoop-yarn-server-timeline-pluginstorage/target/native/javah/" />
+      <module name="hadoop-yarn-server-timelineservice" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-yarn-project/hadoop-yarn/hadoop-yarn-server/hadoop-yarn-server-timelineservice/target/native/javah/" />
+      <module name="hadoop-yarn-server-timelineservice-documentstore" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-yarn-project/hadoop-yarn/hadoop-yarn-server/hadoop-yarn-server-timelineservice-documentstore/target/native/javah/" />
+      <module name="hadoop-yarn-server-timelineservice-hbase-client" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-yarn-project/hadoop-yarn/hadoop-yarn-server/hadoop-yarn-server-timelineservice-hbase/hadoop-yarn-server-timelineservice-hbase-client/target/native/javah/" />
+      <module name="hadoop-yarn-server-timelineservice-hbase-common" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-yarn-project/hadoop-yarn/hadoop-yarn-server/hadoop-yarn-server-timelineservice-hbase/hadoop-yarn-server-timelineservice-hbase-common/target/native/javah/" />
+      <module name="hadoop-yarn-server-timelineservice-hbase-server-1" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-yarn-project/hadoop-yarn/hadoop-yarn-server/hadoop-yarn-server-timelineservice-hbase/hadoop-yarn-server-timelineservice-hbase-server/hadoop-yarn-server-timelineservice-hbase-server-1/target/native/javah/" />
+      <module name="hadoop-yarn-server-timelineservice-hbase-tests" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-yarn-project/hadoop-yarn/hadoop-yarn-server/hadoop-yarn-server-timelineservice-hbase-tests/target/native/javah/" />
+      <module name="hadoop-yarn-server-web-proxy" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-yarn-project/hadoop-yarn/hadoop-yarn-server/hadoop-yarn-server-web-proxy/target/native/javah/" />
+      <module name="hadoop-yarn-services-api" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-yarn-project/hadoop-yarn/hadoop-yarn-applications/hadoop-yarn-services/hadoop-yarn-services-api/target/native/javah/" />
+      <module name="hadoop-yarn-services-core" options="-h $PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-yarn-project/hadoop-yarn/hadoop-yarn-applications/hadoop-yarn-services/hadoop-yarn-services-core/target/native/javah/" />
+      <module name="hbase-annotations" options="-Xlint:-options" />
+      <module name="hbase-asyncfs" options="-Xlint:-options" />
+      <module name="hbase-checkstyle" options="-Xlint:-options" />
+      <module name="hbase-client" options="-Xlint:-options" />
+      <module name="hbase-client-project" options="-Xlint:-options" />
+      <module name="hbase-common" options="-Xlint:-options" />
+      <module name="hbase-endpoint" options="-Xlint:-options" />
+      <module name="hbase-examples" options="-Xlint:-options" />
+      <module name="hbase-external-blockcache" options="-Xlint:-options" />
+      <module name="hbase-hadoop-compat" options="-Xlint:-options" />
+      <module name="hbase-hadoop2-compat" options="-Xlint:-options" />
+      <module name="hbase-hbtop" options="-Xlint:-options" />
+      <module name="hbase-http" options="-Xlint:-options" />
+      <module name="hbase-it" options="-Xlint:-options" />
+      <module name="hbase-logging" options="-Xlint:-options" />
+      <module name="hbase-mapreduce" options="-Xlint:-options" />
+      <module name="hbase-metrics" options="-Xlint:-options" />
+      <module name="hbase-metrics-api" options="-Xlint:-options" />
+      <module name="hbase-procedure" options="-Xlint:-options" />
+      <module name="hbase-protocol" options="-Xlint:-options" />
+      <module name="hbase-protocol-shaded" options="-Xlint:-options" />
+      <module name="hbase-replication" options="-Xlint:-options" />
+      <module name="hbase-resource-bundle" options="-Xlint:-options" />
+      <module name="hbase-rest" options="-Xlint:-options" />
+      <module name="hbase-rsgroup" options="-Xlint:-options" />
+      <module name="hbase-server" options="-Xlint:-options" />
+      <module name="hbase-shaded-client" options="-Xlint:-options" />
+      <module name="hbase-shaded-client-byo-hadoop" options="-Xlint:-options" />
+      <module name="hbase-shaded-client-project" options="-Xlint:-options" />
+      <module name="hbase-shaded-mapreduce" options="-Xlint:-options" />
+      <module name="hbase-shaded-testing-util" options="-Xlint:-options" />
+      <module name="hbase-shaded-testing-util-tester" options="-Xlint:-options" />
+      <module name="hbase-shell" options="-Xlint:-options" />
+      <module name="hbase-testing-util" options="-Xlint:-options" />
+      <module name="hbase-thrift" options="-Xlint:-options" />
+      <module name="hbase-zookeeper" options="-Xlint:-options" />
+      <module name="zookeeper" options="-Werror -Xlint:deprecation -Xlint:unchecked -Xlint:-options -Xdoclint:-missing -Xpkginfo:always" />
+      <module name="zookeeper-compatibility-tests-curator" options="-Werror -Xlint:deprecation -Xlint:unchecked -Xlint:-options -Xdoclint:-missing -Xpkginfo:always" />
+      <module name="zookeeper-it" options="-Werror -Xlint:deprecation -Xlint:unchecked -Xlint:-options -Xdoclint:-missing -Xpkginfo:always" />
+      <module name="zookeeper-jute" options="-Werror -Xlint:deprecation -Xlint:unchecked -Xlint:-options -Xdoclint:-missing -Xpkginfo:always" />
+      <module name="zookeeper-prometheus-metrics" options="-Werror -Xlint:deprecation -Xlint:unchecked -Xlint:-options -Xdoclint:-missing -Xpkginfo:always" />
+      <module name="zookeeper-recipes-election" options="-Werror -Xlint:deprecation -Xlint:unchecked -Xlint:-options -Xdoclint:-missing -Xpkginfo:always" />
+      <module name="zookeeper-recipes-lock" options="-Werror -Xlint:deprecation -Xlint:unchecked -Xlint:-options -Xdoclint:-missing -Xpkginfo:always" />
+      <module name="zookeeper-recipes-queue" options="-Werror -Xlint:deprecation -Xlint:unchecked -Xlint:-options -Xdoclint:-missing -Xpkginfo:always" />
+    </option>
   </component>
 </project>

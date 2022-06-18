@@ -29,6 +29,102 @@ public class RaftOptions {
     // 单个segment文件大小，默认100m
     private int maxSegmentFileSize = 100 * 1000 * 1000;
 
+    public int getElectionTimeoutMilliseconds() {
+        return electionTimeoutMilliseconds;
+    }
+
+    public void setElectionTimeoutMilliseconds(int electionTimeoutMilliseconds) {
+        this.electionTimeoutMilliseconds = electionTimeoutMilliseconds;
+    }
+
+    public int getHeartbeatPeriodMilliseconds() {
+        return heartbeatPeriodMilliseconds;
+    }
+
+    public void setHeartbeatPeriodMilliseconds(int heartbeatPeriodMilliseconds) {
+        this.heartbeatPeriodMilliseconds = heartbeatPeriodMilliseconds;
+    }
+
+    public int getSnapshotPeriodSeconds() {
+        return snapshotPeriodSeconds;
+    }
+
+    public void setSnapshotPeriodSeconds(int snapshotPeriodSeconds) {
+        this.snapshotPeriodSeconds = snapshotPeriodSeconds;
+    }
+
+    public int getSnapshotMinLogSize() {
+        return snapshotMinLogSize;
+    }
+
+    public void setSnapshotMinLogSize(int snapshotMinLogSize) {
+        this.snapshotMinLogSize = snapshotMinLogSize;
+    }
+
+    public int getMaxSnapshotBytesPerRequest() {
+        return maxSnapshotBytesPerRequest;
+    }
+
+    public void setMaxSnapshotBytesPerRequest(int maxSnapshotBytesPerRequest) {
+        this.maxSnapshotBytesPerRequest = maxSnapshotBytesPerRequest;
+    }
+
+    public int getMaxLogEntriesPerRequest() {
+        return maxLogEntriesPerRequest;
+    }
+
+    public void setMaxLogEntriesPerRequest(int maxLogEntriesPerRequest) {
+        this.maxLogEntriesPerRequest = maxLogEntriesPerRequest;
+    }
+
+    public int getMaxSegmentFileSize() {
+        return maxSegmentFileSize;
+    }
+
+    public void setMaxSegmentFileSize(int maxSegmentFileSize) {
+        this.maxSegmentFileSize = maxSegmentFileSize;
+    }
+
+    public long getCatchupMargin() {
+        return catchupMargin;
+    }
+
+    public void setCatchupMargin(long catchupMargin) {
+        this.catchupMargin = catchupMargin;
+    }
+
+    public long getMaxAwaitTimeout() {
+        return maxAwaitTimeout;
+    }
+
+    public void setMaxAwaitTimeout(long maxAwaitTimeout) {
+        this.maxAwaitTimeout = maxAwaitTimeout;
+    }
+
+    public int getRaftConsensusThreadNum() {
+        return raftConsensusThreadNum;
+    }
+
+    public void setRaftConsensusThreadNum(int raftConsensusThreadNum) {
+        this.raftConsensusThreadNum = raftConsensusThreadNum;
+    }
+
+    public boolean isAsyncWrite() {
+        return asyncWrite;
+    }
+
+    public void setAsyncWrite(boolean asyncWrite) {
+        this.asyncWrite = asyncWrite;
+    }
+
+    public String getDataDir() {
+        return dataDir;
+    }
+
+    public void setDataDir(String dataDir) {
+        this.dataDir = dataDir;
+    }
+
     // follower与leader差距在catchupMargin，才可以参与选举和提供服务
     private long catchupMargin = 500;
 
