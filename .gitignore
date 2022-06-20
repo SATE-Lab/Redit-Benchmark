@@ -26,6 +26,9 @@ target/
 !/Benchmark/zookeeper-3.7.1/zookeeper-3.7.1-build/zookeeper-dist/target
 !/Benchmark/kafka-3.2.0/kafka-3.2.0-build/kafka-dist/target
 !/Benchmark/hbase-2.4.12/hbase-2.4.12-build/hbase-dist/target
+!/Benchmark/hazelcast-5.1.2/hazelcast-5.1.2-build/hazelcast-dist/target
+!/Benchmark/elasticsearch-8.2.2/elasticsearch-8.2.2-build/elasticsearch-dist/target
+
 .Redit*
 .redit*
 

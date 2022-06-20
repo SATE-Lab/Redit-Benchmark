@@ -14,6 +14,7 @@
       <module fileurl="file://$PROJECT_DIR$/Redit-Distributed-Id/Redit-Distributed-Id.iml" filepath="$PROJECT_DIR$/Redit-Distributed-Id/Redit-Distributed-Id.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Elasticsearch/Redit-Elasticsearch.iml" filepath="$PROJECT_DIR$/Redit-Elasticsearch/Redit-Elasticsearch.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Hadoop-MapReduce/Redit-Hadoop-MapReduce.iml" filepath="$PROJECT_DIR$/Redit-Hadoop-MapReduce/Redit-Hadoop-MapReduce.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Redit-Hazelcast/Redit-Hazelcast.iml" filepath="$PROJECT_DIR$/Redit-Hazelcast/Redit-Hazelcast.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Hbase/Redit-Hbase.iml" filepath="$PROJECT_DIR$/Redit-Hbase/Redit-Hbase.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-JLiteSpider/Redit-JLiteSpider.iml" filepath="$PROJECT_DIR$/Redit-JLiteSpider/Redit-JLiteSpider.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Kafka/Redit-Kafka.iml" filepath="$PROJECT_DIR$/Redit-Kafka/Redit-Kafka.iml" />

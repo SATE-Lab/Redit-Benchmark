@@ -6,19 +6,19 @@
 
 | benchmark | create_time | reference | role |
 | :----: | :----: | :----: | :----: |
-| MapReduce | 2022_03_30 | https://github.com/OneSizeFitsQuorum/MIT6.824-2021 | coordinator、worker |
-| Raft-Java | 2022_04_27 | https://github.com/wenweihu86/raft-java | client、server |
-| Distributed-Id | 2022_04_30 | https://github.com/beyondfengyu/DistributedID | client、server |
-|        JLiteSpider        | 2022_05_14 (to be determined) |       https://github.com/luohaha/jlitespider       |  spider、lighter、rabbitmq  |
-|      Zookeeper-3.7.1      |       2022_05_24        |        https://github.com/apache/zookeeper         |        master、slave        |
-|        Kafka-3.2.0        |       2022_05_28        |          https://github.com/apache/kafka           |        master、slave        |
-|       Hbase-2.4.12        |       2022_06_01        |          https://github.com/apache/hbase           |    master、regionserver     |
+|         MapReduce         |       2022_03_30        |          https://github.com/OneSizeFitsQuorum/MIT6.824-2021 | coordinator、worker |
+|         Raft-Java         |       2022_04_27        |          https://github.com/wenweihu86/raft-java    | client、server |
+|      Distributed-Id       |       2022_04_30        |          https://github.com/beyondfengyu/DistributedID   | client、server |
+|        JLiteSpider        | 2022_05_14 (to be determined) |    https://github.com/luohaha/jlitespider     |  spider、lighter、rabbitmq  |
+|      Zookeeper-3.7.1      |       2022_05_24        |          https://github.com/apache/zookeeper        |        master、slave        |
+|        Kafka-3.2.0        |       2022_05_28        |          https://github.com/apache/kafka            |        master、slave        |
+|       Hbase-2.4.12        |       2022_06_01        |          https://github.com/apache/hbase            |    master、regionserver     |
 |       hadoop-3.3.1        |       2022_06_07        |          https://github.com/apache/hadoop           |    namenode、datanode    |
-|       hadoop-mapreduce        |       2022_06_08        |          https://github.com/apache/hadoop           |    namenode、datanode    |
+|       hadoop-mapreduce    |       2022_06_08        |          https://github.com/apache/hadoop           |    namenode、datanode    |
+|       elasticsearch       |       2022_06_18        |          https://github.com/elastic/elasticsearch   |    client、server |
+|       hazelcast           |       2022_06_20        |          https://github.com/hazelcast/hazelcast     |    client、server |
 | zipkin | to be determined | https://github.com/openzipkin/zipkin | client、server |
-| hazelcast | to be determined | https://github.com/hazelcast/hazelcast | client、server |
-| Distributed-Bitcoin-Miner |       to be determined        |            https://github.com/cmu440/p1            |    client、miner、server    |
-| Tribbler | to be determined | https://github.com/cmu440/p2 | client、application、server |
+
 
 github中的项目可用的很少。其中的分布式系统中，一部分项目已经广泛应用，结构复杂不易读，使用的都是封装好的jar包。另外一部分项目使用多线程、或者一些分布式服务如netty、zookeeper、redis等，做的是这些服务的上层应用，在源代码上无法体现分布式的交互和一致性（锁、RPC之类的）。
 

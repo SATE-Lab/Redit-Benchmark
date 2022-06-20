@@ -33,6 +33,7 @@
         <option value="$PROJECT_DIR$/Benchmark/hazelcast/pom.xml" />
         <option value="$PROJECT_DIR$/Benchmark/zipkin/pom.xml" />
         <option value="$PROJECT_DIR$/Redit-Elasticsearch/pom.xml" />
+        <option value="$PROJECT_DIR$/Redit-Hazelcast/pom.xml" />
       </list>
     </option>
   </component>

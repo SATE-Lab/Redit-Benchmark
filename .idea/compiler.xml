@@ -94,6 +94,7 @@
         <module name="hadoop-mapreduce-client-nativetask" />
         <module name="raft-java-example-sleep" />
         <module name="hadoop-minikdc" />
+        <module name="Redit-Hazelcast" />
         <module name="hadoop-rumen" />
         <module name="hadoop-hdfs-native-client" />
         <module name="hadoop-azure-datalake" />
@@ -163,8 +164,8 @@
         <module name="hbase-examples" />
         <module name="hadoop-yarn-server-timeline-pluginstorage" />
         <module name="hbase-it" />
-        <module name="benchmarks" />
         <module name="hazelcast-jet-hadoop-core" />
+        <module name="benchmarks" />
         <module name="hadoop-yarn-server-nodemanager" />
         <module name="hadoop-hdfs-client" />
         <module name="hbase-shell" />
@@ -412,6 +413,7 @@
       <module name="Redit-Distributed-Id" target="8" />
       <module name="Redit-Elasticsearch" target="8" />
       <module name="Redit-Hadoop-MapReduce" target="8" />
+      <module name="Redit-Hazelcast" target="8" />
       <module name="Redit-Hbase" target="8" />
       <module name="Redit-JLiteSpider" target="8" />
       <module name="Redit-Kafka" target="8" />

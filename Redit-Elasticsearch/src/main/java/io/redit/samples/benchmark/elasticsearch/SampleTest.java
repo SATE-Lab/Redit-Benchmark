@@ -2,15 +2,12 @@ package io.redit.samples.benchmark.elasticsearch;
 
 import io.redit.ReditRunner;
 import io.redit.exceptions.RuntimeEngineException;
-import io.redit.execution.CommandResults;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.io.*;
-import java.util.Arrays;
 
 public class SampleTest {
     private static final Logger logger = LoggerFactory.getLogger(SampleTest.class);
