@@ -177,6 +177,7 @@
         <module name="hadoop-yarn-server-tests" />
         <module name="hadoop-yarn-server-timelineservice-hbase-tests" />
         <module name="hbase-client-project" />
+        <module name="Redit-Cassandra" />
         <module name="hadoop-client-integration-tests" />
         <module name="hbase-endpoint" />
         <module name="hadoop-streaming" />
@@ -410,6 +411,7 @@
       <module name="raft-java-example" target="1.7" />
       <module name="raft-java-example-sleep" target="1.7" />
       <module name="Raft-Java-sleep" target="1.5" />
+      <module name="Redit-Cassandra" target="8" />
       <module name="Redit-Distributed-Id" target="8" />
       <module name="Redit-Elasticsearch" target="8" />
       <module name="Redit-Hadoop-MapReduce" target="8" />

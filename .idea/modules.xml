@@ -11,6 +11,7 @@
       <module fileurl="file://$PROJECT_DIR$/Benchmark/Raft-Java/Raft-Java.iml" filepath="$PROJECT_DIR$/Benchmark/Raft-Java/Raft-Java.iml" />
       <module fileurl="file://$PROJECT_DIR$/Benchmark/Raft-Java-sleep/Raft-Java-sleep.iml" filepath="$PROJECT_DIR$/Benchmark/Raft-Java-sleep/Raft-Java-sleep.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Redit-Benchmark.iml" filepath="$PROJECT_DIR$/.idea/Redit-Benchmark.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Redit-Cassandra/Redit-Cassandra.iml" filepath="$PROJECT_DIR$/Redit-Cassandra/Redit-Cassandra.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Distributed-Id/Redit-Distributed-Id.iml" filepath="$PROJECT_DIR$/Redit-Distributed-Id/Redit-Distributed-Id.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Elasticsearch/Redit-Elasticsearch.iml" filepath="$PROJECT_DIR$/Redit-Elasticsearch/Redit-Elasticsearch.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Hadoop-MapReduce/Redit-Hadoop-MapReduce.iml" filepath="$PROJECT_DIR$/Redit-Hadoop-MapReduce/Redit-Hadoop-MapReduce.iml" />
