@@ -28,6 +28,9 @@ target/
 !/Benchmark/hbase-2.4.12/hbase-2.4.12-build/hbase-dist/target
 !/Benchmark/hazelcast-5.1.2/hazelcast-5.1.2-build/hazelcast-dist/target
 !/Benchmark/elasticsearch-8.2.2/elasticsearch-8.2.2-build/elasticsearch-dist/target
+!/Benchmark/cassandra-3.11.6/cassandra-3.11.6-build/cassandra-dist/target
+!/Benchmark/rocketmq-4.9.4/rocketmq-4.9.4-build/rocketmq-4.9.4-dist/target
+!/Benchmark/activemq-5.16.5/activemq-5.16.5-build/activemq-5.16.5-dist/target
 
 .Redit*
 .redit*

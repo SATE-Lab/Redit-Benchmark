@@ -35,6 +35,8 @@
         <option value="$PROJECT_DIR$/Redit-Elasticsearch/pom.xml" />
         <option value="$PROJECT_DIR$/Redit-Hazelcast/pom.xml" />
         <option value="$PROJECT_DIR$/Redit-Cassandra/pom.xml" />
+        <option value="$PROJECT_DIR$/Redit-Rocketmq/pom.xml" />
+        <option value="$PROJECT_DIR$/Redit-Activemq/pom.xml" />
       </list>
     </option>
   </component>

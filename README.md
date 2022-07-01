@@ -14,9 +14,11 @@
 |        Kafka-3.2.0        |       2022_05_28        |          https://github.com/apache/kafka            |        master、slave        |
 |       Hbase-2.4.12        |       2022_06_01        |          https://github.com/apache/hbase            |    master、regionserver     |
 |       hadoop-mapreduce    |       2022_06_08        |          https://github.com/apache/hadoop           |    namenode、datanode    |
-|       elasticsearch       |       2022_06_18        |          https://github.com/elastic/elasticsearch   |    client、server |
-|       hazelcast           |       2022_06_20        |          https://github.com/hazelcast/hazelcast     |    client、server |
-|       cassandra           |       2022_06_27        |          https://github.com/apache/cassandra        |    client、server |
+|       elasticsearch-8.22  |       2022_06_18        |          https://github.com/elastic/elasticsearch   |    client、server   |
+|       hazelcast-5.1.2     |       2022_06_20        |          https://github.com/hazelcast/hazelcast     |    client、server   |
+|       cassandra-3.11.6    |       2022_06_27        |          https://github.com/apache/cassandra        |    master、slave    |
+|       rocketmq-4.9.4      |       2022_06_30        |          https://github.com/apache/rocketmq         |    master、slave    |
+|       activemq-5.16.5     |       2022_07_01        |          https://github.com/apache/activemq         |    master、slave    |
 
 
 ## MapReduce

@@ -97,6 +97,7 @@
         <module name="Redit-Hazelcast" />
         <module name="hadoop-rumen" />
         <module name="hadoop-hdfs-native-client" />
+        <module name="Redit-Rocketmq" />
         <module name="hadoop-azure-datalake" />
         <module name="hazelcast-jet-kinesis" />
         <module name="hazelcast-jet-files-azure" />
@@ -109,6 +110,7 @@
         <module name="hazelcast-3-connector-interface" />
         <module name="zipkin-storage-cassandra" />
         <module name="hbase-shaded-testing-util" />
+        <module name="Redit-Activemq" />
         <module name="Redit-Hbase" />
         <module name="hadoop-archives" />
         <module name="hadoop-yarn-server-timelineservice" />
@@ -411,6 +413,7 @@
       <module name="raft-java-example" target="1.7" />
       <module name="raft-java-example-sleep" target="1.7" />
       <module name="Raft-Java-sleep" target="1.5" />
+      <module name="Redit-Activemq" target="8" />
       <module name="Redit-Cassandra" target="8" />
       <module name="Redit-Distributed-Id" target="8" />
       <module name="Redit-Elasticsearch" target="8" />
@@ -421,6 +424,7 @@
       <module name="Redit-Kafka" target="8" />
       <module name="Redit-MapReduce" target="8" />
       <module name="Redit-Raft-Java" target="8" />
+      <module name="Redit-Rocketmq" target="8" />
       <module name="Redit-Zookeeper" target="8" />
       <module name="zipkin" target="1.7" />
       <module name="zipkin-collector" target="1.8" />

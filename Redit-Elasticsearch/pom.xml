@@ -12,7 +12,6 @@
 
     <groupId>io.redit.samples</groupId>
     <artifactId>Redit-Elasticsearch</artifactId>
-    <version>1.9.0</version>
     <name>Redit-Elasticsearch</name>
     <url>http://maven.apache.org</url>
     <description>Elasticsearch implementation for Java</description>

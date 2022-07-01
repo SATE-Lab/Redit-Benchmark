@@ -12,7 +12,6 @@
 
     <groupId>io.redit.samples</groupId>
     <artifactId>Redit-Hazelcast</artifactId>
-    <version>1.9.0</version>
     <name>Redit-Hazelcast</name>
     <url>http://maven.apache.org</url>
     <description>another Raft implementation for Java</description>

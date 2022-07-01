@@ -10,6 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/Mistletoe-java/Mistletoe-java.iml" filepath="$PROJECT_DIR$/Mistletoe-java/Mistletoe-java.iml" />
       <module fileurl="file://$PROJECT_DIR$/Benchmark/Raft-Java/Raft-Java.iml" filepath="$PROJECT_DIR$/Benchmark/Raft-Java/Raft-Java.iml" />
       <module fileurl="file://$PROJECT_DIR$/Benchmark/Raft-Java-sleep/Raft-Java-sleep.iml" filepath="$PROJECT_DIR$/Benchmark/Raft-Java-sleep/Raft-Java-sleep.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Redit-Activemq/Redit-Activemq.iml" filepath="$PROJECT_DIR$/Redit-Activemq/Redit-Activemq.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Redit-Benchmark.iml" filepath="$PROJECT_DIR$/.idea/Redit-Benchmark.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Cassandra/Redit-Cassandra.iml" filepath="$PROJECT_DIR$/Redit-Cassandra/Redit-Cassandra.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Distributed-Id/Redit-Distributed-Id.iml" filepath="$PROJECT_DIR$/Redit-Distributed-Id/Redit-Distributed-Id.iml" />
@@ -21,6 +22,7 @@
       <module fileurl="file://$PROJECT_DIR$/Redit-Kafka/Redit-Kafka.iml" filepath="$PROJECT_DIR$/Redit-Kafka/Redit-Kafka.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-MapReduce/Redit-MapReduce.iml" filepath="$PROJECT_DIR$/Redit-MapReduce/Redit-MapReduce.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Raft-Java/Redit-Raft-Java.iml" filepath="$PROJECT_DIR$/Redit-Raft-Java/Redit-Raft-Java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Redit-Rocketmq/Redit-Rocketmq.iml" filepath="$PROJECT_DIR$/Redit-Rocketmq/Redit-Rocketmq.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Zookeeper/Redit-Zookeeper.iml" filepath="$PROJECT_DIR$/Redit-Zookeeper/Redit-Zookeeper.iml" />
       <module fileurl="file://$PROJECT_DIR$/Benchmark/zipkin/benchmarks/benchmarks.iml" filepath="$PROJECT_DIR$/Benchmark/zipkin/benchmarks/benchmarks.iml" />
       <module fileurl="file://$PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-tools/hadoop-aliyun/hadoop-aliyun.iml" filepath="$PROJECT_DIR$/Benchmark/hadoop-3.3.1/hadoop-3.3.1-src/hadoop-tools/hadoop-aliyun/hadoop-aliyun.iml" />
