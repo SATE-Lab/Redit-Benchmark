@@ -4,3 +4,4 @@
 *elasticsearch-8.2.2.tar.gz filter=lfs diff=lfs merge=lfs -text
 *hazelcast-5.1.2.tar.gz filter=lfs diff=lfs merge=lfs -text
 *activemq-5.16.5.tar.gz filter=lfs diff=lfs merge=lfs -text
+*elasticsearch-8.2.2-src.tar.gz filter=lfs diff=lfs merge=lfs -text
