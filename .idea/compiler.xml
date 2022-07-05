@@ -11,6 +11,7 @@
         <module name="hadoop-azure" />
         <module name="hadoop-yarn-server-applicationhistoryservice" />
         <module name="zipkin-storage-mysql-v1" />
+        <module name="activemq-rar" />
         <module name="hazelcast-jet-files-gcs" />
         <module name="hadoop-resourceestimator" />
         <module name="hadoop-common" />
@@ -20,86 +21,91 @@
         <module name="zipkin-storage-elasticsearch" />
         <module name="hadoop-aliyun" />
         <module name="hazelcast" />
-        <module name="hbase-logging" />
-        <module name="hbase-checkstyle" />
         <module name="hadoop-kafka" />
         <module name="zookeeper" />
         <module name="zipkin" />
-        <module name="hbase-hbtop" />
+        <module name="activemq-runtime-config" />
         <module name="hadoop-client-minicluster" />
+        <module name="activemq-blueprint" />
         <module name="Distributed-Id" />
         <module name="hadoop-hdfs-httpfs" />
         <module name="zipkin-tests" />
-        <module name="hbase-mapreduce" />
         <module name="hazelcast-build-utils" />
         <module name="hazelcast-jet-files-s3" />
         <module name="hadoop-yarn-services-core" />
+        <module name="rocketmq-namesrv" />
         <module name="hadoop-mapreduce-client-common" />
         <module name="hazelcast-3-connector-common" />
         <module name="hazelcast-distribution" />
         <module name="hadoop-yarn-registry" />
-        <module name="hbase-shaded-client-byo-hadoop" />
-        <module name="hbase-http" />
+        <module name="activemq-client" />
         <module name="hazelcast-jet-protobuf" />
         <module name="hazelcast-jet-cdc-postgres" />
         <module name="hadoop-mapreduce-client-uploader" />
         <module name="hadoop-yarn-server-timelineservice-hbase-client" />
         <module name="hazelcast-jet-cdc-debezium" />
+        <module name="activemq-run" />
         <module name="hadoop-gridmix" />
         <module name="hadoop-aws" />
         <module name="hazelcast-jet-grpc" />
+        <module name="rocketmq-common" />
         <module name="hadoop-yarn-applications-mawo-core" />
         <module name="hazelcast-jet-python" />
+        <module name="activemq-jaas" />
         <module name="JLiteSpider-Core" />
-        <module name="hbase-external-blockcache" />
         <module name="zookeeper-recipes-queue" />
         <module name="zipkin-collector-rabbitmq" />
         <module name="zookeeper-jute" />
         <module name="hazelcast-jet-cdc-mysql" />
         <module name="zookeeper-prometheus-metrics" />
         <module name="hadoop-yarn-server-resourcemanager" />
-        <module name="hbase-shaded-client" />
+        <module name="activemq-kahadb-store" />
+        <module name="activemq-console" />
+        <module name="activemq-osgi" />
+        <module name="activemq-karaf-itest" />
         <module name="MapReduce" />
         <module name="hadoop-yarn-csi" />
-        <module name="hbase-shaded-testing-util-tester" />
+        <module name="activemq-jdbc-store" />
         <module name="zipkin-server" />
         <module name="zookeeper-compatibility-tests-curator" />
         <module name="hadoop-fs2img" />
         <module name="hadoop-kms" />
+        <module name="rocketmq-example" />
         <module name="hadoop-yarn-server-router" />
         <module name="zookeeper-it" />
+        <module name="rocketmq-client" />
         <module name="Mistletoe-java" />
         <module name="hadoop-archive-logs" />
         <module name="hadoop-sls" />
-        <module name="hbase-annotations" />
         <module name="hazelcast-jet-hadoop-all" />
-        <module name="hbase-testing-util" />
+        <module name="activemq-karaf" />
         <module name="Redit-Hadoop-MapReduce" />
-        <module name="hbase-zookeeper" />
         <module name="JLiteSpider-Demo" />
         <module name="hadoop-yarn-api" />
-        <module name="hbase-thrift" />
         <module name="zipkin-collector-scribe" />
-        <module name="hbase-shaded-mapreduce" />
-        <module name="hbase-hadoop-compat" />
         <module name="hadoop-cloud-storage" />
         <module name="hadoop-yarn-common" />
+        <module name="activemq-leveldb-store" />
+        <module name="activemq-junit" />
         <module name="hadoop-mapreduce-client-jobclient" />
         <module name="hazelcast-spring-tests" />
         <module name="hadoop-dynamometer-infra" />
         <module name="Redit-Zookeeper" />
         <module name="hadoop-hdfs" />
         <module name="hadoop-mapreduce-client-hs" />
-        <module name="hbase-server" />
         <module name="hadoop-mapreduce-client-nativetask" />
         <module name="raft-java-example-sleep" />
         <module name="hadoop-minikdc" />
         <module name="Redit-Hazelcast" />
         <module name="hadoop-rumen" />
+        <module name="activemq-openwire-generator" />
+        <module name="rocketmq-remoting" />
+        <module name="activemq-pool" />
         <module name="hadoop-hdfs-native-client" />
         <module name="Redit-Rocketmq" />
         <module name="hadoop-azure-datalake" />
         <module name="hazelcast-jet-kinesis" />
+        <module name="rocketmq-store" />
         <module name="hazelcast-jet-files-azure" />
         <module name="hadoop-yarn-client" />
         <module name="hadoop-build-tools" />
@@ -107,106 +113,159 @@
         <module name="hadoop-yarn-server-timelineservice-hbase-server-1" />
         <module name="hadoop-cos" />
         <module name="hadoop-mapreduce-examples" />
+        <module name="activemq-itests-spring31" />
         <module name="hazelcast-3-connector-interface" />
         <module name="zipkin-storage-cassandra" />
-        <module name="hbase-shaded-testing-util" />
         <module name="Redit-Activemq" />
+        <module name="activemq-openwire-legacy" />
         <module name="Redit-Hbase" />
+        <module name="activemq-memtest-maven-plugin" />
         <module name="hadoop-archives" />
         <module name="hadoop-yarn-server-timelineservice" />
         <module name="hadoop-yarn-server-web-proxy" />
         <module name="zipkin-lens" />
+        <module name="rocketmq-acl" />
         <module name="hadoop-yarn-server-timelineservice-documentstore" />
-        <module name="hbase-replication" />
         <module name="hadoop-mapreduce-client-core" />
         <module name="hadoop-yarn-server-sharedcachemanager" />
+        <module name="activemq-maven-plugin" />
         <module name="hadoop-datajoin" />
+        <module name="activemq-web-demo" />
         <module name="hadoop-nfs" />
+        <module name="activemq-shiro" />
         <module name="raft-java-admin" />
-        <module name="hbase-common" />
         <module name="hadoop-dynamometer-dist" />
         <module name="hazelcast-sql" />
-        <module name="hbase-rest" />
+        <module name="activemq-partition" />
+        <module name="rocketmq-srvutil" />
+        <module name="activemq-spring" />
         <module name="hadoop-distcp" />
+        <module name="activemq-web" />
         <module name="Redit-MapReduce" />
+        <module name="rocketmq-filter" />
         <module name="Redit-JLiteSpider" />
         <module name="raft-java-admin-sleep" />
         <module name="hazelcast-jet-kafka" />
-        <module name="hbase-metrics" />
-        <module name="hbase-resource-bundle" />
         <module name="hadoop-yarn-server-common" />
         <module name="hadoop-client-api" />
+        <module name="activemq-perf-maven-plugin" />
+        <module name="activemq-http" />
         <module name="hadoop-hdfs-rbf" />
-        <module name="hbase-rsgroup" />
         <module name="hadoop-mapreduce-client-app" />
         <module name="hazelcast-jet-avro" />
         <module name="hadoop-mapreduce-client-shuffle" />
         <module name="hazelcast-archunit-rules" />
+        <module name="activemq-stomp" />
         <module name="hadoop-annotations" />
-        <module name="hbase-procedure" />
         <module name="Redit-Raft-Java" />
         <module name="zipkin-collector-activemq" />
         <module name="raft-java-core" />
         <module name="hazelcast-jet-elasticsearch-7" />
         <module name="hazelcast-jet-elasticsearch-6" />
         <module name="hadoop-mapreduce-client-hs-plugins" />
-        <module name="hbase-client" />
         <module name="hadoop-registry" />
         <module name="zookeeper-recipes-lock" />
+        <module name="activemq-all" />
         <module name="hadoop-client-runtime" />
         <module name="zookeeper-recipes-election" />
-        <module name="hbase-asyncfs" />
         <module name="hadoop-dynamometer-workload" />
         <module name="hadoop-extras" />
         <module name="hadoop-tools-dist" />
+        <module name="activemq-log4j-appender" />
         <module name="hadoop-dynamometer-blockgen" />
-        <module name="hbase-metrics-api" />
         <module name="hazelcast-spring" />
         <module name="raft-java-core-sleep" />
-        <module name="hbase-examples" />
+        <module name="activemq-camel" />
         <module name="hadoop-yarn-server-timeline-pluginstorage" />
-        <module name="hbase-it" />
         <module name="hazelcast-jet-hadoop-core" />
         <module name="benchmarks" />
         <module name="hadoop-yarn-server-nodemanager" />
         <module name="hadoop-hdfs-client" />
-        <module name="hbase-shell" />
         <module name="hadoop-assemblies" />
         <module name="hazelcast-jet-hadoop" />
         <module name="hadoop-yarn-applications-catalog-webapp" />
-        <module name="hbase-shaded-client-project" />
         <module name="hadoop-minicluster" />
         <module name="hadoop-yarn-server-tests" />
+        <module name="activemq-ra" />
         <module name="hadoop-yarn-server-timelineservice-hbase-tests" />
-        <module name="hbase-client-project" />
+        <module name="activemq-web-console" />
         <module name="Redit-Cassandra" />
         <module name="hadoop-client-integration-tests" />
-        <module name="hbase-endpoint" />
         <module name="hadoop-streaming" />
-        <module name="hbase-hadoop2-compat" />
+        <module name="rocketmq-openmessaging" />
+        <module name="rocketmq-logging" />
         <module name="jlitespider" />
+        <module name="activemq-unit-tests" />
         <module name="hadoop-hdfs-nfs" />
         <module name="hadoop-openstack" />
+        <module name="rocketmq-broker" />
+        <module name="rocketmq-test" />
         <module name="zipkin-collector" />
         <module name="raft-java-example" />
-        <module name="hbase-protocol-shaded" />
         <module name="hazelcast-3-connector-impl" />
         <module name="hadoop-auth-examples" />
+        <module name="activemq-jms-pool" />
         <module name="zipkin-junit" />
+        <module name="activemq-broker" />
         <module name="hadoop-auth" />
+        <module name="activemq-mqtt" />
         <module name="hadoop-yarn-server-timelineservice-hbase-common" />
         <module name="Redit-Elasticsearch" />
         <module name="zipkin-collector-kafka" />
-        <module name="hbase-protocol" />
+        <module name="activemq-amqp" />
         <module name="hadoop-yarn-applications-distributedshell" />
         <module name="hadoop-yarn-applications-unmanaged-am-launcher" />
         <module name="hazelcast-jet-csv" />
         <module name="hadoop-maven-plugins" />
         <module name="hadoop-dist" />
+        <module name="rocketmq-tools" />
         <module name="hazelcast-jet-s3" />
+        <module name="activemq-cf" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="activemq-all" target="1.8" />
+      <module name="activemq-amqp" target="1.8" />
+      <module name="activemq-blueprint" target="1.8" />
+      <module name="activemq-broker" target="1.8" />
+      <module name="activemq-camel" target="1.8" />
+      <module name="activemq-cf" target="1.8" />
+      <module name="activemq-client" target="1.8" />
+      <module name="activemq-console" target="1.8" />
+      <module name="activemq-http" target="1.8" />
+      <module name="activemq-itests-spring31" target="1.8" />
+      <module name="activemq-jaas" target="1.8" />
+      <module name="activemq-jdbc-store" target="1.8" />
+      <module name="activemq-jms-pool" target="1.8" />
+      <module name="activemq-junit" target="1.8" />
+      <module name="activemq-kahadb-store" target="1.8" />
+      <module name="activemq-karaf" target="1.8" />
+      <module name="activemq-karaf-itest" target="1.8" />
+      <module name="activemq-leveldb-store" target="1.8" />
+      <module name="activemq-log4j-appender" target="1.8" />
+      <module name="activemq-maven-plugin" target="1.8" />
+      <module name="activemq-memtest-maven-plugin" target="1.8" />
+      <module name="activemq-mqtt" target="1.8" />
+      <module name="activemq-openwire-generator" target="1.8" />
+      <module name="activemq-openwire-legacy" target="1.8" />
+      <module name="activemq-osgi" target="1.8" />
+      <module name="activemq-parent" target="1.8" />
+      <module name="activemq-partition" target="1.8" />
+      <module name="activemq-perf-maven-plugin" target="1.8" />
+      <module name="activemq-pool" target="1.8" />
+      <module name="activemq-ra" target="1.8" />
+      <module name="activemq-rar" target="1.8" />
+      <module name="activemq-run" target="1.8" />
+      <module name="activemq-runtime-config" target="1.8" />
+      <module name="activemq-shiro" target="1.8" />
+      <module name="activemq-spring" target="1.8" />
+      <module name="activemq-stomp" target="1.8" />
+      <module name="activemq-tooling" target="1.8" />
+      <module name="activemq-unit-tests" target="1.8" />
+      <module name="activemq-web" target="1.8" />
+      <module name="activemq-web-console" target="1.8" />
+      <module name="activemq-web-demo" target="1.8" />
+      <module name="apache-activemq" target="1.8" />
       <module name="benchmarks" target="1.8" />
       <module name="Distributed-Id" target="1.8" />
       <module name="hadoop-aliyun" target="1.8" />
@@ -426,6 +485,22 @@
       <module name="Redit-Raft-Java" target="8" />
       <module name="Redit-Rocketmq" target="8" />
       <module name="Redit-Zookeeper" target="8" />
+      <module name="rocketmq-acl" target="1.8" />
+      <module name="rocketmq-all" target="1.8" />
+      <module name="rocketmq-broker" target="1.8" />
+      <module name="rocketmq-client" target="1.6" />
+      <module name="rocketmq-common" target="1.8" />
+      <module name="rocketmq-distribution" target="1.8" />
+      <module name="rocketmq-example" target="1.8" />
+      <module name="rocketmq-filter" target="1.8" />
+      <module name="rocketmq-logging" target="1.8" />
+      <module name="rocketmq-namesrv" target="1.8" />
+      <module name="rocketmq-openmessaging" target="1.8" />
+      <module name="rocketmq-remoting" target="1.8" />
+      <module name="rocketmq-srvutil" target="1.8" />
+      <module name="rocketmq-store" target="1.8" />
+      <module name="rocketmq-test" target="1.8" />
+      <module name="rocketmq-tools" target="1.8" />
       <module name="zipkin" target="1.7" />
       <module name="zipkin-collector" target="1.8" />
       <module name="zipkin-collector-activemq" target="1.8" />

@@ -37,6 +37,9 @@
         <option value="$PROJECT_DIR$/Redit-Cassandra/pom.xml" />
         <option value="$PROJECT_DIR$/Redit-Rocketmq/pom.xml" />
         <option value="$PROJECT_DIR$/Redit-Activemq/pom.xml" />
+        <option value="$PROJECT_DIR$/Benchmark/rocketmq-4.9.4/rocketmq-all-4.9.4-source-release/rocketmq-all-4.9.4-source-release/pom.xml" />
+        <option value="$PROJECT_DIR$/Benchmark/activemq-5.16.5/activemq-parent-5.16.5-source-release/activemq-parent-5.16.5/pom.xml" />
+        <option value="$PROJECT_DIR$/Benchmark/Raft-Java/Raft-Java/pom.xml" />
       </list>
     </option>
   </component>

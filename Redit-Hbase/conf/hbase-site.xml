@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?xml-stylesheet type="text/xsl" href="configuration.xsl"?><configuration>
-  <!--指定hbase的运行模式，true代表全分布模式-->
   <property>
     <name>hbase.cluster.distributed</name>
     <value>true</value>
   </property>
-  <!--指定本机的hbase的存储目录，必须与hadoop中的core-site.xml中的地址保持一致-->
   <property>
     <name>hbase.rootdir</name>
     <value>hdfs://mycluster/hbase</value>
@@ -18,7 +16,6 @@
     <name>hbase.unsafe.stream.capability.enforce</name>
     <value>false</value>
   </property>
-  <!--zookeeper存储数据的地址配置-->
   <property>
     <name>hbase.zookeeper.property.dataDir</name>
     <value>/zookeeper/apache-zookeeper-3.7.1-bin/zkdata</value>
@@ -26,6 +23,6 @@
   <!--add zookeeper配置-->
 <property>
 <name>hbase.zookeeper.quorum</name>
-<value>10.2.0.7:2181,10.2.0.6:2181,10.2.0.13:2181</value>
+<value>10.3.0.7:2181,10.3.0.6:2181,10.3.0.13:2181</value>
 </property>
 </configuration>

@@ -38,9 +38,8 @@ public class SampleTest {
     @Test
     public void sampleTest() throws InterruptedException, RuntimeEngineException {
         logger.info("wait for zookeeper...");
-        Thread.sleep(2000);
         startServers();
-        Thread.sleep(10000);
+        Thread.sleep(20000);
         checkServersStatus();
         logger.info("completed !!!");
     }
@@ -51,13 +50,12 @@ public class SampleTest {
         }
     }
 
-    private static void checkServersStatus() throws InterruptedException, RuntimeEngineException {
+    private static void checkServersStatus() throws RuntimeEngineException {
         for(int i = 1; i <= ReditHelper.numOfServers; i++){
             String command = "cd " + ReditHelper.getHomeDir() + " && bin/zkServer.sh status";
             logger.info("server" + i + " checkStatus...");
             CommandResults commandResults = runner.runtime().runCommandInNode("server" + i, command);
             printResult(commandResults);
-            Thread.sleep(1000);
         }
     }
 

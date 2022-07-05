@@ -2,4 +2,4 @@ cluster.name: es-clusters
 node.name: node-2
 http.port: 9200
 cluster.initial_master_nodes: ["node-1", "node-2", "node-3"]
-discovery.seed_hosts: ["10.2.0.4", "10.2.0.3", "10.2.0.2"]
+discovery.seed_hosts: ["10.3.0.4", "10.3.0.3", "10.3.0.2"]

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hazelcast xmlns="http://www.hazelcast.com/schema/config"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.hazelcast.com/schema/config
+           http://www.hazelcast.com/schema/config/hazelcast-config-5.1.xsd">
+
+    <cluster-name>hello-world</cluster-name>
+
+    <properties>
+        <property name="hazelcast.socket.bind.any">false</property>
+    </properties>
+
+    <network>
+        <port auto-increment="true" port-count="100">5701</port>
+        <interfaces enabled="true">
+            <interface>10.3.0.2</interface>
+        </interfaces>
+        <outbound-ports>
+            <ports>0</ports>
+        </outbound-ports>
+        <join>
+            <tcp-ip enabled="true">
+                <member-list>
+                    <member>10.3.0.4:5701</member>
+                    <member>10.3.0.3:5701</member>
+                    <member>10.3.0.2:5701</member>
+                </member-list>
+            </tcp-ip>
+        </join>
+        <ssl enabled="false"/>
+        <failure-detector>
+            <icmp enabled="false"/>
+        </failure-detector>
+        <rest-api enabled="false">
+            <endpoint-group name="HEALTH_CHECK" enabled="true"/>
+            <endpoint-group name="CLUSTER_READ" enabled="false"/>
+        </rest-api>
+    </network>
+    <partition-group enabled="false"/>
+    <executor-service name="default">
+        <queue-capacity>0</queue-capacity>
+        <pool-size>16</pool-size>
+        <statistics-enabled>true</statistics-enabled>
+    </executor-service>
+    <durable-executor-service name="default">
+        <capacity>100</capacity>
+        <durability>1</durability>
+        <pool-size>16</pool-size>
+        <statistics-enabled>true</statistics-enabled>
+    </durable-executor-service>
+    <scheduled-executor-service name="default">
+        <capacity>100</capacity>
+        <durability>1</durability>
+        <pool-size>16</pool-size>
+        <merge-policy batch-size="100">com.hazelcast.spi.merge.PutIfAbsentMergePolicy</merge-policy>
+        <statistics-enabled>true</statistics-enabled>
+    </scheduled-executor-service>
+    <security>
+        <client-block-unmapped-actions>true</client-block-unmapped-actions>
+    </security>
+    <queue name="default">
+        <max-size>0</max-size>
+        <backup-count>1</backup-count>
+        <async-backup-count>0</async-backup-count>
+        <empty-queue-ttl>-1</empty-queue-ttl>
+        <merge-policy batch-size="100">com.hazelcast.spi.merge.PutIfAbsentMergePolicy</merge-policy>
+    </queue>
+    <map name="default">
+        <in-memory-format>BINARY</in-memory-format>
+        <metadata-policy>CREATE_ON_UPDATE</metadata-policy>
+        <backup-count>1</backup-count>
+        <async-backup-count>0</async-backup-count>
+        <time-to-live-seconds>0</time-to-live-seconds>
+        <max-idle-seconds>0</max-idle-seconds>
+
+        <eviction eviction-policy="NONE" max-size-policy="PER_NODE" size="0"/>
+        <merge-policy batch-size="100">com.hazelcast.spi.merge.PutIfAbsentMergePolicy</merge-policy>
+        <cache-deserialized-values>INDEX-ONLY</cache-deserialized-values>
+        <statistics-enabled>true</statistics-enabled>
+        <per-entry-stats-enabled>false</per-entry-stats-enabled>
+
+    </map>
+
+    <multimap name="default">
+        <backup-count>1</backup-count>
+        <value-collection-type>SET</value-collection-type>
+        <merge-policy batch-size="100">com.hazelcast.spi.merge.PutIfAbsentMergePolicy</merge-policy>
+    </multimap>
+
+    <replicatedmap name="default">
+        <in-memory-format>OBJECT</in-memory-format>
+        <async-fillup>true</async-fillup>
+        <statistics-enabled>true</statistics-enabled>
+        <merge-policy batch-size="100">com.hazelcast.spi.merge.PutIfAbsentMergePolicy</merge-policy>
+    </replicatedmap>
+
+    <list name="default">
+        <backup-count>1</backup-count>
+        <merge-policy batch-size="100">com.hazelcast.spi.merge.PutIfAbsentMergePolicy</merge-policy>
+    </list>
+
+    <set name="default">
+        <backup-count>1</backup-count>
+        <merge-policy batch-size="100">com.hazelcast.spi.merge.PutIfAbsentMergePolicy</merge-policy>
+    </set>
+
+    <reliable-topic name="default">
+        <read-batch-size>10</read-batch-size>
+        <topic-overload-policy>BLOCK</topic-overload-policy>
+        <statistics-enabled>true</statistics-enabled>
+    </reliable-topic>
+
+    <ringbuffer name="default">
+        <capacity>10000</capacity>
+        <backup-count>1</backup-count>
+        <async-backup-count>0</async-backup-count>
+        <time-to-live-seconds>0</time-to-live-seconds>
+        <in-memory-format>BINARY</in-memory-format>
+        <merge-policy batch-size="100">com.hazelcast.spi.merge.PutIfAbsentMergePolicy</merge-policy>
+    </ringbuffer>
+
+    <flake-id-generator name="default">
+        <prefetch-count>100</prefetch-count>
+        <prefetch-validity-millis>600000</prefetch-validity-millis>
+        <epoch-start>1514764800000</epoch-start>
+        <node-id-offset>0</node-id-offset>
+        <bits-sequence>6</bits-sequence>
+        <bits-node-id>16</bits-node-id>
+        <allowed-future-millis>15000</allowed-future-millis>
+        <statistics-enabled>true</statistics-enabled>
+    </flake-id-generator>
+    <serialization>
+        <portable-version>0</portable-version>
+    </serialization>
+    <lite-member enabled="false"/>
+
+    <cardinality-estimator name="default">
+        <backup-count>1</backup-count>
+        <async-backup-count>0</async-backup-count>
+        <merge-policy batch-size="100">HyperLogLogMergePolicy</merge-policy>
+    </cardinality-estimator>
+
+    <crdt-replication>
+        <replication-period-millis>1000</replication-period-millis>
+        <max-concurrent-replication-targets>1</max-concurrent-replication-targets>
+    </crdt-replication>
+
+    <pn-counter name="default">
+        <replica-count>2147483647</replica-count>
+        <statistics-enabled>true</statistics-enabled>
+    </pn-counter>
+
+    <cp-subsystem>
+        <cp-member-count>0</cp-member-count>
+        <group-size>0</group-size>
+        <session-time-to-live-seconds>300</session-time-to-live-seconds>
+        <session-heartbeat-interval-seconds>5</session-heartbeat-interval-seconds>
+        <missing-cp-member-auto-removal-seconds>14400</missing-cp-member-auto-removal-seconds>
+        <fail-on-indeterminate-operation-state>false</fail-on-indeterminate-operation-state>
+        <raft-algorithm>
+            <leader-election-timeout-in-millis>2000</leader-election-timeout-in-millis>
+            <leader-heartbeat-period-in-millis>5000</leader-heartbeat-period-in-millis>
+            <max-missed-leader-heartbeat-count>5</max-missed-leader-heartbeat-count>
+            <append-request-max-entry-count>100</append-request-max-entry-count>
+            <commit-index-advance-count-to-snapshot>10000</commit-index-advance-count-to-snapshot>
+            <uncommitted-entry-count-to-reject-new-appends>100</uncommitted-entry-count-to-reject-new-appends>
+            <append-request-backoff-timeout-in-millis>100</append-request-backoff-timeout-in-millis>
+        </raft-algorithm>
+    </cp-subsystem>
+
+    <metrics enabled="true">
+        <management-center enabled="true">
+            <retention-seconds>5</retention-seconds>
+        </management-center>
+        <jmx enabled="true"/>
+        <collection-frequency-seconds>5</collection-frequency-seconds>
+    </metrics>
+
+    <sql>
+        <statement-timeout-millis>0</statement-timeout-millis>
+    </sql>
+
+    <jet enabled="true" resource-upload-enabled="true">
+        <flow-control-period>100</flow-control-period>
+        <backup-count>1</backup-count>
+        <scale-up-delay-millis>10000</scale-up-delay-millis>
+        <lossless-restart-enabled>false</lossless-restart-enabled>
+        <max-processor-accumulated-records>9223372036854775807</max-processor-accumulated-records>
+        <edge-defaults>
+            <queue-size>1024</queue-size>
+            <packet-size-limit>16384</packet-size-limit>
+            <receive-window-multiplier>3</receive-window-multiplier>
+        </edge-defaults>
+    </jet>
+</hazelcast>

@@ -64,6 +64,7 @@ public class ReditHelper {
                 .applicationPath("conf/hdfs-site.xml", getHbaseHomeDir() + "/conf/hdfs-site.xml")
                 .applicationPath("conf/core-site.xml", getHbaseHomeDir() + "/conf/core-site.xml")
                 .dockerImageName("mengpo1106/hbase:2.4.12").dockerFileAddress("docker/Dockerfile", true)
+                .environmentVariable("HADOOP_HOME", getHadoopHomeDir()).environmentVariable("HADOOP_HEAPSIZE_MAX", "1g")
                 .environmentVariable("HBASE_HOME", getHbaseHomeDir())
                 .libraryPath(getZookeeperHomeDir() + "/bin/*.sh")
                 .libraryPath(getZookeeperHomeDir() + "/lib/*.jar")

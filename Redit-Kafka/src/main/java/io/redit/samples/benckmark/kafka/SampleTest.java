@@ -57,9 +57,8 @@ public class SampleTest {
     @Test
     public void sampleTest() throws InterruptedException, RuntimeEngineException {
         logger.info("wait for zookeeper...");
-        Thread.sleep(2000);
         startZookeepers();
-        Thread.sleep(5000);
+        Thread.sleep(10000);
         checkZookeepersStatus();
 
         logger.info("wait for kafka...");
@@ -86,23 +85,22 @@ public class SampleTest {
         printResult(commandResults2);
     }
 
-    private static void startZookeepers() {
-        for(int i = 1; i <= ReditHelper.numOfServers; i++){
-            startZookeeper(i);
-        }
-    }
-
     private void startKafkas() {
         for(int i = 1; i <= ReditHelper.numOfServers; i++){
             startKafka(i);
         }
     }
 
-    private void checkJps() throws RuntimeEngineException {
-        for(int i = 1; i <= ReditHelper.numOfServers; i++){
-            CommandResults commandResults = runner.runtime().runCommandInNode("server" + i, "jps");
-            printResult(commandResults);
-        }
+    private static void startKafka(int serverId) {
+        String command = "cd " + ReditHelper.getKafkaHomeDir() + " && bin/kafka-server-start.sh -daemon ./config/server.properties";
+        logger.info("server" + serverId + " startKafka...");
+        new Thread(() -> {
+            try {
+                runner.runtime().runCommandInNode("server" + serverId, command);
+            } catch (RuntimeEngineException e) {
+                e.printStackTrace();
+            }
+        }).start();
     }
 
     public static void createProducer(int serverId) throws InterruptedException {
@@ -168,6 +166,12 @@ public class SampleTest {
         }).start();
     }
 
+    private static void startZookeepers() {
+        for(int i = 1; i <= ReditHelper.numOfServers; i++){
+            startZookeeper(i);
+        }
+    }
+
     private static void startZookeeper(int serverId) {
         String command = "cd " + ReditHelper.getZookeeperHomeDir() + " && bin/zkServer.sh start";
         logger.info("server" + serverId + " startZookeeper...");
@@ -188,18 +192,6 @@ public class SampleTest {
             printResult(commandResults);
             Thread.sleep(1000);
         }
-    }
-
-    private static void startKafka(int serverId) {
-        String command = "cd " + ReditHelper.getKafkaHomeDir() + " && bin/kafka-server-start.sh -daemon ./config/server.properties";
-        logger.info("server" + serverId + " startKafka...");
-        new Thread(() -> {
-            try {
-                runner.runtime().runCommandInNode("server" + serverId, command);
-            } catch (RuntimeEngineException e) {
-                e.printStackTrace();
-            }
-        }).start();
     }
 
     private static void addKafkaPropFile() throws IOException {
@@ -245,6 +237,13 @@ public class SampleTest {
             out.write(ZooCfgConf);
             out.close();
             logger.info("add config to " + ZooCfgFile + ":\n" + ZooCfgConf);
+        }
+    }
+
+    private void checkJps() throws RuntimeEngineException {
+        for(int i = 1; i <= ReditHelper.numOfServers; i++){
+            CommandResults commandResults = runner.runtime().runCommandInNode("server" + i, "jps");
+            printResult(commandResults);
         }
     }
 

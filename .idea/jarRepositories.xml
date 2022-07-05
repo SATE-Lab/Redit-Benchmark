@@ -2,11 +2,6 @@
 <project version="4">
   <component name="RemoteRepositoriesConfiguration">
     <remote-repository>
-      <option name="id" value="snapshot-repository" />
-      <option name="name" value="Maven2 Snapshot Repository" />
-      <option name="url" value="https://oss.sonatype.org/content/repositories/snapshots" />
-    </remote-repository>
-    <remote-repository>
       <option name="id" value="central" />
       <option name="name" value="Central Repository" />
       <option name="url" value="https://repo.maven.apache.org/maven2" />
@@ -27,14 +22,34 @@
       <option name="url" value="https://repo1.maven.org/maven2" />
     </remote-repository>
     <remote-repository>
-      <option name="id" value="jboss.community" />
-      <option name="name" value="JBoss Community repository" />
-      <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
-    </remote-repository>
-    <remote-repository>
       <option name="id" value="repository.jboss.org" />
       <option name="name" value="repository.jboss.org" />
       <option name="url" value="https://repository.jboss.org/nexus/content/groups/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="confluent" />
+      <option name="name" value="confluent" />
+      <option name="url" value="https://packages.confluent.io/maven/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="snapshot-repository" />
+      <option name="name" value="Maven2 Snapshot Repository" />
+      <option name="url" value="https://oss.sonatype.org/content/repositories/snapshots" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="Eclipse Paho Repo" />
+      <option name="name" value="Eclipse Paho Repo" />
+      <option name="url" value="https://repo.eclipse.org/content/repositories/paho-releases/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="spring.io" />
+      <option name="name" value="spring.io" />
+      <option name="url" value="https://repo.spring.io/plugins-release" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="jboss.community" />
+      <option name="name" value="JBoss Community repository" />
+      <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="apache.snapshots.https" />
@@ -50,11 +65,6 @@
       <option name="id" value="redhat-ga" />
       <option name="name" value="redhat-ga" />
       <option name="url" value="https://maven.repository.redhat.com/ga/" />
-    </remote-repository>
-    <remote-repository>
-      <option name="id" value="confluent" />
-      <option name="name" value="confluent" />
-      <option name="url" value="https://packages.confluent.io/maven/" />
     </remote-repository>
   </component>
 </project>

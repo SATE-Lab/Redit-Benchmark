@@ -3,6 +3,7 @@ package io.redit.samples.benchmark.hadoop.mapreduce;
 import io.redit.ReditRunner;
 import io.redit.exceptions.RuntimeEngineException;
 import io.redit.execution.CommandResults;
+import org.apache.hadoop.fs.FSDataInputStream;
 import org.apache.hadoop.fs.FSDataOutputStream;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.hdfs.DistributedFileSystem;
@@ -51,17 +52,16 @@ public class SampleTest {
     }
 
     @Test
-    public void sampleTest() throws RuntimeEngineException, InterruptedException {
+    public void sampleTest() throws RuntimeEngineException, InterruptedException, IOException {
 
         startMrJob("nn1");
         logger.info("wait for mapreduce ...");
         Thread.sleep(20000);
-        CommandResults res = runner.runtime().runCommandInNode("nn2", "cd " + ReditHelper.getHadoopHomeDir() + " && bin/hadoop fs -ls " + hdfsOutputFolderPath);
-        printResult(res);
+        checkMrJob("nn2");
         logger.info("mapreduce completed !!!");
     }
 
-    public static void startMrJob(String NodeName) {
+    private static void startMrJob(String NodeName) {
         new Thread(() -> {
             try {
                 runner.runtime().runCommandInNode(NodeName, "cd " + ReditHelper.getHadoopHomeDir()  + " && bin/hadoop jar ./share/hadoop/mapreduce/" + jarName + " wordcount " + hdfsInputFilePath + " " + hdfsOutputFolderPath);
@@ -69,6 +69,18 @@ public class SampleTest {
                 e.printStackTrace();
             }
         }).start();
+    }
+
+    private static void checkMrJob(String NodeName) throws RuntimeEngineException, IOException {
+        CommandResults res1 = runner.runtime().runCommandInNode(NodeName, "cd " + ReditHelper.getHadoopHomeDir()  + " && bin/hadoop fs -ls " + hdfsOutputFolderPath);
+        printResult(res1);
+        Path path = new Path(hdfsOutputFolderPath + "/part-r-00000");
+        FSDataInputStream inputStream = dfs.open(path);
+        int ch = inputStream.read();
+       while (ch != -1){
+           System.out.print((char)ch);
+           ch = inputStream.read();
+       }
     }
 
     private static void createAllDir() throws IOException {

@@ -37,10 +37,10 @@ public class SampleTest {
     }
 
     @Test
-    public void sampleTest() throws RuntimeEngineException, InterruptedException {
+    public void sampleTest() throws InterruptedException {
         logger.info("wait for raft-java...");
         startServers();
-        Thread.sleep(10000);
+        Thread.sleep(20000);
         clientWrite(1);
         Thread.sleep(5000);
         clientRead(2);
@@ -84,7 +84,7 @@ public class SampleTest {
     }
 
     private static void startServer(int serverId) {
-        String command = "cd " + ReditHelper.getRaftHomeDir() + " && bin/run_server.sh ./data \"" + serverCluster + "\" \"" + servers[serverId] + "\" &";
+        String command = "cd " + ReditHelper.getRaftHomeDir() + " && bin/run_server.sh ./data \"" + serverCluster + "\" \"" + servers[serverId] + "\" > ./logs/raft_example.log 2>&1";
         logger.info("server" + serverId + " startServer...");
         new Thread(() -> {
             try {

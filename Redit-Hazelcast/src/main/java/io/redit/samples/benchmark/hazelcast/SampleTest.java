@@ -29,8 +29,8 @@ public class SampleTest {
     }
 
     @Test
-    public void sampleTest() throws InterruptedException {
-        logger.info("wait for raft-java...");
+    public void sampleTest() throws InterruptedException, RuntimeEngineException {
+        logger.info("wait for hazelcast...");
         startServers();
         Thread.sleep(20000);
         checkServers();
@@ -38,7 +38,7 @@ public class SampleTest {
         logger.info("completed !!!");
     }
 
-    private void checkServers() throws InterruptedException {
+    private void checkServers() throws InterruptedException, RuntimeEngineException {
         for(int i = 1; i <= ReditHelper.numOfServers; i++){
             checkServer(i);
             Thread.sleep(1000);
