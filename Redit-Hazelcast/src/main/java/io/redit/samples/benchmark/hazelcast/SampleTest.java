@@ -1,5 +1,11 @@
 package io.redit.samples.benchmark.hazelcast;
 
+import com.hazelcast.client.HazelcastClient;
+import com.hazelcast.client.config.ClientConfig;
+import com.hazelcast.core.HazelcastInstance;
+import com.hazelcast.map.IMap;
+import com.hazelcast.sql.SqlResult;
+import com.hazelcast.sql.SqlRow;
 import io.redit.ReditRunner;
 import io.redit.exceptions.RuntimeEngineException;
 import io.redit.execution.CommandResults;
@@ -8,8 +14,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.Arrays;
+import java.util.Map;
 
 public class SampleTest {
     private static final Logger logger = LoggerFactory.getLogger(SampleTest.class);
@@ -35,6 +40,10 @@ public class SampleTest {
         Thread.sleep(20000);
         checkServers();
         Thread.sleep(5000);
+        getClient();
+        createMap();
+        Thread.sleep(5000);
+        selectMap();
         logger.info("completed !!!");
     }
 
@@ -77,6 +86,34 @@ public class SampleTest {
                 e.printStackTrace();
             }
         }).start();
+    }
+
+    private static HazelcastInstance getClient(){
+        System.out.println("test getClient ...");
+        ClientConfig clientConfig = new ClientConfig();
+        clientConfig.setClusterName("hello-world");
+        clientConfig.getNetworkConfig().addAddress("10.3.0.4:5701", "10.3.0.3:5701", "10.3.0.2:5701");
+        HazelcastInstance client = HazelcastClient.newHazelcastClient(clientConfig);
+        return client;
+    }
+
+    private static void createMap(){
+        System.out.println("test createMap ...");
+        HazelcastInstance client = getClient();
+        IMap<Integer, Employee> employeeMap  = client.getMap("employeeMap");
+        employeeMap .put(1, new Employee("aa", 18, true));
+        employeeMap .put(2, new Employee("bb", 19, false));
+        employeeMap .put(3, new Employee("cc", 31, true));
+        client.shutdown();
+    }
+
+    private static void selectMap(){
+        System.out.println("test select Map ...");
+        HazelcastInstance client = getClient();
+        IMap<Integer, Employee> myMap = client.getMap("employeeMap");
+        for (Map.Entry<Integer, Employee> entry : myMap.entrySet()) {
+            System.out.println(entry.getKey() + " " + entry.getValue().toString());
+        };
     }
 
     private static void printResult(CommandResults commandResults){
