@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 
 public class ReditHelper {
     public static final Logger logger = LoggerFactory.getLogger(ReditHelper.class);
-    public static int numOfServers = 3;
+    public static int numOfServers = 2;
     public static final int RPC_PORT = 9160;
 
     public static String getCassandraHomeDir(){
@@ -31,8 +31,7 @@ public class ReditHelper {
         builder.withService("server", "cassandra").tcpPort(RPC_PORT).and()
                 .nodeInstances(numOfServers, "server", "server", true)
                 .node("server1").applicationPath("conf/server1/cassandra.yaml", getCassandraHomeDir() + "/conf/cassandra.yaml").and()
-                .node("server2").applicationPath("conf/server2/cassandra.yaml", getCassandraHomeDir() + "/conf/cassandra.yaml").and()
-                .node("server3").applicationPath("conf/server3/cassandra.yaml", getCassandraHomeDir() + "/conf/cassandra.yaml").and();
+                .node("server2").applicationPath("conf/server2/cassandra.yaml", getCassandraHomeDir() + "/conf/cassandra.yaml").and();
 
         return builder.build();
     }

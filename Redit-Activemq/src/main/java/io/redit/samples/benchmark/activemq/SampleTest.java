@@ -37,14 +37,14 @@ public class SampleTest {
     public void sampleTest() throws InterruptedException, RuntimeEngineException, JMSException {
         logger.info("wait for Rocketmq ...");
         startServers();
-        Thread.sleep(50000);
+        Thread.sleep(40000);
         checkJps();
+        Thread.sleep(2000);
         startConsumer();
         startProducer();
-        Thread.sleep(30000);
+        Thread.sleep(20000);
         logger.info("completed !!!");
     }
-
 
     private static void startServers() throws InterruptedException, RuntimeEngineException {
         for(int i = 1; i <= ReditHelper.numOfServers; i++){

@@ -114,6 +114,7 @@ public class SampleTest {
         for (Map.Entry<Integer, Employee> entry : myMap.entrySet()) {
             System.out.println(entry.getKey() + " " + entry.getValue().toString());
         };
+        client.shutdown();
     }
 
     private static void printResult(CommandResults commandResults){

@@ -3,12 +3,20 @@ package io.redit.samples.benchmark.hbase;
 import io.redit.ReditRunner;
 import io.redit.exceptions.RuntimeEngineException;
 import io.redit.execution.CommandResults;
+import org.apache.commons.math3.util.Pair;
+import org.apache.curator.RetryPolicy;
+import org.apache.curator.framework.CuratorFramework;
+import org.apache.curator.framework.CuratorFrameworkFactory;
+import org.apache.curator.retry.ExponentialBackoffRetry;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.hbase.*;
 import org.apache.hadoop.hbase.client.*;
 import org.apache.hadoop.hbase.client.Result;
+import org.apache.hadoop.hbase.filter.FilterList;
+import org.apache.hadoop.hbase.filter.SingleColumnValueFilter;
 import org.apache.hadoop.hbase.util.Bytes;
+import org.apache.zookeeper.CreateMode;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -40,6 +48,9 @@ public class SampleTest {
     private static String ZooCfgConf = "";
     private static String HbaseSiteConf = "";
     private static String RegionConf = "";
+    private static final String TABLE_NAME = "class";
+    private static final String TEACHER = "teacher";
+    private static final String STUDENT = "student";
 
     @BeforeClass
     public static void before() throws RuntimeEngineException, IOException {
@@ -65,14 +76,14 @@ public class SampleTest {
 
 
     @AfterClass
-    public static void after() {
+    public static void after() throws IOException {
         if (runner != null) {
             runner.stop();
         }
     }
 
     @Test
-    public void sampleTest() throws InterruptedException, RuntimeEngineException {
+    public void sampleTest() throws Exception {
         logger.info("wait for zookeeper...");
         startZookeepers();
         Thread.sleep(5000);
@@ -82,14 +93,20 @@ public class SampleTest {
         startSsh();
         Thread.sleep(2000);
         startHbases();
-        Thread.sleep(10000);
+        Thread.sleep(20000);
         checkJps();
 
         logger.info("wait for createTable and insertTable...");
+        createZnode();
         createTable();
-        Thread.sleep(5000);
-        insertTable();
-
+        insertData();
+        getRow();
+        getCell();
+        getScanner();
+        getScannerWithFilter();
+        deleteColumn();
+        deleteRow();
+        deleteTable();
         logger.info("completed !!!");
     }
 
@@ -111,100 +128,88 @@ public class SampleTest {
         }).start();
     }
 
-    private static Connection createConnection() throws IOException {
-        Configuration conf = HBaseConfiguration.create();
-        conf.addResource(new Path("conf/hbase-site.xml"));
-        conf.addResource(new Path("conf/core-site.xml"));
-//        conf.set("hbase.zookeeper.quorum", HbaseSiteConf);
-//        conf.set("hbase.zookeeper.property.clientPort", "2181");
-        return ConnectionFactory.createConnection(conf);
+    private static void createZnode() throws Exception {
+        RetryPolicy retryPolicy = new ExponentialBackoffRetry(1000, 1);
+        String connectionStr = runner.runtime().ip("server1") + ":2181," + runner.runtime().ip("server2") + ":2181," + runner.runtime().ip("server3") + ":2181";
+        CuratorFramework client = CuratorFrameworkFactory.newClient(connectionStr, 8000, 8000, retryPolicy);
+        client.start();
+        client.create().creatingParentsIfNeeded().withMode(CreateMode.PERSISTENT).forPath("/hbase/id", "hbase".getBytes());
+        Thread.sleep(5000);
+        client.close();
     }
 
-    private static void createNamespace(Connection connection, String tablespace) throws IOException {
-        HBaseAdmin admin = (HBaseAdmin) connection.getAdmin();
-        admin.createNamespace(NamespaceDescriptor.create(tablespace).build());
-        System.out.println("成功创建表空间 " + tablespace);
+    private static void createTable(){
+        List<String> columnFamilies = Arrays.asList(TEACHER, STUDENT);
+        boolean table = HBaseUtils.createTable(TABLE_NAME, columnFamilies);
+        System.out.println("表创建结果:" + table);
     }
 
-    private static void create(Connection connection, String tableName, String... columnFamilies) throws IOException {
-        Admin admin = connection.getAdmin();
-        if (tableName == null || columnFamilies == null) {
-            return;
+    public void insertData() {
+        List<Pair<String, String>> pairs1 = Arrays.asList(new Pair<>("name", "Tom"),
+                new Pair<>("age", "22"),
+                new Pair<>("gender", "1"));
+        HBaseUtils.putRow(TABLE_NAME, "rowKey1", STUDENT, pairs1);
+
+        List<Pair<String, String>> pairs2 = Arrays.asList(new Pair<>("name", "Jack"),
+                new Pair<>("age", "33"),
+                new Pair<>("gender", "2"));
+        HBaseUtils.putRow(TABLE_NAME, "rowKey2", STUDENT, pairs2);
+
+        List<Pair<String, String>> pairs3 = Arrays.asList(new Pair<>("name", "Mike"),
+                new Pair<>("age", "44"),
+                new Pair<>("gender", "1"));
+        HBaseUtils.putRow(TABLE_NAME, "rowKey3", STUDENT, pairs3);
+    }
+
+    public void getRow() {
+        Result result = HBaseUtils.getRow(TABLE_NAME, "rowKey1");
+        if (result != null) {
+            System.out.println(Bytes.toString(result.getValue(Bytes.toBytes(STUDENT), Bytes.toBytes("name"))));
         }
-        HTableDescriptor table = new HTableDescriptor(TableName.valueOf(tableName));
-        for (int i = 0; i < columnFamilies.length; i++) {
-            if (columnFamilies[i] == null)
-                continue;
-            HColumnDescriptor columnDescriptor = new HColumnDescriptor(columnFamilies[i]);
-            columnDescriptor.setMaxVersions(1);
-            table.addFamily(columnDescriptor);
-        }
-        admin.createTable(table);
-        System.out.println("成功创建表 " + table + ", column family: " + Arrays.toString(columnFamilies));
+
     }
 
-    private static void createTable() {
-        try (Connection connection = createConnection()) {
-            createNamespace(connection,"zmb");
-            Thread.sleep(5000);
-            create(connection,"zmb:student", "name", "info", "score");
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
-        }
+    public void getCell() {
+        String cell = HBaseUtils.getCell(TABLE_NAME, "rowKey2", STUDENT, "age");
+        System.out.println("cell age :" + cell);
+
     }
 
-    public static void insert(Connection connection, String tableName, String rowKey, String columnFamily, String column,
-                              String value) throws IOException {
-        Table table = connection.getTable(TableName.valueOf(tableName));
-        Put put = new Put(rowKey.getBytes());
-        put.addColumn(columnFamily.getBytes(), column.getBytes(), value.getBytes());
-        table.put(put);
-    }
-
-    public static void scan(Connection connection, String tableName) throws IOException {
-        Table table = connection.getTable(TableName.valueOf(tableName));
-        Scan scan = new Scan();
-        ResultScanner scanner = table.getScanner(scan);
-        Result tmp;
-        System.out.println("Row\t\t\tColumn\tvalue");
-        while ((tmp = scanner.next()) != null) {
-            List<Cell> cells = tmp.listCells();
-            for (Cell cell : cells) {
-                String rk = Bytes.toString(cell.getRowArray(), cell.getRowOffset(), cell.getRowLength());
-                String cf = Bytes.toString(cell.getFamilyArray(), cell.getFamilyOffset(), cell.getFamilyLength());
-                String column = Bytes.toString(cell.getQualifierArray(), cell.getQualifierOffset(), cell.getQualifierLength());
-                String value = Bytes.toString(cell.getValueArray(), cell.getValueOffset(), cell.getValueLength());
-                System.out.println(rk + "\t\tcolumn:" + cf + ":" + column + ",value=" + value);
-            }
+    public void getScanner() {
+        ResultScanner scanner = HBaseUtils.getScanner(TABLE_NAME);
+        if (scanner != null) {
+            scanner.forEach(result -> System.out.println(Bytes.toString(result.getRow()) + "->" + Bytes
+                    .toString(result.getValue(Bytes.toBytes(STUDENT), Bytes.toBytes("name")))));
+            scanner.close();
         }
     }
 
-    private static void insertTable() {
-        try (Connection connection = createConnection()) {
-            insert(connection, "zmb:student", "row1", "name", "", "Tom");
-            insert(connection, "zmb:student", "row1", "info", "student_id", "20210000000001");
-            insert(connection, "zmb:student", "row1", "info", "class", "1");
-            insert(connection, "zmb:student", "row1", "score", "understanding", "75");
-            insert(connection, "zmb:student", "row1", "score", "programming", "82");
-
-            insert(connection, "zmb:student", "row2", "name", "", "Jerry");
-            insert(connection, "zmb:student", "row2", "info", "student_id", "20210000000002");
-            insert(connection, "zmb:student", "row2", "info", "class", "1");
-            insert(connection, "zmb:student", "row2", "score", "understanding", "85");
-            insert(connection, "zmb:student", "row2", "score", "programming", "67");
-
-
-            insert(connection, "zmb:student", "row3", "name", "", "Jack");
-            insert(connection, "zmb:student", "row3", "info", "student_id", "20210000000003");
-            insert(connection, "zmb:student", "row3", "info", "class", "2");
-            insert(connection, "zmb:student", "row3", "score", "understanding", "80");
-            insert(connection, "zmb:student", "row3", "score", "programming", "80");
-
-            Thread.sleep(5000);
-            scan(connection,"zmb:student");
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
+    public void getScannerWithFilter() {
+        FilterList filterList = new FilterList(FilterList.Operator.MUST_PASS_ALL);
+        SingleColumnValueFilter nameFilter = new SingleColumnValueFilter(Bytes.toBytes(STUDENT),
+                Bytes.toBytes("name"), CompareOperator.EQUAL, Bytes.toBytes("Jack"));
+        filterList.addFilter(nameFilter);
+        ResultScanner scanner = HBaseUtils.getScanner(TABLE_NAME, filterList);
+        if (scanner != null) {
+            scanner.forEach(result -> System.out.println(Bytes.toString(result.getRow()) + "->" + Bytes
+                    .toString(result.getValue(Bytes.toBytes(STUDENT), Bytes.toBytes("name")))));
+            scanner.close();
         }
+    }
+
+    public void deleteColumn() {
+        boolean b = HBaseUtils.deleteColumn(TABLE_NAME, "rowKey2", STUDENT, "age");
+        System.out.println("删除结果: " + b);
+    }
+
+    public void deleteRow() {
+        boolean b = HBaseUtils.deleteRow(TABLE_NAME, "rowKey2");
+        System.out.println("删除结果: " + b);
+    }
+
+    public void deleteTable() {
+        boolean b = HBaseUtils.deleteTable(TABLE_NAME);
+        System.out.println("删除结果: " + b);
     }
 
     private static void startSsh() throws RuntimeEngineException {

@@ -3,6 +3,11 @@ package io.redit.samples.benchmark.zookeeper;
 import io.redit.ReditRunner;
 import io.redit.exceptions.RuntimeEngineException;
 import io.redit.execution.CommandResults;
+import org.apache.curator.RetryPolicy;
+import org.apache.curator.framework.CuratorFramework;
+import org.apache.curator.framework.CuratorFrameworkFactory;
+import org.apache.curator.retry.ExponentialBackoffRetry;
+import org.apache.zookeeper.CreateMode;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -17,6 +22,7 @@ public class SampleTest {
     protected static ReditRunner runner;
     private static String confFile = "conf/zoo.cfg";
     private static String serverConf = "";
+    private static String connectionStr = "";
 
     @BeforeClass
     public static void before() throws RuntimeEngineException, IOException {
@@ -25,6 +31,7 @@ public class SampleTest {
         for(int i = 1; i <= ReditHelper.numOfServers; i++){
             serverConf += "server." + i + "=" + runner.runtime().ip("server" + (i)) + ":2888:3888\n";
         }
+        connectionStr = runner.runtime().ip("server1") + ":2181," + runner.runtime().ip("server2") + ":2181," + runner.runtime().ip("server3") + ":2181";
         addConfFile();
     }
 
@@ -36,11 +43,13 @@ public class SampleTest {
     }
 
     @Test
-    public void sampleTest() throws InterruptedException, RuntimeEngineException {
+    public void sampleTest() throws Exception {
         logger.info("wait for zookeeper...");
         startServers();
         Thread.sleep(20000);
         checkServersStatus();
+        Thread.sleep(2000);
+        createTmpZnode();
         logger.info("completed !!!");
     }
 
@@ -69,6 +78,33 @@ public class SampleTest {
                 e.printStackTrace();
             }
         }).start();
+    }
+
+    public void createTmpZnode() throws Exception {
+        //1:定制一个重试策略
+        /*
+            param1: 重试的间隔时间
+            param2:重试的最大次数
+         */
+        RetryPolicy retryPolicy = new ExponentialBackoffRetry(1000, 1);
+        //2:获取一个客户端对象
+        /*
+           param1:要连接的Zookeeper服务器列表
+           param2:会话的超时时间
+           param3:链接超时时间
+           param4:重试策略
+         */
+        CuratorFramework client = CuratorFrameworkFactory.newClient(connectionStr, 8000, 8000, retryPolicy);
+        //3:启动客户端
+        client.start();
+        //4:创建临时节点
+        client.create().creatingParentsIfNeeded().withMode(CreateMode.EPHEMERAL).forPath("/hello", "zookeeper".getBytes());
+        Thread.sleep(5000);
+        //5:获取节点数据
+        byte[] bytes = client.getData().forPath("/hello");
+        System.out.println(new String(bytes));
+        //6:关闭客户端
+        client.close();
     }
 
     private static void addConfFile() throws IOException {

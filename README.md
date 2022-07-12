@@ -4,21 +4,21 @@
 
 ## Components
 
-| benchmark | create_time | reference | role |
-| :----: | :----: | :----: | :----: |
-|         MapReduce         | 2022_03_30 (deprecated) |          https://github.com/OneSizeFitsQuorum/MIT6.824-2021 | coordinator、worker |
-|         Raft-Java         |       2022_04_27        |          https://github.com/wenweihu86/raft-java    |    client、server   | 
-|      Distributed-Id       | 2022_04_30 (deprecated) |          https://github.com/beyondfengyu/DistributedID | client、server   |
-|        JLiteSpider        | 2022_05_14 (deprecated) |          https://github.com/luohaha/jlitespider     |    spider、lighter、rabbitmq   |
-|      Zookeeper-3.7.1      |       2022_05_24        |          https://github.com/apache/zookeeper        |    leader、follower、observer  |
-|        Kafka-3.2.0        |       2022_05_28        |          https://github.com/apache/kafka            |    client、server   |
-|       Hbase-2.4.12        |       2022_06_01        |          https://github.com/apache/hbase            |    master、regionserver     |
-|       hadoop-mapreduce    |       2022_06_08        |          https://github.com/apache/hadoop           |    namenode、datanode    |
-|       elasticsearch-8.22  |       2022_06_18        |          https://github.com/elastic/elasticsearch   |    client、server   |
-|       hazelcast-5.1.2     |       2022_06_20        |          https://github.com/hazelcast/hazelcast     |    client、server   |
-|       cassandra-3.11.6    |       2022_06_27        |          https://github.com/apache/cassandra        |    master、slave    |
-|       rocketmq-4.9.4      |       2022_06_30        |          https://github.com/apache/rocketmq         |    master、slave    |
-|       activemq-5.16.5     |       2022_07_01        |          https://github.com/apache/activemq         |    master、slave    |
+| benchmark | create_time | reference | role | java api |
+| :----: | :----: | :----: | :----: | :----: |
+|         MapReduce         | 2022_03_30 (deprecated) |          https://github.com/OneSizeFitsQuorum/MIT6.824-2021 | coordinator、worker        | \ |
+|         Raft-Java         |       2022_04_27        |          https://github.com/wenweihu86/raft-java    |    client、server                  | command line implementation |
+|      Distributed-Id       | 2022_04_30 (deprecated) |          https://github.com/beyondfengyu/DistributedID | client、server                  | \ |
+|        JLiteSpider        | 2022_05_14 (deprecated) |          https://github.com/luohaha/jlitespider     |    spider、lighter、rabbitmq       | \ |
+|      Zookeeper-3.7.1      |       2022_05_24        |          https://github.com/apache/zookeeper        |    leader、follower、observer      | create tmp Znode and get data |
+|        Kafka-3.2.0        |       2022_05_28        |          https://github.com/apache/kafka            |    client、server                  | create Topic、 Producer and Consumer |
+|       Hbase-2.4.12        |       2022_06_01        |          https://github.com/apache/hbase            |    master、regionserver            | create Table and insert data (域名解析暂时失败) |
+|       hadoop-mapreduce    |       2022_06_08        |          https://github.com/apache/hadoop           |    namenode、datanode              | write a file to HDFS、 do wordcount job and print the result |
+|       elasticsearch-8.22  |       2022_06_18        |          https://github.com/elastic/elasticsearch   |    client、server                  | add index and search by id (拒绝连接) |
+|       hazelcast-5.1.2     |       2022_06_20        |          https://github.com/hazelcast/hazelcast     |    client、server                  | create a map and insert data, print the map data |
+|       cassandra-3.11.6    |       2022_06_27        |          https://github.com/apache/cassandra        |    master、slave                   | create TableCQL、 insert data and query、update、delete data |
+|       rocketmq-4.9.4      |       2022_06_30        |          https://github.com/apache/rocketmq         |    master、slave                   | create Producer and Consumer |
+|       activemq-5.16.5     |       2022_07_01        |          https://github.com/apache/activemq         |    master、slave                   | create Producer and Consumer |
 
 
 ## MapReduce (deprecated)

@@ -77,10 +77,10 @@ public class SampleTest {
         Path path = new Path(hdfsOutputFolderPath + "/part-r-00000");
         FSDataInputStream inputStream = dfs.open(path);
         int ch = inputStream.read();
-       while (ch != -1){
-           System.out.print((char)ch);
-           ch = inputStream.read();
-       }
+        while (ch != -1){
+            System.out.print((char)ch);
+             ch = inputStream.read();
+        }
     }
 
     private static void createAllDir() throws IOException {

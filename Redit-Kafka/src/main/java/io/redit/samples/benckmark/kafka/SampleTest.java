@@ -106,7 +106,7 @@ public class SampleTest {
     public static void createProducer(int serverId) throws InterruptedException {
         Properties kafkaProducerProps = new Properties();
         String bootstrap_server = runner.runtime().ip("server" + serverId) + ":9092";
-        logger.info("bootstrap_server: " + bootstrap_server);
+        System.out.println("bootstrap_server: " + bootstrap_server);
         kafkaProducerProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrap_server);
         kafkaProducerProps.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG,  StringSerializer.class);
         kafkaProducerProps.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
@@ -118,17 +118,17 @@ public class SampleTest {
         ProducerRecord<String, String> record2 = new ProducerRecord<>("test", "hello", "kafka");
         kafkaProducer.send(record1, (recordMetadata, e) -> {
             if (e == null) {
-                logger.info("KafkaProducer send data partition：" + recordMetadata.partition());//数据所在分区
-                logger.info("KafkaProducer send data topic：" + recordMetadata.topic());//数据所对应的topic
-                logger.info("KafkaProducer send data offset：" + recordMetadata.offset());//数据的offset
+                System.out.println("KafkaProducer send data partition：" + recordMetadata.partition());//数据所在分区
+                System.out.println("KafkaProducer send data topic：" + recordMetadata.topic());//数据所对应的topic
+                System.out.println("KafkaProducer send data offset：" + recordMetadata.offset());//数据的offset
             }
         });
         Thread.sleep(1000);
         kafkaProducer.send(record2, (recordMetadata, e) -> {
             if (e == null) {
-                logger.info("KafkaProducer send data partition：" + recordMetadata.partition());//数据所在分区
-                logger.info("KafkaProducer send data topic：" + recordMetadata.topic());//数据所对应的topic
-                logger.info("KafkaProducer send data offset：" + recordMetadata.offset());//数据的offset
+                System.out.println("KafkaProducer send data partition：" + recordMetadata.partition());//数据所在分区
+                System.out.println("KafkaProducer send data topic：" + recordMetadata.topic());//数据所对应的topic
+                System.out.println("KafkaProducer send data offset：" + recordMetadata.offset());//数据的offset
             }
         });
         kafkaProducer.close();
@@ -138,7 +138,7 @@ public class SampleTest {
     public static void createConsumer(int serverId) {
         Properties kafkaConsumerProps = new Properties();
         String bootstrap_server = runner.runtime().ip("server" + serverId) + ":9092";
-        logger.info("bootstrap_server: " + bootstrap_server);
+        System.out.println("bootstrap_server: " + bootstrap_server);
         kafkaConsumerProps.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrap_server);
         kafkaConsumerProps.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG,  StringDeserializer.class);
         kafkaConsumerProps.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
@@ -153,11 +153,11 @@ public class SampleTest {
                 while (x < 5){
                     ConsumerRecords<String, String> consumerRecords = kafkaConsumer.poll(100);
                     for (ConsumerRecord<String, String> consumerRecord : consumerRecords) {
-                        logger.info("server " + serverId + " kafkaConsumer: " + consumerRecord);
+                        System.out.println("server " + serverId + " kafkaConsumer: " + consumerRecord);
                     }
                     Thread.sleep(2000);
                     x++;
-                    logger.info("server " + serverId + " kafkaConsumer poll: " + x);
+                    System.out.println("server " + serverId + " kafkaConsumer poll: " + x);
                 }
                 kafkaConsumer.close();
             } catch (InterruptedException e) {

@@ -40,15 +40,11 @@ public class SampleTest {
     @Test
     public void sampleTest() throws RuntimeEngineException, InterruptedException {
         logger.info("wait for Cassandra ...");
-        for(int i = 1; i <= 2; i++){
-            startServer(i);
-            Thread.sleep(10000);
-        }
-        checkStatus(1);
+        startServer(1);
+        Thread.sleep(10000);
+        startServer(2);
         Thread.sleep(30000);
         checkNetStatus(2);
-        startServer(3);
-        Thread.sleep(30000);
         checkStatus(1);
         operation();
         logger.info("completed !!!");
