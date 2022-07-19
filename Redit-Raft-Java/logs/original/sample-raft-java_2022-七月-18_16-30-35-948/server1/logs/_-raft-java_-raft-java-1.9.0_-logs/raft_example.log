@@ -1,0 +1,150 @@
+2022-07-18 08:30:46,112 INFO [main]	register protocol:1 success
+2022-07-18 08:30:46,267 INFO [main]	register protocol:29 success
+2022-07-18 08:30:46,273 INFO [main]	register protocol:4 success
+2022-07-18 08:30:46,280 INFO [main]	register protocol:3 success
+2022-07-18 08:30:46,282 INFO [main]	register protocol:31 success
+2022-07-18 08:30:46,282 INFO [main]	register protocol:28 success
+2022-07-18 08:30:46,283 INFO [main]	register protocol:32 success
+2022-07-18 08:30:46,285 INFO [main]	register protocol:33 success
+2022-07-18 08:30:46,285 INFO [main]	register protocol:30 success
+2022-07-18 08:30:46,286 INFO [main]	register load balance factory:RandomLoadBalanceFactory success
+2022-07-18 08:30:46,286 INFO [main]	register load balance factory:RoundRobinLoadBalanceFactory success
+2022-07-18 08:30:46,288 INFO [main]	register load balance factory:WeightLoadBalanceFactory success
+2022-07-18 08:30:46,292 INFO [main]	register load balance factory:FairLoadBalanceFactory success
+2022-07-18 08:30:46,298 INFO [main]	create thread:server-work-thread-1
+2022-07-18 08:30:46,300 INFO [main]	create thread:server-work-thread-2
+2022-07-18 08:30:46,387 INFO [main]	use jdk nio event mode
+2022-07-18 08:30:46,425 INFO [main]	create thread:timeout-timer-thread-1
+2022-07-18 08:30:46,542 WARN [main]	meta file not exist, name=./data/log/metadata
+2022-07-18 08:30:46,545 WARN [main]	meta file not exist, name=./data/snapshot/metadata
+2022-07-18 08:30:46,614 INFO [main]	register service, serviceName=com.github.wenweihu86.raft.service.RaftConsensusService, methodName=appendEntries
+2022-07-18 08:30:46,617 INFO [main]	register service, serviceName=com.github.wenweihu86.raft.service.RaftConsensusService, methodName=preVote
+2022-07-18 08:30:46,617 INFO [main]	register service, serviceName=com.github.wenweihu86.raft.service.RaftConsensusService, methodName=requestVote
+2022-07-18 08:30:46,620 INFO [main]	register service, serviceName=com.github.wenweihu86.raft.service.RaftConsensusService, methodName=installSnapshot
+2022-07-18 08:30:46,644 INFO [main]	register service, serviceName=com.github.wenweihu86.raft.service.RaftClientService, methodName=getConfiguration
+2022-07-18 08:30:46,648 INFO [main]	register service, serviceName=com.github.wenweihu86.raft.service.RaftClientService, methodName=getLeader
+2022-07-18 08:30:46,657 INFO [main]	register service, serviceName=com.github.wenweihu86.raft.service.RaftClientService, methodName=addPeers
+2022-07-18 08:30:46,666 INFO [main]	register service, serviceName=com.github.wenweihu86.raft.service.RaftClientService, methodName=removePeers
+2022-07-18 08:30:46,670 INFO [main]	register service, serviceName=com.github.wenweihu86.raft.example.server.service.ExampleService, methodName=get
+2022-07-18 08:30:46,671 INFO [main]	register service, serviceName=com.github.wenweihu86.raft.example.server.service.ExampleService, methodName=set
+2022-07-18 08:30:46,745 INFO [main]	create thread:server-acceptor-thread-1
+2022-07-18 08:30:46,778 INFO [main]	server started on port=8052 success
+2022-07-18 08:30:46,803 INFO [main]	create thread:fairStrategy-timer-thread-1
+2022-07-18 08:30:46,818 INFO [main]	create thread:client-work-thread-1
+2022-07-18 08:30:46,819 INFO [main]	create thread:client-work-thread-2
+2022-07-18 08:30:47,285 INFO [main]	create thread:client-io-thread-1
+2022-07-18 08:30:47,292 WARN [main]	init min idle object pool failed
+2022-07-18 08:30:47,497 INFO [main]	create thread:fairStrategy-timer-thread-1
+2022-07-18 08:30:47,510 INFO [main]	create thread:client-work-thread-1
+2022-07-18 08:30:47,510 INFO [main]	create thread:client-work-thread-2
+2022-07-18 08:30:47,527 INFO [main]	create thread:client-io-thread-1
+2022-07-18 08:30:47,528 WARN [main]	init min idle object pool failed
+2022-07-18 08:30:49,106 INFO [server-acceptor-thread-1]	create thread:server-io-thread-1
+2022-07-18 08:30:49,131 INFO [server-acceptor-thread-1]	create thread:server-io-thread-2
+2022-07-18 08:30:56,705 INFO [pool-3-thread-1]	Running pre-vote in term 0
+2022-07-18 08:30:56,707 INFO [pool-2-thread-1]	begin pre vote request
+2022-07-18 08:30:56,709 INFO [pool-2-thread-2]	begin pre vote request
+2022-07-18 08:30:56,719 INFO [pool-2-thread-1]	create thread:client-io-thread-2
+2022-07-18 08:30:56,721 INFO [pool-2-thread-2]	create thread:client-io-thread-2
+2022-07-18 08:30:56,866 INFO [client-work-thread-1]	get pre vote granted from server 3 for term 0
+2022-07-18 08:30:56,868 INFO [client-work-thread-1]	preVoteGrantedNum=2
+2022-07-18 08:30:56,868 INFO [client-work-thread-1]	get majority pre vote, serverId=1 when pre vote, start vote
+2022-07-18 08:30:56,872 INFO [client-work-thread-1]	Running for election in term 1
+2022-07-18 08:30:56,873 INFO [client-work-thread-1]	ignore preVote RPC result
+2022-07-18 08:30:56,874 INFO [pool-2-thread-3]	begin vote request
+2022-07-18 08:30:56,875 INFO [pool-2-thread-4]	begin vote request
+2022-07-18 08:30:56,889 INFO [client-work-thread-2]	Got vote from server 2 for term 1
+2022-07-18 08:30:56,889 INFO [client-work-thread-2]	voteGrantedNum=2
+2022-07-18 08:30:56,890 INFO [client-work-thread-2]	Got majority vote, serverId=1 become leader
+2022-07-18 08:30:56,915 INFO [client-work-thread-2]	ignore requestVote RPC result
+2022-07-18 08:30:57,051 INFO [pool-2-thread-6]	AppendEntries response[RES_CODE_SUCCESS] from server 3 in term 1 (my term is 1)
+2022-07-18 08:30:57,052 INFO [pool-2-thread-5]	AppendEntries response[RES_CODE_SUCCESS] from server 2 in term 1 (my term is 1)
+2022-07-18 08:30:57,401 INFO [pool-2-thread-7]	AppendEntries response[RES_CODE_SUCCESS] from server 2 in term 1 (my term is 1)
+2022-07-18 08:30:57,403 INFO [pool-2-thread-8]	AppendEntries response[RES_CODE_SUCCESS] from server 3 in term 1 (my term is 1)
+2022-07-18 08:30:57,906 INFO [pool-2-thread-9]	AppendEntries response[RES_CODE_SUCCESS] from server 2 in term 1 (my term is 1)
+2022-07-18 08:30:57,910 INFO [pool-2-thread-10]	AppendEntries response[RES_CODE_SUCCESS] from server 3 in term 1 (my term is 1)
+2022-07-18 08:30:58,406 INFO [pool-2-thread-11]	AppendEntries response[RES_CODE_SUCCESS] from server 2 in term 1 (my term is 1)
+2022-07-18 08:30:58,408 INFO [pool-2-thread-12]	AppendEntries response[RES_CODE_SUCCESS] from server 3 in term 1 (my term is 1)
+2022-07-18 08:30:58,911 INFO [pool-2-thread-13]	AppendEntries response[RES_CODE_SUCCESS] from server 2 in term 1 (my term is 1)
+2022-07-18 08:30:58,911 INFO [pool-2-thread-14]	AppendEntries response[RES_CODE_SUCCESS] from server 3 in term 1 (my term is 1)
+2022-07-18 08:30:59,414 INFO [pool-2-thread-15]	AppendEntries response[RES_CODE_SUCCESS] from server 2 in term 1 (my term is 1)
+2022-07-18 08:30:59,416 INFO [pool-2-thread-16]	AppendEntries response[RES_CODE_SUCCESS] from server 3 in term 1 (my term is 1)
+2022-07-18 08:30:59,912 INFO [pool-2-thread-17]	AppendEntries response[RES_CODE_SUCCESS] from server 2 in term 1 (my term is 1)
+2022-07-18 08:30:59,913 INFO [pool-2-thread-18]	AppendEntries response[RES_CODE_SUCCESS] from server 3 in term 1 (my term is 1)
+2022-07-18 08:31:00,412 INFO [pool-2-thread-20]	AppendEntries response[RES_CODE_SUCCESS] from server 3 in term 1 (my term is 1)
+2022-07-18 08:31:00,415 INFO [pool-2-thread-19]	AppendEntries response[RES_CODE_SUCCESS] from server 2 in term 1 (my term is 1)
+2022-07-18 08:31:00,913 INFO [pool-2-thread-1]	AppendEntries response[RES_CODE_SUCCESS] from server 3 in term 1 (my term is 1)
+2022-07-18 08:31:00,915 INFO [pool-2-thread-2]	AppendEntries response[RES_CODE_SUCCESS] from server 2 in term 1 (my term is 1)
+2022-07-18 08:31:01,418 INFO [pool-2-thread-3]	AppendEntries response[RES_CODE_SUCCESS] from server 2 in term 1 (my term is 1)
+2022-07-18 08:31:01,419 INFO [pool-2-thread-4]	AppendEntries response[RES_CODE_SUCCESS] from server 3 in term 1 (my term is 1)
+2022-07-18 08:31:01,915 INFO [pool-2-thread-5]	AppendEntries response[RES_CODE_SUCCESS] from server 3 in term 1 (my term is 1)
+2022-07-18 08:31:01,915 INFO [pool-2-thread-6]	AppendEntries response[RES_CODE_SUCCESS] from server 2 in term 1 (my term is 1)
+2022-07-18 08:31:02,415 INFO [pool-2-thread-7]	AppendEntries response[RES_CODE_SUCCESS] from server 2 in term 1 (my term is 1)
+2022-07-18 08:31:02,416 INFO [pool-2-thread-8]	AppendEntries response[RES_CODE_SUCCESS] from server 3 in term 1 (my term is 1)
+2022-07-18 08:31:02,918 INFO [pool-2-thread-10]	AppendEntries response[RES_CODE_SUCCESS] from server 3 in term 1 (my term is 1)
+2022-07-18 08:31:02,919 INFO [pool-2-thread-9]	AppendEntries response[RES_CODE_SUCCESS] from server 2 in term 1 (my term is 1)
+2022-07-18 08:31:03,416 INFO [pool-2-thread-12]	AppendEntries response[RES_CODE_SUCCESS] from server 3 in term 1 (my term is 1)
+2022-07-18 08:31:03,417 INFO [pool-2-thread-11]	AppendEntries response[RES_CODE_SUCCESS] from server 2 in term 1 (my term is 1)
+2022-07-18 08:31:03,917 INFO [pool-2-thread-13]	AppendEntries response[RES_CODE_SUCCESS] from server 2 in term 1 (my term is 1)
+2022-07-18 08:31:03,918 INFO [pool-2-thread-14]	AppendEntries response[RES_CODE_SUCCESS] from server 3 in term 1 (my term is 1)
+2022-07-18 08:31:04,419 INFO [pool-2-thread-15]	AppendEntries response[RES_CODE_SUCCESS] from server 2 in term 1 (my term is 1)
+2022-07-18 08:31:04,420 INFO [pool-2-thread-16]	AppendEntries response[RES_CODE_SUCCESS] from server 3 in term 1 (my term is 1)
+2022-07-18 08:31:04,920 INFO [pool-2-thread-17]	AppendEntries response[RES_CODE_SUCCESS] from server 2 in term 1 (my term is 1)
+2022-07-18 08:31:04,920 INFO [pool-2-thread-18]	AppendEntries response[RES_CODE_SUCCESS] from server 3 in term 1 (my term is 1)
+2022-07-18 08:31:05,419 INFO [pool-2-thread-20]	AppendEntries response[RES_CODE_SUCCESS] from server 2 in term 1 (my term is 1)
+2022-07-18 08:31:05,419 INFO [pool-2-thread-19]	AppendEntries response[RES_CODE_SUCCESS] from server 3 in term 1 (my term is 1)
+2022-07-18 08:31:05,920 INFO [pool-2-thread-1]	AppendEntries response[RES_CODE_SUCCESS] from server 2 in term 1 (my term is 1)
+2022-07-18 08:31:05,920 INFO [pool-2-thread-2]	AppendEntries response[RES_CODE_SUCCESS] from server 3 in term 1 (my term is 1)
+2022-07-18 08:31:06,420 INFO [pool-2-thread-3]	AppendEntries response[RES_CODE_SUCCESS] from server 2 in term 1 (my term is 1)
+2022-07-18 08:31:06,421 INFO [pool-2-thread-4]	AppendEntries response[RES_CODE_SUCCESS] from server 3 in term 1 (my term is 1)
+2022-07-18 08:31:06,921 INFO [pool-2-thread-5]	AppendEntries response[RES_CODE_SUCCESS] from server 2 in term 1 (my term is 1)
+2022-07-18 08:31:06,922 INFO [pool-2-thread-6]	AppendEntries response[RES_CODE_SUCCESS] from server 3 in term 1 (my term is 1)
+2022-07-18 08:31:07,424 INFO [pool-2-thread-8]	AppendEntries response[RES_CODE_SUCCESS] from server 3 in term 1 (my term is 1)
+2022-07-18 08:31:07,425 INFO [pool-2-thread-7]	AppendEntries response[RES_CODE_SUCCESS] from server 2 in term 1 (my term is 1)
+2022-07-18 08:31:07,924 INFO [pool-2-thread-10]	AppendEntries response[RES_CODE_SUCCESS] from server 2 in term 1 (my term is 1)
+2022-07-18 08:31:07,929 INFO [pool-2-thread-9]	AppendEntries response[RES_CODE_SUCCESS] from server 3 in term 1 (my term is 1)
+2022-07-18 08:31:08,423 INFO [pool-2-thread-12]	AppendEntries response[RES_CODE_SUCCESS] from server 2 in term 1 (my term is 1)
+2022-07-18 08:31:08,425 INFO [pool-2-thread-11]	AppendEntries response[RES_CODE_SUCCESS] from server 3 in term 1 (my term is 1)
+2022-07-18 08:31:08,923 INFO [pool-2-thread-13]	AppendEntries response[RES_CODE_SUCCESS] from server 2 in term 1 (my term is 1)
+2022-07-18 08:31:08,925 INFO [pool-2-thread-14]	AppendEntries response[RES_CODE_SUCCESS] from server 3 in term 1 (my term is 1)
+2022-07-18 08:31:09,426 INFO [pool-2-thread-15]	AppendEntries response[RES_CODE_SUCCESS] from server 2 in term 1 (my term is 1)
+2022-07-18 08:31:09,430 INFO [pool-2-thread-16]	AppendEntries response[RES_CODE_SUCCESS] from server 3 in term 1 (my term is 1)
+2022-07-18 08:31:09,924 INFO [pool-2-thread-18]	AppendEntries response[RES_CODE_SUCCESS] from server 3 in term 1 (my term is 1)
+2022-07-18 08:31:09,966 INFO [pool-2-thread-17]	AppendEntries response[RES_CODE_SUCCESS] from server 2 in term 1 (my term is 1)
+2022-07-18 08:31:09,990 INFO [pool-2-thread-1]	AppendEntries response[RES_CODE_SUCCESS] from server 3 in term 1 (my term is 1)
+2022-07-18 08:31:09,991 INFO [pool-2-thread-1]	new segment meta info, currentTerm=1, votedFor=0, firstLogIndex=1
+2022-07-18 08:31:09,991 INFO [pool-2-thread-19]	AppendEntries response[RES_CODE_SUCCESS] from server 2 in term 1 (my term is 1)
+2022-07-18 08:31:10,039 INFO [server-work-thread-1]	set request, request={"key": "hello","value": "zmb"}, response={"success": true}
+2022-07-18 08:31:10,425 INFO [pool-2-thread-2]	AppendEntries response[RES_CODE_SUCCESS] from server 2 in term 1 (my term is 1)
+2022-07-18 08:31:10,426 INFO [pool-2-thread-3]	AppendEntries response[RES_CODE_SUCCESS] from server 3 in term 1 (my term is 1)
+2022-07-18 08:31:10,922 INFO [pool-2-thread-5]	AppendEntries response[RES_CODE_SUCCESS] from server 3 in term 1 (my term is 1)
+2022-07-18 08:31:10,926 INFO [pool-2-thread-4]	AppendEntries response[RES_CODE_SUCCESS] from server 2 in term 1 (my term is 1)
+2022-07-18 08:31:11,427 INFO [pool-2-thread-8]	AppendEntries response[RES_CODE_SUCCESS] from server 3 in term 1 (my term is 1)
+2022-07-18 08:31:11,427 INFO [pool-2-thread-6]	AppendEntries response[RES_CODE_SUCCESS] from server 2 in term 1 (my term is 1)
+2022-07-18 08:31:11,923 INFO [pool-2-thread-10]	AppendEntries response[RES_CODE_SUCCESS] from server 3 in term 1 (my term is 1)
+2022-07-18 08:31:11,925 INFO [pool-2-thread-7]	AppendEntries response[RES_CODE_SUCCESS] from server 2 in term 1 (my term is 1)
+2022-07-18 08:31:12,426 INFO [pool-2-thread-9]	AppendEntries response[RES_CODE_SUCCESS] from server 2 in term 1 (my term is 1)
+2022-07-18 08:31:12,429 INFO [pool-2-thread-12]	AppendEntries response[RES_CODE_SUCCESS] from server 3 in term 1 (my term is 1)
+2022-07-18 08:31:12,932 INFO [pool-2-thread-13]	AppendEntries response[RES_CODE_SUCCESS] from server 3 in term 1 (my term is 1)
+2022-07-18 08:31:12,932 INFO [pool-2-thread-11]	AppendEntries response[RES_CODE_SUCCESS] from server 2 in term 1 (my term is 1)
+2022-07-18 08:31:13,429 INFO [pool-2-thread-15]	AppendEntries response[RES_CODE_SUCCESS] from server 3 in term 1 (my term is 1)
+2022-07-18 08:31:13,430 INFO [pool-2-thread-14]	AppendEntries response[RES_CODE_SUCCESS] from server 2 in term 1 (my term is 1)
+2022-07-18 08:31:13,933 INFO [pool-2-thread-18]	AppendEntries response[RES_CODE_SUCCESS] from server 3 in term 1 (my term is 1)
+2022-07-18 08:31:13,933 INFO [pool-2-thread-16]	AppendEntries response[RES_CODE_SUCCESS] from server 2 in term 1 (my term is 1)
+2022-07-18 08:31:14,435 INFO [pool-2-thread-20]	AppendEntries response[RES_CODE_SUCCESS] from server 3 in term 1 (my term is 1)
+2022-07-18 08:31:14,438 INFO [pool-2-thread-17]	AppendEntries response[RES_CODE_SUCCESS] from server 2 in term 1 (my term is 1)
+2022-07-18 08:31:14,446 INFO [server-work-thread-2]	get request, request={"key": "hello"}, response={"value": "zmb"}
+2022-07-18 08:31:14,936 INFO [pool-2-thread-19]	AppendEntries response[RES_CODE_SUCCESS] from server 3 in term 1 (my term is 1)
+2022-07-18 08:31:14,940 INFO [pool-2-thread-1]	AppendEntries response[RES_CODE_SUCCESS] from server 2 in term 1 (my term is 1)
+2022-07-18 08:31:15,436 INFO [pool-2-thread-3]	AppendEntries response[RES_CODE_SUCCESS] from server 3 in term 1 (my term is 1)
+2022-07-18 08:31:15,438 INFO [pool-2-thread-2]	AppendEntries response[RES_CODE_SUCCESS] from server 2 in term 1 (my term is 1)
+2022-07-18 08:31:15,937 INFO [pool-2-thread-4]	AppendEntries response[RES_CODE_SUCCESS] from server 3 in term 1 (my term is 1)
+2022-07-18 08:31:15,940 INFO [pool-2-thread-5]	AppendEntries response[RES_CODE_SUCCESS] from server 2 in term 1 (my term is 1)
+2022-07-18 08:31:16,440 INFO [pool-2-thread-6]	AppendEntries response[RES_CODE_SUCCESS] from server 3 in term 1 (my term is 1)
+2022-07-18 08:31:16,440 INFO [pool-2-thread-8]	AppendEntries response[RES_CODE_SUCCESS] from server 2 in term 1 (my term is 1)
+2022-07-18 08:31:16,940 INFO [pool-2-thread-7]	AppendEntries response[RES_CODE_SUCCESS] from server 3 in term 1 (my term is 1)
+2022-07-18 08:31:16,942 INFO [pool-2-thread-10]	AppendEntries response[RES_CODE_SUCCESS] from server 2 in term 1 (my term is 1)
+2022-07-18 08:31:17,440 INFO [pool-2-thread-12]	AppendEntries response[RES_CODE_SUCCESS] from server 3 in term 1 (my term is 1)
+2022-07-18 08:31:17,440 INFO [pool-2-thread-9]	AppendEntries response[RES_CODE_SUCCESS] from server 2 in term 1 (my term is 1)
+2022-07-18 08:31:17,860 INFO [client-io-thread-2]	create thread:invalid-channel-callback-thread-1
+2022-07-18 08:31:17,940 INFO [pool-2-thread-13]	AppendEntries response[RES_CODE_SUCCESS] from server 2 in term 1 (my term is 1)

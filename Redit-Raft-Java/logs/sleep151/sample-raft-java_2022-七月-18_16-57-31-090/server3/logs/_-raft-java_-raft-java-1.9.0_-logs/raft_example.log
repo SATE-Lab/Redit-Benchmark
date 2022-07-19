@@ -1,0 +1,105 @@
+2022-07-18 08:57:42,029 INFO [main]	register protocol:1 success
+2022-07-18 08:57:42,104 INFO [main]	register protocol:29 success
+2022-07-18 08:57:42,108 INFO [main]	register protocol:4 success
+2022-07-18 08:57:42,113 INFO [main]	register protocol:3 success
+2022-07-18 08:57:42,116 INFO [main]	register protocol:31 success
+2022-07-18 08:57:42,117 INFO [main]	register protocol:28 success
+2022-07-18 08:57:42,118 INFO [main]	register protocol:32 success
+2022-07-18 08:57:42,120 INFO [main]	register protocol:33 success
+2022-07-18 08:57:42,120 INFO [main]	register protocol:30 success
+2022-07-18 08:57:42,121 INFO [main]	register load balance factory:RandomLoadBalanceFactory success
+2022-07-18 08:57:42,122 INFO [main]	register load balance factory:RoundRobinLoadBalanceFactory success
+2022-07-18 08:57:42,122 INFO [main]	register load balance factory:WeightLoadBalanceFactory success
+2022-07-18 08:57:42,123 INFO [main]	register load balance factory:FairLoadBalanceFactory success
+2022-07-18 08:57:42,131 INFO [main]	create thread:server-work-thread-1
+2022-07-18 08:57:42,132 INFO [main]	create thread:server-work-thread-2
+2022-07-18 08:57:42,176 INFO [main]	use jdk nio event mode
+2022-07-18 08:57:42,204 INFO [main]	create thread:timeout-timer-thread-1
+2022-07-18 08:57:42,301 WARN [main]	meta file not exist, name=./data/log/metadata
+2022-07-18 08:57:42,304 WARN [main]	meta file not exist, name=./data/snapshot/metadata
+2022-07-18 08:57:42,337 INFO [main]	register service, serviceName=com.github.wenweihu86.raft.service.RaftConsensusService, methodName=appendEntries
+2022-07-18 08:57:42,338 INFO [main]	register service, serviceName=com.github.wenweihu86.raft.service.RaftConsensusService, methodName=preVote
+2022-07-18 08:57:42,339 INFO [main]	register service, serviceName=com.github.wenweihu86.raft.service.RaftConsensusService, methodName=requestVote
+2022-07-18 08:57:42,342 INFO [main]	register service, serviceName=com.github.wenweihu86.raft.service.RaftConsensusService, methodName=installSnapshot
+2022-07-18 08:57:42,355 INFO [main]	register service, serviceName=com.github.wenweihu86.raft.service.RaftClientService, methodName=getConfiguration
+2022-07-18 08:57:42,357 INFO [main]	register service, serviceName=com.github.wenweihu86.raft.service.RaftClientService, methodName=getLeader
+2022-07-18 08:57:42,362 INFO [main]	register service, serviceName=com.github.wenweihu86.raft.service.RaftClientService, methodName=addPeers
+2022-07-18 08:57:42,364 INFO [main]	register service, serviceName=com.github.wenweihu86.raft.service.RaftClientService, methodName=removePeers
+2022-07-18 08:57:42,369 INFO [main]	register service, serviceName=com.github.wenweihu86.raft.example.server.service.ExampleService, methodName=get
+2022-07-18 08:57:42,371 INFO [main]	register service, serviceName=com.github.wenweihu86.raft.example.server.service.ExampleService, methodName=set
+2022-07-18 08:57:42,431 INFO [main]	create thread:server-acceptor-thread-1
+2022-07-18 08:57:42,436 INFO [main]	server started on port=8052 success
+2022-07-18 08:57:42,446 INFO [main]	create thread:fairStrategy-timer-thread-1
+2022-07-18 08:57:42,448 INFO [main]	create thread:client-work-thread-1
+2022-07-18 08:57:42,448 INFO [main]	create thread:client-work-thread-2
+2022-07-18 08:57:42,535 INFO [main]	create thread:client-io-thread-1
+2022-07-18 08:57:42,543 INFO [main]	create thread:client-io-thread-2
+2022-07-18 08:57:42,606 INFO [main]	create thread:fairStrategy-timer-thread-1
+2022-07-18 08:57:42,607 INFO [main]	create thread:client-work-thread-1
+2022-07-18 08:57:42,607 INFO [main]	create thread:client-work-thread-2
+2022-07-18 08:57:42,609 INFO [main]	create thread:client-io-thread-1
+2022-07-18 08:57:42,616 INFO [main]	create thread:client-io-thread-2
+2022-07-18 08:57:47,501 INFO [server-acceptor-thread-1]	create thread:server-io-thread-1
+2022-07-18 08:57:47,630 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=0, firstLogIndex=1
+2022-07-18 08:57:47,639 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:47,644 INFO [client-io-thread-2]	create thread:invalid-channel-callback-thread-1
+2022-07-18 08:57:47,650 INFO [server-work-thread-2]	RequestVote request from server 2 in term 1 (my term is 1), granted=true
+2022-07-18 08:57:47,771 INFO [server-work-thread-2]	new leaderId=2, conf={"servers": [{"server_id": 1,"endpoint": {"host": "10.3.0.5","port": 8052}},{"server_id": 2,"endpoint": {"host": "10.3.0.3","port": 8052}},{"server_id": 3,"endpoint": {"host": "10.3.0.2","port": 8052}}]}
+2022-07-18 08:57:47,771 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:48,124 INFO [server-work-thread-1]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:48,624 INFO [server-work-thread-1]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:49,125 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:49,628 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:50,133 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:50,632 INFO [server-work-thread-1]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:51,136 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:51,634 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:52,134 INFO [server-work-thread-1]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:52,643 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:53,136 INFO [server-work-thread-1]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:53,637 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:54,137 INFO [server-work-thread-1]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:54,638 INFO [server-work-thread-1]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:55,142 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:55,639 INFO [server-work-thread-1]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:56,142 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:56,641 INFO [server-work-thread-1]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:57,144 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:57,645 INFO [server-work-thread-1]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:58,144 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:58,643 INFO [server-work-thread-1]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:59,144 INFO [server-work-thread-1]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:59,647 INFO [server-work-thread-1]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:58:00,147 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:58:00,648 INFO [server-work-thread-1]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:58:01,147 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:58:01,654 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:58:02,147 INFO [server-work-thread-1]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:58:02,534 INFO [server-acceptor-thread-1]	create thread:server-io-thread-2
+2022-07-18 08:58:02,622 INFO [server-work-thread-1]	create thread:fairStrategy-timer-thread-1
+2022-07-18 08:58:02,623 INFO [server-work-thread-1]	create thread:brpc-work-thread-1
+2022-07-18 08:58:02,624 INFO [server-work-thread-1]	create thread:brpc-work-thread-2
+2022-07-18 08:58:02,626 INFO [server-work-thread-1]	create thread:brpc-io-thread-1
+2022-07-18 08:58:02,628 INFO [server-work-thread-1]	create thread:brpc-io-thread-2
+2022-07-18 08:58:02,652 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:58:02,714 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:58:02,714 INFO [server-work-thread-2]	AppendEntries request from server 2 in term 1 (my term is 1), entryCount=1 resCode=RES_CODE_SUCCESS
+2022-07-18 08:58:02,776 INFO [server-work-thread-1]	set request, request={"key": "hello","value": "zmb"}, response={"success": true}
+2022-07-18 08:58:03,151 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:58:03,650 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:58:04,149 INFO [server-work-thread-1]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:58:04,650 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:58:05,153 INFO [server-work-thread-1]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:58:05,652 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:58:06,151 INFO [server-work-thread-1]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:58:06,657 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:58:07,153 INFO [server-work-thread-1]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:58:07,430 INFO [server-work-thread-2]	get request, request={"key": "hello"}, response={"value": "zmb"}
+2022-07-18 08:58:07,653 INFO [server-work-thread-1]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:58:08,155 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:58:08,655 INFO [server-work-thread-1]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:58:09,157 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:58:09,655 INFO [server-work-thread-1]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:58:10,158 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:58:10,656 INFO [server-work-thread-1]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:58:11,159 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1

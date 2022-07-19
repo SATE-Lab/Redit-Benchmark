@@ -31,17 +31,14 @@ public class ReditHelper {
     private static int numOfNNs = 3;
     private static int numOfDNs = 3;
     private static int numOfJNs = 3;
+    public static final String dir = "hadoop-3.3.1";
+//    public static final String dir = "hadoop-3.3.1-mr-sleep320";
+//    public static final String dir = "hadoop-3.3.1-mr-sleep675";
 
-    public static String getHadoopHomeDir() {
-        String version = "3.3.1"; // this can be dynamically generated from maven metadata
-        String dir = "hadoop-" + version;
-        return "/hadoop/" + dir;
-    }
+    public static String getHadoopHomeDir() { return "/hadoop/hadoop-3.3.1"; }
 
     public static Deployment getDeployment() throws ParserConfigurationException, TransformerException, SAXException, IOException {
 
-        String version = "3.3.1"; // this can be dynamically generated from maven metadata
-        String dir = "hadoop-" + version;
         String hdfsSiteFileName = "hdfs-site-ha.xml";
         String workDir = System.getProperty("user.dir");
         Deployment.Builder builder = Deployment.builder("sample-mapreduce")

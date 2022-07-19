@@ -1,0 +1,24 @@
+2022-07-18 09:10:14,580 INFO [main]	register protocol:1 success
+2022-07-18 09:10:14,647 INFO [main]	register protocol:29 success
+2022-07-18 09:10:14,650 INFO [main]	register protocol:4 success
+2022-07-18 09:10:14,658 INFO [main]	register protocol:3 success
+2022-07-18 09:10:14,659 INFO [main]	register protocol:31 success
+2022-07-18 09:10:14,660 INFO [main]	register protocol:28 success
+2022-07-18 09:10:14,662 INFO [main]	register protocol:32 success
+2022-07-18 09:10:14,663 INFO [main]	register protocol:33 success
+2022-07-18 09:10:14,663 INFO [main]	register protocol:30 success
+2022-07-18 09:10:14,664 INFO [main]	register load balance factory:RandomLoadBalanceFactory success
+2022-07-18 09:10:14,665 INFO [main]	register load balance factory:RoundRobinLoadBalanceFactory success
+2022-07-18 09:10:14,665 INFO [main]	register load balance factory:WeightLoadBalanceFactory success
+2022-07-18 09:10:14,665 INFO [main]	register load balance factory:FairLoadBalanceFactory success
+2022-07-18 09:10:14,680 INFO [main]	create thread:timeout-timer-thread-1
+2022-07-18 09:10:14,681 INFO [main]	create thread:health-check-timer-thread-1
+2022-07-18 09:10:14,684 INFO [main]	create thread:fairStrategy-timer-thread-1
+2022-07-18 09:10:14,686 INFO [main]	create thread:client-work-thread-1
+2022-07-18 09:10:14,686 INFO [main]	create thread:client-work-thread-2
+2022-07-18 09:10:14,858 INFO [main]	create thread:client-io-thread-1
+2022-07-18 09:10:14,869 INFO [main]	create thread:client-io-thread-2
+2022-07-18 09:10:15,083 INFO [main]	get request, key=hello, response{"value": "zmb"}
+2022-07-18 09:10:15,089 INFO [client-io-thread-1]	create thread:invalid-channel-callback-thread-1
+2022-07-18 09:10:18,386 INFO [Thread-1]	Brpc do clean work...
+2022-07-18 09:10:18,387 INFO [Thread-1]	invoke shutdownGlobalThreadPools

@@ -64,7 +64,7 @@ public class SampleTest {
     private static void startMrJob(String NodeName) {
         new Thread(() -> {
             try {
-                runner.runtime().runCommandInNode(NodeName, "cd " + ReditHelper.getHadoopHomeDir()  + " && bin/hadoop jar ./share/hadoop/mapreduce/" + jarName + " wordcount " + hdfsInputFilePath + " " + hdfsOutputFolderPath);
+                runner.runtime().runCommandInNode(NodeName, "cd " + ReditHelper.getHadoopHomeDir()  + " && bin/hadoop jar ./share/hadoop/mapreduce/" + jarName + " wordcount " + hdfsInputFilePath + " " + hdfsOutputFolderPath + " > ./logs/wordCount.log 2>&1");
             } catch (RuntimeEngineException e) {
                 e.printStackTrace();
             }

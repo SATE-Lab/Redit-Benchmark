@@ -1,0 +1,23 @@
+2022-07-18 08:58:02,246 INFO [main]	register protocol:1 success
+2022-07-18 08:58:02,314 INFO [main]	register protocol:29 success
+2022-07-18 08:58:02,317 INFO [main]	register protocol:4 success
+2022-07-18 08:58:02,322 INFO [main]	register protocol:3 success
+2022-07-18 08:58:02,324 INFO [main]	register protocol:31 success
+2022-07-18 08:58:02,325 INFO [main]	register protocol:28 success
+2022-07-18 08:58:02,327 INFO [main]	register protocol:32 success
+2022-07-18 08:58:02,329 INFO [main]	register protocol:33 success
+2022-07-18 08:58:02,329 INFO [main]	register protocol:30 success
+2022-07-18 08:58:02,330 INFO [main]	register load balance factory:RandomLoadBalanceFactory success
+2022-07-18 08:58:02,331 INFO [main]	register load balance factory:RoundRobinLoadBalanceFactory success
+2022-07-18 08:58:02,331 INFO [main]	register load balance factory:WeightLoadBalanceFactory success
+2022-07-18 08:58:02,331 INFO [main]	register load balance factory:FairLoadBalanceFactory success
+2022-07-18 08:58:02,349 INFO [main]	create thread:timeout-timer-thread-1
+2022-07-18 08:58:02,351 INFO [main]	create thread:health-check-timer-thread-1
+2022-07-18 08:58:02,353 INFO [main]	create thread:fairStrategy-timer-thread-1
+2022-07-18 08:58:02,355 INFO [main]	create thread:client-work-thread-1
+2022-07-18 08:58:02,355 INFO [main]	create thread:client-work-thread-2
+2022-07-18 08:58:02,496 INFO [main]	create thread:client-io-thread-1
+2022-07-18 08:58:02,506 INFO [main]	create thread:client-io-thread-2
+2022-07-18 08:58:02,826 INFO [main]	set request, key=hello value=zmb, response={"success": true}
+2022-07-18 08:58:02,835 INFO [client-io-thread-2]	create thread:invalid-channel-callback-thread-1
+2022-07-18 08:58:06,076 INFO [Thread-1]	Brpc do clean work...

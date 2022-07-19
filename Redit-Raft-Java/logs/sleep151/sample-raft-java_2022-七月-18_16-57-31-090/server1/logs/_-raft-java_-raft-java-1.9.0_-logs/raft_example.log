@@ -1,0 +1,98 @@
+2022-07-18 08:57:39,228 INFO [main]	register protocol:1 success
+2022-07-18 08:57:39,327 INFO [main]	register protocol:29 success
+2022-07-18 08:57:39,348 INFO [main]	register protocol:4 success
+2022-07-18 08:57:39,356 INFO [main]	register protocol:3 success
+2022-07-18 08:57:39,367 INFO [main]	register protocol:31 success
+2022-07-18 08:57:39,370 INFO [main]	register protocol:28 success
+2022-07-18 08:57:39,372 INFO [main]	register protocol:32 success
+2022-07-18 08:57:39,381 INFO [main]	register protocol:33 success
+2022-07-18 08:57:39,381 INFO [main]	register protocol:30 success
+2022-07-18 08:57:39,383 INFO [main]	register load balance factory:RandomLoadBalanceFactory success
+2022-07-18 08:57:39,383 INFO [main]	register load balance factory:RoundRobinLoadBalanceFactory success
+2022-07-18 08:57:39,384 INFO [main]	register load balance factory:WeightLoadBalanceFactory success
+2022-07-18 08:57:39,384 INFO [main]	register load balance factory:FairLoadBalanceFactory success
+2022-07-18 08:57:39,393 INFO [main]	create thread:server-work-thread-1
+2022-07-18 08:57:39,405 INFO [main]	create thread:server-work-thread-2
+2022-07-18 08:57:39,461 INFO [main]	use jdk nio event mode
+2022-07-18 08:57:39,496 INFO [main]	create thread:timeout-timer-thread-1
+2022-07-18 08:57:39,608 WARN [main]	meta file not exist, name=./data/log/metadata
+2022-07-18 08:57:39,611 WARN [main]	meta file not exist, name=./data/snapshot/metadata
+2022-07-18 08:57:39,643 INFO [main]	register service, serviceName=com.github.wenweihu86.raft.service.RaftConsensusService, methodName=appendEntries
+2022-07-18 08:57:39,645 INFO [main]	register service, serviceName=com.github.wenweihu86.raft.service.RaftConsensusService, methodName=preVote
+2022-07-18 08:57:39,646 INFO [main]	register service, serviceName=com.github.wenweihu86.raft.service.RaftConsensusService, methodName=requestVote
+2022-07-18 08:57:39,648 INFO [main]	register service, serviceName=com.github.wenweihu86.raft.service.RaftConsensusService, methodName=installSnapshot
+2022-07-18 08:57:39,659 INFO [main]	register service, serviceName=com.github.wenweihu86.raft.service.RaftClientService, methodName=getConfiguration
+2022-07-18 08:57:39,662 INFO [main]	register service, serviceName=com.github.wenweihu86.raft.service.RaftClientService, methodName=getLeader
+2022-07-18 08:57:39,665 INFO [main]	register service, serviceName=com.github.wenweihu86.raft.service.RaftClientService, methodName=addPeers
+2022-07-18 08:57:39,667 INFO [main]	register service, serviceName=com.github.wenweihu86.raft.service.RaftClientService, methodName=removePeers
+2022-07-18 08:57:39,672 INFO [main]	register service, serviceName=com.github.wenweihu86.raft.example.server.service.ExampleService, methodName=get
+2022-07-18 08:57:39,674 INFO [main]	register service, serviceName=com.github.wenweihu86.raft.example.server.service.ExampleService, methodName=set
+2022-07-18 08:57:39,727 INFO [main]	create thread:server-acceptor-thread-1
+2022-07-18 08:57:39,737 INFO [main]	server started on port=8052 success
+2022-07-18 08:57:39,750 INFO [main]	create thread:fairStrategy-timer-thread-1
+2022-07-18 08:57:39,751 INFO [main]	create thread:client-work-thread-1
+2022-07-18 08:57:39,752 INFO [main]	create thread:client-work-thread-2
+2022-07-18 08:57:39,942 INFO [main]	create thread:client-io-thread-1
+2022-07-18 08:57:39,954 WARN [main]	init min idle object pool failed
+2022-07-18 08:57:40,090 INFO [main]	create thread:fairStrategy-timer-thread-1
+2022-07-18 08:57:40,095 INFO [main]	create thread:client-work-thread-1
+2022-07-18 08:57:40,095 INFO [main]	create thread:client-work-thread-2
+2022-07-18 08:57:40,103 INFO [main]	create thread:client-io-thread-1
+2022-07-18 08:57:40,104 WARN [main]	init min idle object pool failed
+2022-07-18 08:57:41,755 INFO [server-acceptor-thread-1]	create thread:server-io-thread-1
+2022-07-18 08:57:41,796 INFO [server-acceptor-thread-1]	create thread:server-io-thread-2
+2022-07-18 08:57:47,566 INFO [server-work-thread-1]	preVote request from server 2 in term 0 (my term is 0), granted=true
+2022-07-18 08:57:47,612 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=0, firstLogIndex=1
+2022-07-18 08:57:47,613 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:47,613 INFO [server-work-thread-2]	RequestVote request from server 2 in term 1 (my term is 1), granted=true
+2022-07-18 08:57:47,732 INFO [server-work-thread-1]	new leaderId=2, conf={"servers": [{"server_id": 1,"endpoint": {"host": "10.3.0.5","port": 8052}},{"server_id": 2,"endpoint": {"host": "10.3.0.3","port": 8052}},{"server_id": 3,"endpoint": {"host": "10.3.0.2","port": 8052}}]}
+2022-07-18 08:57:47,736 INFO [server-work-thread-1]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:48,121 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:48,625 INFO [server-work-thread-1]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:49,122 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:49,626 INFO [server-work-thread-1]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:50,129 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:50,632 INFO [server-work-thread-1]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:51,132 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:51,634 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:52,137 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:52,643 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:53,137 INFO [server-work-thread-1]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:53,637 INFO [server-work-thread-1]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:54,137 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:54,638 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:55,141 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:55,639 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:56,139 INFO [server-work-thread-1]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:56,640 INFO [server-work-thread-1]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:57,141 INFO [server-work-thread-1]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:57,642 INFO [server-work-thread-1]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:58,143 INFO [server-work-thread-1]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:58,643 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:59,144 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:57:59,644 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:58:00,146 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:58:00,645 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:58:01,146 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:58:01,651 INFO [server-work-thread-1]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:58:02,148 INFO [server-work-thread-1]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:58:02,648 INFO [server-work-thread-1]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:58:02,711 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:58:02,711 INFO [server-work-thread-2]	AppendEntries request from server 2 in term 1 (my term is 1), entryCount=1 resCode=RES_CODE_SUCCESS
+2022-07-18 08:58:03,150 INFO [server-work-thread-1]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:58:03,649 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:58:04,152 INFO [server-work-thread-1]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:58:04,651 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:58:05,151 INFO [server-work-thread-1]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:58:05,651 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:58:06,156 INFO [server-work-thread-1]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:58:06,655 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:58:07,156 INFO [server-work-thread-1]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:58:07,655 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:58:08,153 INFO [server-work-thread-1]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:58:08,654 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:58:09,155 INFO [server-work-thread-1]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:58:09,656 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:58:10,156 INFO [server-work-thread-1]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:58:10,657 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
+2022-07-18 08:58:11,156 INFO [server-work-thread-2]	new segment meta info, currentTerm=1, votedFor=2, firstLogIndex=1
