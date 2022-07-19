@@ -77,6 +77,7 @@
         <module name="Mistletoe-java" />
         <module name="hadoop-archive-logs" />
         <module name="hadoop-sls" />
+        <module name="Redit-Zookeeper-4565" />
         <module name="hazelcast-jet-hadoop-all" />
         <module name="activemq-karaf" />
         <module name="Redit-Hadoop-MapReduce" />
@@ -485,6 +486,7 @@
       <module name="Redit-Raft-Java" target="8" />
       <module name="Redit-Rocketmq" target="8" />
       <module name="Redit-Zookeeper" target="8" />
+      <module name="Redit-Zookeeper-4565" target="8" />
       <module name="rocketmq-acl" target="1.8" />
       <module name="rocketmq-all" target="1.8" />
       <module name="rocketmq-broker" target="1.8" />
