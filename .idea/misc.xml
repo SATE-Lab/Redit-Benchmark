@@ -41,6 +41,7 @@
         <option value="$PROJECT_DIR$/Benchmark/activemq-5.16.5/activemq-parent-5.16.5-source-release/activemq-parent-5.16.5/pom.xml" />
         <option value="$PROJECT_DIR$/Benchmark/Raft-Java/Raft-Java/pom.xml" />
         <option value="$PROJECT_DIR$/Redit-Zookeeper-4565/pom.xml" />
+        <option value="$PROJECT_DIR$/Redit-Zookeeper-4491/pom.xml" />
       </list>
     </option>
   </component>

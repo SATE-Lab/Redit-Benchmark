@@ -131,6 +131,7 @@
         <module name="hadoop-yarn-server-sharedcachemanager" />
         <module name="activemq-maven-plugin" />
         <module name="hadoop-datajoin" />
+        <module name="Redit-Zookeeper-4491" />
         <module name="activemq-web-demo" />
         <module name="hadoop-nfs" />
         <module name="activemq-shiro" />
@@ -486,6 +487,7 @@
       <module name="Redit-Raft-Java" target="8" />
       <module name="Redit-Rocketmq" target="8" />
       <module name="Redit-Zookeeper" target="8" />
+      <module name="Redit-Zookeeper-4491" target="8" />
       <module name="Redit-Zookeeper-4565" target="8" />
       <module name="rocketmq-acl" target="1.8" />
       <module name="rocketmq-all" target="1.8" />
