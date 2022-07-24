@@ -60,6 +60,7 @@
         <module name="zookeeper-prometheus-metrics" />
         <module name="hadoop-yarn-server-resourcemanager" />
         <module name="activemq-kahadb-store" />
+        <module name="Redit-Kafka-13718" />
         <module name="activemq-console" />
         <module name="activemq-osgi" />
         <module name="activemq-karaf-itest" />
@@ -71,13 +72,13 @@
         <module name="hadoop-fs2img" />
         <module name="hadoop-kms" />
         <module name="rocketmq-example" />
+        <module name="Redit-Kafka-13964" />
         <module name="hadoop-yarn-server-router" />
         <module name="zookeeper-it" />
         <module name="rocketmq-client" />
         <module name="Mistletoe-java" />
         <module name="hadoop-archive-logs" />
         <module name="hadoop-sls" />
-        <module name="Redit-Zookeeper-4565" />
         <module name="hazelcast-jet-hadoop-all" />
         <module name="activemq-karaf" />
         <module name="Redit-Hadoop-MapReduce" />
@@ -87,10 +88,12 @@
         <module name="hadoop-cloud-storage" />
         <module name="hadoop-yarn-common" />
         <module name="activemq-leveldb-store" />
+        <module name="Redit-Kafka-13852" />
         <module name="activemq-junit" />
         <module name="hadoop-mapreduce-client-jobclient" />
         <module name="hazelcast-spring-tests" />
         <module name="hadoop-dynamometer-infra" />
+        <module name="Redit-Kafka-13937" />
         <module name="Redit-Zookeeper" />
         <module name="hadoop-hdfs" />
         <module name="hadoop-mapreduce-client-hs" />
@@ -483,6 +486,10 @@
       <module name="Redit-Hbase" target="8" />
       <module name="Redit-JLiteSpider" target="8" />
       <module name="Redit-Kafka" target="8" />
+      <module name="Redit-Kafka-13718" target="8" />
+      <module name="Redit-Kafka-13852" target="8" />
+      <module name="Redit-Kafka-13937" target="8" />
+      <module name="Redit-Kafka-13964" target="8" />
       <module name="Redit-MapReduce" target="8" />
       <module name="Redit-Raft-Java" target="8" />
       <module name="Redit-Rocketmq" target="8" />
