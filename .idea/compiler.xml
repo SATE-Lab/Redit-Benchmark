@@ -105,6 +105,7 @@
         <module name="activemq-openwire-generator" />
         <module name="rocketmq-remoting" />
         <module name="activemq-pool" />
+        <module name="Redit-Zookeeper-4473" />
         <module name="hadoop-hdfs-native-client" />
         <module name="Redit-Rocketmq" />
         <module name="hadoop-azure-datalake" />
@@ -113,6 +114,7 @@
         <module name="hazelcast-jet-files-azure" />
         <module name="hadoop-yarn-client" />
         <module name="hadoop-build-tools" />
+        <module name="Redit-Zookeeper-4466" />
         <module name="Redit-Kafka" />
         <module name="hadoop-yarn-server-timelineservice-hbase-server-1" />
         <module name="hadoop-cos" />
@@ -134,7 +136,6 @@
         <module name="hadoop-yarn-server-sharedcachemanager" />
         <module name="activemq-maven-plugin" />
         <module name="hadoop-datajoin" />
-        <module name="Redit-Zookeeper-4491" />
         <module name="activemq-web-demo" />
         <module name="hadoop-nfs" />
         <module name="activemq-shiro" />
@@ -174,6 +175,7 @@
         <module name="hadoop-client-runtime" />
         <module name="zookeeper-recipes-election" />
         <module name="hadoop-dynamometer-workload" />
+        <module name="Redit-Kafka-13996" />
         <module name="hadoop-extras" />
         <module name="hadoop-tools-dist" />
         <module name="activemq-log4j-appender" />
@@ -206,6 +208,7 @@
         <module name="rocketmq-broker" />
         <module name="rocketmq-test" />
         <module name="zipkin-collector" />
+        <module name="Redit-Cassandra-16104" />
         <module name="raft-java-example" />
         <module name="hazelcast-3-connector-impl" />
         <module name="hadoop-auth-examples" />
@@ -479,6 +482,7 @@
       <module name="Raft-Java-sleep" target="1.5" />
       <module name="Redit-Activemq" target="8" />
       <module name="Redit-Cassandra" target="8" />
+      <module name="Redit-Cassandra-16104" target="8" />
       <module name="Redit-Distributed-Id" target="8" />
       <module name="Redit-Elasticsearch" target="8" />
       <module name="Redit-Hadoop-MapReduce" target="8" />
@@ -490,11 +494,14 @@
       <module name="Redit-Kafka-13852" target="8" />
       <module name="Redit-Kafka-13937" target="8" />
       <module name="Redit-Kafka-13964" target="8" />
+      <module name="Redit-Kafka-13993" target="8" />
+      <module name="Redit-Kafka-13996" target="8" />
       <module name="Redit-MapReduce" target="8" />
       <module name="Redit-Raft-Java" target="8" />
       <module name="Redit-Rocketmq" target="8" />
       <module name="Redit-Zookeeper" target="8" />
-      <module name="Redit-Zookeeper-4491" target="8" />
+      <module name="Redit-Zookeeper-4466" target="8" />
+      <module name="Redit-Zookeeper-4473" target="8" />
       <module name="Redit-Zookeeper-4565" target="8" />
       <module name="rocketmq-acl" target="1.8" />
       <module name="rocketmq-all" target="1.8" />

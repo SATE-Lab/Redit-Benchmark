@@ -11,9 +11,10 @@
     </parent>
 
     <groupId>io.redit.samples</groupId>
-    <artifactId>Redit-Zookeeper-4466</artifactId>
-    <name>Redit-Zookeeper-4466</name>
-    <url>https://github.com/SATE-Lab/Redit</url>
+    <artifactId>Redit-Cassandra-16104</artifactId>
+    <name>Redit-Cassandra-16104</name>
+    <url>http://maven.apache.org</url>
+    <description>Cassandra implementation for Java</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -70,6 +71,11 @@
             <version>2.3.1</version>
         </dependency>
         <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>3.10.0</version>
+        </dependency>
+        <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-util</artifactId>
             <version>${jetty.version}</version>
@@ -86,11 +92,19 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.apache.curator</groupId>
-            <artifactId>curator-framework</artifactId>
-            <version>5.3.0</version>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+            <version>1.23</version>
         </dependency>
-
+        <dependency>
+            <groupId>com.datastax.cassandra</groupId>
+            <artifactId>cassandra-driver-core</artifactId>
+            <version>3.11.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.datastax.cassandra</groupId>
+            <artifactId>cassandra-driver-extras</artifactId>
+            <version>3.11.2</version>
+        </dependency>
     </dependencies>
-
 </project>
