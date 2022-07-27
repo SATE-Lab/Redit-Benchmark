@@ -31,4 +31,4 @@ Note: I checked the 2.8.1 build, this issue also happened.
 
 ### Testcase
 
-TODO
+Start zookeeper and kafka in a three-node cluster, then create topic 'test' in server no.1 with default config. After that, describe the topic using '--describe --topic' command, the console displays additional information about segment bytes, but it should not be shown because of the default configuration.

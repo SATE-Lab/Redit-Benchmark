@@ -97,4 +97,7 @@ I've submitted a pull request: "KAFKA-13852: Kafka Acl documentation bug for wil
 
 ### Testcase
 
-TODO
+First, start zookeeper and kafka in a three-node cluster.
+Next, create two directories on server no.1, one is empty and the other is non-empty.
+After that, run the script to add an acl by using the wildcard resource '*' in each of the two directories and compare the output, and the above exception is shown in command line.
+The ACL of the non-empty directory is 'test.txt' rather than *.

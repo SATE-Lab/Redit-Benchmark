@@ -45,4 +45,7 @@ Title: log.cleaner.io.max.bytes.per.second cannot be changed dynamically
 
 ### Testcase
 
-TODO
+Start zookeeper in a three-node cluster using KRaft, then create a topic 'test'. 
+After that, we change log.cleaner.io.max.bytes.per.second to a relatively small value.
+Then we create consumer and producer, and send enough message to trigger log cleaner.
+The result shows that the speed of log cleaner exceeds the value we set, meaning that this value cannot be changed dynamically.

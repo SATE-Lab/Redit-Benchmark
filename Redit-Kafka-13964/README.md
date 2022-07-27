@@ -22,4 +22,4 @@ STDOUT contains all necessary data, but the script itself ends with return code 
 
 ### Testcase
 
-TODO
+Start kafka in a three-node cluster using KRaft, then run the command describing TLS user with quotas enabled in one of the docker containers, and the same exception is thrown.
