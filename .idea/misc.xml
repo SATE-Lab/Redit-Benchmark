@@ -43,13 +43,19 @@
         <option value="$PROJECT_DIR$/Redit-Zookeeper-4491/pom.xml" />
         <option value="$PROJECT_DIR$/Redit-Kafka-13852/pom.xml" />
         <option value="$PROJECT_DIR$/Redit-Kafka-13718/pom.xml" />
-        <option value="$PROJECT_DIR$/Redit-Kafka-13937/pom.xml" />
         <option value="$PROJECT_DIR$/Redit-Kafka-13964/pom.xml" />
         <option value="$PROJECT_DIR$/Redit-Kafka-13996/pom.xml" />
         <option value="$PROJECT_DIR$/Redit-Cassandra-13030/pom.xml" />
         <option value="$PROJECT_DIR$/Redit-Cassandra-16104/pom.xml" />
         <option value="$PROJECT_DIR$/Redit-Zookeeper-4466/pom.xml" />
         <option value="$PROJECT_DIR$/Redit-Zookeeper-4473/pom.xml" />
+        <option value="$PROJECT_DIR$/Redit-Cassandra-15282/pom.xml" />
+        <option value="$PROJECT_DIR$/Redit-Cassandra-15297/pom.xml" />
+        <option value="$PROJECT_DIR$/Redit-Cassandra-17136/pom.xml" />
+        <option value="$PROJECT_DIR$/Redit-cassandra-14088/pom.xml" />
+        <option value="$PROJECT_DIR$/Redit-Cassandra-13464/pom.xml" />
+        <option value="$PROJECT_DIR$/Redit-cassandra-17628/pom.xml" />
+        <option value="$PROJECT_DIR$/Redit-Cassandra-17628/pom.xml" />
       </list>
     </option>
   </component>

@@ -41,4 +41,4 @@ I see this error running Cassandra 3.0.22
 
 ### Testcase
 
-TODO
+Start a cassandra cluster and use the bin/nodetool upgradesstables command to view the remaining space of the data cassandra data volume. Use df -h plus the data storage path to view the real remaining space and find that the two do not match.

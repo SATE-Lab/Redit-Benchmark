@@ -39,6 +39,7 @@
         <module name="hazelcast-distribution" />
         <module name="hadoop-yarn-registry" />
         <module name="activemq-client" />
+        <module name="Redit-Cassandra-15297" />
         <module name="hazelcast-jet-protobuf" />
         <module name="hazelcast-jet-cdc-postgres" />
         <module name="hadoop-mapreduce-client-uploader" />
@@ -90,10 +91,10 @@
         <module name="activemq-leveldb-store" />
         <module name="Redit-Kafka-13852" />
         <module name="activemq-junit" />
+        <module name="Redit-Cassandra-13464" />
         <module name="hadoop-mapreduce-client-jobclient" />
         <module name="hazelcast-spring-tests" />
         <module name="hadoop-dynamometer-infra" />
-        <module name="Redit-Kafka-13937" />
         <module name="Redit-Zookeeper" />
         <module name="hadoop-hdfs" />
         <module name="hadoop-mapreduce-client-hs" />
@@ -152,6 +153,7 @@
         <module name="Redit-JLiteSpider" />
         <module name="raft-java-admin-sleep" />
         <module name="hazelcast-jet-kafka" />
+        <module name="Redit-Cassandra-17628" />
         <module name="hadoop-yarn-server-common" />
         <module name="hadoop-client-api" />
         <module name="activemq-perf-maven-plugin" />
@@ -482,7 +484,11 @@
       <module name="Raft-Java-sleep" target="1.5" />
       <module name="Redit-Activemq" target="8" />
       <module name="Redit-Cassandra" target="8" />
+      <module name="Redit-Cassandra-13464" target="8" />
+      <module name="Redit-Cassandra-15297" target="8" />
       <module name="Redit-Cassandra-16104" target="8" />
+      <module name="Redit-cassandra-17628" target="8" />
+      <module name="Redit-Cassandra-17628" target="8" />
       <module name="Redit-Distributed-Id" target="8" />
       <module name="Redit-Elasticsearch" target="8" />
       <module name="Redit-Hadoop-MapReduce" target="8" />
