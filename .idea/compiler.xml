@@ -97,6 +97,7 @@
         <module name="hadoop-dynamometer-infra" />
         <module name="Redit-Zookeeper" />
         <module name="hadoop-hdfs" />
+        <module name="Redit-Rocketmq-189" />
         <module name="hadoop-mapreduce-client-hs" />
         <module name="hadoop-mapreduce-client-nativetask" />
         <module name="raft-java-example-sleep" />
@@ -156,6 +157,7 @@
         <module name="Redit-Cassandra-17628" />
         <module name="hadoop-yarn-server-common" />
         <module name="hadoop-client-api" />
+        <module name="Redit-Rocketmq-266" />
         <module name="activemq-perf-maven-plugin" />
         <module name="activemq-http" />
         <module name="hadoop-hdfs-rbf" />
@@ -193,11 +195,13 @@
         <module name="hadoop-assemblies" />
         <module name="hazelcast-jet-hadoop" />
         <module name="hadoop-yarn-applications-catalog-webapp" />
+        <module name="Redit-Rocketmq-255" />
         <module name="hadoop-minicluster" />
         <module name="hadoop-yarn-server-tests" />
         <module name="activemq-ra" />
         <module name="hadoop-yarn-server-timelineservice-hbase-tests" />
         <module name="activemq-web-console" />
+        <module name="Redit-Rocketmq-257" />
         <module name="Redit-Cassandra" />
         <module name="hadoop-client-integration-tests" />
         <module name="hadoop-streaming" />
@@ -505,6 +509,11 @@
       <module name="Redit-MapReduce" target="8" />
       <module name="Redit-Raft-Java" target="8" />
       <module name="Redit-Rocketmq" target="8" />
+      <module name="Redit-Rocketmq-189" target="8" />
+      <module name="Redit-Rocketmq-255" target="8" />
+      <module name="Redit-Rocketmq-257" target="8" />
+      <module name="Redit-Rocketmq-266" target="8" />
+      <module name="Redit-Rocketmq-341" target="8" />
       <module name="Redit-Zookeeper" target="8" />
       <module name="Redit-Zookeeper-4466" target="8" />
       <module name="Redit-Zookeeper-4473" target="8" />
