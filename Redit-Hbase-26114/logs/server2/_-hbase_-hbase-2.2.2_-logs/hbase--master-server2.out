@@ -1,0 +1,2 @@
+java.lang.ThreadGroup[name=PEWorkerGroup,maxpri=10]
+    Thread[HFileArchiver-1,5,PEWorkerGroup]

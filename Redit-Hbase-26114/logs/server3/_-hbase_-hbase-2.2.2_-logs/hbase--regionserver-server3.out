@@ -1,0 +1,14 @@
+/hbase/hbase-2.2.2/bin/hbase-daemon.sh: line 250:   281 Aborted                 (core dumped) nice -n $HBASE_NICENESS "$HBASE_HOME"/bin/hbase --config "${HBASE_CONF_DIR}" $command "$@" start >> ${HBASE_LOGOUT} 2>&1
+.0_242-b08)
+# Java VM: OpenJDK 64-Bit Server VM (25.242-b08 mixed mode linux-amd64 compressed oops)
+# Problematic frame:
+# C  [libfaketimeMT.so.1+0x89b7]  pthread_cond_destroy+0x5c3
+#
+# Core dump written. Default location: /hbase/hbase-2.2.2/core or core.281
+#
+# An error report file with more information is saved as:
+# /hbase/hbase-2.2.2/hs_err_pid281.log
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.java.com/bugreport/crash.jsp
+#

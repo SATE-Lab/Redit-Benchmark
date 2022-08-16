@@ -1,0 +1,238 @@
+Fri Aug 12 02:08:08 UTC 2022 Starting master on server2
+core file size          (blocks, -c) unlimited
+data seg size           (kbytes, -d) unlimited
+scheduling priority             (-e) 0
+file size               (blocks, -f) unlimited
+pending signals                 (-i) 31376
+max locked memory       (kbytes, -l) 64
+max memory size         (kbytes, -m) unlimited
+open files                      (-n) 1048576
+pipe size            (512 bytes, -p) 8
+POSIX message queues     (bytes, -q) 819200
+real-time priority              (-r) 0
+stack size              (kbytes, -s) 8192
+cpu time               (seconds, -t) unlimited
+max user processes              (-u) unlimited
+virtual memory          (kbytes, -v) unlimited
+file locks                      (-x) unlimited
+2022-08-12 02:08:10,218 INFO  [main] master.HMaster: STARTING service HMaster
+2022-08-12 02:08:10,281 INFO  [main] util.VersionInfo: HBase 2.2.2
+2022-08-12 02:08:10,281 INFO  [main] util.VersionInfo: Source code repository git://6ad68c41b902/opt/hbase-rm/output/hbase revision=e6513a76c91cceda95dad7af246ac81d46fa2589
+2022-08-12 02:08:10,281 INFO  [main] util.VersionInfo: Compiled by hbase-rm on Sat Oct 19 10:10:12 UTC 2019
+2022-08-12 02:08:10,281 INFO  [main] util.VersionInfo: From source with checksum 4d23f97701e395c5d34db1882ac5021b
+2022-08-12 02:08:11,798 INFO  [main] util.ServerCommandLine: hbase.tmp.dir: ./tmp
+2022-08-12 02:08:11,798 INFO  [main] util.ServerCommandLine: hbase.rootdir: hdfs://mycluster/hbase
+2022-08-12 02:08:11,798 INFO  [main] util.ServerCommandLine: hbase.cluster.distributed: true
+2022-08-12 02:08:11,798 INFO  [main] util.ServerCommandLine: hbase.zookeeper.quorum: 10.5.0.7:2181,10.5.0.6:2181,10.5.0.13:2181
+2022-08-12 02:08:11,814 INFO  [main] util.ServerCommandLine: env:PATH=/usr/local/openjdk-8/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+2022-08-12 02:08:11,815 INFO  [main] util.ServerCommandLine: env:HBASE_LOGFILE=hbase--master-server2.log
+2022-08-12 02:08:11,815 INFO  [main] util.ServerCommandLine: env:JAVA_URL_VERSION=8u242b08
+2022-08-12 02:08:11,815 INFO  [main] util.ServerCommandLine: env:JAVA_HOME=/usr/local/openjdk-8
+2022-08-12 02:08:11,815 INFO  [main] util.ServerCommandLine: env:LANG=C.UTF-8
+2022-08-12 02:08:11,815 INFO  [main] util.ServerCommandLine: env:REDIT_EVENT_SERVER_IP_ADDRESS=172.17.0.1
+2022-08-12 02:08:11,815 INFO  [main] util.ServerCommandLine: env:HADOOP_HEAPSIZE_MAX=1g
+2022-08-12 02:08:11,815 INFO  [main] util.ServerCommandLine: env:HBASE_REST_OPTS=
+2022-08-12 02:08:11,815 INFO  [main] util.ServerCommandLine: env:JVM_PID=223
+2022-08-12 02:08:11,815 INFO  [main] util.ServerCommandLine: env:PWD=/hbase/hbase-2.2.2
+2022-08-12 02:08:11,815 INFO  [main] util.ServerCommandLine: env:JAVA_VERSION=8u242
+2022-08-12 02:08:11,815 INFO  [main] util.ServerCommandLine: env:FAKETIME_NO_CACHE=1
+2022-08-12 02:08:11,815 INFO  [main] util.ServerCommandLine: env:HBASE_ROOT_LOGGER=INFO,RFA
+2022-08-12 02:08:11,815 INFO  [main] util.ServerCommandLine: env:HBASE_ENV_INIT=true
+2022-08-12 02:08:11,815 INFO  [main] util.ServerCommandLine: env:HBASE_IDENT_STRING=
+2022-08-12 02:08:11,816 INFO  [main] util.ServerCommandLine: env:HBASE_ZNODE_FILE=/tmp/hbase--master.znode
+2022-08-12 02:08:11,823 INFO  [main] util.ServerCommandLine: env:JAVA_BASE_URL=https://github.com/AdoptOpenJDK/openjdk8-upstream-binaries/releases/download/jdk8u242-b08/OpenJDK8U-jdk_
+2022-08-12 02:08:11,823 INFO  [main] util.ServerCommandLine: env:HBASE_LOG_DIR=/hbase/hbase-2.2.2/logs
+2022-08-12 02:08:11,823 INFO  [main] util.ServerCommandLine: env:HBASE_LOG_PREFIX=hbase--master-server2
+2022-08-12 02:08:11,823 INFO  [main] util.ServerCommandLine: env:OLDPWD=/
+2022-08-12 02:08:11,823 INFO  [main] util.ServerCommandLine: env:FAKETIME_TIMESTAMP_FILE=/redit_libfaketime
+2022-08-12 02:08:11,824 INFO  [main] util.ServerCommandLine: se/hbase-2.2.2/lib/okhttp-2.4.0.jar:/hbase/hbase-2.2.2/lib/okio-1.4.0.jar:/hbase/hbase-2.2.2/lib/osgi-resource-locator-1.0.1.jar:/hbase/hbase-2.2.2/lib/paranamer-2.3.jar:/hbase/hbase-2.2.2/lib/protobuf-java-2.5.0.jar:/hbase/hbase-2.2.2/lib/snappy-java-1.0.5.jar:/hbase/hbase-2.2.2/lib/spymemcached-2.12.2.jar:/hbase/hbase-2.2.2/lib/validation-api-1.1.0.Final.jar:/hbase/hbase-2.2.2/lib/xmlenc-0.52.jar:/hbase/hbase-2.2.2/lib/xz-1.0.jar:/hbase/hbase-2.2.2/lib/zookeeper-3.4.10.jar:/hbase/hbase-2.2.2/lib/client-facing-thirdparty/audience-annotations-0.5.0.jar:/hbase/hbase-2.2.2/lib/client-facing-thirdparty/commons-logging-1.2.jar:/hbase/hbase-2.2.2/lib/client-facing-thirdparty/findbugs-annotations-1.3.9-1.jar:/hbase/hbase-2.2.2/lib/client-facing-thirdparty/htrace-core4-4.2.0-incubating.jar:/hbase/hbase-2.2.2/lib/client-facing-thirdparty/log4j-1.2.17.jar:/hbase/hbase-2.2.2/lib/client-facing-thirdparty/slf4j-api-1.7.25.jar:/hbase/hbase-2.2.2/lib/client-facing-thirdparty/slf4j-log4j12-1.7.25.jar
+2022-08-12 02:08:11,824 INFO  [main] util.ServerCommandLine: env:HBASE_MANAGES_ZK=false
+2022-08-12 02:08:11,824 INFO  [main] util.ServerCommandLine: env:REDIT_EVENT_SERVER_PORT_NUMBER=36461
+2022-08-12 02:08:11,825 INFO  [main] util.ServerCommandLine: env:HBASE_AUTOSTART_FILE=/tmp/hbase--master.autostart
+2022-08-12 02:08:11,825 INFO  [main] util.ServerCommandLine: env:HOSTNAME=server2
+2022-08-12 02:08:11,825 INFO  [main] util.ServerCommandLine: env:HADOOP_HOME=/hadoop/hadoop-3.3.1
+2022-08-12 02:08:11,825 INFO  [main] util.ServerCommandLine: env:LD_PRELOAD=/usr/local/lib/faketime/libfaketimeMT.so.1
+2022-08-12 02:08:11,825 INFO  [main] util.ServerCommandLine: env:HBASE_NICENESS=0
+2022-08-12 02:08:11,825 INFO  [main] util.ServerCommandLine: env:DONT_FAKE_MONOTONIC=1
+2022-08-12 02:08:11,825 INFO  [main] util.ServerCommandLine: env:HBASE_SECURITY_LOGGER=INFO,RFAS
+2022-08-12 02:08:11,825 INFO  [main] util.ServerCommandLine: env:HBASE_HOME=/hbase/hbase-2.2.2
+2022-08-12 02:08:11,842 INFO  [main] util.ServerCommandLine: env:HBASE_THRIFT_OPTS=
+2022-08-12 02:08:11,842 INFO  [main] util.ServerCommandLine: env:SHLVL=2
+2022-08-12 02:08:11,842 INFO  [main] util.ServerCommandLine: env:HOME=/root
+2022-08-12 02:08:11,842 INFO  [main] util.ServerCommandLine: env:MALLOC_ARENA_MAX=4
+2022-08-12 02:08:11,844 INFO  [main] util.ServerCommandLine: vmName=OpenJDK 64-Bit Server VM, vmVendor=Oracle Corporation, vmVersion=25.242-b08
+2022-08-12 02:08:11,844 INFO  [main] util.ServerCommandLine: vmInputArguments=[-Dproc_master, -XX:OnOutOfMemoryError=kill -9 %p, -Dhbase.log.dir=/hbase/hbase-2.2.2/logs, -Dhbase.log.file=hbase--master-server2.log, -Dhbase.home.dir=/hbase/hbase-2.2.2, -Dhbase.id.str=, -Dhbase.root.logger=INFO,RFA, -Dhbase.security.logger=INFO,RFAS]
+2022-08-12 02:08:14,519 INFO  [main] metrics.MetricRegistries: Loaded MetricRegistries class org.apache.hadoop.hbase.metrics.impl.MetricRegistriesImpl
+2022-08-12 02:08:14,715 WARN  [main] util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2022-08-12 02:08:16,907 INFO  [main] regionserver.RSRpcServices: master/server2:16000 server-side Connection retries=45
+2022-08-12 02:08:17,018 INFO  [main] ipc.RpcExecutor: Instantiated default.FPBQ.Fifo with queueClass=class java.util.concurrent.LinkedBlockingQueue; numCallQueues=3, maxQueueLength=300, handlerCount=30
+2022-08-12 02:08:17,031 INFO  [main] ipc.RpcExecutor: Instantiated priority.FPBQ.Fifo with queueClass=class java.util.concurrent.LinkedBlockingQueue; numCallQueues=2, maxQueueLength=300, handlerCount=20
+2022-08-12 02:08:17,036 INFO  [main] ipc.RpcExecutor: Instantiated replication.FPBQ.Fifo with queueClass=class java.util.concurrent.LinkedBlockingQueue; numCallQueues=1, maxQueueLength=300, handlerCount=3
+2022-08-12 02:08:17,036 INFO  [main] ipc.RpcExecutor: Instantiated metaPriority.FPBQ.Fifo with queueClass=class java.util.concurrent.LinkedBlockingQueue; numCallQueues=1, maxQueueLength=300, handlerCount=1
+2022-08-12 02:08:17,827 INFO  [main] ipc.RpcServerFactory: Creating org.apache.hadoop.hbase.ipc.NettyRpcServer hosting hbase.pb.MasterService, hbase.pb.RegionServerStatusService, hbase.pb.LockService, hbase.pb.HbckService, hbase.pb.ClientService, hbase.pb.AdminService
+2022-08-12 02:08:18,658 INFO  [main] ipc.NettyRpcServer: Bind to /10.5.0.6:16000
+2022-08-12 02:08:21,788 INFO  [main] fs.HFileSystem: Added intercepting call to namenode#getBlockLocations so can do block reordering using class org.apache.hadoop.hbase.fs.HFileSystem$ReorderWALBlocks
+2022-08-12 02:08:21,818 INFO  [main] fs.HFileSystem: Added intercepting call to namenode#getBlockLocations so can do block reordering using class org.apache.hadoop.hbase.fs.HFileSystem$ReorderWALBlocks
+2022-08-12 02:08:22,326 INFO  [main] zookeeper.RecoverableZooKeeper: Process identifier=master:16000 connecting to ZooKeeper ensemble=10.5.0.7:2181,10.5.0.6:2181,10.5.0.13:2181
+2022-08-12 02:08:22,406 INFO  [main] zookeeper.ZooKeeper: Client environment:zookeeper.version=3.4.10-39d3a4f269333c922ed3db283be479f9deacaa0f, built on 03/23/2017 10:13 GMT
+2022-08-12 02:08:22,409 INFO  [main] zookeeper.ZooKeeper: Client environment:host.name=server2
+2022-08-12 02:08:22,409 INFO  [main] zookeeper.ZooKeeper: Client environment:java.version=1.8.0_242
+2022-08-12 02:08:22,409 INFO  [main] zookeeper.ZooKeeper: Client environment:java.vendor=Oracle Corporation
+2022-08-12 02:08:22,410 INFO  [main] zookeeper.ZooKeeper: Client environment:java.home=/usr/local/openjdk-8/jre
+2022-08-12 02:08:22,410 INFO  [main] zookeeper.ZooKeeper: se/hbase-2.2.2/lib/okhttp-2.4.0.jar:/hbase/hbase-2.2.2/lib/okio-1.4.0.jar:/hbase/hbase-2.2.2/lib/osgi-resource-locator-1.0.1.jar:/hbase/hbase-2.2.2/lib/paranamer-2.3.jar:/hbase/hbase-2.2.2/lib/protobuf-java-2.5.0.jar:/hbase/hbase-2.2.2/lib/snappy-java-1.0.5.jar:/hbase/hbase-2.2.2/lib/spymemcached-2.12.2.jar:/hbase/hbase-2.2.2/lib/validation-api-1.1.0.Final.jar:/hbase/hbase-2.2.2/lib/xmlenc-0.52.jar:/hbase/hbase-2.2.2/lib/xz-1.0.jar:/hbase/hbase-2.2.2/lib/zookeeper-3.4.10.jar:/hbase/hbase-2.2.2/lib/client-facing-thirdparty/audience-annotations-0.5.0.jar:/hbase/hbase-2.2.2/lib/client-facing-thirdparty/commons-logging-1.2.jar:/hbase/hbase-2.2.2/lib/client-facing-thirdparty/findbugs-annotations-1.3.9-1.jar:/hbase/hbase-2.2.2/lib/client-facing-thirdparty/htrace-core4-4.2.0-incubating.jar:/hbase/hbase-2.2.2/lib/client-facing-thirdparty/log4j-1.2.17.jar:/hbase/hbase-2.2.2/lib/client-facing-thirdparty/slf4j-api-1.7.25.jar:/hbase/hbase-2.2.2/lib/client-facing-thirdparty/slf4j-log4j12-1.7.25.jar
+2022-08-12 02:08:22,410 INFO  [main] zookeeper.ZooKeeper: Client environment:java.library.path=/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+2022-08-12 02:08:22,410 INFO  [main] zookeeper.ZooKeeper: Client environment:java.io.tmpdir=/tmp
+2022-08-12 02:08:22,410 INFO  [main] zookeeper.ZooKeeper: Client environment:java.compiler=<NA>
+2022-08-12 02:08:22,410 INFO  [main] zookeeper.ZooKeeper: Client environment:os.name=Linux
+2022-08-12 02:08:22,410 INFO  [main] zookeeper.ZooKeeper: Client environment:os.arch=amd64
+2022-08-12 02:08:22,410 INFO  [main] zookeeper.ZooKeeper: Client environment:os.version=5.15.0-41-generic
+2022-08-12 02:08:22,410 INFO  [main] zookeeper.ZooKeeper: Client environment:user.name=root
+2022-08-12 02:08:22,410 INFO  [main] zookeeper.ZooKeeper: Client environment:user.home=/root
+2022-08-12 02:08:22,410 INFO  [main] zookeeper.ZooKeeper: Client environment:user.dir=/hbase/hbase-2.2.2
+2022-08-12 02:08:22,410 INFO  [main] zookeeper.ZooKeeper: Initiating client connection, connectString=10.5.0.7:2181,10.5.0.6:2181,10.5.0.13:2181 sessionTimeout=90000 watcher=org.apache.hadoop.hbase.zookeeper.PendingWatcher@35ff8fc9
+2022-08-12 02:08:22,540 INFO  [main-SendThread(10.5.0.6:2181)] zookeeper.ClientCnxn: Opening socket connection to server 10.5.0.6/10.5.0.6:2181. Will not attempt to authenticate using SASL (unknown error)
+2022-08-12 02:08:22,562 INFO  [main-SendThread(10.5.0.6:2181)] zookeeper.ClientCnxn: Socket connection established to 10.5.0.6/10.5.0.6:2181, initiating session
+2022-08-12 02:08:22,682 INFO  [main-SendThread(10.5.0.6:2181)] zookeeper.ClientCnxn: Session establishment complete on server 10.5.0.6/10.5.0.6:2181, sessionid = 0x2000013ce2e0000, negotiated timeout = 40000
+2022-08-12 02:08:23,542 INFO  [main] util.log: Logging initialized @15459ms
+2022-08-12 02:08:23,895 INFO  [main] http.HttpRequestLog: Http request log for http.requests.master is not defined
+2022-08-12 02:08:23,953 INFO  [main] http.HttpServer: Added global filter 'safety' (class=org.apache.hadoop.hbase.http.HttpServer$QuotingInputFilter)
+2022-08-12 02:08:23,964 INFO  [main] http.HttpServer: Added global filter 'clickjackingprevention' (class=org.apache.hadoop.hbase.http.ClickjackingPreventionFilter)
+2022-08-12 02:08:23,966 INFO  [main] http.HttpServer: Added filter static_user_filter (class=org.apache.hadoop.hbase.http.lib.StaticUserWebFilter$StaticUserFilter) to context master
+2022-08-12 02:08:23,966 INFO  [main] http.HttpServer: Added filter static_user_filter (class=org.apache.hadoop.hbase.http.lib.StaticUserWebFilter$StaticUserFilter) to context logs
+2022-08-12 02:08:23,976 INFO  [main] http.HttpServer: Added filter static_user_filter (class=org.apache.hadoop.hbase.http.lib.StaticUserWebFilter$StaticUserFilter) to context static
+2022-08-12 02:08:24,006 INFO  [main] http.HttpServer: ASYNC_PROFILER_HOME environment variable and async.profiler.home system property not specified. Disabling /prof endpoint.
+2022-08-12 02:08:24,122 INFO  [main] http.HttpServer: Jetty bound to port 16010
+2022-08-12 02:08:24,123 INFO  [main] server.Server: jetty-9.3.27.v20190418, build timestamp: 2019-04-18T18:11:38Z, git hash: d3e249f86955d04bc646bb620905b7c1bc596a8d
+2022-08-12 02:08:24,408 INFO  [main] handler.ContextHandler: Started o.e.j.s.ServletContextHandler@3cd206b5{/logs,file:///hbase/hbase-2.2.2/logs/,AVAILABLE}
+2022-08-12 02:08:24,422 INFO  [main] handler.ContextHandler: Started o.e.j.s.ServletContextHandler@a137d7a{/static,file:///hbase/hbase-2.2.2/hbase-webapps/static/,AVAILABLE}
+2022-08-12 02:08:24,715 INFO  [main] webapp.StandardDescriptorProcessor: NO JSP Support for /, did not find org.eclipse.jetty.jsp.JettyJspServlet
+2022-08-12 02:08:24,953 INFO  [main] handler.ContextHandler: Started o.e.j.w.WebAppContext@58516c91{/,file:///hbase/hbase-2.2.2/hbase-webapps/master/,AVAILABLE}{file:/hbase/hbase-2.2.2/hbase-webapps/master}
+2022-08-12 02:08:24,992 INFO  [main] server.AbstractConnector: Started ServerConnector@367d2816{HTTP/1.1,[http/1.1]}{0.0.0.0:16010}
+2022-08-12 02:08:24,992 INFO  [main] server.Server: Started @16909ms
+2022-08-12 02:08:24,997 INFO  [main] master.HMaster: hbase.rootdir=hdfs://mycluster/hbase, hbase.cluster.distributed=true
+2022-08-12 02:08:25,103 INFO  [master/server2:16000:becomeActiveMaster] master.HMaster: Adding backup master ZNode /hbase/backup-masters/server2,16000,1660270092115
+2022-08-12 02:08:25,580 INFO  [master/server2:16000:becomeActiveMaster] master.ActiveMasterManager: Another master is the active master, server1,16000,1660270092224; waiting to become the next active master
+2022-08-12 02:08:28,599 INFO  [master/server2:16000] regionserver.HRegionServer: ClusterId : e64290c3-73b5-4d60-be75-6ef263df9116
+2022-08-12 02:08:45,203 INFO  [master/server2:16000:becomeActiveMaster] master.ActiveMasterManager: Deleting ZNode for /hbase/backup-masters/server2,16000,1660270092115 from backup master directory
+2022-08-12 02:08:45,215 INFO  [master/server2:16000:becomeActiveMaster] master.ActiveMasterManager: Registered as active master=server2,16000,1660270092115
+2022-08-12 02:08:45,658 INFO  [master/server2:16000:becomeActiveMaster] fs.HFileSystem: Added intercepting call to namenode#getBlockLocations so can do block reordering using class org.apache.hadoop.hbase.fs.HFileSystem$ReorderWALBlocks
+2022-08-12 02:08:45,701 INFO  [master/server2:16000:becomeActiveMaster] coordination.SplitLogManagerCoordination: Found 0 orphan tasks and 0 rescan nodes
+2022-08-12 02:08:45,815 INFO  [ReadOnlyZKClient-10.5.0.7:2181,10.5.0.6:2181,10.5.0.13:2181@0x76a2815d] zookeeper.ZooKeeper: Initiating client connection, connectString=10.5.0.7:2181,10.5.0.6:2181,10.5.0.13:2181 sessionTimeout=90000 watcher=org.apache.hadoop.hbase.zookeeper.ReadOnlyZKClient$$Lambda$59/1325467578@a03903e
+2022-08-12 02:08:45,819 INFO  [ReadOnlyZKClient-10.5.0.7:2181,10.5.0.6:2181,10.5.0.13:2181@0x76a2815d-SendThread(10.5.0.7:2181)] zookeeper.ClientCnxn: Opening socket connection to server 10.5.0.7/10.5.0.7:2181. Will not attempt to authenticate using SASL (unknown error)
+2022-08-12 02:08:45,821 INFO  [ReadOnlyZKClient-10.5.0.7:2181,10.5.0.6:2181,10.5.0.13:2181@0x76a2815d-SendThread(10.5.0.7:2181)] zookeeper.ClientCnxn: Socket connection established to 10.5.0.7/10.5.0.7:2181, initiating session
+2022-08-12 02:08:45,825 INFO  [ReadOnlyZKClient-10.5.0.7:2181,10.5.0.6:2181,10.5.0.13:2181@0x76a2815d-SendThread(10.5.0.7:2181)] zookeeper.ClientCnxn: Session establishment complete on server 10.5.0.7/10.5.0.7:2181, sessionid = 0x1000013ce2e0006, negotiated timeout = 40000
+2022-08-12 02:08:45,902 INFO  [master/server2:16000:becomeActiveMaster] procedure2.ProcedureExecutor: Starting 16 core workers (bigger of cpus/4 or 16) with max (burst) worker count=160
+2022-08-12 02:08:45,908 INFO  [master/server2:16000:becomeActiveMaster] util.FSHDFSUtils: Recover lease on dfs file hdfs://mycluster/hbase/MasterProcWALs/pv2-00000000000000000001.log
+2022-08-12 02:08:45,915 INFO  [master/server2:16000:becomeActiveMaster] util.FSHDFSUtils: Recovered lease, attempt=0 on file=hdfs://mycluster/hbase/MasterProcWALs/pv2-00000000000000000001.log after 7ms
+2022-08-12 02:08:45,929 WARN  [master/server2:16000:becomeActiveMaster] wal.WALProcedureStore: Unable to read tracker for hdfs://mycluster/hbase/MasterProcWALs/pv2-00000000000000000001.log
+org.apache.hadoop.hbase.procedure2.store.wal.ProcedureWALFormat$InvalidWALDataException: Invalid Trailer version. got 73 expected 1
+	at org.apache.hadoop.hbase.procedure2.store.wal.ProcedureWALFormat.readTrailer(ProcedureWALFormat.java:186)
+	at org.apache.hadoop.hbase.procedure2.store.wal.ProcedureWALFile.readTrailer(ProcedureWALFile.java:91)
+	at org.apache.hadoop.hbase.procedure2.store.wal.ProcedureWALFile.readTracker(ProcedureWALFile.java:98)
+	at org.apache.hadoop.hbase.procedure2.store.wal.WALProcedureStore.initOldLog(WALProcedureStore.java:1390)
+	at org.apache.hadoop.hbase.procedure2.store.wal.WALProcedureStore.initOldLogs(WALProcedureStore.java:1339)
+	at org.apache.hadoop.hbase.procedure2.store.wal.WALProcedureStore.recoverLease(WALProcedureStore.java:417)
+	at org.apache.hadoop.hbase.procedure2.ProcedureExecutor.init(ProcedureExecutor.java:576)
+	at org.apache.hadoop.hbase.master.HMaster.createProcedureExecutor(HMaster.java:1528)
+	at org.apache.hadoop.hbase.master.HMaster.finishActiveMasterInitialization(HMaster.java:938)
+	at org.apache.hadoop.hbase.master.HMaster.startActiveMasterManager(HMaster.java:2112)
+	at org.apache.hadoop.hbase.master.HMaster.lambda$run$0(HMaster.java:580)
+	at java.lang.Thread.run(Thread.java:748)
+2022-08-12 02:08:45,931 INFO  [master/server2:16000:becomeActiveMaster] util.FSHDFSUtils: Recover lease on dfs file hdfs://mycluster/hbase/MasterProcWALs/pv2-00000000000000000002.log
+2022-08-12 02:08:45,932 INFO  [master/server2:16000:becomeActiveMaster] util.FSHDFSUtils: Recovered lease, attempt=0 on file=hdfs://mycluster/hbase/MasterProcWALs/pv2-00000000000000000002.log after 1ms
+2022-08-12 02:08:45,941 WARN  [master/server2:16000:becomeActiveMaster] wal.WALProcedureStore: Unable to read tracker for hdfs://mycluster/hbase/MasterProcWALs/pv2-00000000000000000002.log
+org.apache.hadoop.hbase.procedure2.store.wal.ProcedureWALFormat$InvalidWALDataException: Missing trailer: size=18 startPos=18
+	at org.apache.hadoop.hbase.procedure2.store.wal.ProcedureWALFormat.readTrailer(ProcedureWALFormat.java:180)
+	at org.apache.hadoop.hbase.procedure2.store.wal.ProcedureWALFile.readTrailer(ProcedureWALFile.java:91)
+	at org.apache.hadoop.hbase.procedure2.store.wal.ProcedureWALFile.readTracker(ProcedureWALFile.java:98)
+	at org.apache.hadoop.hbase.procedure2.store.wal.WALProcedureStore.initOldLog(WALProcedureStore.java:1390)
+	at org.apache.hadoop.hbase.procedure2.store.wal.WALProcedureStore.initOldLogs(WALProcedureStore.java:1339)
+	at org.apache.hadoop.hbase.procedure2.store.wal.WALProcedureStore.recoverLease(WALProcedureStore.java:417)
+	at org.apache.hadoop.hbase.procedure2.ProcedureExecutor.init(ProcedureExecutor.java:576)
+	at org.apache.hadoop.hbase.master.HMaster.createProcedureExecutor(HMaster.java:1528)
+	at org.apache.hadoop.hbase.master.HMaster.finishActiveMasterInitialization(HMaster.java:938)
+	at org.apache.hadoop.hbase.master.HMaster.startActiveMasterManager(HMaster.java:2112)
+	at org.apache.hadoop.hbase.master.HMaster.lambda$run$0(HMaster.java:580)
+	at java.lang.Thread.run(Thread.java:748)
+2022-08-12 02:08:45,959 INFO  [master/server2:16000:becomeActiveMaster] wal.WALProcedureStore: Rolled new Procedure Store WAL, id=3
+2022-08-12 02:08:45,963 INFO  [master/server2:16000:becomeActiveMaster] procedure2.ProcedureExecutor: Recovered WALProcedureStore lease in 59msec
+2022-08-12 02:08:45,969 INFO  [master/server2:16000:becomeActiveMaster] wal.ProcedureWALFormatReader: Rebuilding tracker for hdfs://mycluster/hbase/MasterProcWALs/pv2-00000000000000000002.log
+2022-08-12 02:08:45,970 WARN  [master/server2:16000:becomeActiveMaster] wal.ProcedureWALFormatReader: Nothing left to decode. Exiting with missing EOF, log=hdfs://mycluster/hbase/MasterProcWALs/pv2-00000000000000000002.log
+2022-08-12 02:08:45,970 INFO  [master/server2:16000:becomeActiveMaster] wal.ProcedureWALFormatReader: Read 0 entries in hdfs://mycluster/hbase/MasterProcWALs/pv2-00000000000000000002.log
+2022-08-12 02:08:45,975 INFO  [master/server2:16000:becomeActiveMaster] wal.ProcedureWALFormatReader: Rebuilding tracker for hdfs://mycluster/hbase/MasterProcWALs/pv2-00000000000000000001.log
+2022-08-12 02:08:45,989 WARN  [master/server2:16000:becomeActiveMaster] wal.ProcedureWALFormatReader: Nothing left to decode. Exiting with missing EOF, log=hdfs://mycluster/hbase/MasterProcWALs/pv2-00000000000000000001.log
+2022-08-12 02:08:45,989 INFO  [master/server2:16000:becomeActiveMaster] wal.ProcedureWALFormatReader: Read 21 entries in hdfs://mycluster/hbase/MasterProcWALs/pv2-00000000000000000001.log
+2022-08-12 02:08:46,021 INFO  [master/server2:16000:becomeActiveMaster] procedure2.ProcedureExecutor: Loaded WALProcedureStore in 57msec
+2022-08-12 02:08:46,021 INFO  [master/server2:16000:becomeActiveMaster] procedure2.RemoteProcedureDispatcher: Instantiated, coreThreads=128 (allowCoreThreadTimeOut=true), queueMaxSize=32, operationDelay=150
+2022-08-12 02:08:46,068 INFO  [master/server2:16000:becomeActiveMaster] master.RegionServerTracker: Starting RegionServerTracker; 0 have existing ServerCrashProcedures, 3 possibly 'live' servers, and 0 'splitting'.
+2022-08-12 02:08:46,079 INFO  [master/server2:16000:becomeActiveMaster] master.ServerManager: Registering regionserver=server2,16020,1660270093369
+2022-08-12 02:08:46,081 INFO  [master/server2:16000:becomeActiveMaster] master.ServerManager: Registering regionserver=server3,16020,1660270093400
+2022-08-12 02:08:46,083 INFO  [master/server2:16000:becomeActiveMaster] master.ServerManager: Registering regionserver=server1,16020,1660270093926
+2022-08-12 02:08:46,133 INFO  [master/server2:16000:becomeActiveMaster] balancer.BaseLoadBalancer: slop=0.001, systemTablesOnMaster=false
+2022-08-12 02:08:46,139 INFO  [master/server2:16000:becomeActiveMaster] balancer.StochasticLoadBalancer: Loaded config; maxSteps=1000000, stepsPerRegion=800, maxRunningTime=30000, isByTable=false, etc.
+2022-08-12 02:08:46,165 INFO  [master/server2:16000:becomeActiveMaster] master.HMaster: Active/primary master=server2,16000,1660270092115, sessionid=0x2000013ce2e0000, setting cluster-up flag (Was=true)
+2022-08-12 02:08:46,211 WARN  [master/server2:16000:becomeActiveMaster] snapshot.SnapshotManager: Couldn't delete working snapshot directory: hdfs://mycluster/hbase/.hbase-snapshot/.tmp
+2022-08-12 02:08:46,257 INFO  [master/server2:16000:becomeActiveMaster] master.HMaster: hbase:meta {1588230740 state=OPEN, ts=1660270126055, server=server2,16020,1660270093369}
+2022-08-12 02:08:46,281 INFO  [master/server2:16000:becomeActiveMaster] procedure2.TimeoutExecutorThread: ADDED pid=-1, state=WAITING_TIMEOUT; org.apache.hadoop.hbase.procedure2.CompletedProcedureCleaner; timeout=30000, timestamp=1660270156281
+2022-08-12 02:08:46,283 INFO  [master/server2:16000:becomeActiveMaster] cleaner.DirScanPool: Cleaner pool size is 1
+2022-08-12 02:08:46,285 INFO  [master/server2:16000:becomeActiveMaster] zookeeper.RecoverableZooKeeper: Process identifier=replicationLogCleaner connecting to ZooKeeper ensemble=10.5.0.7:2181,10.5.0.6:2181,10.5.0.13:2181
+2022-08-12 02:08:46,286 INFO  [master/server2:16000:becomeActiveMaster] zookeeper.ZooKeeper: Initiating client connection, connectString=10.5.0.7:2181,10.5.0.6:2181,10.5.0.13:2181 sessionTimeout=90000 watcher=org.apache.hadoop.hbase.zookeeper.PendingWatcher@7fbb96bd
+2022-08-12 02:08:46,293 INFO  [master/server2:16000:becomeActiveMaster] cleaner.LogCleaner: Creating 2 OldWALs cleaner threads
+2022-08-12 02:08:46,295 INFO  [master/server2:16000:becomeActiveMaster-SendThread(10.5.0.7:2181)] zookeeper.ClientCnxn: Opening socket connection to server 10.5.0.7/10.5.0.7:2181. Will not attempt to authenticate using SASL (unknown error)
+2022-08-12 02:08:46,296 INFO  [master/server2:16000:becomeActiveMaster-SendThread(10.5.0.7:2181)] zookeeper.ClientCnxn: Socket connection established to 10.5.0.7/10.5.0.7:2181, initiating session
+2022-08-12 02:08:46,301 INFO  [master/server2:16000:becomeActiveMaster-SendThread(10.5.0.7:2181)] zookeeper.ClientCnxn: Session establishment complete on server 10.5.0.7/10.5.0.7:2181, sessionid = 0x1000013ce2e0007, negotiated timeout = 40000
+2022-08-12 02:08:46,311 INFO  [master/server2:16000:becomeActiveMaster] master.HMaster: Master startup: status=Wait for region servers to report in, state=RUNNING, startTime=1660270105444, completionTime=-1
+2022-08-12 02:08:46,311 INFO  [master/server2:16000:becomeActiveMaster] master.ServerManager: Waiting on regionserver count=3; waited=0ms, expecting min=1 server(s), max=NO_LIMIT server(s), timeout=4500ms, lastChange=0ms
+2022-08-12 02:08:47,827 INFO  [master/server2:16000:becomeActiveMaster] master.ServerManager: Waiting on regionserver count=3; waited=1516ms, expecting min=1 server(s), max=NO_LIMIT server(s), timeout=4500ms, lastChange=-1516ms
+2022-08-12 02:08:49,344 INFO  [master/server2:16000:becomeActiveMaster] master.ServerManager: Waiting on regionserver count=3; waited=3033ms, expecting min=1 server(s), max=NO_LIMIT server(s), timeout=4500ms, lastChange=-3033ms
+2022-08-12 02:08:50,814 INFO  [master/server2:16000:becomeActiveMaster] master.ServerManager: Finished waiting on RegionServer count=3; waited=4503ms, expected min=1 server(s), max=NO_LIMIT server(s), master is running
+2022-08-12 02:08:50,939 INFO  [master/server2:16000:becomeActiveMaster] assignment.AssignmentManager: Number of RegionServers=3
+2022-08-12 02:08:50,939 INFO  [master/server2:16000:becomeActiveMaster] procedure2.TimeoutExecutorThread: ADDED pid=-1, state=WAITING_TIMEOUT; org.apache.hadoop.hbase.master.assignment.AssignmentManager$RegionInTransitionChore; timeout=60000, timestamp=1660270190939
+2022-08-12 02:08:50,941 ERROR [master/server2:16000:becomeActiveMaster] master.HMaster: Failed to become active master
+java.lang.NullPointerException
+	at org.apache.hadoop.hbase.procedure2.ProcedureExecutor.addChore(ProcedureExecutor.java:722)
+	at org.apache.hadoop.hbase.master.assignment.AssignmentManager.joinCluster(AssignmentManager.java:1359)
+	at org.apache.hadoop.hbase.master.HMaster.finishActiveMasterInitialization(HMaster.java:1065)
+	at org.apache.hadoop.hbase.master.HMaster.startActiveMasterManager(HMaster.java:2112)
+	at org.apache.hadoop.hbase.master.HMaster.lambda$run$0(HMaster.java:580)
+	at java.lang.Thread.run(Thread.java:748)
+2022-08-12 02:08:50,942 ERROR [master/server2:16000:becomeActiveMaster] master.HMaster: Master server abort: loaded coprocessors are: []
+2022-08-12 02:08:50,942 ERROR [master/server2:16000:becomeActiveMaster] master.HMaster: ***** ABORTING master server2,16000,1660270092115: Unhandled exception. Starting shutdown. *****
+java.lang.NullPointerException
+	at org.apache.hadoop.hbase.procedure2.ProcedureExecutor.addChore(ProcedureExecutor.java:722)
+	at org.apache.hadoop.hbase.master.assignment.AssignmentManager.joinCluster(AssignmentManager.java:1359)
+	at org.apache.hadoop.hbase.master.HMaster.finishActiveMasterInitialization(HMaster.java:1065)
+	at org.apache.hadoop.hbase.master.HMaster.startActiveMasterManager(HMaster.java:2112)
+	at org.apache.hadoop.hbase.master.HMaster.lambda$run$0(HMaster.java:580)
+	at java.lang.Thread.run(Thread.java:748)
+2022-08-12 02:08:50,942 INFO  [master/server2:16000:becomeActiveMaster] regionserver.HRegionServer: ***** STOPPING region server 'server2,16000,1660270092115' *****
+2022-08-12 02:08:50,942 INFO  [master/server2:16000:becomeActiveMaster] regionserver.HRegionServer: STOPPED: Stopped by master/server2:16000:becomeActiveMaster
+2022-08-12 02:08:50,946 INFO  [master/server2:16000] regionserver.HRegionServer: Stopping infoServer
+2022-08-12 02:08:50,969 INFO  [master/server2:16000] handler.ContextHandler: Stopped o.e.j.w.WebAppContext@58516c91{/,null,UNAVAILABLE}{file:/hbase/hbase-2.2.2/hbase-webapps/master}
+2022-08-12 02:08:50,974 INFO  [master/server2:16000] server.AbstractConnector: Stopped ServerConnector@367d2816{HTTP/1.1,[http/1.1]}{0.0.0.0:16010}
+2022-08-12 02:08:50,974 INFO  [master/server2:16000] handler.ContextHandler: Stopped o.e.j.s.ServletContextHandler@a137d7a{/static,file:///hbase/hbase-2.2.2/hbase-webapps/static/,UNAVAILABLE}
+2022-08-12 02:08:50,975 INFO  [master/server2:16000] handler.ContextHandler: Stopped o.e.j.s.ServletContextHandler@3cd206b5{/logs,file:///hbase/hbase-2.2.2/logs/,UNAVAILABLE}
+2022-08-12 02:08:50,977 INFO  [master/server2:16000] regionserver.HRegionServer: aborting server server2,16000,1660270092115
+2022-08-12 02:08:50,982 INFO  [ReadOnlyZKClient-10.5.0.7:2181,10.5.0.6:2181,10.5.0.13:2181@0x76a2815d] zookeeper.ZooKeeper: Session: 0x1000013ce2e0006 closed
+2022-08-12 02:08:50,983 INFO  [ReadOnlyZKClient-10.5.0.7:2181,10.5.0.6:2181,10.5.0.13:2181@0x76a2815d-EventThread] zookeeper.ClientCnxn: EventThread shut down for session: 0x1000013ce2e0006
+2022-08-12 02:08:50,984 INFO  [master/server2:16000] regionserver.HRegionServer: stopping server server2,16000,1660270092115; all regions closed.
+2022-08-12 02:08:50,985 INFO  [master/server2:16000] hbase.ChoreService: Chore service for: master/server2:16000 had [] on shutdown
+2022-08-12 02:08:50,988 WARN  [master/server2:16000] master.ActiveMasterManager: Failed get of master address: java.io.IOException: Can't get master address from ZooKeeper; znode data == null
+2022-08-12 02:08:50,988 INFO  [master/server2:16000] assignment.AssignmentManager: Stopping assignment manager
+2022-08-12 02:08:50,990 INFO  [master/server2:16000] procedure2.RemoteProcedureDispatcher: Stopping procedure remote dispatcher
+2022-08-12 02:08:50,990 INFO  [master/server2:16000] procedure2.ProcedureExecutor: Stopping
+2022-08-12 02:08:50,994 ERROR [master/server2:16000] procedure2.ProcedureExecutor: ThreadGroup java.lang.ThreadGroup[name=PEWorkerGroup,maxpri=10] contains running threads; null: See STDOUT
+2022-08-12 02:08:50,995 INFO  [master/server2:16000] wal.WALProcedureStore: Stopping the WAL Procedure Store, isAbort=true
+2022-08-12 02:08:51,081 INFO  [master/server2:16000] hbase.ChoreService: Chore service for: master/server2:16000.splitLogManager. had [[ScheduledChore: Name: SplitLogManager Timeout Monitor Period: 1000 Unit: MILLISECONDS]] on shutdown
+2022-08-12 02:08:51,082 INFO  [master/server2:16000] flush.MasterFlushTableProcedureManager: stop: server shutting down.
+2022-08-12 02:08:51,082 INFO  [master/server2:16000] ipc.NettyRpcServer: Stopping server on /10.5.0.6:16000
+2022-08-12 02:08:51,124 INFO  [main-EventThread] zookeeper.ClientCnxn: EventThread shut down for session: 0x2000013ce2e0000
+2022-08-12 02:08:51,124 INFO  [master/server2:16000] zookeeper.ZooKeeper: Session: 0x2000013ce2e0000 closed
+2022-08-12 02:08:51,125 INFO  [master/server2:16000] regionserver.HRegionServer: Exiting; stopping=server2,16000,1660270092115; zookeeper connection closed.
+2022-08-12 02:08:51,125 ERROR [main] master.HMasterCommandLine: Master exiting
+java.lang.RuntimeException: HMaster Aborted
+	at org.apache.hadoop.hbase.master.HMasterCommandLine.startMaster(HMasterCommandLine.java:244)
+	at org.apache.hadoop.hbase.master.HMasterCommandLine.run(HMasterCommandLine.java:140)
+	at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:76)
+	at org.apache.hadoop.hbase.util.ServerCommandLine.doMain(ServerCommandLine.java:149)
+	at org.apache.hadoop.hbase.master.HMaster.main(HMaster.java:2942)

@@ -19,9 +19,14 @@
       <module fileurl="file://$PROJECT_DIR$/Redit-Cassandra-17628/Redit-Cassandra-17628.iml" filepath="$PROJECT_DIR$/Redit-Cassandra-17628/Redit-Cassandra-17628.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Distributed-Id/Redit-Distributed-Id.iml" filepath="$PROJECT_DIR$/Redit-Distributed-Id/Redit-Distributed-Id.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Elasticsearch/Redit-Elasticsearch.iml" filepath="$PROJECT_DIR$/Redit-Elasticsearch/Redit-Elasticsearch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Redit-HBase-26742/Redit-HBase-26742.iml" filepath="$PROJECT_DIR$/Redit-HBase-26742/Redit-HBase-26742.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Hadoop-MapReduce/Redit-Hadoop-MapReduce.iml" filepath="$PROJECT_DIR$/Redit-Hadoop-MapReduce/Redit-Hadoop-MapReduce.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Hazelcast/Redit-Hazelcast.iml" filepath="$PROJECT_DIR$/Redit-Hazelcast/Redit-Hazelcast.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Hbase/Redit-Hbase.iml" filepath="$PROJECT_DIR$/Redit-Hbase/Redit-Hbase.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Redit-Hbase-21487/Redit-Hbase-21487.iml" filepath="$PROJECT_DIR$/Redit-Hbase-21487/Redit-Hbase-21487.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Redit-Hbase-23682/Redit-Hbase-23682.iml" filepath="$PROJECT_DIR$/Redit-Hbase-23682/Redit-Hbase-23682.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Redit-Hbase-26114/Redit-Hbase-26114.iml" filepath="$PROJECT_DIR$/Redit-Hbase-26114/Redit-Hbase-26114.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Redit-Hbase-26901/Redit-Hbase-26901.iml" filepath="$PROJECT_DIR$/Redit-Hbase-26901/Redit-Hbase-26901.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-JLiteSpider/Redit-JLiteSpider.iml" filepath="$PROJECT_DIR$/Redit-JLiteSpider/Redit-JLiteSpider.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Kafka/Redit-Kafka.iml" filepath="$PROJECT_DIR$/Redit-Kafka/Redit-Kafka.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Kafka-13718/Redit-Kafka-13718.iml" filepath="$PROJECT_DIR$/Redit-Kafka-13718/Redit-Kafka-13718.iml" />

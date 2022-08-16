@@ -18,6 +18,7 @@
         <module name="hadoop-yarn-services-api" />
         <module name="modulepath-tests" />
         <module name="Redit-Distributed-Id" />
+        <module name="Redit-Hbase-23682" />
         <module name="zipkin-storage-elasticsearch" />
         <module name="hadoop-aliyun" />
         <module name="hazelcast" />
@@ -126,8 +127,8 @@
         <module name="zipkin-storage-cassandra" />
         <module name="Redit-Activemq" />
         <module name="activemq-openwire-legacy" />
-        <module name="Redit-Hbase" />
         <module name="activemq-memtest-maven-plugin" />
+        <module name="Redit-Hbase" />
         <module name="hadoop-archives" />
         <module name="hadoop-yarn-server-timelineservice" />
         <module name="hadoop-yarn-server-web-proxy" />
@@ -186,6 +187,7 @@
         <module name="hadoop-dynamometer-blockgen" />
         <module name="hazelcast-spring" />
         <module name="raft-java-core-sleep" />
+        <module name="Redit-Hbase-26114" />
         <module name="activemq-camel" />
         <module name="hadoop-yarn-server-timeline-pluginstorage" />
         <module name="hazelcast-jet-hadoop-core" />
@@ -196,9 +198,11 @@
         <module name="hazelcast-jet-hadoop" />
         <module name="hadoop-yarn-applications-catalog-webapp" />
         <module name="Redit-Rocketmq-255" />
+        <module name="Redit-HBase-26742" />
         <module name="hadoop-minicluster" />
         <module name="hadoop-yarn-server-tests" />
         <module name="activemq-ra" />
+        <module name="Redit-Hbase-26901" />
         <module name="hadoop-yarn-server-timelineservice-hbase-tests" />
         <module name="activemq-web-console" />
         <module name="Redit-Rocketmq-257" />
@@ -215,6 +219,7 @@
         <module name="rocketmq-test" />
         <module name="zipkin-collector" />
         <module name="Redit-Cassandra-16104" />
+        <module name="Redit-Hbase-21487" />
         <module name="raft-java-example" />
         <module name="hazelcast-3-connector-impl" />
         <module name="hadoop-auth-examples" />
@@ -498,6 +503,11 @@
       <module name="Redit-Hadoop-MapReduce" target="8" />
       <module name="Redit-Hazelcast" target="8" />
       <module name="Redit-Hbase" target="8" />
+      <module name="Redit-Hbase-21487" target="8" />
+      <module name="Redit-Hbase-23682" target="8" />
+      <module name="Redit-Hbase-26114" target="8" />
+      <module name="Redit-HBase-26742" target="8" />
+      <module name="Redit-Hbase-26901" target="8" />
       <module name="Redit-JLiteSpider" target="8" />
       <module name="Redit-Kafka" target="8" />
       <module name="Redit-Kafka-13718" target="8" />

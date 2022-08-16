@@ -1,0 +1,7 @@
+2022-08-12 02:08:33,452 INFO SecurityLogger.org.apache.hadoop.hbase.Server: Connection from 10.5.0.7:57816, version=2.2.2, sasl=false, ugi=root (auth:SIMPLE), service=AdminService
+2022-08-12 02:08:39,212 INFO SecurityLogger.org.apache.hadoop.hbase.Server: Connection from 10.5.0.7:57818, version=2.2.2, sasl=false, ugi=root (auth:SIMPLE), service=ClientService
+2022-08-12 02:08:45,162 INFO SecurityLogger.org.apache.hadoop.hbase.Server: Connection from 10.5.0.13:39472, version=2.2.2, sasl=false, ugi=root (auth:SIMPLE), service=ClientService
+2022-08-12 02:08:48,459 INFO SecurityLogger.org.apache.hadoop.hbase.Server: Connection from 10.5.0.6:39883, version=2.2.2, sasl=false, ugi=root (auth:SIMPLE), service=RegionServerStatusService
+2022-08-12 02:08:48,892 INFO SecurityLogger.org.apache.hadoop.hbase.Server: Connection from 10.5.0.13:46049, version=2.2.2, sasl=false, ugi=root (auth:SIMPLE), service=RegionServerStatusService
+2022-08-12 02:08:48,891 INFO SecurityLogger.org.apache.hadoop.hbase.Server: Connection from 10.5.0.7:35521, version=2.2.2, sasl=false, ugi=root (auth:SIMPLE), service=RegionServerStatusService
+2022-08-12 02:08:50,922 INFO SecurityLogger.org.apache.hadoop.hbase.Server: Connection from 10.5.0.6:42368, version=2.2.2, sasl=false, ugi=root (auth:SIMPLE), service=ClientService

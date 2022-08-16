@@ -1,0 +1,3 @@
+2022-08-12 02:08:29,464 INFO SecurityLogger.org.apache.hadoop.hbase.Server: Connection from 10.5.0.6:33521, version=2.2.2, sasl=false, ugi=root (auth:SIMPLE), service=RegionServerStatusService
+2022-08-12 02:08:29,464 INFO SecurityLogger.org.apache.hadoop.hbase.Server: Connection from 10.5.0.13:52461, version=2.2.2, sasl=false, ugi=root (auth:SIMPLE), service=RegionServerStatusService
+2022-08-12 02:08:29,525 INFO SecurityLogger.org.apache.hadoop.hbase.Server: Connection from 10.5.0.7:46071, version=2.2.2, sasl=false, ugi=root (auth:SIMPLE), service=RegionServerStatusService
