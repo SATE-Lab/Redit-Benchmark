@@ -1,0 +1,35 @@
+OpenJDK 64-Bit Server VM (25.242-b08) for linux-amd64 JRE (1.8.0_242-b08), built on Jan 16 2020 07:33:50 by "openjdk" with gcc 4.4.7 20120313 (Red Hat 4.4.7-23)
+Memory: 4k page, physical 8107580k(313596k free), swap 2097148k(2095600k free)
+CommandLine flags: -XX:+ExplicitGCInvokesConcurrent -XX:GCLogFileSize=104857600 -XX:InitialHeapSize=1073741824 -XX:InitiatingHeapOccupancyPercent=35 -XX:+ManagementServer -XX:MaxGCPauseMillis=20 -XX:MaxHeapSize=1073741824 -XX:MaxInlineLevel=15 -XX:NumberOfGCLogFiles=10 -XX:+PrintGC -XX:+PrintGCDateStamps -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+UseCompressedClassPointers -XX:+UseCompressedOops -XX:+UseG1GC -XX:+UseGCLogFileRotation 
+2022-08-26T10:46:20.995+0000: 2.006: [GC pause (G1 Evacuation Pause) (young), 0.0381077 secs]
+   [Parallel Time: 19.1 ms, GC Workers: 2]
+      [GC Worker Start (ms): Min: 2007.5, Avg: 2007.6, Max: 2007.6, Diff: 0.0]
+      [Ext Root Scanning (ms): Min: 1.1, Avg: 1.4, Max: 1.7, Diff: 0.6, Sum: 2.8]
+      [Update RS (ms): Min: 0.0, Avg: 0.0, Max: 0.0, Diff: 0.0, Sum: 0.0]
+         [Processed Buffers: Min: 0, Avg: 0.0, Max: 0, Diff: 0, Sum: 0]
+      [Scan RS (ms): Min: 0.0, Avg: 0.0, Max: 0.0, Diff: 0.0, Sum: 0.0]
+      [Code Root Scanning (ms): Min: 0.1, Avg: 1.5, Max: 2.8, Diff: 2.7, Sum: 3.0]
+      [Object Copy (ms): Min: 8.6, Avg: 9.1, Max: 9.5, Diff: 0.9, Sum: 18.2]
+      [Termination (ms): Min: 0.0, Avg: 1.3, Max: 2.6, Diff: 2.6, Sum: 2.6]
+         [Termination Attempts: Min: 1, Avg: 1.0, Max: 1, Diff: 0, Sum: 2]
+      [GC Worker Other (ms): Min: 0.0, Avg: 0.0, Max: 0.0, Diff: 0.0, Sum: 0.0]
+      [GC Worker Total (ms): Min: 13.3, Avg: 13.3, Max: 13.4, Diff: 0.1, Sum: 26.6]
+      [GC Worker End (ms): Min: 2020.8, Avg: 2020.9, Max: 2020.9, Diff: 0.1]
+   [Code Root Fixup: 0.0 ms]
+   [Code Root Purge: 0.0 ms]
+   [Clear CT: 1.7 ms]
+   [Other: 17.3 ms]
+      [Choose CSet: 0.0 ms]
+      [Ref Proc: 13.7 ms]
+      [Ref Enq: 3.4 ms]
+      [Redirty Cards: 0.0 ms]
+      [Humongous Register: 0.0 ms]
+      [Humongous Reclaim: 0.0 ms]
+      [Free CSet: 0.1 ms]
+   [Eden: 52224.0K(52224.0K)->0.0B(45056.0K) Survivors: 0.0B->7168.0K Heap: 52224.0K(1024.0M)->8933.5K(1024.0M)]
+ [Times: user=0.00 sys=0.01, real=0.04 secs] 
+Heap
+ garbage-first heap   total 1048576K, used 18149K [0x00000000c0000000, 0x00000000c0102000, 0x0000000100000000)
+  region size 1024K, 17 young (17408K), 7 survivors (7168K)
+ Metaspace       used 18046K, capacity 18432K, committed 18560K, reserved 1064960K
+  class space    used 2255K, capacity 2342K, committed 2432K, reserved 1048576K

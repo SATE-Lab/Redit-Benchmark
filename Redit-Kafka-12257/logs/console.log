@@ -1,0 +1,1198 @@
+13:02:56.592 [main] INFO io.redit.samples.kafka12257.SampleTest - wait for zookeeper...
+13:02:56.592 [main] INFO io.redit.samples.kafka12257.SampleTest - server1 startZookeeper...
+13:02:56.594 [main] INFO io.redit.samples.kafka12257.SampleTest - server2 startZookeeper...
+13:02:56.621 [main] INFO io.redit.samples.kafka12257.SampleTest - server3 startZookeeper...
+13:03:06.631 [main] INFO io.redit.samples.kafka12257.SampleTest - server1 checkStatus...
+13:03:06.977 [main] INFO io.redit.samples.kafka12257.SampleTest - server1: cd /zookeeper/apache-zookeeper-3.7.1-bin && bin/zkServer.sh status
+13:03:06.977 [main] INFO io.redit.samples.kafka12257.SampleTest - Client port found: 2181. Client address: localhost. Client SSL: false.
+Mode: follower
+
+13:03:07.978 [main] INFO io.redit.samples.kafka12257.SampleTest - server2 checkStatus...
+13:03:08.287 [main] INFO io.redit.samples.kafka12257.SampleTest - server2: cd /zookeeper/apache-zookeeper-3.7.1-bin && bin/zkServer.sh status
+13:03:08.287 [main] INFO io.redit.samples.kafka12257.SampleTest - Client port found: 2181. Client address: localhost. Client SSL: false.
+Mode: follower
+
+13:03:09.288 [main] INFO io.redit.samples.kafka12257.SampleTest - server3 checkStatus...
+13:03:09.621 [main] INFO io.redit.samples.kafka12257.SampleTest - server3: cd /zookeeper/apache-zookeeper-3.7.1-bin && bin/zkServer.sh status
+13:03:09.621 [main] INFO io.redit.samples.kafka12257.SampleTest - Client port found: 2181. Client address: localhost. Client SSL: false.
+Mode: leader
+
+13:03:20.622 [main] INFO io.redit.samples.kafka12257.SampleTest - wait for kafka...
+13:03:20.622 [main] INFO io.redit.samples.kafka12257.SampleTest - server1 startKafka...
+13:03:20.623 [main] INFO io.redit.samples.kafka12257.SampleTest - server2 startKafka...
+13:03:20.623 [main] INFO io.redit.samples.kafka12257.SampleTest - server3 startKafka...
+13:03:40.900 [main] INFO io.redit.samples.kafka12257.SampleTest - server1: jps
+13:03:40.900 [main] INFO io.redit.samples.kafka12257.SampleTest - 580 Jps
+36 QuorumPeerMain
+485 Kafka
+
+13:03:41.129 [main] INFO io.redit.samples.kafka12257.SampleTest - server2: jps
+13:03:41.129 [main] INFO io.redit.samples.kafka12257.SampleTest - 483 Kafka
+35 QuorumPeerMain
+582 Jps
+
+13:03:41.370 [main] INFO io.redit.samples.kafka12257.SampleTest - server3: jps
+13:03:41.370 [main] INFO io.redit.samples.kafka12257.SampleTest - 35 QuorumPeerMain
+492 Kafka
+589 Jps
+
+13:03:44.489 [main] INFO io.redit.samples.kafka12257.SampleTest - server1: cd /kafka/kafka_2.13-2.7.1 && bin/kafka-topics.sh --bootstrap-server 10.5.0.4:9092 --create --topic test_topic --replication-factor 3 --partitions 3
+13:03:44.489 [main] INFO io.redit.samples.kafka12257.SampleTest - WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
+Created topic test_topic.
+
+13:03:48.363 [main] INFO io.redit.samples.kafka12257.SampleTest - server3: cd /kafka/kafka_2.13-2.7.1 && bin/kafka-topics.sh --bootstrap-server 10.5.0.2:9092 --list
+13:03:48.363 [main] INFO io.redit.samples.kafka12257.SampleTest - test_topic
+
+createConsumer !!!! bootstrap_server: 10.5.0.4:9092
+13:03:48.378 [main] INFO org.apache.kafka.clients.consumer.ConsumerConfig - ConsumerConfig values:
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = latest
+	bootstrap.servers = [10.5.0.4:9092]
+	check.crcs = true
+	client.id =
+	connections.max.idle.ms = 540000
+	enable.auto.commit = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = g1
+	heartbeat.interval.ms = 3000
+	interceptor.classes = null
+	internal.leave.group.on.close = true
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 305000
+	retry.backoff.ms = 100
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	session.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+13:03:48.378 [main] DEBUG org.apache.kafka.clients.consumer.KafkaConsumer - Starting the Kafka consumer
+13:03:48.502 [main] DEBUG org.apache.kafka.clients.Metadata - Updated cluster metadata version 1 to Cluster(id = null, nodes = [10.5.0.4:9092 (id: -1 rack: null)], partitions = [])
+13:03:48.511 [main] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name fetch-throttle-time
+13:03:48.516 [main] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name connections-closed:
+13:03:48.517 [main] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name connections-created:
+13:03:48.517 [main] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name bytes-sent-received:
+13:03:48.517 [main] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name bytes-sent:
+13:03:48.517 [main] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name bytes-received:
+13:03:48.517 [main] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name select-time:
+13:03:48.518 [main] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name io-time:
+13:03:48.531 [main] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name heartbeat-latency
+13:03:48.532 [main] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name join-latency
+13:03:48.532 [main] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name sync-latency
+13:03:48.533 [main] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name commit-latency
+13:03:48.536 [main] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name bytes-fetched
+13:03:48.536 [main] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name records-fetched
+13:03:48.536 [main] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name fetch-latency
+13:03:48.536 [main] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name records-lag
+13:03:48.538 [main] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka version : 0.11.0.0
+13:03:48.538 [main] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka commitId : cb8625948210849f
+13:03:48.538 [main] DEBUG org.apache.kafka.clients.consumer.KafkaConsumer - Kafka consumer created
+13:03:48.539 [main] DEBUG org.apache.kafka.clients.consumer.KafkaConsumer - Subscribed to topic(s): test_topic
+13:03:48.540 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending GroupCoordinator request for group g1 to broker 10.5.0.4:9092 (id: -1 rack: null)
+13:03:48.547 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Initiating connection to node -1 at 10.5.0.4:9092.
+13:03:48.555 [Thread-30] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name node--1.bytes-sent
+13:03:48.557 [Thread-30] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name node--1.bytes-received
+13:03:48.557 [Thread-30] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name node--1.latency
+13:03:48.557 [Thread-30] DEBUG org.apache.kafka.common.network.Selector - Created socket with SO_RCVBUF = 65536, SO_SNDBUF = 131072, SO_TIMEOUT = 0 to node -1
+13:03:48.558 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Completed connection to node -1.  Fetching API versions.
+13:03:48.558 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Initiating API versions fetch from node -1.
+13:03:48.679 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Recorded API versions for node -1: (Produce(0): 0 to 8 [usable: 3], Fetch(1): 0 to 12 [usable: 5], Offsets(2): 0 to 5 [usable: 2], Metadata(3): 0 to 9 [usable: 4], LeaderAndIsr(4): 0 to 4 [usable: 0], StopReplica(5): 0 to 3 [usable: 0], UpdateMetadata(6): 0 to 6 [usable: 3], ControlledShutdown(7): 0 to 3 [usable: 1], OffsetCommit(8): 0 to 8 [usable: 3], OffsetFetch(9): 0 to 7 [usable: 3], FindCoordinator(10): 0 to 3 [usable: 1], JoinGroup(11): 0 to 7 [usable: 2], Heartbeat(12): 0 to 4 [usable: 1], LeaveGroup(13): 0 to 4 [usable: 1], SyncGroup(14): 0 to 5 [usable: 1], DescribeGroups(15): 0 to 5 [usable: 1], ListGroups(16): 0 to 4 [usable: 1], SaslHandshake(17): 0 to 1 [usable: 0], ApiVersions(18): 0 to 3 [usable: 1], CreateTopics(19): 0 to 6 [usable: 2], DeleteTopics(20): 0 to 5 [usable: 1], DeleteRecords(21): 0 to 2 [usable: 0], InitProducerId(22): 0 to 4 [usable: 0], OffsetForLeaderEpoch(23): 0 to 3 [usable: 0], AddPartitionsToTxn(24): 0 to 2 [usable: 0], AddOffsetsToTxn(25): 0 to 2 [usable: 0], EndTxn(26): 0 to 2 [usable: 0], WriteTxnMarkers(27): 0 [usable: 0], TxnOffsetCommit(28): 0 to 3 [usable: 0], DescribeAcls(29): 0 to 2 [usable: 0], CreateAcls(30): 0 to 2 [usable: 0], DeleteAcls(31): 0 to 2 [usable: 0], DescribeConfigs(32): 0 to 3 [usable: 0], AlterConfigs(33): 0 to 1 [usable: 0], UNKNOWN(34): 0 to 1, UNKNOWN(35): 0 to 2, UNKNOWN(36): 0 to 2, UNKNOWN(37): 0 to 3, UNKNOWN(38): 0 to 2, UNKNOWN(39): 0 to 2, UNKNOWN(40): 0 to 2, UNKNOWN(41): 0 to 2, UNKNOWN(42): 0 to 2, UNKNOWN(43): 0 to 2, UNKNOWN(44): 0 to 1, UNKNOWN(45): 0, UNKNOWN(46): 0, UNKNOWN(47): 0, UNKNOWN(48): 0, UNKNOWN(49): 0, UNKNOWN(50): 0, UNKNOWN(51): 0, UNKNOWN(56): 0, UNKNOWN(57): 0)
+13:03:48.680 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Sending metadata request (type=MetadataRequest, topics=test_topic) to node -1
+13:03:48.688 [Thread-30] DEBUG org.apache.kafka.clients.Metadata - Updated cluster metadata version 2 to Cluster(id = upxc2SQlS2GraJhhpYLwAA, nodes = [10.5.0.4:9092 (id: 0 rack: null), 10.5.0.3:9092 (id: 1 rack: null), 10.5.0.2:9092 (id: 2 rack: null)], partitions = [Partition(topic = test_topic, partition = 2, leader = 2, replicas = [2,1,0], isr = [2,1,0]), Partition(topic = test_topic, partition = 1, leader = 0, replicas = [0,2,1], isr = [0,2,1]), Partition(topic = test_topic, partition = 0, leader = 1, replicas = [1,0,2], isr = [1,0,2])])
+13:03:48.769 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received GroupCoordinator response ClientResponse(receivedTimeMs=1661835828768, latencyMs=223, disconnected=false, requestHeader={api_key=10,api_version=1,correlation_id=0,client_id=consumer-1}, responseBody=FindCoordinatorResponse(throttleTimeMs=0, errorMessage='The coordinator is not available.', error=COORDINATOR_NOT_AVAILABLE, node=:-1 (id: -1 rack: null))) for group g1
+13:03:48.769 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Group coordinator lookup for group g1 failed: The coordinator is not available.
+13:03:48.770 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Coordinator discovery failed for group g1, refreshing metadata
+13:03:48.784 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Initialize connection to node 1 for sending metadata request
+13:03:48.784 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Initiating connection to node 1 at 10.5.0.3:9092.
+13:03:48.784 [Thread-30] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name node-1.bytes-sent
+13:03:48.784 [Thread-30] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name node-1.bytes-received
+13:03:48.785 [Thread-30] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name node-1.latency
+13:03:48.785 [Thread-30] DEBUG org.apache.kafka.common.network.Selector - Created socket with SO_RCVBUF = 65536, SO_SNDBUF = 131072, SO_TIMEOUT = 0 to node 1
+13:03:48.785 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Completed connection to node 1.  Fetching API versions.
+13:03:48.785 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Initiating API versions fetch from node 1.
+13:03:48.785 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Initialize connection to node 2 for sending metadata request
+13:03:48.785 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Initiating connection to node 2 at 10.5.0.2:9092.
+13:03:48.786 [Thread-30] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name node-2.bytes-sent
+13:03:48.786 [Thread-30] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name node-2.bytes-received
+13:03:48.786 [Thread-30] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name node-2.latency
+13:03:48.787 [Thread-30] DEBUG org.apache.kafka.common.network.Selector - Created socket with SO_RCVBUF = 65536, SO_SNDBUF = 131072, SO_TIMEOUT = 0 to node 2
+13:03:48.787 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Completed connection to node 2.  Fetching API versions.
+13:03:48.787 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Initiating API versions fetch from node 2.
+13:03:48.787 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Initialize connection to node 0 for sending metadata request
+13:03:48.787 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Initiating connection to node 0 at 10.5.0.4:9092.
+13:03:48.788 [Thread-30] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name node-0.bytes-sent
+13:03:48.788 [Thread-30] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name node-0.bytes-received
+13:03:48.788 [Thread-30] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name node-0.latency
+13:03:48.789 [Thread-30] DEBUG org.apache.kafka.common.network.Selector - Created socket with SO_RCVBUF = 65536, SO_SNDBUF = 131072, SO_TIMEOUT = 0 to node 0
+13:03:48.790 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Completed connection to node 0.  Fetching API versions.
+13:03:48.790 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Initiating API versions fetch from node 0.
+13:03:48.794 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Recorded API versions for node 2: (Produce(0): 0 to 8 [usable: 3], Fetch(1): 0 to 12 [usable: 5], Offsets(2): 0 to 5 [usable: 2], Metadata(3): 0 to 9 [usable: 4], LeaderAndIsr(4): 0 to 4 [usable: 0], StopReplica(5): 0 to 3 [usable: 0], UpdateMetadata(6): 0 to 6 [usable: 3], ControlledShutdown(7): 0 to 3 [usable: 1], OffsetCommit(8): 0 to 8 [usable: 3], OffsetFetch(9): 0 to 7 [usable: 3], FindCoordinator(10): 0 to 3 [usable: 1], JoinGroup(11): 0 to 7 [usable: 2], Heartbeat(12): 0 to 4 [usable: 1], LeaveGroup(13): 0 to 4 [usable: 1], SyncGroup(14): 0 to 5 [usable: 1], DescribeGroups(15): 0 to 5 [usable: 1], ListGroups(16): 0 to 4 [usable: 1], SaslHandshake(17): 0 to 1 [usable: 0], ApiVersions(18): 0 to 3 [usable: 1], CreateTopics(19): 0 to 6 [usable: 2], DeleteTopics(20): 0 to 5 [usable: 1], DeleteRecords(21): 0 to 2 [usable: 0], InitProducerId(22): 0 to 4 [usable: 0], OffsetForLeaderEpoch(23): 0 to 3 [usable: 0], AddPartitionsToTxn(24): 0 to 2 [usable: 0], AddOffsetsToTxn(25): 0 to 2 [usable: 0], EndTxn(26): 0 to 2 [usable: 0], WriteTxnMarkers(27): 0 [usable: 0], TxnOffsetCommit(28): 0 to 3 [usable: 0], DescribeAcls(29): 0 to 2 [usable: 0], CreateAcls(30): 0 to 2 [usable: 0], DeleteAcls(31): 0 to 2 [usable: 0], DescribeConfigs(32): 0 to 3 [usable: 0], AlterConfigs(33): 0 to 1 [usable: 0], UNKNOWN(34): 0 to 1, UNKNOWN(35): 0 to 2, UNKNOWN(36): 0 to 2, UNKNOWN(37): 0 to 3, UNKNOWN(38): 0 to 2, UNKNOWN(39): 0 to 2, UNKNOWN(40): 0 to 2, UNKNOWN(41): 0 to 2, UNKNOWN(42): 0 to 2, UNKNOWN(43): 0 to 2, UNKNOWN(44): 0 to 1, UNKNOWN(45): 0, UNKNOWN(46): 0, UNKNOWN(47): 0, UNKNOWN(48): 0, UNKNOWN(49): 0, UNKNOWN(50): 0, UNKNOWN(51): 0, UNKNOWN(56): 0, UNKNOWN(57): 0)
+13:03:48.794 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Sending metadata request (type=MetadataRequest, topics=test_topic) to node 2
+13:03:48.795 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Recorded API versions for node 0: (Produce(0): 0 to 8 [usable: 3], Fetch(1): 0 to 12 [usable: 5], Offsets(2): 0 to 5 [usable: 2], Metadata(3): 0 to 9 [usable: 4], LeaderAndIsr(4): 0 to 4 [usable: 0], StopReplica(5): 0 to 3 [usable: 0], UpdateMetadata(6): 0 to 6 [usable: 3], ControlledShutdown(7): 0 to 3 [usable: 1], OffsetCommit(8): 0 to 8 [usable: 3], OffsetFetch(9): 0 to 7 [usable: 3], FindCoordinator(10): 0 to 3 [usable: 1], JoinGroup(11): 0 to 7 [usable: 2], Heartbeat(12): 0 to 4 [usable: 1], LeaveGroup(13): 0 to 4 [usable: 1], SyncGroup(14): 0 to 5 [usable: 1], DescribeGroups(15): 0 to 5 [usable: 1], ListGroups(16): 0 to 4 [usable: 1], SaslHandshake(17): 0 to 1 [usable: 0], ApiVersions(18): 0 to 3 [usable: 1], CreateTopics(19): 0 to 6 [usable: 2], DeleteTopics(20): 0 to 5 [usable: 1], DeleteRecords(21): 0 to 2 [usable: 0], InitProducerId(22): 0 to 4 [usable: 0], OffsetForLeaderEpoch(23): 0 to 3 [usable: 0], AddPartitionsToTxn(24): 0 to 2 [usable: 0], AddOffsetsToTxn(25): 0 to 2 [usable: 0], EndTxn(26): 0 to 2 [usable: 0], WriteTxnMarkers(27): 0 [usable: 0], TxnOffsetCommit(28): 0 to 3 [usable: 0], DescribeAcls(29): 0 to 2 [usable: 0], CreateAcls(30): 0 to 2 [usable: 0], DeleteAcls(31): 0 to 2 [usable: 0], DescribeConfigs(32): 0 to 3 [usable: 0], AlterConfigs(33): 0 to 1 [usable: 0], UNKNOWN(34): 0 to 1, UNKNOWN(35): 0 to 2, UNKNOWN(36): 0 to 2, UNKNOWN(37): 0 to 3, UNKNOWN(38): 0 to 2, UNKNOWN(39): 0 to 2, UNKNOWN(40): 0 to 2, UNKNOWN(41): 0 to 2, UNKNOWN(42): 0 to 2, UNKNOWN(43): 0 to 2, UNKNOWN(44): 0 to 1, UNKNOWN(45): 0, UNKNOWN(46): 0, UNKNOWN(47): 0, UNKNOWN(48): 0, UNKNOWN(49): 0, UNKNOWN(50): 0, UNKNOWN(51): 0, UNKNOWN(56): 0, UNKNOWN(57): 0)
+13:03:48.799 [Thread-30] DEBUG org.apache.kafka.clients.Metadata - Updated cluster metadata version 3 to Cluster(id = upxc2SQlS2GraJhhpYLwAA, nodes = [10.5.0.2:9092 (id: 2 rack: null), 10.5.0.3:9092 (id: 1 rack: null), 10.5.0.4:9092 (id: 0 rack: null)], partitions = [Partition(topic = test_topic, partition = 2, leader = 2, replicas = [2,1,0], isr = [2,1,0]), Partition(topic = test_topic, partition = 1, leader = 0, replicas = [0,2,1], isr = [0,2,1]), Partition(topic = test_topic, partition = 0, leader = 1, replicas = [1,0,2], isr = [1,0,2])])
+13:03:48.800 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending GroupCoordinator request for group g1 to broker 10.5.0.4:9092 (id: 0 rack: null)
+13:03:48.811 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Recorded API versions for node 1: (Produce(0): 0 to 8 [usable: 3], Fetch(1): 0 to 12 [usable: 5], Offsets(2): 0 to 5 [usable: 2], Metadata(3): 0 to 9 [usable: 4], LeaderAndIsr(4): 0 to 4 [usable: 0], StopReplica(5): 0 to 3 [usable: 0], UpdateMetadata(6): 0 to 6 [usable: 3], ControlledShutdown(7): 0 to 3 [usable: 1], OffsetCommit(8): 0 to 8 [usable: 3], OffsetFetch(9): 0 to 7 [usable: 3], FindCoordinator(10): 0 to 3 [usable: 1], JoinGroup(11): 0 to 7 [usable: 2], Heartbeat(12): 0 to 4 [usable: 1], LeaveGroup(13): 0 to 4 [usable: 1], SyncGroup(14): 0 to 5 [usable: 1], DescribeGroups(15): 0 to 5 [usable: 1], ListGroups(16): 0 to 4 [usable: 1], SaslHandshake(17): 0 to 1 [usable: 0], ApiVersions(18): 0 to 3 [usable: 1], CreateTopics(19): 0 to 6 [usable: 2], DeleteTopics(20): 0 to 5 [usable: 1], DeleteRecords(21): 0 to 2 [usable: 0], InitProducerId(22): 0 to 4 [usable: 0], OffsetForLeaderEpoch(23): 0 to 3 [usable: 0], AddPartitionsToTxn(24): 0 to 2 [usable: 0], AddOffsetsToTxn(25): 0 to 2 [usable: 0], EndTxn(26): 0 to 2 [usable: 0], WriteTxnMarkers(27): 0 [usable: 0], TxnOffsetCommit(28): 0 to 3 [usable: 0], DescribeAcls(29): 0 to 2 [usable: 0], CreateAcls(30): 0 to 2 [usable: 0], DeleteAcls(31): 0 to 2 [usable: 0], DescribeConfigs(32): 0 to 3 [usable: 0], AlterConfigs(33): 0 to 1 [usable: 0], UNKNOWN(34): 0 to 1, UNKNOWN(35): 0 to 2, UNKNOWN(36): 0 to 2, UNKNOWN(37): 0 to 3, UNKNOWN(38): 0 to 2, UNKNOWN(39): 0 to 2, UNKNOWN(40): 0 to 2, UNKNOWN(41): 0 to 2, UNKNOWN(42): 0 to 2, UNKNOWN(43): 0 to 2, UNKNOWN(44): 0 to 1, UNKNOWN(45): 0, UNKNOWN(46): 0, UNKNOWN(47): 0, UNKNOWN(48): 0, UNKNOWN(49): 0, UNKNOWN(50): 0, UNKNOWN(51): 0, UNKNOWN(56): 0, UNKNOWN(57): 0)
+13:03:48.867 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received GroupCoordinator response ClientResponse(receivedTimeMs=1661835828867, latencyMs=66, disconnected=false, requestHeader={api_key=10,api_version=1,correlation_id=7,client_id=consumer-1}, responseBody=FindCoordinatorResponse(throttleTimeMs=0, errorMessage='The coordinator is not available.', error=COORDINATOR_NOT_AVAILABLE, node=:-1 (id: -1 rack: null))) for group g1
+13:03:48.867 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Group coordinator lookup for group g1 failed: The coordinator is not available.
+13:03:48.867 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Coordinator discovery failed for group g1, refreshing metadata
+13:03:48.899 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Sending metadata request (type=MetadataRequest, topics=test_topic) to node 0
+13:03:48.910 [Thread-30] DEBUG org.apache.kafka.clients.Metadata - Updated cluster metadata version 4 to Cluster(id = upxc2SQlS2GraJhhpYLwAA, nodes = [10.5.0.4:9092 (id: 0 rack: null), 10.5.0.2:9092 (id: 2 rack: null), 10.5.0.3:9092 (id: 1 rack: null)], partitions = [Partition(topic = test_topic, partition = 2, leader = 2, replicas = [2,1,0], isr = [2,1,0]), Partition(topic = test_topic, partition = 1, leader = 0, replicas = [0,2,1], isr = [0,2,1]), Partition(topic = test_topic, partition = 0, leader = 1, replicas = [1,0,2], isr = [1,0,2])])
+13:03:48.910 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending GroupCoordinator request for group g1 to broker 10.5.0.4:9092 (id: 0 rack: null)
+13:03:48.954 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received GroupCoordinator response ClientResponse(receivedTimeMs=1661835828954, latencyMs=44, disconnected=false, requestHeader={api_key=10,api_version=1,correlation_id=9,client_id=consumer-1}, responseBody=FindCoordinatorResponse(throttleTimeMs=0, errorMessage='The coordinator is not available.', error=COORDINATOR_NOT_AVAILABLE, node=:-1 (id: -1 rack: null))) for group g1
+13:03:48.954 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Group coordinator lookup for group g1 failed: The coordinator is not available.
+13:03:48.954 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Coordinator discovery failed for group g1, refreshing metadata
+13:03:49.011 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Sending metadata request (type=MetadataRequest, topics=test_topic) to node 2
+13:03:49.018 [Thread-30] DEBUG org.apache.kafka.clients.Metadata - Updated cluster metadata version 5 to Cluster(id = upxc2SQlS2GraJhhpYLwAA, nodes = [10.5.0.4:9092 (id: 0 rack: null), 10.5.0.2:9092 (id: 2 rack: null), 10.5.0.3:9092 (id: 1 rack: null)], partitions = [Partition(topic = test_topic, partition = 2, leader = 2, replicas = [2,1,0], isr = [2,1,0]), Partition(topic = test_topic, partition = 1, leader = 0, replicas = [0,2,1], isr = [0,2,1]), Partition(topic = test_topic, partition = 0, leader = 1, replicas = [1,0,2], isr = [1,0,2])])
+13:03:49.018 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending GroupCoordinator request for group g1 to broker 10.5.0.2:9092 (id: 2 rack: null)
+13:03:49.049 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received GroupCoordinator response ClientResponse(receivedTimeMs=1661835829048, latencyMs=30, disconnected=false, requestHeader={api_key=10,api_version=1,correlation_id=11,client_id=consumer-1}, responseBody=FindCoordinatorResponse(throttleTimeMs=0, errorMessage='The coordinator is not available.', error=COORDINATOR_NOT_AVAILABLE, node=:-1 (id: -1 rack: null))) for group g1
+13:03:49.049 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Group coordinator lookup for group g1 failed: The coordinator is not available.
+13:03:49.049 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Coordinator discovery failed for group g1, refreshing metadata
+13:03:49.118 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Sending metadata request (type=MetadataRequest, topics=test_topic) to node 2
+13:03:49.133 [Thread-30] DEBUG org.apache.kafka.clients.Metadata - Updated cluster metadata version 6 to Cluster(id = upxc2SQlS2GraJhhpYLwAA, nodes = [10.5.0.3:9092 (id: 1 rack: null), 10.5.0.4:9092 (id: 0 rack: null), 10.5.0.2:9092 (id: 2 rack: null)], partitions = [Partition(topic = test_topic, partition = 2, leader = 2, replicas = [2,1,0], isr = [2,1,0]), Partition(topic = test_topic, partition = 1, leader = 0, replicas = [0,2,1], isr = [0,2,1]), Partition(topic = test_topic, partition = 0, leader = 1, replicas = [1,0,2], isr = [1,0,2])])
+13:03:49.133 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending GroupCoordinator request for group g1 to broker 10.5.0.4:9092 (id: 0 rack: null)
+13:03:49.168 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received GroupCoordinator response ClientResponse(receivedTimeMs=1661835829167, latencyMs=34, disconnected=false, requestHeader={api_key=10,api_version=1,correlation_id=13,client_id=consumer-1}, responseBody=FindCoordinatorResponse(throttleTimeMs=0, errorMessage='The coordinator is not available.', error=COORDINATOR_NOT_AVAILABLE, node=:-1 (id: -1 rack: null))) for group g1
+13:03:49.168 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Group coordinator lookup for group g1 failed: The coordinator is not available.
+13:03:49.168 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Coordinator discovery failed for group g1, refreshing metadata
+13:03:49.233 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Sending metadata request (type=MetadataRequest, topics=test_topic) to node 1
+13:03:49.284 [Thread-30] DEBUG org.apache.kafka.clients.Metadata - Updated cluster metadata version 7 to Cluster(id = upxc2SQlS2GraJhhpYLwAA, nodes = [10.5.0.4:9092 (id: 0 rack: null), 10.5.0.2:9092 (id: 2 rack: null), 10.5.0.3:9092 (id: 1 rack: null)], partitions = [Partition(topic = test_topic, partition = 2, leader = 2, replicas = [2,1,0], isr = [2,1,0]), Partition(topic = test_topic, partition = 1, leader = 0, replicas = [0,2,1], isr = [0,2,1]), Partition(topic = test_topic, partition = 0, leader = 1, replicas = [1,0,2], isr = [1,0,2])])
+13:03:49.284 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending GroupCoordinator request for group g1 to broker 10.5.0.2:9092 (id: 2 rack: null)
+13:03:49.296 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received GroupCoordinator response ClientResponse(receivedTimeMs=1661835829296, latencyMs=12, disconnected=false, requestHeader={api_key=10,api_version=1,correlation_id=15,client_id=consumer-1}, responseBody=FindCoordinatorResponse(throttleTimeMs=0, errorMessage='The coordinator is not available.', error=COORDINATOR_NOT_AVAILABLE, node=:-1 (id: -1 rack: null))) for group g1
+13:03:49.296 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Group coordinator lookup for group g1 failed: The coordinator is not available.
+13:03:49.296 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Coordinator discovery failed for group g1, refreshing metadata
+13:03:49.385 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Sending metadata request (type=MetadataRequest, topics=test_topic) to node 0
+13:03:49.415 [Thread-30] DEBUG org.apache.kafka.clients.Metadata - Updated cluster metadata version 8 to Cluster(id = upxc2SQlS2GraJhhpYLwAA, nodes = [10.5.0.4:9092 (id: 0 rack: null), 10.5.0.3:9092 (id: 1 rack: null), 10.5.0.2:9092 (id: 2 rack: null)], partitions = [Partition(topic = test_topic, partition = 2, leader = 2, replicas = [2,1,0], isr = [2,1,0]), Partition(topic = test_topic, partition = 1, leader = 0, replicas = [0,2,1], isr = [0,2,1]), Partition(topic = test_topic, partition = 0, leader = 1, replicas = [1,0,2], isr = [1,0,2])])
+13:03:49.415 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending GroupCoordinator request for group g1 to broker 10.5.0.2:9092 (id: 2 rack: null)
+13:03:49.480 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received GroupCoordinator response ClientResponse(receivedTimeMs=1661835829480, latencyMs=65, disconnected=false, requestHeader={api_key=10,api_version=1,correlation_id=17,client_id=consumer-1}, responseBody=FindCoordinatorResponse(throttleTimeMs=0, errorMessage='The coordinator is not available.', error=COORDINATOR_NOT_AVAILABLE, node=:-1 (id: -1 rack: null))) for group g1
+13:03:49.481 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Group coordinator lookup for group g1 failed: The coordinator is not available.
+13:03:49.481 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Coordinator discovery failed for group g1, refreshing metadata
+13:03:49.515 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Sending metadata request (type=MetadataRequest, topics=test_topic) to node 2
+13:03:49.525 [Thread-30] DEBUG org.apache.kafka.clients.Metadata - Updated cluster metadata version 9 to Cluster(id = upxc2SQlS2GraJhhpYLwAA, nodes = [10.5.0.3:9092 (id: 1 rack: null), 10.5.0.4:9092 (id: 0 rack: null), 10.5.0.2:9092 (id: 2 rack: null)], partitions = [Partition(topic = test_topic, partition = 2, leader = 2, replicas = [2,1,0], isr = [2,1,0]), Partition(topic = test_topic, partition = 1, leader = 0, replicas = [0,2,1], isr = [0,2,1]), Partition(topic = test_topic, partition = 0, leader = 1, replicas = [1,0,2], isr = [1,0,2])])
+13:03:49.525 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending GroupCoordinator request for group g1 to broker 10.5.0.3:9092 (id: 1 rack: null)
+13:03:49.654 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received GroupCoordinator response ClientResponse(receivedTimeMs=1661835829654, latencyMs=129, disconnected=false, requestHeader={api_key=10,api_version=1,correlation_id=19,client_id=consumer-1}, responseBody=FindCoordinatorResponse(throttleTimeMs=0, errorMessage='The coordinator is not available.', error=COORDINATOR_NOT_AVAILABLE, node=:-1 (id: -1 rack: null))) for group g1
+13:03:49.654 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Group coordinator lookup for group g1 failed: The coordinator is not available.
+13:03:49.654 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Coordinator discovery failed for group g1, refreshing metadata
+13:03:49.654 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Sending metadata request (type=MetadataRequest, topics=test_topic) to node 0
+13:03:49.659 [Thread-30] DEBUG org.apache.kafka.clients.Metadata - Updated cluster metadata version 10 to Cluster(id = upxc2SQlS2GraJhhpYLwAA, nodes = [10.5.0.2:9092 (id: 2 rack: null), 10.5.0.4:9092 (id: 0 rack: null), 10.5.0.3:9092 (id: 1 rack: null)], partitions = [Partition(topic = test_topic, partition = 2, leader = 2, replicas = [2,1,0], isr = [2,1,0]), Partition(topic = test_topic, partition = 1, leader = 0, replicas = [0,2,1], isr = [0,2,1]), Partition(topic = test_topic, partition = 0, leader = 1, replicas = [1,0,2], isr = [1,0,2])])
+13:03:49.659 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending GroupCoordinator request for group g1 to broker 10.5.0.3:9092 (id: 1 rack: null)
+13:03:49.741 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received GroupCoordinator response ClientResponse(receivedTimeMs=1661835829741, latencyMs=82, disconnected=false, requestHeader={api_key=10,api_version=1,correlation_id=21,client_id=consumer-1}, responseBody=FindCoordinatorResponse(throttleTimeMs=0, errorMessage='The coordinator is not available.', error=COORDINATOR_NOT_AVAILABLE, node=:-1 (id: -1 rack: null))) for group g1
+13:03:49.742 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Group coordinator lookup for group g1 failed: The coordinator is not available.
+13:03:49.742 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Coordinator discovery failed for group g1, refreshing metadata
+13:03:49.759 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Sending metadata request (type=MetadataRequest, topics=test_topic) to node 1
+13:03:49.762 [Thread-30] DEBUG org.apache.kafka.clients.Metadata - Updated cluster metadata version 11 to Cluster(id = upxc2SQlS2GraJhhpYLwAA, nodes = [10.5.0.2:9092 (id: 2 rack: null), 10.5.0.4:9092 (id: 0 rack: null), 10.5.0.3:9092 (id: 1 rack: null)], partitions = [Partition(topic = test_topic, partition = 2, leader = 2, replicas = [2,1,0], isr = [2,1,0]), Partition(topic = test_topic, partition = 1, leader = 0, replicas = [0,2,1], isr = [0,2,1]), Partition(topic = test_topic, partition = 0, leader = 1, replicas = [1,0,2], isr = [1,0,2])])
+13:03:49.762 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending GroupCoordinator request for group g1 to broker 10.5.0.2:9092 (id: 2 rack: null)
+13:03:49.779 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received GroupCoordinator response ClientResponse(receivedTimeMs=1661835829779, latencyMs=17, disconnected=false, requestHeader={api_key=10,api_version=1,correlation_id=23,client_id=consumer-1}, responseBody=FindCoordinatorResponse(throttleTimeMs=0, errorMessage='The coordinator is not available.', error=COORDINATOR_NOT_AVAILABLE, node=:-1 (id: -1 rack: null))) for group g1
+13:03:49.780 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Group coordinator lookup for group g1 failed: The coordinator is not available.
+13:03:49.780 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Coordinator discovery failed for group g1, refreshing metadata
+13:03:49.862 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Sending metadata request (type=MetadataRequest, topics=test_topic) to node 2
+13:03:49.892 [Thread-30] DEBUG org.apache.kafka.clients.Metadata - Updated cluster metadata version 12 to Cluster(id = upxc2SQlS2GraJhhpYLwAA, nodes = [10.5.0.4:9092 (id: 0 rack: null), 10.5.0.3:9092 (id: 1 rack: null), 10.5.0.2:9092 (id: 2 rack: null)], partitions = [Partition(topic = test_topic, partition = 2, leader = 2, replicas = [2,1,0], isr = [2,1,0]), Partition(topic = test_topic, partition = 1, leader = 0, replicas = [0,2,1], isr = [0,2,1]), Partition(topic = test_topic, partition = 0, leader = 1, replicas = [1,0,2], isr = [1,0,2])])
+13:03:49.892 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending GroupCoordinator request for group g1 to broker 10.5.0.2:9092 (id: 2 rack: null)
+13:03:50.027 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received GroupCoordinator response ClientResponse(receivedTimeMs=1661835830027, latencyMs=135, disconnected=false, requestHeader={api_key=10,api_version=1,correlation_id=25,client_id=consumer-1}, responseBody=FindCoordinatorResponse(throttleTimeMs=0, errorMessage='The coordinator is not available.', error=COORDINATOR_NOT_AVAILABLE, node=:-1 (id: -1 rack: null))) for group g1
+13:03:50.027 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Group coordinator lookup for group g1 failed: The coordinator is not available.
+13:03:50.027 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Coordinator discovery failed for group g1, refreshing metadata
+13:03:50.027 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Sending metadata request (type=MetadataRequest, topics=test_topic) to node 1
+13:03:50.029 [Thread-30] DEBUG org.apache.kafka.clients.Metadata - Updated cluster metadata version 13 to Cluster(id = upxc2SQlS2GraJhhpYLwAA, nodes = [10.5.0.4:9092 (id: 0 rack: null), 10.5.0.2:9092 (id: 2 rack: null), 10.5.0.3:9092 (id: 1 rack: null)], partitions = [Partition(topic = test_topic, partition = 2, leader = 2, replicas = [2,1,0], isr = [2,1,0]), Partition(topic = test_topic, partition = 1, leader = 0, replicas = [0,2,1], isr = [0,2,1]), Partition(topic = test_topic, partition = 0, leader = 1, replicas = [1,0,2], isr = [1,0,2])])
+13:03:50.029 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending GroupCoordinator request for group g1 to broker 10.5.0.4:9092 (id: 0 rack: null)
+13:03:50.055 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received GroupCoordinator response ClientResponse(receivedTimeMs=1661835830054, latencyMs=25, disconnected=false, requestHeader={api_key=10,api_version=1,correlation_id=27,client_id=consumer-1}, responseBody=FindCoordinatorResponse(throttleTimeMs=0, errorMessage='The coordinator is not available.', error=COORDINATOR_NOT_AVAILABLE, node=:-1 (id: -1 rack: null))) for group g1
+13:03:50.055 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Group coordinator lookup for group g1 failed: The coordinator is not available.
+13:03:50.055 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Coordinator discovery failed for group g1, refreshing metadata
+13:03:50.129 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Sending metadata request (type=MetadataRequest, topics=test_topic) to node 0
+13:03:50.131 [Thread-30] DEBUG org.apache.kafka.clients.Metadata - Updated cluster metadata version 14 to Cluster(id = upxc2SQlS2GraJhhpYLwAA, nodes = [10.5.0.3:9092 (id: 1 rack: null), 10.5.0.4:9092 (id: 0 rack: null), 10.5.0.2:9092 (id: 2 rack: null)], partitions = [Partition(topic = test_topic, partition = 2, leader = 2, replicas = [2,1,0], isr = [2,1,0]), Partition(topic = test_topic, partition = 1, leader = 0, replicas = [0,2,1], isr = [0,2,1]), Partition(topic = test_topic, partition = 0, leader = 1, replicas = [1,0,2], isr = [1,0,2])])
+13:03:50.132 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending GroupCoordinator request for group g1 to broker 10.5.0.4:9092 (id: 0 rack: null)
+13:03:50.190 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received GroupCoordinator response ClientResponse(receivedTimeMs=1661835830190, latencyMs=58, disconnected=false, requestHeader={api_key=10,api_version=1,correlation_id=29,client_id=consumer-1}, responseBody=FindCoordinatorResponse(throttleTimeMs=0, errorMessage='The coordinator is not available.', error=COORDINATOR_NOT_AVAILABLE, node=:-1 (id: -1 rack: null))) for group g1
+13:03:50.190 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Group coordinator lookup for group g1 failed: The coordinator is not available.
+13:03:50.190 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Coordinator discovery failed for group g1, refreshing metadata
+13:03:50.232 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Sending metadata request (type=MetadataRequest, topics=test_topic) to node 1
+13:03:50.236 [Thread-30] DEBUG org.apache.kafka.clients.Metadata - Updated cluster metadata version 15 to Cluster(id = upxc2SQlS2GraJhhpYLwAA, nodes = [10.5.0.4:9092 (id: 0 rack: null), 10.5.0.3:9092 (id: 1 rack: null), 10.5.0.2:9092 (id: 2 rack: null)], partitions = [Partition(topic = test_topic, partition = 2, leader = 2, replicas = [2,1,0], isr = [2,1,0]), Partition(topic = test_topic, partition = 1, leader = 0, replicas = [0,2,1], isr = [0,2,1]), Partition(topic = test_topic, partition = 0, leader = 1, replicas = [1,0,2], isr = [1,0,2])])
+13:03:50.237 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending GroupCoordinator request for group g1 to broker 10.5.0.2:9092 (id: 2 rack: null)
+13:03:50.252 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received GroupCoordinator response ClientResponse(receivedTimeMs=1661835830252, latencyMs=13, disconnected=false, requestHeader={api_key=10,api_version=1,correlation_id=31,client_id=consumer-1}, responseBody=FindCoordinatorResponse(throttleTimeMs=0, errorMessage='The coordinator is not available.', error=COORDINATOR_NOT_AVAILABLE, node=:-1 (id: -1 rack: null))) for group g1
+13:03:50.252 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Group coordinator lookup for group g1 failed: The coordinator is not available.
+13:03:50.252 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Coordinator discovery failed for group g1, refreshing metadata
+13:03:50.337 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Sending metadata request (type=MetadataRequest, topics=test_topic) to node 0
+13:03:50.345 [Thread-30] DEBUG org.apache.kafka.clients.Metadata - Updated cluster metadata version 16 to Cluster(id = upxc2SQlS2GraJhhpYLwAA, nodes = [10.5.0.3:9092 (id: 1 rack: null), 10.5.0.2:9092 (id: 2 rack: null), 10.5.0.4:9092 (id: 0 rack: null)], partitions = [Partition(topic = test_topic, partition = 2, leader = 2, replicas = [2,1,0], isr = [2,1,0]), Partition(topic = test_topic, partition = 1, leader = 0, replicas = [0,2,1], isr = [0,2,1]), Partition(topic = test_topic, partition = 0, leader = 1, replicas = [1,0,2], isr = [1,0,2])])
+13:03:50.345 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending GroupCoordinator request for group g1 to broker 10.5.0.2:9092 (id: 2 rack: null)
+13:03:50.444 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received GroupCoordinator response ClientResponse(receivedTimeMs=1661835830444, latencyMs=99, disconnected=false, requestHeader={api_key=10,api_version=1,correlation_id=33,client_id=consumer-1}, responseBody=FindCoordinatorResponse(throttleTimeMs=0, errorMessage='The coordinator is not available.', error=COORDINATOR_NOT_AVAILABLE, node=:-1 (id: -1 rack: null))) for group g1
+13:03:50.444 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Group coordinator lookup for group g1 failed: The coordinator is not available.
+13:03:50.444 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Coordinator discovery failed for group g1, refreshing metadata
+13:03:50.445 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Sending metadata request (type=MetadataRequest, topics=test_topic) to node 0
+13:03:50.500 [Thread-30] DEBUG org.apache.kafka.clients.Metadata - Updated cluster metadata version 17 to Cluster(id = upxc2SQlS2GraJhhpYLwAA, nodes = [10.5.0.2:9092 (id: 2 rack: null), 10.5.0.4:9092 (id: 0 rack: null), 10.5.0.3:9092 (id: 1 rack: null)], partitions = [Partition(topic = test_topic, partition = 2, leader = 2, replicas = [2,1,0], isr = [2,1,0]), Partition(topic = test_topic, partition = 1, leader = 0, replicas = [0,2,1], isr = [0,2,1]), Partition(topic = test_topic, partition = 0, leader = 1, replicas = [1,0,2], isr = [1,0,2])])
+13:03:50.500 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending GroupCoordinator request for group g1 to broker 10.5.0.3:9092 (id: 1 rack: null)
+13:03:50.516 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received GroupCoordinator response ClientResponse(receivedTimeMs=1661835830516, latencyMs=16, disconnected=false, requestHeader={api_key=10,api_version=1,correlation_id=35,client_id=consumer-1}, responseBody=FindCoordinatorResponse(throttleTimeMs=0, errorMessage='The coordinator is not available.', error=COORDINATOR_NOT_AVAILABLE, node=:-1 (id: -1 rack: null))) for group g1
+13:03:50.518 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Group coordinator lookup for group g1 failed: The coordinator is not available.
+13:03:50.518 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Coordinator discovery failed for group g1, refreshing metadata
+13:03:50.604 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Sending metadata request (type=MetadataRequest, topics=test_topic) to node 0
+13:03:50.614 [Thread-30] DEBUG org.apache.kafka.clients.Metadata - Updated cluster metadata version 18 to Cluster(id = upxc2SQlS2GraJhhpYLwAA, nodes = [10.5.0.2:9092 (id: 2 rack: null), 10.5.0.4:9092 (id: 0 rack: null), 10.5.0.3:9092 (id: 1 rack: null)], partitions = [Partition(topic = test_topic, partition = 2, leader = 2, replicas = [2,1,0], isr = [2,1,0]), Partition(topic = test_topic, partition = 1, leader = 0, replicas = [0,2,1], isr = [0,2,1]), Partition(topic = test_topic, partition = 0, leader = 1, replicas = [1,0,2], isr = [1,0,2])])
+13:03:50.614 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending GroupCoordinator request for group g1 to broker 10.5.0.2:9092 (id: 2 rack: null)
+13:03:50.667 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received GroupCoordinator response ClientResponse(receivedTimeMs=1661835830667, latencyMs=53, disconnected=false, requestHeader={api_key=10,api_version=1,correlation_id=37,client_id=consumer-1}, responseBody=FindCoordinatorResponse(throttleTimeMs=0, errorMessage='The coordinator is not available.', error=COORDINATOR_NOT_AVAILABLE, node=:-1 (id: -1 rack: null))) for group g1
+13:03:50.667 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Group coordinator lookup for group g1 failed: The coordinator is not available.
+13:03:50.667 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Coordinator discovery failed for group g1, refreshing metadata
+13:03:50.714 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Sending metadata request (type=MetadataRequest, topics=test_topic) to node 0
+13:03:50.722 [Thread-30] DEBUG org.apache.kafka.clients.Metadata - Updated cluster metadata version 19 to Cluster(id = upxc2SQlS2GraJhhpYLwAA, nodes = [10.5.0.3:9092 (id: 1 rack: null), 10.5.0.2:9092 (id: 2 rack: null), 10.5.0.4:9092 (id: 0 rack: null)], partitions = [Partition(topic = test_topic, partition = 2, leader = 2, replicas = [2,1,0], isr = [2,1,0]), Partition(topic = test_topic, partition = 1, leader = 0, replicas = [0,2,1], isr = [0,2,1]), Partition(topic = test_topic, partition = 0, leader = 1, replicas = [1,0,2], isr = [1,0,2])])
+13:03:50.722 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending GroupCoordinator request for group g1 to broker 10.5.0.3:9092 (id: 1 rack: null)
+13:03:50.732 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received GroupCoordinator response ClientResponse(receivedTimeMs=1661835830732, latencyMs=10, disconnected=false, requestHeader={api_key=10,api_version=1,correlation_id=39,client_id=consumer-1}, responseBody=FindCoordinatorResponse(throttleTimeMs=0, errorMessage='The coordinator is not available.', error=COORDINATOR_NOT_AVAILABLE, node=:-1 (id: -1 rack: null))) for group g1
+13:03:50.732 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Group coordinator lookup for group g1 failed: The coordinator is not available.
+13:03:50.732 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Coordinator discovery failed for group g1, refreshing metadata
+13:03:50.822 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Sending metadata request (type=MetadataRequest, topics=test_topic) to node 0
+13:03:50.835 [Thread-30] DEBUG org.apache.kafka.clients.Metadata - Updated cluster metadata version 20 to Cluster(id = upxc2SQlS2GraJhhpYLwAA, nodes = [10.5.0.4:9092 (id: 0 rack: null), 10.5.0.3:9092 (id: 1 rack: null), 10.5.0.2:9092 (id: 2 rack: null)], partitions = [Partition(topic = test_topic, partition = 2, leader = 2, replicas = [2,1,0], isr = [2,1,0]), Partition(topic = test_topic, partition = 1, leader = 0, replicas = [0,2,1], isr = [0,2,1]), Partition(topic = test_topic, partition = 0, leader = 1, replicas = [1,0,2], isr = [1,0,2])])
+13:03:50.835 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending GroupCoordinator request for group g1 to broker 10.5.0.4:9092 (id: 0 rack: null)
+13:03:50.919 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received GroupCoordinator response ClientResponse(receivedTimeMs=1661835830919, latencyMs=84, disconnected=false, requestHeader={api_key=10,api_version=1,correlation_id=41,client_id=consumer-1}, responseBody=FindCoordinatorResponse(throttleTimeMs=0, errorMessage='The coordinator is not available.', error=COORDINATOR_NOT_AVAILABLE, node=:-1 (id: -1 rack: null))) for group g1
+13:03:50.919 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Group coordinator lookup for group g1 failed: The coordinator is not available.
+13:03:50.919 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Coordinator discovery failed for group g1, refreshing metadata
+13:03:50.936 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Sending metadata request (type=MetadataRequest, topics=test_topic) to node 1
+13:03:50.948 [Thread-30] DEBUG org.apache.kafka.clients.Metadata - Updated cluster metadata version 21 to Cluster(id = upxc2SQlS2GraJhhpYLwAA, nodes = [10.5.0.3:9092 (id: 1 rack: null), 10.5.0.4:9092 (id: 0 rack: null), 10.5.0.2:9092 (id: 2 rack: null)], partitions = [Partition(topic = test_topic, partition = 2, leader = 2, replicas = [2,1,0], isr = [2,1,0]), Partition(topic = test_topic, partition = 1, leader = 0, replicas = [0,2,1], isr = [0,2,1]), Partition(topic = test_topic, partition = 0, leader = 1, replicas = [1,0,2], isr = [1,0,2])])
+13:03:50.948 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending GroupCoordinator request for group g1 to broker 10.5.0.4:9092 (id: 0 rack: null)
+13:03:50.959 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received GroupCoordinator response ClientResponse(receivedTimeMs=1661835830959, latencyMs=11, disconnected=false, requestHeader={api_key=10,api_version=1,correlation_id=43,client_id=consumer-1}, responseBody=FindCoordinatorResponse(throttleTimeMs=0, errorMessage='The coordinator is not available.', error=COORDINATOR_NOT_AVAILABLE, node=:-1 (id: -1 rack: null))) for group g1
+13:03:50.959 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Group coordinator lookup for group g1 failed: The coordinator is not available.
+13:03:50.959 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Coordinator discovery failed for group g1, refreshing metadata
+13:03:51.048 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Sending metadata request (type=MetadataRequest, topics=test_topic) to node 1
+13:03:51.058 [Thread-30] DEBUG org.apache.kafka.clients.Metadata - Updated cluster metadata version 22 to Cluster(id = upxc2SQlS2GraJhhpYLwAA, nodes = [10.5.0.3:9092 (id: 1 rack: null), 10.5.0.2:9092 (id: 2 rack: null), 10.5.0.4:9092 (id: 0 rack: null)], partitions = [Partition(topic = test_topic, partition = 2, leader = 2, replicas = [2,1,0], isr = [2,1,0]), Partition(topic = test_topic, partition = 1, leader = 0, replicas = [0,2,1], isr = [0,2,1]), Partition(topic = test_topic, partition = 0, leader = 1, replicas = [1,0,2], isr = [1,0,2])])
+13:03:51.059 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending GroupCoordinator request for group g1 to broker 10.5.0.4:9092 (id: 0 rack: null)
+13:03:51.106 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received GroupCoordinator response ClientResponse(receivedTimeMs=1661835831106, latencyMs=47, disconnected=false, requestHeader={api_key=10,api_version=1,correlation_id=45,client_id=consumer-1}, responseBody=FindCoordinatorResponse(throttleTimeMs=0, errorMessage='The coordinator is not available.', error=COORDINATOR_NOT_AVAILABLE, node=:-1 (id: -1 rack: null))) for group g1
+13:03:51.106 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Group coordinator lookup for group g1 failed: The coordinator is not available.
+13:03:51.106 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Coordinator discovery failed for group g1, refreshing metadata
+13:03:51.159 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Sending metadata request (type=MetadataRequest, topics=test_topic) to node 0
+13:03:51.173 [Thread-30] DEBUG org.apache.kafka.clients.Metadata - Updated cluster metadata version 23 to Cluster(id = upxc2SQlS2GraJhhpYLwAA, nodes = [10.5.0.4:9092 (id: 0 rack: null), 10.5.0.2:9092 (id: 2 rack: null), 10.5.0.3:9092 (id: 1 rack: null)], partitions = [Partition(topic = test_topic, partition = 2, leader = 2, replicas = [2,1,0], isr = [2,1,0]), Partition(topic = test_topic, partition = 1, leader = 0, replicas = [0,2,1], isr = [0,2,1]), Partition(topic = test_topic, partition = 0, leader = 1, replicas = [1,0,2], isr = [1,0,2])])
+13:03:51.173 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending GroupCoordinator request for group g1 to broker 10.5.0.3:9092 (id: 1 rack: null)
+13:03:51.371 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received GroupCoordinator response ClientResponse(receivedTimeMs=1661835831371, latencyMs=198, disconnected=false, requestHeader={api_key=10,api_version=1,correlation_id=47,client_id=consumer-1}, responseBody=FindCoordinatorResponse(throttleTimeMs=0, errorMessage='The coordinator is not available.', error=COORDINATOR_NOT_AVAILABLE, node=:-1 (id: -1 rack: null))) for group g1
+13:03:51.371 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Group coordinator lookup for group g1 failed: The coordinator is not available.
+13:03:51.371 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Coordinator discovery failed for group g1, refreshing metadata
+13:03:51.371 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Sending metadata request (type=MetadataRequest, topics=test_topic) to node 1
+13:03:51.430 [Thread-30] DEBUG org.apache.kafka.clients.Metadata - Updated cluster metadata version 24 to Cluster(id = upxc2SQlS2GraJhhpYLwAA, nodes = [10.5.0.4:9092 (id: 0 rack: null), 10.5.0.2:9092 (id: 2 rack: null), 10.5.0.3:9092 (id: 1 rack: null)], partitions = [Partition(topic = test_topic, partition = 2, leader = 2, replicas = [2,1,0], isr = [2,1,0]), Partition(topic = test_topic, partition = 1, leader = 0, replicas = [0,2,1], isr = [0,2,1]), Partition(topic = test_topic, partition = 0, leader = 1, replicas = [1,0,2], isr = [1,0,2])])
+13:03:51.430 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending GroupCoordinator request for group g1 to broker 10.5.0.4:9092 (id: 0 rack: null)
+13:03:51.450 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received GroupCoordinator response ClientResponse(receivedTimeMs=1661835831450, latencyMs=20, disconnected=false, requestHeader={api_key=10,api_version=1,correlation_id=49,client_id=consumer-1}, responseBody=FindCoordinatorResponse(throttleTimeMs=0, errorMessage='The coordinator is not available.', error=COORDINATOR_NOT_AVAILABLE, node=:-1 (id: -1 rack: null))) for group g1
+13:03:51.450 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Group coordinator lookup for group g1 failed: The coordinator is not available.
+13:03:51.451 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Coordinator discovery failed for group g1, refreshing metadata
+13:03:51.530 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Sending metadata request (type=MetadataRequest, topics=test_topic) to node 0
+13:03:51.555 [Thread-30] DEBUG org.apache.kafka.clients.Metadata - Updated cluster metadata version 25 to Cluster(id = upxc2SQlS2GraJhhpYLwAA, nodes = [10.5.0.4:9092 (id: 0 rack: null), 10.5.0.3:9092 (id: 1 rack: null), 10.5.0.2:9092 (id: 2 rack: null)], partitions = [Partition(topic = test_topic, partition = 2, leader = 2, replicas = [2,1,0], isr = [2,1,0]), Partition(topic = test_topic, partition = 1, leader = 0, replicas = [0,2,1], isr = [0,2,1]), Partition(topic = test_topic, partition = 0, leader = 1, replicas = [1,0,2], isr = [1,0,2])])
+13:03:51.555 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending GroupCoordinator request for group g1 to broker 10.5.0.3:9092 (id: 1 rack: null)
+13:03:51.621 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received GroupCoordinator response ClientResponse(receivedTimeMs=1661835831621, latencyMs=66, disconnected=false, requestHeader={api_key=10,api_version=1,correlation_id=51,client_id=consumer-1}, responseBody=FindCoordinatorResponse(throttleTimeMs=0, errorMessage='The coordinator is not available.', error=COORDINATOR_NOT_AVAILABLE, node=:-1 (id: -1 rack: null))) for group g1
+13:03:51.622 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Group coordinator lookup for group g1 failed: The coordinator is not available.
+13:03:51.622 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Coordinator discovery failed for group g1, refreshing metadata
+13:03:51.655 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Sending metadata request (type=MetadataRequest, topics=test_topic) to node 2
+13:03:51.672 [Thread-30] DEBUG org.apache.kafka.clients.Metadata - Updated cluster metadata version 26 to Cluster(id = upxc2SQlS2GraJhhpYLwAA, nodes = [10.5.0.4:9092 (id: 0 rack: null), 10.5.0.2:9092 (id: 2 rack: null), 10.5.0.3:9092 (id: 1 rack: null)], partitions = [Partition(topic = test_topic, partition = 2, leader = 2, replicas = [2,1,0], isr = [2,1,0]), Partition(topic = test_topic, partition = 1, leader = 0, replicas = [0,2,1], isr = [0,2,1]), Partition(topic = test_topic, partition = 0, leader = 1, replicas = [1,0,2], isr = [1,0,2])])
+13:03:51.672 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending GroupCoordinator request for group g1 to broker 10.5.0.4:9092 (id: 0 rack: null)
+13:03:51.696 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received GroupCoordinator response ClientResponse(receivedTimeMs=1661835831696, latencyMs=24, disconnected=false, requestHeader={api_key=10,api_version=1,correlation_id=53,client_id=consumer-1}, responseBody=FindCoordinatorResponse(throttleTimeMs=0, errorMessage='NONE', error=NONE, node=10.5.0.4:9092 (id: 0 rack: null))) for group g1
+13:03:51.696 [Thread-30] INFO org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Discovered coordinator 10.5.0.4:9092 (id: 2147483647 rack: null) for group g1.
+13:03:51.696 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Initiating connection to node 2147483647 at 10.5.0.4:9092.
+13:03:51.699 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Sending synchronous auto-commit of offsets {} for group g1
+13:03:51.699 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Heartbeat thread for group g1 started
+13:03:51.699 [Thread-30] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Revoking previously assigned partitions [] for group g1
+13:03:51.699 [Thread-30] INFO org.apache.kafka.clients.consumer.internals.AbstractCoordinator - (Re-)joining group g1
+13:03:51.700 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending JoinGroup ((type: JoinGroupRequest, groupId=g1, sessionTimeout=10000, rebalanceTimeout=300000, memberId=, protocolType=consumer, groupProtocols=org.apache.kafka.common.requests.JoinGroupRequest$ProtocolMetadata@20073642)) to coordinator 10.5.0.4:9092 (id: 2147483647 rack: null)
+13:03:51.701 [Thread-30] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name node-2147483647.bytes-sent
+13:03:51.701 [Thread-30] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name node-2147483647.bytes-received
+13:03:51.701 [Thread-30] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name node-2147483647.latency
+13:03:51.702 [Thread-30] DEBUG org.apache.kafka.common.network.Selector - Created socket with SO_RCVBUF = 65536, SO_SNDBUF = 131072, SO_TIMEOUT = 0 to node 2147483647
+13:03:51.702 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Completed connection to node 2147483647.  Fetching API versions.
+13:03:51.702 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Initiating API versions fetch from node 2147483647.
+13:03:51.710 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Recorded API versions for node 2147483647: (Produce(0): 0 to 8 [usable: 3], Fetch(1): 0 to 12 [usable: 5], Offsets(2): 0 to 5 [usable: 2], Metadata(3): 0 to 9 [usable: 4], LeaderAndIsr(4): 0 to 4 [usable: 0], StopReplica(5): 0 to 3 [usable: 0], UpdateMetadata(6): 0 to 6 [usable: 3], ControlledShutdown(7): 0 to 3 [usable: 1], OffsetCommit(8): 0 to 8 [usable: 3], OffsetFetch(9): 0 to 7 [usable: 3], FindCoordinator(10): 0 to 3 [usable: 1], JoinGroup(11): 0 to 7 [usable: 2], Heartbeat(12): 0 to 4 [usable: 1], LeaveGroup(13): 0 to 4 [usable: 1], SyncGroup(14): 0 to 5 [usable: 1], DescribeGroups(15): 0 to 5 [usable: 1], ListGroups(16): 0 to 4 [usable: 1], SaslHandshake(17): 0 to 1 [usable: 0], ApiVersions(18): 0 to 3 [usable: 1], CreateTopics(19): 0 to 6 [usable: 2], DeleteTopics(20): 0 to 5 [usable: 1], DeleteRecords(21): 0 to 2 [usable: 0], InitProducerId(22): 0 to 4 [usable: 0], OffsetForLeaderEpoch(23): 0 to 3 [usable: 0], AddPartitionsToTxn(24): 0 to 2 [usable: 0], AddOffsetsToTxn(25): 0 to 2 [usable: 0], EndTxn(26): 0 to 2 [usable: 0], WriteTxnMarkers(27): 0 [usable: 0], TxnOffsetCommit(28): 0 to 3 [usable: 0], DescribeAcls(29): 0 to 2 [usable: 0], CreateAcls(30): 0 to 2 [usable: 0], DeleteAcls(31): 0 to 2 [usable: 0], DescribeConfigs(32): 0 to 3 [usable: 0], AlterConfigs(33): 0 to 1 [usable: 0], UNKNOWN(34): 0 to 1, UNKNOWN(35): 0 to 2, UNKNOWN(36): 0 to 2, UNKNOWN(37): 0 to 3, UNKNOWN(38): 0 to 2, UNKNOWN(39): 0 to 2, UNKNOWN(40): 0 to 2, UNKNOWN(41): 0 to 2, UNKNOWN(42): 0 to 2, UNKNOWN(43): 0 to 2, UNKNOWN(44): 0 to 1, UNKNOWN(45): 0, UNKNOWN(46): 0, UNKNOWN(47): 0, UNKNOWN(48): 0, UNKNOWN(49): 0, UNKNOWN(50): 0, UNKNOWN(51): 0, UNKNOWN(56): 0, UNKNOWN(57): 0)
+13:03:51.747 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received successful JoinGroup response for group g1: org.apache.kafka.common.requests.JoinGroupResponse@6c7c9cd2
+13:03:51.748 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Performing assignment for group g1 using strategy range with subscriptions {consumer-1-246b976e-6f98-44c9-8e63-6bd263cdead7=Subscription(topics=[test_topic])}
+13:03:51.750 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Finished assignment for group g1: {consumer-1-246b976e-6f98-44c9-8e63-6bd263cdead7=Assignment(partitions=[test_topic-0, test_topic-1, test_topic-2])}
+13:03:51.751 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending leader SyncGroup for group g1 to coordinator 10.5.0.4:9092 (id: 2147483647 rack: null): (type=SyncGroupRequest, groupId=g1, generationId=1, memberId=consumer-1-246b976e-6f98-44c9-8e63-6bd263cdead7, groupAssignment=consumer-1-246b976e-6f98-44c9-8e63-6bd263cdead7)
+13:03:51.870 [Thread-30] INFO org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Successfully joined group g1 with generation 1
+13:03:51.871 [Thread-30] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Setting newly assigned partitions [test_topic-2, test_topic-1, test_topic-0] for group g1
+13:03:51.872 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Group g1 fetching committed offsets for partitions: [test_topic-2, test_topic-1, test_topic-0]
+13:03:51.887 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Group g1 has no committed offset for partition test_topic-2
+13:03:51.887 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Group g1 has no committed offset for partition test_topic-1
+13:03:51.887 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Group g1 has no committed offset for partition test_topic-0
+13:03:51.916 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Handling ListOffsetResponse response for test_topic-1. Fetched offset 0, timestamp -1
+13:03:51.920 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Handling ListOffsetResponse response for test_topic-0. Fetched offset 0, timestamp -1
+13:03:51.933 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Handling ListOffsetResponse response for test_topic-2. Fetched offset 0, timestamp -1
+13:03:51.934 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Resetting offset for partition test_topic-2 to offset 0.
+13:03:51.934 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Resetting offset for partition test_topic-1 to offset 0.
+13:03:51.934 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Resetting offset for partition test_topic-0 to offset 0.
+13:03:51.934 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-2 at offset 0 to node 10.5.0.2:9092 (id: 2 rack: null)
+13:03:51.934 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-1 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:03:51.934 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-0 at offset 0 to node 10.5.0.3:9092 (id: 1 rack: null)
+13:03:51.934 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-1] to broker 10.5.0.4:9092 (id: 0 rack: null)
+13:03:51.935 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-2] to broker 10.5.0.2:9092 (id: 2 rack: null)
+13:03:51.935 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-0] to broker 10.5.0.3:9092 (id: 1 rack: null)
+13:03:52.479 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-1 returned fetch data (error=NONE, highWaterMark=0, lastStableOffset = 0, logStartOffset = 0, abortedTransactions = null, recordsSizeInBytes=0)
+13:03:52.479 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-2 returned fetch data (error=NONE, highWaterMark=0, lastStableOffset = 0, logStartOffset = 0, abortedTransactions = null, recordsSizeInBytes=0)
+13:03:52.479 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-0 returned fetch data (error=NONE, highWaterMark=0, lastStableOffset = 0, logStartOffset = 0, abortedTransactions = null, recordsSizeInBytes=0)
+13:03:54.900 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending Heartbeat request for group g1 to coordinator 10.5.0.4:9092 (id: 2147483647 rack: null)
+13:03:55.002 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received successful Heartbeat response for group g1
+server 1 kafkaConsumer poll: 1
+13:03:56.939 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Sending asynchronous auto-commit of offsets {test_topic-2=OffsetAndMetadata{offset=0, metadata=''}, test_topic-1=OffsetAndMetadata{offset=0, metadata=''}, test_topic-0=OffsetAndMetadata{offset=0, metadata=''}} for group g1
+13:03:56.943 [Thread-30] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name topic.test_topic.bytes-fetched
+13:03:56.943 [Thread-30] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name topic.test_topic.records-fetched
+13:03:56.943 [Thread-30] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name test_topic-1.records-lag
+13:03:56.944 [Thread-30] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name test_topic-2.records-lag
+13:03:56.944 [Thread-30] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name test_topic-0.records-lag
+13:03:56.944 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-2 at offset 0 to node 10.5.0.2:9092 (id: 2 rack: null)
+13:03:56.944 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-1 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:03:56.944 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-0 at offset 0 to node 10.5.0.3:9092 (id: 1 rack: null)
+13:03:56.944 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-1] to broker 10.5.0.4:9092 (id: 0 rack: null)
+13:03:56.944 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-2] to broker 10.5.0.2:9092 (id: 2 rack: null)
+13:03:56.944 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-0] to broker 10.5.0.3:9092 (id: 1 rack: null)
+13:03:56.963 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Group g1 committed offset 0 for partition test_topic-2
+13:03:56.963 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Group g1 committed offset 0 for partition test_topic-1
+13:03:56.963 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Group g1 committed offset 0 for partition test_topic-0
+13:03:56.964 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Completed auto-commit of offsets {test_topic-2=OffsetAndMetadata{offset=0, metadata=''}, test_topic-1=OffsetAndMetadata{offset=0, metadata=''}, test_topic-0=OffsetAndMetadata{offset=0, metadata=''}} for group g1
+13:03:57.542 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-1 returned fetch data (error=NONE, highWaterMark=0, lastStableOffset = 0, logStartOffset = 0, abortedTransactions = null, recordsSizeInBytes=0)
+13:03:57.542 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-2 returned fetch data (error=NONE, highWaterMark=0, lastStableOffset = 0, logStartOffset = 0, abortedTransactions = null, recordsSizeInBytes=0)
+13:03:57.543 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-0 returned fetch data (error=NONE, highWaterMark=0, lastStableOffset = 0, logStartOffset = 0, abortedTransactions = null, recordsSizeInBytes=0)
+13:03:57.947 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending Heartbeat request for group g1 to coordinator 10.5.0.4:9092 (id: 2147483647 rack: null)
+13:03:58.048 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received successful Heartbeat response for group g1
+============ kafkacat :[kafkacat -b 10.5.0.4:9092 -L]==============
+Metadata for all topics (from broker 0: 10.5.0.4:9092/0):
+ 3 brokers:
+  broker 0 at 10.5.0.4:9092
+  broker 2 at 10.5.0.2:9092
+  broker 1 at 10.5.0.3:9092 (controller)
+ 2 topics:
+  topic "test_topic" with 3 partitions:
+    partition 0, leader 1, replicas: 1,0,2, isrs: 1,0,2
+    partition 1, leader 0, replicas: 0,2,1, isrs: 0,2,1
+    partition 2, leader 2, replicas: 2,1,0, isrs: 2,1,0
+  topic "__consumer_offsets" with 50 partitions:
+    partition 0, leader 0, replicas: 0,2,1, isrs: 0,2,1
+    partition 1, leader 1, replicas: 1,0,2, isrs: 1,0,2
+    partition 2, leader 2, replicas: 2,1,0, isrs: 2,1,0
+    partition 3, leader 0, replicas: 0,1,2, isrs: 0,1,2
+    partition 4, leader 1, replicas: 1,2,0, isrs: 1,2,0
+    partition 5, leader 2, replicas: 2,0,1, isrs: 2,0,1
+    partition 6, leader 0, replicas: 0,2,1, isrs: 0,2,1
+    partition 7, leader 1, replicas: 1,0,2, isrs: 1,0,2
+    partition 8, leader 2, replicas: 2,1,0, isrs: 2,1,0
+    partition 9, leader 0, replicas: 0,1,2, isrs: 0,1,2
+    partition 10, leader 1, replicas: 1,2,0, isrs: 1,2,0
+    partition 11, leader 2, replicas: 2,0,1, isrs: 2,0,1
+    partition 12, leader 0, replicas: 0,2,1, isrs: 0,2,1
+    partition 13, leader 1, replicas: 1,0,2, isrs: 1,0,2
+    partition 14, leader 2, replicas: 2,1,0, isrs: 2,1,0
+    partition 15, leader 0, replicas: 0,1,2, isrs: 0,1,2
+    partition 16, leader 1, replicas: 1,2,0, isrs: 1,2,0
+    partition 17, leader 2, replicas: 2,0,1, isrs: 2,0,1
+    partition 18, leader 0, replicas: 0,2,1, isrs: 0,2,1
+    partition 19, leader 1, replicas: 1,0,2, isrs: 1,0,2
+    partition 20, leader 2, replicas: 2,1,0, isrs: 2,1,0
+    partition 21, leader 0, replicas: 0,1,2, isrs: 0,1,2
+    partition 22, leader 1, replicas: 1,2,0, isrs: 1,2,0
+    partition 23, leader 2, replicas: 2,0,1, isrs: 2,0,1
+    partition 24, leader 0, replicas: 0,2,1, isrs: 0,2,1
+    partition 25, leader 1, replicas: 1,0,2, isrs: 1,0,2
+    partition 26, leader 2, replicas: 2,1,0, isrs: 2,1,0
+    partition 27, leader 0, replicas: 0,1,2, isrs: 0,1,2
+    partition 28, leader 1, replicas: 1,2,0, isrs: 1,2,0
+    partition 29, leader 2, replicas: 2,0,1, isrs: 2,0,1
+    partition 30, leader 0, replicas: 0,2,1, isrs: 0,2,1
+    partition 31, leader 1, replicas: 1,0,2, isrs: 1,0,2
+    partition 32, leader 2, replicas: 2,1,0, isrs: 2,1,0
+    partition 33, leader 0, replicas: 0,1,2, isrs: 0,1,2
+    partition 34, leader 1, replicas: 1,2,0, isrs: 1,2,0
+    partition 35, leader 2, replicas: 2,0,1, isrs: 2,0,1
+    partition 36, leader 0, replicas: 0,2,1, isrs: 0,2,1
+    partition 37, leader 1, replicas: 1,0,2, isrs: 1,0,2
+    partition 38, leader 2, replicas: 2,1,0, isrs: 2,1,0
+    partition 39, leader 0, replicas: 0,1,2, isrs: 0,1,2
+    partition 40, leader 1, replicas: 1,2,0, isrs: 1,2,0
+    partition 41, leader 2, replicas: 2,0,1, isrs: 2,0,1
+    partition 42, leader 0, replicas: 0,2,1, isrs: 0,2,1
+    partition 43, leader 1, replicas: 1,0,2, isrs: 1,0,2
+    partition 44, leader 2, replicas: 2,1,0, isrs: 2,1,0
+    partition 45, leader 0, replicas: 0,1,2, isrs: 0,1,2
+    partition 46, leader 1, replicas: 1,2,0, isrs: 1,2,0
+    partition 47, leader 2, replicas: 2,0,1, isrs: 2,0,1
+    partition 48, leader 0, replicas: 0,2,1, isrs: 0,2,1
+    partition 49, leader 1, replicas: 1,0,2, isrs: 1,0,2
+13:03:58.675 [main] INFO io.redit.samples.kafka12257.SampleTest - server2: cd /kafka/kafka_2.13-2.7.1 && bin/kafka-server-stop.sh
+13:03:58.675 [main] INFO io.redit.samples.kafka12257.SampleTest -
+13:03:59.261 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.common.network.Selector - Connection with /10.5.0.3 disconnected
+java.io.EOFException: null
+	at org.apache.kafka.common.network.NetworkReceive.readFromReadableChannel(NetworkReceive.java:87)
+	at org.apache.kafka.common.network.NetworkReceive.readFrom(NetworkReceive.java:75)
+	at org.apache.kafka.common.network.KafkaChannel.receive(KafkaChannel.java:203)
+	at org.apache.kafka.common.network.KafkaChannel.read(KafkaChannel.java:167)
+	at org.apache.kafka.common.network.Selector.pollSelectionKeys(Selector.java:379)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:326)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:432)
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:232)
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.pollNoWakeup(ConsumerNetworkClient.java:270)
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator$HeartbeatThread.run(AbstractCoordinator.java:921)
+13:03:59.261 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.NetworkClient - Node 1 disconnected.
+13:03:59.363 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.NetworkClient - Initialize connection to node 1 for sending metadata request
+13:03:59.363 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.NetworkClient - Initiating connection to node 1 at 10.5.0.3:9092.
+13:03:59.363 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.common.network.Selector - Connection with /10.5.0.3 disconnected
+java.net.ConnectException: 拒绝连接
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at org.apache.kafka.common.network.PlaintextTransportLayer.finishConnect(PlaintextTransportLayer.java:50)
+	at org.apache.kafka.common.network.KafkaChannel.finishConnect(KafkaChannel.java:95)
+	at org.apache.kafka.common.network.Selector.pollSelectionKeys(Selector.java:359)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:326)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:432)
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:232)
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.pollNoWakeup(ConsumerNetworkClient.java:270)
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator$HeartbeatThread.run(AbstractCoordinator.java:921)
+13:03:59.363 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.NetworkClient - Node 1 disconnected.
+13:03:59.363 [kafka-coordinator-heartbeat-thread | g1] WARN org.apache.kafka.clients.NetworkClient - Connection to node 1 could not be established. Broker may not be available.
+13:03:59.464 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.NetworkClient - Initialize connection to node 1 for sending metadata request
+13:03:59.464 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.NetworkClient - Initiating connection to node 1 at 10.5.0.3:9092.
+13:03:59.464 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.common.network.Selector - Connection with /10.5.0.3 disconnected
+java.net.ConnectException: 拒绝连接
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716)
+	at org.apache.kafka.common.network.PlaintextTransportLayer.finishConnect(PlaintextTransportLayer.java:50)
+	at org.apache.kafka.common.network.KafkaChannel.finishConnect(KafkaChannel.java:95)
+	at org.apache.kafka.common.network.Selector.pollSelectionKeys(Selector.java:359)
+	at org.apache.kafka.common.network.Selector.poll(Selector.java:326)
+	at org.apache.kafka.clients.NetworkClient.poll(NetworkClient.java:432)
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.poll(ConsumerNetworkClient.java:232)
+	at org.apache.kafka.clients.consumer.internals.ConsumerNetworkClient.pollNoWakeup(ConsumerNetworkClient.java:270)
+	at org.apache.kafka.clients.consumer.internals.AbstractCoordinator$HeartbeatThread.run(AbstractCoordinator.java:921)
+13:03:59.465 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.NetworkClient - Node 1 disconnected.
+13:03:59.465 [kafka-coordinator-heartbeat-thread | g1] WARN org.apache.kafka.clients.NetworkClient - Connection to node 1 could not be established. Broker may not be available.
+13:03:59.566 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.NetworkClient - Sending metadata request (type=MetadataRequest, topics=test_topic) to node 0
+13:03:59.669 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.Metadata - Updated cluster metadata version 27 to Cluster(id = upxc2SQlS2GraJhhpYLwAA, nodes = [10.5.0.3:9092 (id: 1 rack: null), 10.5.0.4:9092 (id: 0 rack: null), 10.5.0.2:9092 (id: 2 rack: null)], partitions = [Partition(topic = test_topic, partition = 2, leader = 2, replicas = [2,1,0], isr = [2,0]), Partition(topic = test_topic, partition = 1, leader = 0, replicas = [0,2,1], isr = [0,2]), Partition(topic = test_topic, partition = 0, leader = 0, replicas = [1,0,2], isr = [0,2])])
+13:04:00.979 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending Heartbeat request for group g1 to coordinator 10.5.0.4:9092 (id: 2147483647 rack: null)
+13:04:01.080 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received successful Heartbeat response for group g1
+server 1 kafkaConsumer poll: 2
+13:04:02.039 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Sending asynchronous auto-commit of offsets {test_topic-2=OffsetAndMetadata{offset=0, metadata=''}, test_topic-1=OffsetAndMetadata{offset=0, metadata=''}, test_topic-0=OffsetAndMetadata{offset=0, metadata=''}} for group g1
+13:04:02.040 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-2 at offset 0 to node 10.5.0.2:9092 (id: 2 rack: null)
+13:04:02.040 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-1 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:02.040 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-0 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:02.040 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-1, test_topic-0] to broker 10.5.0.4:9092 (id: 0 rack: null)
+13:04:02.040 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-2] to broker 10.5.0.2:9092 (id: 2 rack: null)
+13:04:02.054 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Group g1 committed offset 0 for partition test_topic-2
+13:04:02.054 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Group g1 committed offset 0 for partition test_topic-1
+13:04:02.054 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Group g1 committed offset 0 for partition test_topic-0
+13:04:02.054 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Completed auto-commit of offsets {test_topic-2=OffsetAndMetadata{offset=0, metadata=''}, test_topic-1=OffsetAndMetadata{offset=0, metadata=''}, test_topic-0=OffsetAndMetadata{offset=0, metadata=''}} for group g1
+13:04:02.644 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-1 returned fetch data (error=NONE, highWaterMark=0, lastStableOffset = 0, logStartOffset = 0, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:02.644 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-0 returned fetch data (error=NONE, highWaterMark=0, lastStableOffset = 0, logStartOffset = 0, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:02.644 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-2 returned fetch data (error=NONE, highWaterMark=0, lastStableOffset = 0, logStartOffset = 0, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:04.055 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending Heartbeat request for group g1 to coordinator 10.5.0.4:9092 (id: 2147483647 rack: null)
+13:04:04.157 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received successful Heartbeat response for group g1
+13:04:07.079 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending Heartbeat request for group g1 to coordinator 10.5.0.4:9092 (id: 2147483647 rack: null)
+server 1 kafkaConsumer poll: 3
+13:04:07.141 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Sending asynchronous auto-commit of offsets {test_topic-2=OffsetAndMetadata{offset=0, metadata=''}, test_topic-1=OffsetAndMetadata{offset=0, metadata=''}, test_topic-0=OffsetAndMetadata{offset=0, metadata=''}} for group g1
+13:04:07.141 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received successful Heartbeat response for group g1
+13:04:07.142 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-2 at offset 0 to node 10.5.0.2:9092 (id: 2 rack: null)
+13:04:07.142 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-1 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:07.142 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-0 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:07.142 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-1, test_topic-0] to broker 10.5.0.4:9092 (id: 0 rack: null)
+13:04:07.142 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-2] to broker 10.5.0.2:9092 (id: 2 rack: null)
+13:04:07.152 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Group g1 committed offset 0 for partition test_topic-2
+13:04:07.152 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Group g1 committed offset 0 for partition test_topic-1
+13:04:07.152 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Group g1 committed offset 0 for partition test_topic-0
+13:04:07.152 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Completed auto-commit of offsets {test_topic-2=OffsetAndMetadata{offset=0, metadata=''}, test_topic-1=OffsetAndMetadata{offset=0, metadata=''}, test_topic-0=OffsetAndMetadata{offset=0, metadata=''}} for group g1
+13:04:07.744 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-1 returned fetch data (error=NONE, highWaterMark=0, lastStableOffset = 0, logStartOffset = 0, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:07.744 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-0 returned fetch data (error=NONE, highWaterMark=0, lastStableOffset = 0, logStartOffset = 0, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:07.744 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-2 returned fetch data (error=NONE, highWaterMark=0, lastStableOffset = 0, logStartOffset = 0, abortedTransactions = null, recordsSizeInBytes=0)
+============ kafkacat :[kafkacat -b 10.5.0.4:9092 -L]==============
+Metadata for all topics (from broker 0: 10.5.0.4:9092/0):
+ 2 brokers:
+  broker 0 at 10.5.0.4:9092 (controller)
+  broker 2 at 10.5.0.2:9092
+ 2 topics:
+  topic "test_topic" with 3 partitions:
+    partition 0, leader 0, replicas: 1,0,2, isrs: 0,2
+    partition 1, leader 0, replicas: 0,2,1, isrs: 0,2
+    partition 2, leader 2, replicas: 2,1,0, isrs: 2,0
+  topic "__consumer_offsets" with 50 partitions:
+    partition 0, leader 0, replicas: 0,2,1, isrs: 0,2
+    partition 1, leader 0, replicas: 1,0,2, isrs: 0,2
+    partition 2, leader 2, replicas: 2,1,0, isrs: 2,0
+    partition 3, leader 0, replicas: 0,1,2, isrs: 0,2
+    partition 4, leader 2, replicas: 1,2,0, isrs: 2,0
+    partition 5, leader 2, replicas: 2,0,1, isrs: 2,0
+    partition 6, leader 0, replicas: 0,2,1, isrs: 0,2
+    partition 7, leader 0, replicas: 1,0,2, isrs: 0,2
+    partition 8, leader 2, replicas: 2,1,0, isrs: 2,0
+    partition 9, leader 0, replicas: 0,1,2, isrs: 0,2
+    partition 10, leader 2, replicas: 1,2,0, isrs: 2,0
+    partition 11, leader 2, replicas: 2,0,1, isrs: 2,0
+    partition 12, leader 0, replicas: 0,2,1, isrs: 0,2
+    partition 13, leader 0, replicas: 1,0,2, isrs: 0,2
+    partition 14, leader 2, replicas: 2,1,0, isrs: 2,0
+    partition 15, leader 0, replicas: 0,1,2, isrs: 0,2
+    partition 16, leader 2, replicas: 1,2,0, isrs: 2,0
+    partition 17, leader 2, replicas: 2,0,1, isrs: 2,0
+    partition 18, leader 0, replicas: 0,2,1, isrs: 0,2
+    partition 19, leader 0, replicas: 1,0,2, isrs: 0,2
+    partition 20, leader 2, replicas: 2,1,0, isrs: 2,0
+    partition 21, leader 0, replicas: 0,1,2, isrs: 0,2
+    partition 22, leader 2, replicas: 1,2,0, isrs: 2,0
+    partition 23, leader 2, replicas: 2,0,1, isrs: 2,0
+    partition 24, leader 0, replicas: 0,2,1, isrs: 0,2
+    partition 25, leader 0, replicas: 1,0,2, isrs: 0,2
+    partition 26, leader 2, replicas: 2,1,0, isrs: 2,0
+    partition 27, leader 0, replicas: 0,1,2, isrs: 0,2
+    partition 28, leader 2, replicas: 1,2,0, isrs: 2,0
+    partition 29, leader 2, replicas: 2,0,1, isrs: 2,0
+    partition 30, leader 0, replicas: 0,2,1, isrs: 0,2
+    partition 31, leader 0, replicas: 1,0,2, isrs: 0,2
+    partition 32, leader 2, replicas: 2,1,0, isrs: 2,0
+    partition 33, leader 0, replicas: 0,1,2, isrs: 0,2
+    partition 34, leader 2, replicas: 1,2,0, isrs: 2,0
+    partition 35, leader 2, replicas: 2,0,1, isrs: 2,0
+    partition 36, leader 0, replicas: 0,2,1, isrs: 0,2
+    partition 37, leader 0, replicas: 1,0,2, isrs: 0,2
+    partition 38, leader 2, replicas: 2,1,0, isrs: 2,0
+    partition 39, leader 0, replicas: 0,1,2, isrs: 0,2
+    partition 40, leader 2, replicas: 1,2,0, isrs: 2,0
+    partition 41, leader 2, replicas: 2,0,1, isrs: 2,0
+    partition 42, leader 0, replicas: 0,2,1, isrs: 0,2
+    partition 43, leader 0, replicas: 1,0,2, isrs: 0,2
+    partition 44, leader 2, replicas: 2,1,0, isrs: 2,0
+    partition 45, leader 0, replicas: 0,1,2, isrs: 0,2
+    partition 46, leader 2, replicas: 1,2,0, isrs: 2,0
+    partition 47, leader 2, replicas: 2,0,1, isrs: 2,0
+    partition 48, leader 0, replicas: 0,2,1, isrs: 0,2
+    partition 49, leader 0, replicas: 1,0,2, isrs: 0,2
+13:04:09.111 [main] INFO io.redit.samples.kafka12257.SampleTest - server2: cd /kafka/kafka_2.13-2.7.1 && bin/kafka-server-start.sh -daemon ./config/server.properties
+13:04:09.111 [main] INFO io.redit.samples.kafka12257.SampleTest -
+13:04:10.158 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending Heartbeat request for group g1 to coordinator 10.5.0.4:9092 (id: 2147483647 rack: null)
+13:04:10.259 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received successful Heartbeat response for group g1
+server 1 kafkaConsumer poll: 4
+13:04:12.240 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Sending asynchronous auto-commit of offsets {test_topic-2=OffsetAndMetadata{offset=0, metadata=''}, test_topic-1=OffsetAndMetadata{offset=0, metadata=''}, test_topic-0=OffsetAndMetadata{offset=0, metadata=''}} for group g1
+13:04:12.241 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-2 at offset 0 to node 10.5.0.2:9092 (id: 2 rack: null)
+13:04:12.241 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-1 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:12.241 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-0 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:12.241 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-1, test_topic-0] to broker 10.5.0.4:9092 (id: 0 rack: null)
+13:04:12.241 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-2] to broker 10.5.0.2:9092 (id: 2 rack: null)
+13:04:12.273 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Group g1 committed offset 0 for partition test_topic-2
+13:04:12.273 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Group g1 committed offset 0 for partition test_topic-1
+13:04:12.273 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Group g1 committed offset 0 for partition test_topic-0
+13:04:12.273 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Completed auto-commit of offsets {test_topic-2=OffsetAndMetadata{offset=0, metadata=''}, test_topic-1=OffsetAndMetadata{offset=0, metadata=''}, test_topic-0=OffsetAndMetadata{offset=0, metadata=''}} for group g1
+13:04:12.778 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-1 returned fetch data (error=NONE, highWaterMark=0, lastStableOffset = 0, logStartOffset = 0, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:12.778 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-0 returned fetch data (error=NONE, highWaterMark=0, lastStableOffset = 0, logStartOffset = 0, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:12.778 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-2 returned fetch data (error=NONE, highWaterMark=0, lastStableOffset = 0, logStartOffset = 0, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:13.180 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending Heartbeat request for group g1 to coordinator 10.5.0.4:9092 (id: 2147483647 rack: null)
+13:04:13.281 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received successful Heartbeat response for group g1
+13:04:16.201 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending Heartbeat request for group g1 to coordinator 10.5.0.4:9092 (id: 2147483647 rack: null)
+13:04:16.302 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received successful Heartbeat response for group g1
+server 1 kafkaConsumer poll: 5
+13:04:17.341 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Sending asynchronous auto-commit of offsets {test_topic-2=OffsetAndMetadata{offset=0, metadata=''}, test_topic-1=OffsetAndMetadata{offset=0, metadata=''}, test_topic-0=OffsetAndMetadata{offset=0, metadata=''}} for group g1
+13:04:17.342 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-2 at offset 0 to node 10.5.0.2:9092 (id: 2 rack: null)
+13:04:17.342 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-1 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:17.342 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-0 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:17.342 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-1, test_topic-0] to broker 10.5.0.4:9092 (id: 0 rack: null)
+13:04:17.342 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-2] to broker 10.5.0.2:9092 (id: 2 rack: null)
+13:04:17.356 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Group g1 committed offset 0 for partition test_topic-2
+13:04:17.356 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Group g1 committed offset 0 for partition test_topic-1
+13:04:17.356 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Group g1 committed offset 0 for partition test_topic-0
+13:04:17.356 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Completed auto-commit of offsets {test_topic-2=OffsetAndMetadata{offset=0, metadata=''}, test_topic-1=OffsetAndMetadata{offset=0, metadata=''}, test_topic-0=OffsetAndMetadata{offset=0, metadata=''}} for group g1
+13:04:17.945 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-1 returned fetch data (error=NONE, highWaterMark=0, lastStableOffset = 0, logStartOffset = 0, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:17.946 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-0 returned fetch data (error=NONE, highWaterMark=0, lastStableOffset = 0, logStartOffset = 0, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:17.946 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-2 returned fetch data (error=NONE, highWaterMark=0, lastStableOffset = 0, logStartOffset = 0, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:19.255 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending Heartbeat request for group g1 to coordinator 10.5.0.4:9092 (id: 2147483647 rack: null)
+13:04:19.357 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received successful Heartbeat response for group g1
+13:04:22.276 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending Heartbeat request for group g1 to coordinator 10.5.0.4:9092 (id: 2147483647 rack: null)
+13:04:22.377 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received successful Heartbeat response for group g1
+server 1 kafkaConsumer poll: 6
+13:04:22.443 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Sending asynchronous auto-commit of offsets {test_topic-2=OffsetAndMetadata{offset=0, metadata=''}, test_topic-1=OffsetAndMetadata{offset=0, metadata=''}, test_topic-0=OffsetAndMetadata{offset=0, metadata=''}} for group g1
+13:04:22.444 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-2 at offset 0 to node 10.5.0.2:9092 (id: 2 rack: null)
+13:04:22.444 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-1 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:22.444 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-0 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:22.444 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-1, test_topic-0] to broker 10.5.0.4:9092 (id: 0 rack: null)
+13:04:22.444 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-2] to broker 10.5.0.2:9092 (id: 2 rack: null)
+13:04:22.458 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Group g1 committed offset 0 for partition test_topic-2
+13:04:22.458 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Group g1 committed offset 0 for partition test_topic-1
+13:04:22.458 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Group g1 committed offset 0 for partition test_topic-0
+13:04:22.458 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Completed auto-commit of offsets {test_topic-2=OffsetAndMetadata{offset=0, metadata=''}, test_topic-1=OffsetAndMetadata{offset=0, metadata=''}, test_topic-0=OffsetAndMetadata{offset=0, metadata=''}} for group g1
+13:04:22.947 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-1 returned fetch data (error=NONE, highWaterMark=0, lastStableOffset = 0, logStartOffset = 0, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:22.947 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-0 returned fetch data (error=NONE, highWaterMark=0, lastStableOffset = 0, logStartOffset = 0, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:22.947 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-2 returned fetch data (error=NONE, highWaterMark=0, lastStableOffset = 0, logStartOffset = 0, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:25.363 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending Heartbeat request for group g1 to coordinator 10.5.0.4:9092 (id: 2147483647 rack: null)
+13:04:25.464 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received successful Heartbeat response for group g1
+server 1 kafkaConsumer poll: 7
+13:04:27.545 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Sending asynchronous auto-commit of offsets {test_topic-2=OffsetAndMetadata{offset=0, metadata=''}, test_topic-1=OffsetAndMetadata{offset=0, metadata=''}, test_topic-0=OffsetAndMetadata{offset=0, metadata=''}} for group g1
+13:04:27.546 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-2 at offset 0 to node 10.5.0.2:9092 (id: 2 rack: null)
+13:04:27.546 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-1 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:27.546 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-0 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:27.546 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-1, test_topic-0] to broker 10.5.0.4:9092 (id: 0 rack: null)
+13:04:27.546 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-2] to broker 10.5.0.2:9092 (id: 2 rack: null)
+13:04:27.564 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Group g1 committed offset 0 for partition test_topic-2
+13:04:27.564 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Group g1 committed offset 0 for partition test_topic-1
+13:04:27.564 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Group g1 committed offset 0 for partition test_topic-0
+13:04:27.564 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Completed auto-commit of offsets {test_topic-2=OffsetAndMetadata{offset=0, metadata=''}, test_topic-1=OffsetAndMetadata{offset=0, metadata=''}, test_topic-0=OffsetAndMetadata{offset=0, metadata=''}} for group g1
+13:04:28.150 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-1 returned fetch data (error=NONE, highWaterMark=0, lastStableOffset = 0, logStartOffset = 0, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:28.150 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-0 returned fetch data (error=NONE, highWaterMark=0, lastStableOffset = 0, logStartOffset = 0, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:28.150 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-2 returned fetch data (error=NONE, highWaterMark=0, lastStableOffset = 0, logStartOffset = 0, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:28.452 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending Heartbeat request for group g1 to coordinator 10.5.0.4:9092 (id: 2147483647 rack: null)
+13:04:28.553 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received successful Heartbeat response for group g1
+============ kafkacat :[kafkacat -b 10.5.0.4:9092 -L]==============
+Metadata for all topics (from broker 0: 10.5.0.4:9092/0):
+ 3 brokers:
+  broker 0 at 10.5.0.4:9092 (controller)
+  broker 2 at 10.5.0.2:9092
+  broker 1 at 10.5.0.3:9092
+ 2 topics:
+  topic "test_topic" with 3 partitions:
+    partition 0, leader 0, replicas: 1,0,2, isrs: 0,2,1
+    partition 1, leader 0, replicas: 0,2,1, isrs: 0,2,1
+    partition 2, leader 2, replicas: 2,1,0, isrs: 2,0,1
+  topic "__consumer_offsets" with 50 partitions:
+    partition 0, leader 0, replicas: 0,2,1, isrs: 0,2,1
+    partition 1, leader 0, replicas: 1,0,2, isrs: 0,2,1
+    partition 2, leader 2, replicas: 2,1,0, isrs: 2,0,1
+    partition 3, leader 0, replicas: 0,1,2, isrs: 0,2,1
+    partition 4, leader 2, replicas: 1,2,0, isrs: 2,0,1
+    partition 5, leader 2, replicas: 2,0,1, isrs: 2,0,1
+    partition 6, leader 0, replicas: 0,2,1, isrs: 0,2,1
+    partition 7, leader 0, replicas: 1,0,2, isrs: 0,2,1
+    partition 8, leader 2, replicas: 2,1,0, isrs: 2,0,1
+    partition 9, leader 0, replicas: 0,1,2, isrs: 0,2,1
+    partition 10, leader 2, replicas: 1,2,0, isrs: 2,0,1
+    partition 11, leader 2, replicas: 2,0,1, isrs: 2,0,1
+    partition 12, leader 0, replicas: 0,2,1, isrs: 0,2,1
+    partition 13, leader 0, replicas: 1,0,2, isrs: 0,2,1
+    partition 14, leader 2, replicas: 2,1,0, isrs: 2,0,1
+    partition 15, leader 0, replicas: 0,1,2, isrs: 0,2,1
+    partition 16, leader 2, replicas: 1,2,0, isrs: 2,0,1
+    partition 17, leader 2, replicas: 2,0,1, isrs: 2,0,1
+    partition 18, leader 0, replicas: 0,2,1, isrs: 0,2,1
+    partition 19, leader 0, replicas: 1,0,2, isrs: 0,2,1
+    partition 20, leader 2, replicas: 2,1,0, isrs: 2,0,1
+    partition 21, leader 0, replicas: 0,1,2, isrs: 0,2,1
+    partition 22, leader 2, replicas: 1,2,0, isrs: 2,0,1
+    partition 23, leader 2, replicas: 2,0,1, isrs: 2,0,1
+    partition 24, leader 0, replicas: 0,2,1, isrs: 0,2,1
+    partition 25, leader 0, replicas: 1,0,2, isrs: 0,2,1
+    partition 26, leader 2, replicas: 2,1,0, isrs: 2,0,1
+    partition 27, leader 0, replicas: 0,1,2, isrs: 0,2,1
+    partition 28, leader 2, replicas: 1,2,0, isrs: 2,0,1
+    partition 29, leader 2, replicas: 2,0,1, isrs: 2,0,1
+    partition 30, leader 0, replicas: 0,2,1, isrs: 0,2,1
+    partition 31, leader 0, replicas: 1,0,2, isrs: 0,2,1
+    partition 32, leader 2, replicas: 2,1,0, isrs: 2,0,1
+    partition 33, leader 0, replicas: 0,1,2, isrs: 0,2,1
+    partition 34, leader 2, replicas: 1,2,0, isrs: 2,0,1
+    partition 35, leader 2, replicas: 2,0,1, isrs: 2,0,1
+    partition 36, leader 0, replicas: 0,2,1, isrs: 0,2,1
+    partition 37, leader 0, replicas: 1,0,2, isrs: 0,2,1
+    partition 38, leader 2, replicas: 2,1,0, isrs: 2,0,1
+    partition 39, leader 0, replicas: 0,1,2, isrs: 0,2,1
+    partition 40, leader 2, replicas: 1,2,0, isrs: 2,0,1
+    partition 41, leader 2, replicas: 2,0,1, isrs: 2,0,1
+    partition 42, leader 0, replicas: 0,2,1, isrs: 0,2,1
+    partition 43, leader 0, replicas: 1,0,2, isrs: 0,2,1
+    partition 44, leader 2, replicas: 2,1,0, isrs: 2,0,1
+    partition 45, leader 0, replicas: 0,1,2, isrs: 0,2,1
+    partition 46, leader 2, replicas: 1,2,0, isrs: 2,0,1
+    partition 47, leader 2, replicas: 2,0,1, isrs: 2,0,1
+    partition 48, leader 0, replicas: 0,2,1, isrs: 0,2,1
+    partition 49, leader 0, replicas: 1,0,2, isrs: 0,2,1
+13:04:31.343 [main] INFO io.redit.samples.kafka12257.SampleTest - server1: cd /kafka/kafka_2.13-2.7.1 && bin/kafka-topics.sh --bootstrap-server 10.5.0.4:9092 --delete --topic test_topic
+13:04:31.343 [main] INFO io.redit.samples.kafka12257.SampleTest -
+13:04:31.468 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending Heartbeat request for group g1 to coordinator 10.5.0.4:9092 (id: 2147483647 rack: null)
+13:04:31.570 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received successful Heartbeat response for group g1
+server 1 kafkaConsumer poll: 8
+13:04:32.647 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Sending asynchronous auto-commit of offsets {test_topic-2=OffsetAndMetadata{offset=0, metadata=''}, test_topic-1=OffsetAndMetadata{offset=0, metadata=''}, test_topic-0=OffsetAndMetadata{offset=0, metadata=''}} for group g1
+13:04:32.648 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-2 at offset 0 to node 10.5.0.2:9092 (id: 2 rack: null)
+13:04:32.648 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-1 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.648 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-0 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.648 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-1, test_topic-0] to broker 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.648 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-2] to broker 10.5.0.2:9092 (id: 2 rack: null)
+13:04:32.651 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-2 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.651 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.Fetcher - Received unknown topic or partition error in fetch for partition test_topic-2. The topic/partition may not exist or the user may not have Describe access to it
+13:04:32.651 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-2 at offset 0 to node 10.5.0.2:9092 (id: 2 rack: null)
+13:04:32.651 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-2] to broker 10.5.0.2:9092 (id: 2 rack: null)
+13:04:32.652 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Initialize connection to node 1 for sending metadata request
+13:04:32.652 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Initiating connection to node 1 at 10.5.0.3:9092.
+13:04:32.652 [Thread-30] DEBUG org.apache.kafka.common.network.Selector - Created socket with SO_RCVBUF = 65536, SO_SNDBUF = 131072, SO_TIMEOUT = 0 to node 1
+13:04:32.652 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Completed connection to node 1.  Fetching API versions.
+13:04:32.652 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Initiating API versions fetch from node 1.
+13:04:32.652 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Sending metadata request (type=MetadataRequest, topics=test_topic) to node 2
+13:04:32.656 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-1 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.656 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-0 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.656 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.Fetcher - Received unknown topic or partition error in fetch for partition test_topic-1. The topic/partition may not exist or the user may not have Describe access to it
+13:04:32.656 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.Fetcher - Received unknown topic or partition error in fetch for partition test_topic-0. The topic/partition may not exist or the user may not have Describe access to it
+13:04:32.656 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-1 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.656 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-0 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.656 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-1, test_topic-0] to broker 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.657 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Offset commit for group g1 failed on partition test_topic-2: This server does not host this topic-partition.
+13:04:32.657 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Auto-commit of offsets {test_topic-2=OffsetAndMetadata{offset=0, metadata=''}, test_topic-1=OffsetAndMetadata{offset=0, metadata=''}, test_topic-0=OffsetAndMetadata{offset=0, metadata=''}} failed for group g1: Partition test_topic-2 may not exist or user may not have Describe access to topic
+13:04:32.658 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-1 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.658 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-0 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.658 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.Fetcher - Received unknown topic or partition error in fetch for partition test_topic-1. The topic/partition may not exist or the user may not have Describe access to it
+13:04:32.658 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.Fetcher - Received unknown topic or partition error in fetch for partition test_topic-0. The topic/partition may not exist or the user may not have Describe access to it
+13:04:32.658 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-1 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.658 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-0 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.658 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-1, test_topic-0] to broker 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.660 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Recorded API versions for node 1: (Produce(0): 0 to 8 [usable: 3], Fetch(1): 0 to 12 [usable: 5], Offsets(2): 0 to 5 [usable: 2], Metadata(3): 0 to 9 [usable: 4], LeaderAndIsr(4): 0 to 4 [usable: 0], StopReplica(5): 0 to 3 [usable: 0], UpdateMetadata(6): 0 to 6 [usable: 3], ControlledShutdown(7): 0 to 3 [usable: 1], OffsetCommit(8): 0 to 8 [usable: 3], OffsetFetch(9): 0 to 7 [usable: 3], FindCoordinator(10): 0 to 3 [usable: 1], JoinGroup(11): 0 to 7 [usable: 2], Heartbeat(12): 0 to 4 [usable: 1], LeaveGroup(13): 0 to 4 [usable: 1], SyncGroup(14): 0 to 5 [usable: 1], DescribeGroups(15): 0 to 5 [usable: 1], ListGroups(16): 0 to 4 [usable: 1], SaslHandshake(17): 0 to 1 [usable: 0], ApiVersions(18): 0 to 3 [usable: 1], CreateTopics(19): 0 to 6 [usable: 2], DeleteTopics(20): 0 to 5 [usable: 1], DeleteRecords(21): 0 to 2 [usable: 0], InitProducerId(22): 0 to 4 [usable: 0], OffsetForLeaderEpoch(23): 0 to 3 [usable: 0], AddPartitionsToTxn(24): 0 to 2 [usable: 0], AddOffsetsToTxn(25): 0 to 2 [usable: 0], EndTxn(26): 0 to 2 [usable: 0], WriteTxnMarkers(27): 0 [usable: 0], TxnOffsetCommit(28): 0 to 3 [usable: 0], DescribeAcls(29): 0 to 2 [usable: 0], CreateAcls(30): 0 to 2 [usable: 0], DeleteAcls(31): 0 to 2 [usable: 0], DescribeConfigs(32): 0 to 3 [usable: 0], AlterConfigs(33): 0 to 1 [usable: 0], UNKNOWN(34): 0 to 1, UNKNOWN(35): 0 to 2, UNKNOWN(36): 0 to 2, UNKNOWN(37): 0 to 3, UNKNOWN(38): 0 to 2, UNKNOWN(39): 0 to 2, UNKNOWN(40): 0 to 2, UNKNOWN(41): 0 to 2, UNKNOWN(42): 0 to 2, UNKNOWN(43): 0 to 2, UNKNOWN(44): 0 to 1, UNKNOWN(45): 0, UNKNOWN(46): 0, UNKNOWN(47): 0, UNKNOWN(48): 0, UNKNOWN(49): 0, UNKNOWN(50): 0, UNKNOWN(51): 0, UNKNOWN(56): 0, UNKNOWN(57): 0)
+13:04:32.665 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-1 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.666 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-0 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.666 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.Fetcher - Received unknown topic or partition error in fetch for partition test_topic-1. The topic/partition may not exist or the user may not have Describe access to it
+13:04:32.666 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.Fetcher - Received unknown topic or partition error in fetch for partition test_topic-0. The topic/partition may not exist or the user may not have Describe access to it
+13:04:32.666 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-1 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.666 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-0 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.666 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-1, test_topic-0] to broker 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.667 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-1 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.667 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-0 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.668 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.Fetcher - Received unknown topic or partition error in fetch for partition test_topic-1. The topic/partition may not exist or the user may not have Describe access to it
+13:04:32.668 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.Fetcher - Received unknown topic or partition error in fetch for partition test_topic-0. The topic/partition may not exist or the user may not have Describe access to it
+13:04:32.668 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-1 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.668 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-0 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.668 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-1, test_topic-0] to broker 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.669 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-1 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.669 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-0 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.669 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.Fetcher - Received unknown topic or partition error in fetch for partition test_topic-1. The topic/partition may not exist or the user may not have Describe access to it
+13:04:32.669 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.Fetcher - Received unknown topic or partition error in fetch for partition test_topic-0. The topic/partition may not exist or the user may not have Describe access to it
+13:04:32.669 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-1 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.669 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-0 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.669 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-1, test_topic-0] to broker 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.673 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-1 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.673 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-0 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.673 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.Fetcher - Received unknown topic or partition error in fetch for partition test_topic-1. The topic/partition may not exist or the user may not have Describe access to it
+13:04:32.673 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.Fetcher - Received unknown topic or partition error in fetch for partition test_topic-0. The topic/partition may not exist or the user may not have Describe access to it
+13:04:32.673 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-1 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.673 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-0 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.673 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-1, test_topic-0] to broker 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.677 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-1 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.677 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-0 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.677 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.Fetcher - Received unknown topic or partition error in fetch for partition test_topic-1. The topic/partition may not exist or the user may not have Describe access to it
+13:04:32.677 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.Fetcher - Received unknown topic or partition error in fetch for partition test_topic-0. The topic/partition may not exist or the user may not have Describe access to it
+13:04:32.677 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-1 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.677 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-0 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.677 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-1, test_topic-0] to broker 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.679 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-1 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.679 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-0 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.679 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.Fetcher - Received unknown topic or partition error in fetch for partition test_topic-1. The topic/partition may not exist or the user may not have Describe access to it
+13:04:32.679 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.Fetcher - Received unknown topic or partition error in fetch for partition test_topic-0. The topic/partition may not exist or the user may not have Describe access to it
+13:04:32.679 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-1 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.679 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-0 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.679 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-1, test_topic-0] to broker 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.680 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-1 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.680 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-0 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.680 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.Fetcher - Received unknown topic or partition error in fetch for partition test_topic-1. The topic/partition may not exist or the user may not have Describe access to it
+13:04:32.680 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.Fetcher - Received unknown topic or partition error in fetch for partition test_topic-0. The topic/partition may not exist or the user may not have Describe access to it
+13:04:32.680 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-1 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.680 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-0 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.680 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-1, test_topic-0] to broker 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.681 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-1 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.681 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-0 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.681 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.Fetcher - Received unknown topic or partition error in fetch for partition test_topic-1. The topic/partition may not exist or the user may not have Describe access to it
+13:04:32.681 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.Fetcher - Received unknown topic or partition error in fetch for partition test_topic-0. The topic/partition may not exist or the user may not have Describe access to it
+13:04:32.682 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-1 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.682 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-0 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.682 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-1, test_topic-0] to broker 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.683 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-1 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.683 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-0 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.683 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.Fetcher - Received unknown topic or partition error in fetch for partition test_topic-1. The topic/partition may not exist or the user may not have Describe access to it
+13:04:32.683 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.Fetcher - Received unknown topic or partition error in fetch for partition test_topic-0. The topic/partition may not exist or the user may not have Describe access to it
+13:04:32.683 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-1 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.683 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-0 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.683 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-1, test_topic-0] to broker 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.685 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-1 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.685 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-0 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.685 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.Fetcher - Received unknown topic or partition error in fetch for partition test_topic-1. The topic/partition may not exist or the user may not have Describe access to it
+13:04:32.685 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.Fetcher - Received unknown topic or partition error in fetch for partition test_topic-0. The topic/partition may not exist or the user may not have Describe access to it
+13:04:32.685 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-1 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.685 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-0 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.685 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-1, test_topic-0] to broker 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.686 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-1 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.687 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-0 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.687 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.Fetcher - Received unknown topic or partition error in fetch for partition test_topic-1. The topic/partition may not exist or the user may not have Describe access to it
+13:04:32.687 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.Fetcher - Received unknown topic or partition error in fetch for partition test_topic-0. The topic/partition may not exist or the user may not have Describe access to it
+13:04:32.687 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-1 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.687 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-0 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.687 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-1, test_topic-0] to broker 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.688 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-1 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.689 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-0 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.689 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.Fetcher - Received unknown topic or partition error in fetch for partition test_topic-1. The topic/partition may not exist or the user may not have Describe access to it
+13:04:32.689 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.Fetcher - Received unknown topic or partition error in fetch for partition test_topic-0. The topic/partition may not exist or the user may not have Describe access to it
+13:04:32.689 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-1 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.689 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-0 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.689 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-1, test_topic-0] to broker 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.690 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-1 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.690 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-0 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.690 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.Fetcher - Received unknown topic or partition error in fetch for partition test_topic-1. The topic/partition may not exist or the user may not have Describe access to it
+13:04:32.690 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.Fetcher - Received unknown topic or partition error in fetch for partition test_topic-0. The topic/partition may not exist or the user may not have Describe access to it
+13:04:32.690 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-1 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.690 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-0 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.690 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-1, test_topic-0] to broker 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.692 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-1 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.692 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-0 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.692 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.Fetcher - Received unknown topic or partition error in fetch for partition test_topic-1. The topic/partition may not exist or the user may not have Describe access to it
+13:04:32.692 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.Fetcher - Received unknown topic or partition error in fetch for partition test_topic-0. The topic/partition may not exist or the user may not have Describe access to it
+13:04:32.692 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-1 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.692 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-0 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.692 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-1, test_topic-0] to broker 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.695 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-1 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.695 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-0 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.695 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.Fetcher - Received unknown topic or partition error in fetch for partition test_topic-1. The topic/partition may not exist or the user may not have Describe access to it
+13:04:32.695 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.Fetcher - Received unknown topic or partition error in fetch for partition test_topic-0. The topic/partition may not exist or the user may not have Describe access to it
+13:04:32.695 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-1 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.695 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-0 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.695 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-1, test_topic-0] to broker 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.697 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-1 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.701 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-0 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.702 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.Fetcher - Received unknown topic or partition error in fetch for partition test_topic-1. The topic/partition may not exist or the user may not have Describe access to it
+13:04:32.702 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.Fetcher - Received unknown topic or partition error in fetch for partition test_topic-0. The topic/partition may not exist or the user may not have Describe access to it
+13:04:32.702 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-1 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.702 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-0 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.702 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-1, test_topic-0] to broker 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.712 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-1 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.712 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-0 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.712 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.Fetcher - Received unknown topic or partition error in fetch for partition test_topic-1. The topic/partition may not exist or the user may not have Describe access to it
+13:04:32.712 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.Fetcher - Received unknown topic or partition error in fetch for partition test_topic-0. The topic/partition may not exist or the user may not have Describe access to it
+13:04:32.713 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-1 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.713 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-0 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.713 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-1, test_topic-0] to broker 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.717 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-1 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.717 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-0 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.717 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.Fetcher - Received unknown topic or partition error in fetch for partition test_topic-1. The topic/partition may not exist or the user may not have Describe access to it
+13:04:32.717 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.Fetcher - Received unknown topic or partition error in fetch for partition test_topic-0. The topic/partition may not exist or the user may not have Describe access to it
+13:04:32.717 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-1 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.717 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-0 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.717 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-1, test_topic-0] to broker 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.724 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-1 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.724 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-0 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.724 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.Fetcher - Received unknown topic or partition error in fetch for partition test_topic-1. The topic/partition may not exist or the user may not have Describe access to it
+13:04:32.724 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.Fetcher - Received unknown topic or partition error in fetch for partition test_topic-0. The topic/partition may not exist or the user may not have Describe access to it
+13:04:32.724 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-1 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.724 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-0 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.724 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-1, test_topic-0] to broker 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.731 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-1 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.731 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-0 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.731 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.Fetcher - Received unknown topic or partition error in fetch for partition test_topic-1. The topic/partition may not exist or the user may not have Describe access to it
+13:04:32.731 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.Fetcher - Received unknown topic or partition error in fetch for partition test_topic-0. The topic/partition may not exist or the user may not have Describe access to it
+13:04:32.731 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-1 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.731 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-0 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.731 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-1, test_topic-0] to broker 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.733 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-1 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.733 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-0 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.733 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.Fetcher - Received unknown topic or partition error in fetch for partition test_topic-1. The topic/partition may not exist or the user may not have Describe access to it
+13:04:32.733 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.Fetcher - Received unknown topic or partition error in fetch for partition test_topic-0. The topic/partition may not exist or the user may not have Describe access to it
+13:04:32.733 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-1 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.733 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-0 at offset 0 to node 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.733 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-1, test_topic-0] to broker 10.5.0.4:9092 (id: 0 rack: null)
+13:04:32.734 [Thread-30] WARN org.apache.kafka.clients.NetworkClient - Error while fetching metadata with correlation id 105 : {test_topic=LEADER_NOT_AVAILABLE}
+13:04:32.734 [Thread-30] DEBUG org.apache.kafka.clients.Metadata - Updated cluster metadata version 28 to Cluster(id = upxc2SQlS2GraJhhpYLwAA, nodes = [10.5.0.2:9092 (id: 2 rack: null), 10.5.0.4:9092 (id: 0 rack: null), 10.5.0.3:9092 (id: 1 rack: null)], partitions = [])
+13:04:32.734 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Sending synchronous auto-commit of offsets {test_topic-2=OffsetAndMetadata{offset=0, metadata=''}, test_topic-1=OffsetAndMetadata{offset=0, metadata=''}, test_topic-0=OffsetAndMetadata{offset=0, metadata=''}} for group g1
+13:04:32.735 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-1 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.735 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-0 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.736 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Offset commit for group g1 failed on partition test_topic-2: This server does not host this topic-partition.
+13:04:32.736 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Auto-commit of offsets {test_topic-2=OffsetAndMetadata{offset=0, metadata=''}, test_topic-1=OffsetAndMetadata{offset=0, metadata=''}, test_topic-0=OffsetAndMetadata{offset=0, metadata=''}} failed for group g1: Partition test_topic-2 may not exist or user may not have Describe access to topic
+13:04:32.736 [Thread-30] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Revoking previously assigned partitions [test_topic-2, test_topic-1, test_topic-0] for group g1
+13:04:32.736 [Thread-30] INFO org.apache.kafka.clients.consumer.internals.AbstractCoordinator - (Re-)joining group g1
+13:04:32.737 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending JoinGroup ((type: JoinGroupRequest, groupId=g1, sessionTimeout=10000, rebalanceTimeout=300000, memberId=consumer-1-246b976e-6f98-44c9-8e63-6bd263cdead7, protocolType=consumer, groupProtocols=org.apache.kafka.common.requests.JoinGroupRequest$ProtocolMetadata@3180b87e)) to coordinator 10.5.0.4:9092 (id: 2147483647 rack: null)
+13:04:32.738 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-2 returned fetch data (error=UNKNOWN_TOPIC_OR_PARTITION, highWaterMark=-1, lastStableOffset = -1, logStartOffset = -1, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:32.744 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received successful JoinGroup response for group g1: org.apache.kafka.common.requests.JoinGroupResponse@31ed22e3
+13:04:32.835 [Thread-30] DEBUG org.apache.kafka.clients.NetworkClient - Sending metadata request (type=MetadataRequest, topics=test_topic) to node 0
+13:04:32.837 [Thread-30] DEBUG org.apache.kafka.clients.Metadata - Updated cluster metadata version 29 to Cluster(id = upxc2SQlS2GraJhhpYLwAA, nodes = [10.5.0.2:9092 (id: 2 rack: null), 10.5.0.3:9092 (id: 1 rack: null), 10.5.0.4:9092 (id: 0 rack: null)], partitions = [Partition(topic = test_topic, partition = 0, leader = 1, replicas = [1], isr = [1])])
+13:04:32.837 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Performing assignment for group g1 using strategy range with subscriptions {consumer-1-246b976e-6f98-44c9-8e63-6bd263cdead7=Subscription(topics=[test_topic])}
+13:04:32.837 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Finished assignment for group g1: {consumer-1-246b976e-6f98-44c9-8e63-6bd263cdead7=Assignment(partitions=[test_topic-0])}
+13:04:32.837 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending leader SyncGroup for group g1 to coordinator 10.5.0.4:9092 (id: 2147483647 rack: null): (type=SyncGroupRequest, groupId=g1, generationId=2, memberId=consumer-1-246b976e-6f98-44c9-8e63-6bd263cdead7, groupAssignment=consumer-1-246b976e-6f98-44c9-8e63-6bd263cdead7)
+13:04:32.860 [Thread-30] INFO org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Successfully joined group g1 with generation 2
+13:04:32.861 [Thread-30] DEBUG org.apache.kafka.common.metrics.Metrics - Removed sensor with name test_topic-2.records-lag
+13:04:32.861 [Thread-30] DEBUG org.apache.kafka.common.metrics.Metrics - Removed sensor with name test_topic-1.records-lag
+13:04:32.861 [Thread-30] INFO org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Setting newly assigned partitions [test_topic-0] for group g1
+13:04:32.861 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Group g1 fetching committed offsets for partitions: [test_topic-0]
+13:04:32.867 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Group g1 has no committed offset for partition test_topic-0
+13:04:32.884 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Handling ListOffsetResponse response for test_topic-0. Fetched offset 0, timestamp -1
+13:04:32.884 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Resetting offset for partition test_topic-0 to offset 0.
+13:04:32.884 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Ignoring fetched records for partition test_topic-1 since it is no longer fetchable
+13:04:32.884 [Thread-30] WARN org.apache.kafka.clients.consumer.internals.Fetcher - Received unknown topic or partition error in fetch for partition test_topic-0. The topic/partition may not exist or the user may not have Describe access to it
+13:04:32.884 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Ignoring fetched records for partition test_topic-2 since it is no longer fetchable
+13:04:32.884 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-0 at offset 0 to node 10.5.0.3:9092 (id: 1 rack: null)
+13:04:32.884 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-0] to broker 10.5.0.3:9092 (id: 1 rack: null)
+13:04:32.961 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.NetworkClient - Sending metadata request (type=MetadataRequest, topics=test_topic) to node 2
+13:04:33.062 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.Metadata - Updated cluster metadata version 30 to Cluster(id = upxc2SQlS2GraJhhpYLwAA, nodes = [10.5.0.2:9092 (id: 2 rack: null), 10.5.0.4:9092 (id: 0 rack: null), 10.5.0.3:9092 (id: 1 rack: null)], partitions = [Partition(topic = test_topic, partition = 0, leader = 1, replicas = [1], isr = [1])])
+13:04:33.465 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-0 returned fetch data (error=NONE, highWaterMark=0, lastStableOffset = 0, logStartOffset = 0, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:35.878 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending Heartbeat request for group g1 to coordinator 10.5.0.4:9092 (id: 2147483647 rack: null)
+13:04:35.978 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received successful Heartbeat response for group g1
+server 1 kafkaConsumer poll: 9
+13:04:37.886 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Sending asynchronous auto-commit of offsets {test_topic-0=OffsetAndMetadata{offset=0, metadata=''}} for group g1
+13:04:37.886 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-0 at offset 0 to node 10.5.0.3:9092 (id: 1 rack: null)
+13:04:37.886 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-0] to broker 10.5.0.3:9092 (id: 1 rack: null)
+13:04:37.905 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Group g1 committed offset 0 for partition test_topic-0
+13:04:37.905 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Completed auto-commit of offsets {test_topic-0=OffsetAndMetadata{offset=0, metadata=''}} for group g1
+13:04:38.403 [main] INFO io.redit.samples.kafka12257.SampleTest - server3: cd /kafka/kafka_2.13-2.7.1 && bin/kafka-topics.sh --bootstrap-server 10.5.0.2:9092 --list
+13:04:38.403 [main] INFO io.redit.samples.kafka12257.SampleTest - __consumer_offsets
+test_topic
+
+13:04:38.410 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-0 returned fetch data (error=NONE, highWaterMark=0, lastStableOffset = 0, logStartOffset = 0, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:38.912 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending Heartbeat request for group g1 to coordinator 10.5.0.4:9092 (id: 2147483647 rack: null)
+13:04:39.013 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received successful Heartbeat response for group g1
+13:04:40.413 [main] INFO io.redit.samples.kafka12257.SampleTest - server1: cd /kafka/kafka_2.13-2.7.1 && bin/kafka-topics.sh --bootstrap-server 10.5.0.4:9092 --create --topic test_topic --replication-factor 3 --partitions 3
+13:04:40.413 [main] INFO io.redit.samples.kafka12257.SampleTest - WARNING: Due to limitations in metric names, topics with a period ('.') or underscore ('_') could collide. To avoid issues it is best to use either, but not both.
+Error while executing topic command : Topic 'test_topic' already exists.
+
+13:04:41.924 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending Heartbeat request for group g1 to coordinator 10.5.0.4:9092 (id: 2147483647 rack: null)
+13:04:42.025 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received successful Heartbeat response for group g1
+13:04:42.446 [main] INFO io.redit.samples.kafka12257.SampleTest - server3: cd /kafka/kafka_2.13-2.7.1 && bin/kafka-topics.sh --bootstrap-server 10.5.0.2:9092 --list
+13:04:42.446 [main] INFO io.redit.samples.kafka12257.SampleTest - __consumer_offsets
+test_topic
+
+server 1 kafkaConsumer poll: 10
+13:04:42.987 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Sending asynchronous auto-commit of offsets {test_topic-0=OffsetAndMetadata{offset=0, metadata=''}} for group g1
+13:04:42.988 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-0 at offset 0 to node 10.5.0.3:9092 (id: 1 rack: null)
+13:04:42.988 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-0] to broker 10.5.0.3:9092 (id: 1 rack: null)
+13:04:42.996 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Group g1 committed offset 0 for partition test_topic-0
+13:04:42.997 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Completed auto-commit of offsets {test_topic-0=OffsetAndMetadata{offset=0, metadata=''}} for group g1
+13:04:43.591 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-0 returned fetch data (error=NONE, highWaterMark=0, lastStableOffset = 0, logStartOffset = 0, abortedTransactions = null, recordsSizeInBytes=0)
+============ kafkacat :[kafkacat -b 10.5.0.4:9092 -L]==============
+Metadata for all topics (from broker -1: 10.5.0.4:9092/bootstrap):
+ 3 brokers:
+  broker 0 at 10.5.0.4:9092 (controller)
+  broker 2 at 10.5.0.2:9092
+  broker 1 at 10.5.0.3:9092
+ 2 topics:
+  topic "test_topic" with 1 partitions:
+    partition 0, leader 1, replicas: 1, isrs: 1
+  topic "__consumer_offsets" with 50 partitions:
+    partition 0, leader 0, replicas: 0,2,1, isrs: 0,2,1
+    partition 1, leader 0, replicas: 1,0,2, isrs: 0,2,1
+    partition 2, leader 2, replicas: 2,1,0, isrs: 2,0,1
+    partition 3, leader 0, replicas: 0,1,2, isrs: 0,2,1
+    partition 4, leader 2, replicas: 1,2,0, isrs: 2,0,1
+    partition 5, leader 2, replicas: 2,0,1, isrs: 2,0,1
+    partition 6, leader 0, replicas: 0,2,1, isrs: 0,2,1
+    partition 7, leader 0, replicas: 1,0,2, isrs: 0,2,1
+    partition 8, leader 2, replicas: 2,1,0, isrs: 2,0,1
+    partition 9, leader 0, replicas: 0,1,2, isrs: 0,2,1
+    partition 10, leader 2, replicas: 1,2,0, isrs: 2,0,1
+    partition 11, leader 2, replicas: 2,0,1, isrs: 2,0,1
+    partition 12, leader 0, replicas: 0,2,1, isrs: 0,2,1
+    partition 13, leader 0, replicas: 1,0,2, isrs: 0,2,1
+    partition 14, leader 2, replicas: 2,1,0, isrs: 2,0,1
+    partition 15, leader 0, replicas: 0,1,2, isrs: 0,2,1
+    partition 16, leader 2, replicas: 1,2,0, isrs: 2,0,1
+    partition 17, leader 2, replicas: 2,0,1, isrs: 2,0,1
+    partition 18, leader 0, replicas: 0,2,1, isrs: 0,2,1
+    partition 19, leader 0, replicas: 1,0,2, isrs: 0,2,1
+    partition 20, leader 2, replicas: 2,1,0, isrs: 2,0,1
+    partition 21, leader 0, replicas: 0,1,2, isrs: 0,2,1
+    partition 22, leader 2, replicas: 1,2,0, isrs: 2,0,1
+    partition 23, leader 2, replicas: 2,0,1, isrs: 2,0,1
+    partition 24, leader 0, replicas: 0,2,1, isrs: 0,2,1
+    partition 25, leader 0, replicas: 1,0,2, isrs: 0,2,1
+    partition 26, leader 2, replicas: 2,1,0, isrs: 2,0,1
+    partition 27, leader 0, replicas: 0,1,2, isrs: 0,2,1
+    partition 28, leader 2, replicas: 1,2,0, isrs: 2,0,1
+    partition 29, leader 2, replicas: 2,0,1, isrs: 2,0,1
+    partition 30, leader 0, replicas: 0,2,1, isrs: 0,2,1
+    partition 31, leader 0, replicas: 1,0,2, isrs: 0,2,1
+    partition 32, leader 2, replicas: 2,1,0, isrs: 2,0,1
+    partition 33, leader 0, replicas: 0,1,2, isrs: 0,2,1
+    partition 34, leader 2, replicas: 1,2,0, isrs: 2,0,1
+    partition 35, leader 2, replicas: 2,0,1, isrs: 2,0,1
+    partition 36, leader 0, replicas: 0,2,1, isrs: 0,2,1
+    partition 37, leader 0, replicas: 1,0,2, isrs: 0,2,1
+    partition 38, leader 2, replicas: 2,1,0, isrs: 2,0,1
+    partition 39, leader 0, replicas: 0,1,2, isrs: 0,2,1
+    partition 40, leader 2, replicas: 1,2,0, isrs: 2,0,1
+    partition 41, leader 2, replicas: 2,0,1, isrs: 2,0,1
+    partition 42, leader 0, replicas: 0,2,1, isrs: 0,2,1
+    partition 43, leader 0, replicas: 1,0,2, isrs: 0,2,1
+    partition 44, leader 2, replicas: 2,1,0, isrs: 2,0,1
+    partition 45, leader 0, replicas: 0,1,2, isrs: 0,2,1
+    partition 46, leader 2, replicas: 1,2,0, isrs: 2,0,1
+    partition 47, leader 2, replicas: 2,0,1, isrs: 2,0,1
+    partition 48, leader 0, replicas: 0,2,1, isrs: 0,2,1
+    partition 49, leader 0, replicas: 1,0,2, isrs: 0,2,1
+bootstrap_server: 10.5.0.4:9092
+13:04:44.475 [main] INFO org.apache.kafka.clients.producer.ProducerConfig - ProducerConfig values:
+	acks = all
+	batch.size = 16384
+	bootstrap.servers = [10.5.0.4:9092]
+	buffer.memory = 33554432
+	client.id =
+	compression.type = none
+	connections.max.idle.ms = 540000
+	enable.idempotence = false
+	interceptor.classes = null
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 3
+	retry.backoff.ms = 100
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	send.buffer.bytes = 131072
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+	ssl.endpoint.identification.algorithm = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLS
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.apache.kafka.common.serialization.StringSerializer
+
+13:04:44.480 [main] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name bufferpool-wait-time
+13:04:44.482 [main] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name buffer-exhausted-records
+13:04:44.483 [main] DEBUG org.apache.kafka.clients.Metadata - Updated cluster metadata version 1 to Cluster(id = null, nodes = [10.5.0.4:9092 (id: -1 rack: null)], partitions = [])
+13:04:44.484 [main] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name produce-throttle-time
+13:04:44.485 [main] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name connections-closed:
+13:04:44.485 [main] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name connections-created:
+13:04:44.485 [main] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name bytes-sent-received:
+13:04:44.485 [main] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name bytes-sent:
+13:04:44.485 [main] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name bytes-received:
+13:04:44.485 [main] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name select-time:
+13:04:44.486 [main] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name io-time:
+13:04:44.488 [main] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name batch-size
+13:04:44.488 [main] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name compression-rate
+13:04:44.488 [main] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name queue-time
+13:04:44.489 [main] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name request-time
+13:04:44.489 [main] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name records-per-request
+13:04:44.490 [main] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name record-retries
+13:04:44.490 [main] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name errors
+13:04:44.490 [main] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name record-size-max
+13:04:44.490 [main] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name batch-split-rate
+13:04:44.491 [main] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka version : 0.11.0.0
+13:04:44.491 [main] INFO org.apache.kafka.common.utils.AppInfoParser - Kafka commitId : cb8625948210849f
+13:04:44.491 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.clients.producer.internals.Sender - Starting Kafka producer I/O thread.
+13:04:44.491 [main] DEBUG org.apache.kafka.clients.producer.KafkaProducer - Kafka producer started
+13:04:44.492 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.clients.NetworkClient - Initialize connection to node -1 for sending metadata request
+13:04:44.492 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.clients.NetworkClient - Initiating connection to node -1 at 10.5.0.4:9092.
+13:04:44.494 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name node--1.bytes-sent
+13:04:44.494 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name node--1.bytes-received
+13:04:44.495 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name node--1.latency
+13:04:44.495 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.common.network.Selector - Created socket with SO_RCVBUF = 32768, SO_SNDBUF = 131072, SO_TIMEOUT = 0 to node -1
+13:04:44.495 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.clients.NetworkClient - Completed connection to node -1.  Fetching API versions.
+13:04:44.495 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.clients.NetworkClient - Initiating API versions fetch from node -1.
+13:04:44.496 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.clients.NetworkClient - Recorded API versions for node -1: (Produce(0): 0 to 8 [usable: 3], Fetch(1): 0 to 12 [usable: 5], Offsets(2): 0 to 5 [usable: 2], Metadata(3): 0 to 9 [usable: 4], LeaderAndIsr(4): 0 to 4 [usable: 0], StopReplica(5): 0 to 3 [usable: 0], UpdateMetadata(6): 0 to 6 [usable: 3], ControlledShutdown(7): 0 to 3 [usable: 1], OffsetCommit(8): 0 to 8 [usable: 3], OffsetFetch(9): 0 to 7 [usable: 3], FindCoordinator(10): 0 to 3 [usable: 1], JoinGroup(11): 0 to 7 [usable: 2], Heartbeat(12): 0 to 4 [usable: 1], LeaveGroup(13): 0 to 4 [usable: 1], SyncGroup(14): 0 to 5 [usable: 1], DescribeGroups(15): 0 to 5 [usable: 1], ListGroups(16): 0 to 4 [usable: 1], SaslHandshake(17): 0 to 1 [usable: 0], ApiVersions(18): 0 to 3 [usable: 1], CreateTopics(19): 0 to 6 [usable: 2], DeleteTopics(20): 0 to 5 [usable: 1], DeleteRecords(21): 0 to 2 [usable: 0], InitProducerId(22): 0 to 4 [usable: 0], OffsetForLeaderEpoch(23): 0 to 3 [usable: 0], AddPartitionsToTxn(24): 0 to 2 [usable: 0], AddOffsetsToTxn(25): 0 to 2 [usable: 0], EndTxn(26): 0 to 2 [usable: 0], WriteTxnMarkers(27): 0 [usable: 0], TxnOffsetCommit(28): 0 to 3 [usable: 0], DescribeAcls(29): 0 to 2 [usable: 0], CreateAcls(30): 0 to 2 [usable: 0], DeleteAcls(31): 0 to 2 [usable: 0], DescribeConfigs(32): 0 to 3 [usable: 0], AlterConfigs(33): 0 to 1 [usable: 0], UNKNOWN(34): 0 to 1, UNKNOWN(35): 0 to 2, UNKNOWN(36): 0 to 2, UNKNOWN(37): 0 to 3, UNKNOWN(38): 0 to 2, UNKNOWN(39): 0 to 2, UNKNOWN(40): 0 to 2, UNKNOWN(41): 0 to 2, UNKNOWN(42): 0 to 2, UNKNOWN(43): 0 to 2, UNKNOWN(44): 0 to 1, UNKNOWN(45): 0, UNKNOWN(46): 0, UNKNOWN(47): 0, UNKNOWN(48): 0, UNKNOWN(49): 0, UNKNOWN(50): 0, UNKNOWN(51): 0, UNKNOWN(56): 0, UNKNOWN(57): 0)
+13:04:44.496 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.clients.NetworkClient - Sending metadata request (type=MetadataRequest, topics=test_topic) to node -1
+13:04:44.497 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.clients.Metadata - Updated cluster metadata version 2 to Cluster(id = upxc2SQlS2GraJhhpYLwAA, nodes = [10.5.0.2:9092 (id: 2 rack: null), 10.5.0.3:9092 (id: 1 rack: null), 10.5.0.4:9092 (id: 0 rack: null)], partitions = [Partition(topic = test_topic, partition = 0, leader = 1, replicas = [1], isr = [1])])
+13:04:44.508 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.clients.NetworkClient - Initiating connection to node 1 at 10.5.0.3:9092.
+13:04:44.508 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name node-1.bytes-sent
+13:04:44.508 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name node-1.bytes-received
+13:04:44.509 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name node-1.latency
+13:04:44.509 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.common.network.Selector - Created socket with SO_RCVBUF = 32768, SO_SNDBUF = 131072, SO_TIMEOUT = 0 to node 1
+13:04:44.511 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.clients.NetworkClient - Completed connection to node 1.  Fetching API versions.
+13:04:44.511 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.clients.NetworkClient - Initiating API versions fetch from node 1.
+13:04:44.512 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.clients.NetworkClient - Recorded API versions for node 1: (Produce(0): 0 to 8 [usable: 3], Fetch(1): 0 to 12 [usable: 5], Offsets(2): 0 to 5 [usable: 2], Metadata(3): 0 to 9 [usable: 4], LeaderAndIsr(4): 0 to 4 [usable: 0], StopReplica(5): 0 to 3 [usable: 0], UpdateMetadata(6): 0 to 6 [usable: 3], ControlledShutdown(7): 0 to 3 [usable: 1], OffsetCommit(8): 0 to 8 [usable: 3], OffsetFetch(9): 0 to 7 [usable: 3], FindCoordinator(10): 0 to 3 [usable: 1], JoinGroup(11): 0 to 7 [usable: 2], Heartbeat(12): 0 to 4 [usable: 1], LeaveGroup(13): 0 to 4 [usable: 1], SyncGroup(14): 0 to 5 [usable: 1], DescribeGroups(15): 0 to 5 [usable: 1], ListGroups(16): 0 to 4 [usable: 1], SaslHandshake(17): 0 to 1 [usable: 0], ApiVersions(18): 0 to 3 [usable: 1], CreateTopics(19): 0 to 6 [usable: 2], DeleteTopics(20): 0 to 5 [usable: 1], DeleteRecords(21): 0 to 2 [usable: 0], InitProducerId(22): 0 to 4 [usable: 0], OffsetForLeaderEpoch(23): 0 to 3 [usable: 0], AddPartitionsToTxn(24): 0 to 2 [usable: 0], AddOffsetsToTxn(25): 0 to 2 [usable: 0], EndTxn(26): 0 to 2 [usable: 0], WriteTxnMarkers(27): 0 [usable: 0], TxnOffsetCommit(28): 0 to 3 [usable: 0], DescribeAcls(29): 0 to 2 [usable: 0], CreateAcls(30): 0 to 2 [usable: 0], DeleteAcls(31): 0 to 2 [usable: 0], DescribeConfigs(32): 0 to 3 [usable: 0], AlterConfigs(33): 0 to 1 [usable: 0], UNKNOWN(34): 0 to 1, UNKNOWN(35): 0 to 2, UNKNOWN(36): 0 to 2, UNKNOWN(37): 0 to 3, UNKNOWN(38): 0 to 2, UNKNOWN(39): 0 to 2, UNKNOWN(40): 0 to 2, UNKNOWN(41): 0 to 2, UNKNOWN(42): 0 to 2, UNKNOWN(43): 0 to 2, UNKNOWN(44): 0 to 1, UNKNOWN(45): 0, UNKNOWN(46): 0, UNKNOWN(47): 0, UNKNOWN(48): 0, UNKNOWN(49): 0, UNKNOWN(50): 0, UNKNOWN(51): 0, UNKNOWN(56): 0, UNKNOWN(57): 0)
+13:04:44.516 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name topic.test_topic.records-per-batch
+13:04:44.516 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name topic.test_topic.bytes
+13:04:44.516 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name topic.test_topic.compression-rate
+13:04:44.516 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name topic.test_topic.record-retries
+13:04:44.516 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.common.metrics.Metrics - Added sensor with name topic.test_topic.record-errors
+KafkaProducer send data partition：0
+KafkaProducer send data topic：test_topic
+KafkaProducer send data offset：0
+13:04:44.999 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending Heartbeat request for group g1 to coordinator 10.5.0.4:9092 (id: 2147483647 rack: null)
+13:04:45.101 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received successful Heartbeat response for group g1
+13:04:45.508 [main] INFO org.apache.kafka.clients.producer.KafkaProducer - Closing the Kafka producer with timeoutMillis = 9223372036854775807 ms.
+13:04:45.508 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.clients.producer.internals.Sender - Beginning shutdown of Kafka producer I/O thread, sending remaining records.
+KafkaProducer send data partition：0
+KafkaProducer send data topic：test_topic
+KafkaProducer send data offset：1
+13:04:45.516 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.common.metrics.Metrics - Removed sensor with name connections-closed:
+13:04:45.516 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.common.metrics.Metrics - Removed sensor with name connections-created:
+13:04:45.516 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.common.metrics.Metrics - Removed sensor with name bytes-sent-received:
+13:04:45.516 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.common.metrics.Metrics - Removed sensor with name bytes-sent:
+13:04:45.516 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.common.metrics.Metrics - Removed sensor with name bytes-received:
+13:04:45.516 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.common.metrics.Metrics - Removed sensor with name select-time:
+13:04:45.517 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.common.metrics.Metrics - Removed sensor with name io-time:
+13:04:45.517 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.common.metrics.Metrics - Removed sensor with name node--1.bytes-sent
+13:04:45.517 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.common.metrics.Metrics - Removed sensor with name node--1.bytes-received
+13:04:45.517 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.common.metrics.Metrics - Removed sensor with name node--1.latency
+13:04:45.517 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.common.metrics.Metrics - Removed sensor with name node-1.bytes-sent
+13:04:45.517 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.common.metrics.Metrics - Removed sensor with name node-1.bytes-received
+13:04:45.517 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.common.metrics.Metrics - Removed sensor with name node-1.latency
+13:04:45.518 [kafka-producer-network-thread | producer-1] DEBUG org.apache.kafka.clients.producer.internals.Sender - Shutdown of Kafka producer I/O thread has completed.
+13:04:45.518 [main] DEBUG org.apache.kafka.clients.producer.KafkaProducer - The Kafka producer has closed.
+13:04:48.019 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending Heartbeat request for group g1 to coordinator 10.5.0.4:9092 (id: 2147483647 rack: null)
+server 1 kafkaConsumer poll: 11
+13:04:48.088 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Sending asynchronous auto-commit of offsets {test_topic-0=OffsetAndMetadata{offset=0, metadata=''}} for group g1
+13:04:48.089 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received successful Heartbeat response for group g1
+13:04:48.089 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-0 at offset 0 to node 10.5.0.3:9092 (id: 1 rack: null)
+13:04:48.089 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-0] to broker 10.5.0.3:9092 (id: 1 rack: null)
+13:04:48.094 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 0 for partition test_topic-0 returned fetch data (error=NONE, highWaterMark=2, lastStableOffset = 2, logStartOffset = 0, abortedTransactions = null, recordsSizeInBytes=154)
+13:04:48.096 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-0 at offset 2 to node 10.5.0.3:9092 (id: 1 rack: null)
+13:04:48.096 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-0] to broker 10.5.0.3:9092 (id: 1 rack: null)
+server 1 kafkaConsumer: ConsumerRecord(topic = test_topic, partition = 0, offset = 0, CreateTime = 1661835884501, serialized key size = 3, serialized value size = 5, headers = RecordHeaders(headers = [], isReadOnly = false), key = key, value = value)
+server 1 kafkaConsumer: ConsumerRecord(topic = test_topic, partition = 0, offset = 1, CreateTime = 1661835885506, serialized key size = 5, serialized value size = 5, headers = RecordHeaders(headers = [], isReadOnly = false), key = hello, value = kafka)
+13:04:48.120 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Group g1 committed offset 0 for partition test_topic-0
+13:04:48.623 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 2 for partition test_topic-0 returned fetch data (error=NONE, highWaterMark=2, lastStableOffset = 2, logStartOffset = 0, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:51.042 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending Heartbeat request for group g1 to coordinator 10.5.0.4:9092 (id: 2147483647 rack: null)
+13:04:51.143 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received successful Heartbeat response for group g1
+server 1 kafkaConsumer poll: 12
+13:04:53.097 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Completed auto-commit of offsets {test_topic-0=OffsetAndMetadata{offset=0, metadata=''}} for group g1
+13:04:53.098 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Sending asynchronous auto-commit of offsets {test_topic-0=OffsetAndMetadata{offset=2, metadata=''}} for group g1
+13:04:53.098 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-0 at offset 2 to node 10.5.0.3:9092 (id: 1 rack: null)
+13:04:53.098 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-0] to broker 10.5.0.3:9092 (id: 1 rack: null)
+13:04:53.110 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Group g1 committed offset 2 for partition test_topic-0
+13:04:53.110 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Completed auto-commit of offsets {test_topic-0=OffsetAndMetadata{offset=2, metadata=''}} for group g1
+13:04:53.702 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 2 for partition test_topic-0 returned fetch data (error=NONE, highWaterMark=2, lastStableOffset = 2, logStartOffset = 0, abortedTransactions = null, recordsSizeInBytes=0)
+13:04:54.105 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending Heartbeat request for group g1 to coordinator 10.5.0.4:9092 (id: 2147483647 rack: null)
+13:04:54.206 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received successful Heartbeat response for group g1
+13:04:57.125 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending Heartbeat request for group g1 to coordinator 10.5.0.4:9092 (id: 2147483647 rack: null)
+13:04:57.226 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received successful Heartbeat response for group g1
+server 1 kafkaConsumer poll: 13
+13:04:58.199 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Sending asynchronous auto-commit of offsets {test_topic-0=OffsetAndMetadata{offset=2, metadata=''}} for group g1
+13:04:58.200 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-0 at offset 2 to node 10.5.0.3:9092 (id: 1 rack: null)
+13:04:58.200 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-0] to broker 10.5.0.3:9092 (id: 1 rack: null)
+13:04:58.212 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Group g1 committed offset 2 for partition test_topic-0
+13:04:58.213 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Completed auto-commit of offsets {test_topic-0=OffsetAndMetadata{offset=2, metadata=''}} for group g1
+13:04:58.805 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 2 for partition test_topic-0 returned fetch data (error=NONE, highWaterMark=2, lastStableOffset = 2, logStartOffset = 0, abortedTransactions = null, recordsSizeInBytes=0)
+13:05:00.216 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending Heartbeat request for group g1 to coordinator 10.5.0.4:9092 (id: 2147483647 rack: null)
+13:05:00.317 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received successful Heartbeat response for group g1
+13:05:03.240 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Sending Heartbeat request for group g1 to coordinator 10.5.0.4:9092 (id: 2147483647 rack: null)
+server 1 kafkaConsumer poll: 14
+13:05:03.301 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Sending asynchronous auto-commit of offsets {test_topic-0=OffsetAndMetadata{offset=2, metadata=''}} for group g1
+13:05:03.301 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.AbstractCoordinator - Received successful Heartbeat response for group g1
+13:05:03.301 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Added READ_UNCOMMITTED fetch request for partition test_topic-0 at offset 2 to node 10.5.0.3:9092 (id: 1 rack: null)
+13:05:03.301 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Sending READ_UNCOMMITTED fetch for partitions [test_topic-0] to broker 10.5.0.3:9092 (id: 1 rack: null)
+13:05:03.312 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Group g1 committed offset 2 for partition test_topic-0
+13:05:03.312 [Thread-30] DEBUG org.apache.kafka.clients.consumer.internals.ConsumerCoordinator - Completed auto-commit of offsets {test_topic-0=OffsetAndMetadata{offset=2, metadata=''}} for group g1
+13:05:03.904 [kafka-coordinator-heartbeat-thread | g1] DEBUG org.apache.kafka.clients.consumer.internals.Fetcher - Fetch READ_UNCOMMITTED at offset 2 for partition test_topic-0 returned fetch data (error=NONE, highWaterMark=2, lastStableOffset = 2, logStartOffset = 0, abortedTransactions = null, recordsSizeInBytes=0)
+13:05:05.519 [main] INFO io.redit.samples.kafka12257.SampleTest - completed !!!

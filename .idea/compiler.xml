@@ -9,6 +9,8 @@
         <outputRelativeToContentRoot value="true" />
         <module name="hadoop-client" />
         <module name="hadoop-azure" />
+        <module name="Redit-Kafka-12702" />
+        <module name="Redit-kafka-12866" />
         <module name="hadoop-yarn-server-applicationhistoryservice" />
         <module name="zipkin-storage-mysql-v1" />
         <module name="activemq-rar" />
@@ -28,6 +30,7 @@
         <module name="activemq-runtime-config" />
         <module name="hadoop-client-minicluster" />
         <module name="activemq-blueprint" />
+        <module name="Redit-Kafka-7192" />
         <module name="Distributed-Id" />
         <module name="hadoop-hdfs-httpfs" />
         <module name="zipkin-tests" />
@@ -43,6 +46,7 @@
         <module name="Redit-Cassandra-15297" />
         <module name="hazelcast-jet-protobuf" />
         <module name="hazelcast-jet-cdc-postgres" />
+        <module name="Redit-Kafka-12257" />
         <module name="hadoop-mapreduce-client-uploader" />
         <module name="hadoop-yarn-server-timelineservice-hbase-client" />
         <module name="hazelcast-jet-cdc-debezium" />
@@ -50,6 +54,7 @@
         <module name="hadoop-gridmix" />
         <module name="hadoop-aws" />
         <module name="hazelcast-jet-grpc" />
+        <module name="Redit-Kafka-13909" />
         <module name="rocketmq-common" />
         <module name="hadoop-yarn-applications-mawo-core" />
         <module name="hazelcast-jet-python" />
@@ -87,6 +92,7 @@
         <module name="JLiteSpider-Demo" />
         <module name="hadoop-yarn-api" />
         <module name="zipkin-collector-scribe" />
+        <module name="Redit-Hbase-26742" />
         <module name="hadoop-cloud-storage" />
         <module name="hadoop-yarn-common" />
         <module name="activemq-leveldb-store" />
@@ -139,12 +145,14 @@
         <module name="hadoop-yarn-server-sharedcachemanager" />
         <module name="activemq-maven-plugin" />
         <module name="hadoop-datajoin" />
+        <module name="Redit-Kafka-13407" />
         <module name="activemq-web-demo" />
         <module name="hadoop-nfs" />
         <module name="activemq-shiro" />
         <module name="raft-java-admin" />
         <module name="hadoop-dynamometer-dist" />
         <module name="hazelcast-sql" />
+        <module name="Redit-Kafka-8564" />
         <module name="activemq-partition" />
         <module name="rocketmq-srvutil" />
         <module name="activemq-spring" />
@@ -192,13 +200,13 @@
         <module name="hadoop-yarn-server-timeline-pluginstorage" />
         <module name="hazelcast-jet-hadoop-core" />
         <module name="benchmarks" />
+        <module name="Redit-Kafka-13563" />
         <module name="hadoop-yarn-server-nodemanager" />
         <module name="hadoop-hdfs-client" />
         <module name="hadoop-assemblies" />
         <module name="hazelcast-jet-hadoop" />
         <module name="hadoop-yarn-applications-catalog-webapp" />
         <module name="Redit-Rocketmq-255" />
-        <module name="Redit-HBase-26742" />
         <module name="hadoop-minicluster" />
         <module name="hadoop-yarn-server-tests" />
         <module name="activemq-ra" />
@@ -229,6 +237,7 @@
         <module name="hadoop-auth" />
         <module name="activemq-mqtt" />
         <module name="hadoop-yarn-server-timelineservice-hbase-common" />
+        <module name="Redit-Kafka-8623" />
         <module name="Redit-Elasticsearch" />
         <module name="zipkin-collector-kafka" />
         <module name="activemq-amqp" />
@@ -506,16 +515,25 @@
       <module name="Redit-Hbase-21487" target="8" />
       <module name="Redit-Hbase-23682" target="8" />
       <module name="Redit-Hbase-26114" target="8" />
-      <module name="Redit-HBase-26742" target="8" />
+      <module name="Redit-Hbase-26742" target="8" />
       <module name="Redit-Hbase-26901" target="8" />
       <module name="Redit-JLiteSpider" target="8" />
       <module name="Redit-Kafka" target="8" />
+      <module name="Redit-Kafka-12257" target="8" />
+      <module name="Redit-Kafka-12702" target="8" />
+      <module name="Redit-kafka-12866" target="8" />
+      <module name="Redit-Kafka-13407" target="8" />
+      <module name="Redit-Kafka-13563" target="8" />
       <module name="Redit-Kafka-13718" target="8" />
       <module name="Redit-Kafka-13852" target="8" />
+      <module name="Redit-Kafka-13909" target="8" />
       <module name="Redit-Kafka-13937" target="8" />
       <module name="Redit-Kafka-13964" target="8" />
       <module name="Redit-Kafka-13993" target="8" />
       <module name="Redit-Kafka-13996" target="8" />
+      <module name="Redit-Kafka-7192" target="8" />
+      <module name="Redit-Kafka-8564" target="8" />
+      <module name="Redit-Kafka-8623" target="8" />
       <module name="Redit-MapReduce" target="8" />
       <module name="Redit-Raft-Java" target="8" />
       <module name="Redit-Rocketmq" target="8" />

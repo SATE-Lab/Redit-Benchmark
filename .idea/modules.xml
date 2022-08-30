@@ -19,20 +19,28 @@
       <module fileurl="file://$PROJECT_DIR$/Redit-Cassandra-17628/Redit-Cassandra-17628.iml" filepath="$PROJECT_DIR$/Redit-Cassandra-17628/Redit-Cassandra-17628.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Distributed-Id/Redit-Distributed-Id.iml" filepath="$PROJECT_DIR$/Redit-Distributed-Id/Redit-Distributed-Id.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Elasticsearch/Redit-Elasticsearch.iml" filepath="$PROJECT_DIR$/Redit-Elasticsearch/Redit-Elasticsearch.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Redit-HBase-26742/Redit-HBase-26742.iml" filepath="$PROJECT_DIR$/Redit-HBase-26742/Redit-HBase-26742.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Hadoop-MapReduce/Redit-Hadoop-MapReduce.iml" filepath="$PROJECT_DIR$/Redit-Hadoop-MapReduce/Redit-Hadoop-MapReduce.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Hazelcast/Redit-Hazelcast.iml" filepath="$PROJECT_DIR$/Redit-Hazelcast/Redit-Hazelcast.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Hbase/Redit-Hbase.iml" filepath="$PROJECT_DIR$/Redit-Hbase/Redit-Hbase.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Hbase-21487/Redit-Hbase-21487.iml" filepath="$PROJECT_DIR$/Redit-Hbase-21487/Redit-Hbase-21487.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Hbase-23682/Redit-Hbase-23682.iml" filepath="$PROJECT_DIR$/Redit-Hbase-23682/Redit-Hbase-23682.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Hbase-26114/Redit-Hbase-26114.iml" filepath="$PROJECT_DIR$/Redit-Hbase-26114/Redit-Hbase-26114.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Redit-Hbase-26742/Redit-Hbase-26742.iml" filepath="$PROJECT_DIR$/Redit-Hbase-26742/Redit-Hbase-26742.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Hbase-26901/Redit-Hbase-26901.iml" filepath="$PROJECT_DIR$/Redit-Hbase-26901/Redit-Hbase-26901.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-JLiteSpider/Redit-JLiteSpider.iml" filepath="$PROJECT_DIR$/Redit-JLiteSpider/Redit-JLiteSpider.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Kafka/Redit-Kafka.iml" filepath="$PROJECT_DIR$/Redit-Kafka/Redit-Kafka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Redit-Kafka-12257/Redit-Kafka-12257.iml" filepath="$PROJECT_DIR$/Redit-Kafka-12257/Redit-Kafka-12257.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Redit-Kafka-12702/Redit-Kafka-12702.iml" filepath="$PROJECT_DIR$/Redit-Kafka-12702/Redit-Kafka-12702.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Redit-Kafka-13407/Redit-Kafka-13407.iml" filepath="$PROJECT_DIR$/Redit-Kafka-13407/Redit-Kafka-13407.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Redit-Kafka-13563/Redit-Kafka-13563.iml" filepath="$PROJECT_DIR$/Redit-Kafka-13563/Redit-Kafka-13563.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Kafka-13718/Redit-Kafka-13718.iml" filepath="$PROJECT_DIR$/Redit-Kafka-13718/Redit-Kafka-13718.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Kafka-13852/Redit-Kafka-13852.iml" filepath="$PROJECT_DIR$/Redit-Kafka-13852/Redit-Kafka-13852.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Redit-Kafka-13909/Redit-Kafka-13909.iml" filepath="$PROJECT_DIR$/Redit-Kafka-13909/Redit-Kafka-13909.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Kafka-13964/Redit-Kafka-13964.iml" filepath="$PROJECT_DIR$/Redit-Kafka-13964/Redit-Kafka-13964.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Kafka-13996/Redit-Kafka-13996.iml" filepath="$PROJECT_DIR$/Redit-Kafka-13996/Redit-Kafka-13996.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Redit-Kafka-7192/Redit-Kafka-7192.iml" filepath="$PROJECT_DIR$/Redit-Kafka-7192/Redit-Kafka-7192.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Redit-Kafka-8564/Redit-Kafka-8564.iml" filepath="$PROJECT_DIR$/Redit-Kafka-8564/Redit-Kafka-8564.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Redit-Kafka-8623/Redit-Kafka-8623.iml" filepath="$PROJECT_DIR$/Redit-Kafka-8623/Redit-Kafka-8623.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-MapReduce/Redit-MapReduce.iml" filepath="$PROJECT_DIR$/Redit-MapReduce/Redit-MapReduce.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Raft-Java/Redit-Raft-Java.iml" filepath="$PROJECT_DIR$/Redit-Raft-Java/Redit-Raft-Java.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Rocketmq/Redit-Rocketmq.iml" filepath="$PROJECT_DIR$/Redit-Rocketmq/Redit-Rocketmq.iml" />
@@ -43,6 +51,7 @@
       <module fileurl="file://$PROJECT_DIR$/Redit-Zookeeper/Redit-Zookeeper.iml" filepath="$PROJECT_DIR$/Redit-Zookeeper/Redit-Zookeeper.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Zookeeper-4466/Redit-Zookeeper-4466.iml" filepath="$PROJECT_DIR$/Redit-Zookeeper-4466/Redit-Zookeeper-4466.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Zookeeper-4473/Redit-Zookeeper-4473.iml" filepath="$PROJECT_DIR$/Redit-Zookeeper-4473/Redit-Zookeeper-4473.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Redit-kafka-12866/Redit-kafka-12866.iml" filepath="$PROJECT_DIR$/Redit-kafka-12866/Redit-kafka-12866.iml" />
       <module fileurl="file://$PROJECT_DIR$/Benchmark/activemq-5.16.5/activemq-parent-5.16.5-source-release/activemq-parent-5.16.5/activemq-all/activemq-all.iml" filepath="$PROJECT_DIR$/Benchmark/activemq-5.16.5/activemq-parent-5.16.5-source-release/activemq-parent-5.16.5/activemq-all/activemq-all.iml" />
       <module fileurl="file://$PROJECT_DIR$/Benchmark/activemq-5.16.5/activemq-parent-5.16.5-source-release/activemq-parent-5.16.5/activemq-amqp/activemq-amqp.iml" filepath="$PROJECT_DIR$/Benchmark/activemq-5.16.5/activemq-parent-5.16.5-source-release/activemq-parent-5.16.5/activemq-amqp/activemq-amqp.iml" />
       <module fileurl="file://$PROJECT_DIR$/Benchmark/activemq-5.16.5/activemq-parent-5.16.5-source-release/activemq-parent-5.16.5/activemq-blueprint/activemq-blueprint.iml" filepath="$PROJECT_DIR$/Benchmark/activemq-5.16.5/activemq-parent-5.16.5-source-release/activemq-parent-5.16.5/activemq-blueprint/activemq-blueprint.iml" />
