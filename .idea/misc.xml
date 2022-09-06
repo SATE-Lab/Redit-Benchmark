@@ -79,6 +79,11 @@
         <option value="$PROJECT_DIR$/Redit-Kafka-7192/pom.xml" />
         <option value="$PROJECT_DIR$/Redit-Kafka-12257/pom.xml" />
         <option value="$PROJECT_DIR$/Redit-Kafka-8564/pom.xml" />
+        <option value="$PROJECT_DIR$/Redit-Cassandra-16836/pom.xml" />
+        <option value="$PROJECT_DIR$/Redit-Cassandra-13669/pom.xml" />
+        <option value="$PROJECT_DIR$/Redit-Cassandra-13696/pom.xml" />
+        <option value="$PROJECT_DIR$/Redit-Cassandra-14559/pom.xml" />
+        <option value="$PROJECT_DIR$/Redit-Cassandra-14365/pom.xml" />
       </list>
     </option>
   </component>

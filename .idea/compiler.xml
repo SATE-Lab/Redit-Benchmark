@@ -39,6 +39,7 @@
         <module name="hadoop-yarn-services-core" />
         <module name="rocketmq-namesrv" />
         <module name="hadoop-mapreduce-client-common" />
+        <module name="Redit-Cassandra-13669" />
         <module name="hazelcast-3-connector-common" />
         <module name="hazelcast-distribution" />
         <module name="hadoop-yarn-registry" />
@@ -65,6 +66,7 @@
         <module name="zookeeper-jute" />
         <module name="hazelcast-jet-cdc-mysql" />
         <module name="zookeeper-prometheus-metrics" />
+        <module name="Redit-Cassandra-16836" />
         <module name="hadoop-yarn-server-resourcemanager" />
         <module name="activemq-kahadb-store" />
         <module name="Redit-Kafka-13718" />
@@ -75,6 +77,7 @@
         <module name="hadoop-yarn-csi" />
         <module name="activemq-jdbc-store" />
         <module name="zipkin-server" />
+        <module name="Redit-Cassandra-13696" />
         <module name="zookeeper-compatibility-tests-curator" />
         <module name="hadoop-fs2img" />
         <module name="hadoop-kms" />
@@ -172,6 +175,7 @@
         <module name="hadoop-hdfs-rbf" />
         <module name="hadoop-mapreduce-client-app" />
         <module name="hazelcast-jet-avro" />
+        <module name="Redit-Cassandra-14365" />
         <module name="hadoop-mapreduce-client-shuffle" />
         <module name="hazelcast-archunit-rules" />
         <module name="activemq-stomp" />
@@ -503,8 +507,12 @@
       <module name="Redit-Activemq" target="8" />
       <module name="Redit-Cassandra" target="8" />
       <module name="Redit-Cassandra-13464" target="8" />
+      <module name="Redit-Cassandra-13669" target="8" />
+      <module name="Redit-Cassandra-13696" target="8" />
+      <module name="Redit-Cassandra-14365" target="8" />
       <module name="Redit-Cassandra-15297" target="8" />
       <module name="Redit-Cassandra-16104" target="8" />
+      <module name="Redit-Cassandra-16836" target="8" />
       <module name="Redit-cassandra-17628" target="8" />
       <module name="Redit-Cassandra-17628" target="8" />
       <module name="Redit-Distributed-Id" target="8" />

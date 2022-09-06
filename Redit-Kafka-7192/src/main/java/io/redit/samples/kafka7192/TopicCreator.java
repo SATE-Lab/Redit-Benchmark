@@ -20,7 +20,7 @@ public class TopicCreator {
         config.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, broker);
     }
 
-    void create(final String... topicNames) {
+    public void create(final String... topicNames) {
 
         try (final AdminClient adminClient = KafkaAdminClient.create(config)) {
 

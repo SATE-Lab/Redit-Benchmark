@@ -14,8 +14,12 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/Redit-Benchmark.iml" filepath="$PROJECT_DIR$/.idea/Redit-Benchmark.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Cassandra/Redit-Cassandra.iml" filepath="$PROJECT_DIR$/Redit-Cassandra/Redit-Cassandra.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Cassandra-13464/Redit-Cassandra-13464.iml" filepath="$PROJECT_DIR$/Redit-Cassandra-13464/Redit-Cassandra-13464.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Redit-Cassandra-13669/Redit-Cassandra-13669.iml" filepath="$PROJECT_DIR$/Redit-Cassandra-13669/Redit-Cassandra-13669.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Redit-Cassandra-13696/Redit-Cassandra-13696.iml" filepath="$PROJECT_DIR$/Redit-Cassandra-13696/Redit-Cassandra-13696.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Redit-Cassandra-14365/Redit-Cassandra-14365.iml" filepath="$PROJECT_DIR$/Redit-Cassandra-14365/Redit-Cassandra-14365.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Cassandra-15297/Redit-Cassandra-15297.iml" filepath="$PROJECT_DIR$/Redit-Cassandra-15297/Redit-Cassandra-15297.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Cassandra-16104/Redit-Cassandra-16104.iml" filepath="$PROJECT_DIR$/Redit-Cassandra-16104/Redit-Cassandra-16104.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Redit-Cassandra-16836/Redit-Cassandra-16836.iml" filepath="$PROJECT_DIR$/Redit-Cassandra-16836/Redit-Cassandra-16836.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Cassandra-17628/Redit-Cassandra-17628.iml" filepath="$PROJECT_DIR$/Redit-Cassandra-17628/Redit-Cassandra-17628.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Distributed-Id/Redit-Distributed-Id.iml" filepath="$PROJECT_DIR$/Redit-Distributed-Id/Redit-Distributed-Id.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Elasticsearch/Redit-Elasticsearch.iml" filepath="$PROJECT_DIR$/Redit-Elasticsearch/Redit-Elasticsearch.iml" />
