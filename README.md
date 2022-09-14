@@ -4,18 +4,18 @@
 
 ## Components
 
-| benchmark | create_time | reference |
-| :----: | :----: | :----: |
+| benchmark | create_time | reference | role | java api |
+| :----: | :----: | :----: | :----: | :----: |
 |         Raft-Java         |       2022_04_27        |          https://github.com/wenweihu86/raft-java    |
 |      Zookeeper-3.7.1      |       2022_05_24        |          https://github.com/apache/zookeeper        |
-|        Kafka-3.2.0        |       2022_05_28        |          https://github.com/apache/kafka            |
+|        Kafka-3.2.0        |       2022_05_28        |          https://github.com/apache/kafka            | 
 |       Hbase-2.4.12        |       2022_06_01        |          https://github.com/apache/hbase            |
-|       hadoop-hdfs         |       2022_06_08        |          https://github.com/apache/hadoop           |
-|       elasticsearch-8.22  |       2022_06_18        |          https://github.com/elastic/elasticsearch   |
-|       hazelcast-5.1.2     |       2022_06_20        |          https://github.com/hazelcast/hazelcast     |
-|       cassandra-3.11.6    |       2022_06_27        |          https://github.com/apache/cassandra        |
-|       rocketmq-4.9.4      |       2022_06_30        |          https://github.com/apache/rocketmq         |
-|       activemq-5.16.5     |       2022_07_01        |          https://github.com/apache/activemq         |
+|       Hadoop-3.3.1        |       2022_06_08        |          https://github.com/apache/hadoop           |
+|       Elasticsearch-8.22  |       2022_06_18        |          https://github.com/elastic/elasticsearch   |
+|       Hazelcast-5.1.2     |       2022_06_20        |          https://github.com/hazelcast/hazelcast     | 
+|       Cassandra-3.11.6    |       2022_06_27        |          https://github.com/apache/cassandra        |
+|       Rocketmq-4.9.4      |       2022_06_30        |          https://github.com/apache/rocketmq         |
+|       Activemq-5.16.5     |       2022_07_01        |          https://github.com/apache/activemq         |
 
 
 ## Raft-Java
@@ -135,19 +135,23 @@ Apache HBase is an open-source, distributed, versioned, column-oriented store mo
 
 
 
-## hadoop-mapreduce
+## Hadoop-3.3.1
 
-MapReduce is one of the core components of hadoop. Hadoop needs to be distributed in two parts, one is the distributed file system HDFS, and the other is the distributed computing framework MapReduce. The core function of MapReduce is to integrate the business logic code written by the user and its own default components into a complete distributed computing program, which runs concurrently on a Hadoop cluster.
+The Apache Hadoop software library is a framework that allows for the distributed processing of large data sets across clusters of computers using simple programming models. It is designed to scale up from single servers to thousands of machines, each offering local computation and storage. Rather than rely on hardware to deliver high-availability, the library itself is designed to detect and handle failures at the application layer, so delivering a highly-available service on top of a cluster of computers, each of which may be prone to failures.
 
-#### process
+#### Modules
 
-- Map is responsible for decomposing a task into multiple tasks for processing. Task allocation will increase the complexity of the program, but the more people and the greater the power, the efficiency will be significantly improved.
+- Hadoop Common: The common utilities that support the other Hadoop modules.
 
-- Reduce is responsible for summarizing the results of the map stage.
+- Hadoop Distributed File System (HDFS™): A distributed file system that provides high-throughput access to application data.
+
+- Hadoop YARN: A framework for job scheduling and cluster resource management.
+
+- Hadoop MapReduce: A YARN-based system for parallel processing of large data sets.
 
 
 
-## elasticsearch-8.22
+## Elasticsearch-8.22
 
 Elasticsearch is the distributed search and analytics engine at the heart of the Elastic Stack.
 
@@ -161,7 +165,7 @@ Elasticsearch is the distributed search and analytics engine at the heart of the
 
 
 
-## hazelcast-5.1.2
+## Hazelcast-5.1.2
 
 Hazelcast is a distributed computation and storage platform for consistently low-latency querying, aggregation and stateful computation against event streams and traditional data sources.
 
@@ -179,7 +183,7 @@ Hazelcast is a distributed computation and storage platform for consistently low
 
 
 
-## cassandra-3.11.6
+## Cassandra-3.11.6
 
 Apache Cassandra is a highly-scalable partitioned row store. Rows are organized into tables with a required primary key.
 
@@ -197,7 +201,7 @@ Apache Cassandra is a highly-scalable partitioned row store. Rows are organized 
 
 
 
-## rocketmq-4.9.4
+## Rocketmq-4.9.4
 
 Apache RocketMQ is a distributed messaging and streaming platform with low latency, high performance and reliability, trillion-level capacity and flexible scalability.
 
@@ -213,7 +217,7 @@ Apache RocketMQ is a distributed messaging and streaming platform with low laten
 
 
 
-## activemq-5.16.5
+## Activemq-5.16.5
 
 Apache ActiveMQ is a high performance Apache 2.0 licensed Message Broker and JMS 1.1 implementation.
 

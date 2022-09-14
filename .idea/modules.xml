@@ -43,9 +43,9 @@
       <module fileurl="file://$PROJECT_DIR$/Redit-MapReduce/Redit-MapReduce.iml" filepath="$PROJECT_DIR$/Redit-MapReduce/Redit-MapReduce.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Raft-Java/Redit-Raft-Java.iml" filepath="$PROJECT_DIR$/Redit-Raft-Java/Redit-Raft-Java.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Rocketmq/Redit-Rocketmq.iml" filepath="$PROJECT_DIR$/Redit-Rocketmq/Redit-Rocketmq.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Redit-Rocketmq-189/Redit-Rocketmq-189.iml" filepath="$PROJECT_DIR$/Redit-Rocketmq-189/Redit-Rocketmq-189.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Redit-Rocketmq-255/Redit-Rocketmq-255.iml" filepath="$PROJECT_DIR$/Redit-Rocketmq-255/Redit-Rocketmq-255.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Redit-Rocketmq-257/Redit-Rocketmq-257.iml" filepath="$PROJECT_DIR$/Redit-Rocketmq-257/Redit-Rocketmq-257.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Special-bug/Redit-Rocketmq-189/Redit-Rocketmq-189.iml" filepath="$PROJECT_DIR$/Special-bug/Redit-Rocketmq-189/Redit-Rocketmq-189.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Special-bug/Redit-Rocketmq-255/Redit-Rocketmq-255.iml" filepath="$PROJECT_DIR$/Special-bug/Redit-Rocketmq-255/Redit-Rocketmq-255.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Special-bug/Redit-Rocketmq-257/Redit-Rocketmq-257.iml" filepath="$PROJECT_DIR$/Special-bug/Redit-Rocketmq-257/Redit-Rocketmq-257.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Rocketmq-266/Redit-Rocketmq-266.iml" filepath="$PROJECT_DIR$/Redit-Rocketmq-266/Redit-Rocketmq-266.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Zookeeper/Redit-Zookeeper.iml" filepath="$PROJECT_DIR$/Redit-Zookeeper/Redit-Zookeeper.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Zookeeper-4466/Redit-Zookeeper-4466.iml" filepath="$PROJECT_DIR$/Redit-Zookeeper-4466/Redit-Zookeeper-4466.iml" />
