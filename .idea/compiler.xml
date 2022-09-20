@@ -8,22 +8,26 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Redit-Kafka-12702" />
         <module name="Redit-Cassandra-16836" />
+        <module name="Redit-Zookeeper-2033" />
         <module name="Redit-Kafka-13718" />
+        <module name="Redit-Zookeeper-2355" />
         <module name="Redit-Hbase-23682" />
         <module name="Redit-Hbase-26114" />
         <module name="Redit-Kafka-13563" />
         <module name="Redit-Cassandra-13696" />
         <module name="Redit-Kafka-13964" />
+        <module name="Redit-Zookeeper-3479" />
         <module name="Redit-Kafka-13407" />
         <module name="Redit-Rocketmq-255" />
         <module name="raft-java-admin" />
         <module name="Redit-Hbase-26901" />
         <module name="Redit-Hadoop-MapReduce" />
         <module name="Redit-Kafka-8564" />
+        <module name="Redit-Zookeeper-1813" />
         <module name="Redit-Kafka-7192" />
         <module name="Redit-Hbase-26742" />
-        <module name="Redit-Rocketmq-257" />
         <module name="Redit-Kafka-13852" />
+        <module name="Redit-Rocketmq-257" />
         <module name="Redit-MapReduce" />
         <module name="Redit-Cassandra-13464" />
         <module name="Redit-Cassandra" />
@@ -31,8 +35,8 @@
         <module name="Redit-Cassandra-13669" />
         <module name="Redit-Cassandra-17628" />
         <module name="Redit-Zookeeper" />
-        <module name="Redit-Rocketmq-189" />
         <module name="Redit-Rocketmq-266" />
+        <module name="Redit-Rocketmq-189" />
         <module name="Redit-HDFS-16381" />
         <module name="Redit-Hazelcast" />
         <module name="Redit-Cassandra-15297" />
@@ -50,6 +54,7 @@
         <module name="Redit-Kafka-8623" />
         <module name="Redit-Kafka-13909" />
         <module name="Redit-Elasticsearch" />
+        <module name="Redit-Zookeeper-4508" />
         <module name="Redit-Activemq" />
         <module name="Redit-Hbase" />
         <module name="Redit-HDFS-14987" />
@@ -110,8 +115,13 @@
       <module name="Redit-Rocketmq-257" target="8" />
       <module name="Redit-Rocketmq-266" target="8" />
       <module name="Redit-Zookeeper" target="8" />
+      <module name="Redit-Zookeeper-1813" target="8" />
+      <module name="Redit-Zookeeper-2033" target="8" />
+      <module name="Redit-Zookeeper-2355" target="8" />
+      <module name="Redit-Zookeeper-3479" target="8" />
       <module name="Redit-Zookeeper-4466" target="8" />
       <module name="Redit-Zookeeper-4473" target="8" />
+      <module name="Redit-Zookeeper-4508" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>

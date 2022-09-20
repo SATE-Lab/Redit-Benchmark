@@ -4,8 +4,8 @@
 
 ## Components
 
-| benchmark | create_time | reference | role | java api |
-| :----: | :----: | :----: | :----: | :----: |
+| benchmark | create_time | reference |
+| :----: | :----: | :----: |
 |         Raft-Java         |       2022_04_27        |          https://github.com/wenweihu86/raft-java    |
 |      Zookeeper-3.7.1      |       2022_05_24        |          https://github.com/apache/zookeeper        |
 |        Kafka-3.2.0        |       2022_05_28        |          https://github.com/apache/kafka            | 

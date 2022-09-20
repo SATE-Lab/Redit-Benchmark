@@ -1,0 +1,109 @@
+11:29:28.716 [main] INFO  i.r.samples.zookeeper2355.SampleTest - wait for zookeeper...
+11:29:28.716 [main] INFO  i.r.samples.zookeeper2355.SampleTest - server1 startServer...
+11:29:28.734 [main] INFO  i.r.samples.zookeeper2355.SampleTest - server2 startServer...
+11:29:28.747 [main] INFO  i.r.samples.zookeeper2355.SampleTest - server3 startServer...
+11:29:48.748 [main] INFO  i.r.samples.zookeeper2355.SampleTest - server1 checkStatus...
+11:29:49.106 [main] INFO  i.r.samples.zookeeper2355.SampleTest - server1: cd /zookeeper/apache-zookeeper-3.4.8-bin && bin/zkServer.sh status
+11:29:49.106 [main] INFO  i.r.samples.zookeeper2355.SampleTest - Mode: follower
+
+11:29:49.106 [main] INFO  i.r.samples.zookeeper2355.SampleTest - server2 checkStatus...
+11:29:49.426 [main] INFO  i.r.samples.zookeeper2355.SampleTest - server2: cd /zookeeper/apache-zookeeper-3.4.8-bin && bin/zkServer.sh status
+11:29:49.426 [main] INFO  i.r.samples.zookeeper2355.SampleTest - Mode: follower
+
+11:29:49.426 [main] INFO  i.r.samples.zookeeper2355.SampleTest - server3 checkStatus...
+11:29:49.718 [main] INFO  i.r.samples.zookeeper2355.SampleTest - server3: cd /zookeeper/apache-zookeeper-3.4.8-bin && bin/zkServer.sh status
+11:29:49.718 [main] INFO  i.r.samples.zookeeper2355.SampleTest - Mode: leader
+
+11:29:49.718 [main] INFO  i.r.samples.zookeeper2355.SampleTest - follower: server1
+11:29:49.740 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:zookeeper.version=3.4.8--1, built on 02/06/2016 03:18 GMT
+11:29:49.741 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:host.name=zmb-virtual-machine
+11:29:49.741 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:java.version=1.8.0_342
+11:29:49.741 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:java.vendor=Private Build
+11:29:49.741 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:java.home=/usr/lib/jvm/java-8-openjdk-amd64/jre
+11:29:49.741 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:java.class.path=/home/zmb/test/idea/idea-IC-202.7660.26/lib/idea_rt.jar:/home/zmb/test/idea/idea-IC-202.7660.26/plugins/junit/lib/junit5-rt.jar:/home/zmb/test/idea/idea-IC-202.7660.26/plugins/junit/lib/junit-rt.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/charsets.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/cldrdata.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/dnsns.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/icedtea-sound.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/jaccess.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/java-atk-wrapper.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/localedata.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/nashorn.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunec.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunjce_provider.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunpkcs11.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/zipfs.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/jce.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/jfr.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/jsse.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/management-agent.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/resources.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar:/home/zmb/test/Redit-Benchmark/Special-bug/Redit-Zookeeper-2355/target/classes:/home/zmb/.m2/repository/io/github/martylinzy/redit/0.1.0/redit-0.1.0.jar:/home/zmb/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/home/zmb/.m2/repository/commons-io/commons-io/2.6/commons-io-2.6.jar:/home/zmb/.m2/repository/org/eclipse/jetty/jetty-server/9.4.12.v20180830/jetty-server-9.4.12.v20180830.jar:/home/zmb/.m2/repository/org/eclipse/jetty/jetty-http/9.4.12.v20180830/jetty-http-9.4.12.v20180830.jar:/home/zmb/.m2/repository/org/eclipse/jetty/jetty-servlet/9.4.12.v20180830/jetty-servlet-9.4.12.v20180830.jar:/home/zmb/.m2/repository/org/eclipse/jetty/jetty-security/9.4.12.v20180830/jetty-security-9.4.12.v20180830.jar:/home/zmb/.m2/repository/org/glassfish/jersey/core/jersey-server/2.22.2/jersey-server-2.22.2.jar:/home/zmb/.m2/repository/org/glassfish/jersey/core/jersey-client/2.22.2/jersey-client-2.22.2.jar:/home/zmb/.m2/repository/javax/ws/rs/javax.ws.rs-api/2.0.1/javax.ws.rs-api-2.0.1.jar:/home/zmb/.m2/repository/org/glassfish/jersey/media/jersey-media-jaxb/2.22.2/jersey-media-jaxb-2.22.2.jar:/home/zmb/.m2/repository/javax/annotation/javax.annotation-api/1.2/javax.annotation-api-1.2.jar:/home/zmb/.m2/repository/org/glassfish/hk2/hk2-api/2.4.0-b34/hk2-api-2.4.0-b34.jar:/home/zmb/.m2/repository/org/glassfish/hk2/hk2-utils/2.4.0-b34/hk2-utils-2.4.0-b34.jar:/home/zmb/.m2/repository/org/glassfish/hk2/external/aopalliance-repackaged/2.4.0-b34/aopalliance-repackaged-2.4.0-b34.jar:/home/zmb/.m2/repository/org/glassfish/hk2/external/javax.inject/2.4.0-b34/javax.inject-2.4.0-b34.jar:/home/zmb/.m2/repository/org/glassfish/hk2/hk2-locator/2.4.0-b34/hk2-locator-2.4.0-b34.jar:/home/zmb/.m2/repository/org/javassist/javassist/3.18.1-GA/javassist-3.18.1-GA.jar:/home/zmb/.m2/repository/javax/validation/validation-api/1.1.0.Final/validation-api-1.1.0.Final.jar:/home/zmb/.m2/repository/org/glassfish/jersey/containers/jersey-container-servlet-core/2.22.2/jersey-container-servlet-core-2.22.2.jar:/home/zmb/.m2/repository/com/spotify/docker-client/8.15.1/docker-client-8.15.1-shaded.jar:/home/zmb/.m2/repository/com/google/guava/guava/20.0/guava-20.0.jar:/home/zmb/.m2/repository/com/fasterxml/jackson/jaxrs/jackson-jaxrs-json-provider/2.9.8/jackson-jaxrs-json-provider-2.9.8.jar:/home/zmb/.m2/repository/com/fasterxml/jackson/jaxrs/jackson-jaxrs-base/2.9.8/jackson-jaxrs-base-2.9.8.jar:/home/zmb/.m2/repository/com/fasterxml/jackson/module/jackson-module-jaxb-annotations/2.9.8/jackson-module-jaxb-annotations-2.9.8.jar:/home/zmb/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-guava/2.9.8/jackson-datatype-guava-2.9.8.jar:/home/zmb/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.9.8/jackson-core-2.9.8.jar:/home/zmb/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.9.8/jackson-databind-2.9.8.jar:/home/zmb/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.9.0/jackson-annotations-2.9.0.jar:/home/zmb/.m2/repository/org/glassfish/jersey/connectors/jersey-apache-connector/2.22.2/jersey-apache-connector-2.22.2.jar:/home/zmb/.m2/repository/org/glassfish/jersey/media/jersey-media-json-jackson/2.22.2/jersey-media-json-jackson-2.22.2.jar:/home/zmb/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar:/home/zmb/.m2/repository/org/apache/commons/commons-compress/1.18/commons-compress-1.18.jar:/home/zmb/.m2/repository/org/apache/httpcomponents/httpclient/4.5/httpclient-4.5.jar:/home/zmb/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/home/zmb/.m2/repository/commons-codec/commons-codec/1.9/commons-codec-1.9.jar:/home/zmb/.m2/repository/org/apache/httpcomponents/httpcore/4.4.5/httpcore-4.4.5.jar:/home/zmb/.m2/repository/com/github/jnr/jnr-unixsocket/0.18/jnr-unixsocket-0.18.jar:/home/zmb/.m2/repository/com/github/jnr/jnr-ffi/2.1.4/jnr-ffi-2.1.4.jar:/home/zmb/.m2/repository/com/github/jnr/jffi/1.2.15/jffi-1.2.15.jar:/home/zmb/.m2/repository/com/github/jnr/jffi/1.2.15/jffi-1.2.15-native.jar:/home/zmb/.m2/repository/org/ow2/asm/asm/5.0.3/asm-5.0.3.jar:/home/zmb/.m2/repository/org/ow2/asm/asm-commons/5.0.3/asm-commons-5.0.3.jar:/home/zmb/.m2/repository/org/ow2/asm/asm-analysis/5.0.3/asm-analysis-5.0.3.jar:/home/zmb/.m2/repository/org/ow2/asm/asm-tree/5.0.3/asm-tree-5.0.3.jar:/home/zmb/.m2/repository/org/ow2/asm/asm-util/5.0.3/asm-util-5.0.3.jar:/home/zmb/.m2/repository/com/github/jnr/jnr-x86asm/1.0.2/jnr-x86asm-1.0.2.jar:/home/zmb/.m2/repository/com/github/jnr/jnr-constants/0.9.8/jnr-constants-0.9.8.jar:/home/zmb/.m2/repository/com/github/jnr/jnr-enxio/0.16/jnr-enxio-0.16.jar:/home/zmb/.m2/repository/com/github/jnr/jnr-posix/3.0.35/jnr-posix-3.0.35.jar:/home/zmb/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/home/zmb/.m2/repository/org/bouncycastle/bcpkix-jdk15on/1.60/bcpkix-jdk15on-1.60.jar:/home/zmb/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.60/bcprov-jdk15on-1.60.jar:/home/zmb/.m2/repository/net/lingala/zip4j/zip4j/1.3.2/zip4j-1.3.2.jar:/home/zmb/.m2/repository/io/github/martylinzy/reditrt/0.1.0/reditrt-0.1.0.jar:/home/zmb/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/zmb/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/zmb/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar:/home/zmb/.m2/repository/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3.jar:/home/zmb/.m2/repository/javax/servlet/javax.servlet-api/4.0.1/javax.servlet-api-4.0.1.jar:/home/zmb/.m2/repository/org/glassfish/jersey/media/jersey-media-moxy/2.25.1/jersey-media-moxy-2.25.1.jar:/home/zmb/.m2/repository/org/glassfish/jersey/core/jersey-common/2.25.1/jersey-common-2.25.1.jar:/home/zmb/.m2/repository/org/glassfish/jersey/bundles/repackaged/jersey-guava/2.25.1/jersey-guava-2.25.1.jar:/home/zmb/.m2/repository/org/glassfish/hk2/osgi-resource-locator/1.0.1/osgi-resource-locator-1.0.1.jar:/home/zmb/.m2/repository/org/glassfish/jersey/ext/jersey-entity-filtering/2.25.1/jersey-entity-filtering-2.25.1.jar:/home/zmb/.m2/repository/org/eclipse/persistence/org.eclipse.persistence.moxy/2.6.0/org.eclipse.persistence.moxy-2.6.0.jar:/home/zmb/.m2/repository/org/eclipse/persistence/org.eclipse.persistence.core/2.6.0/org.eclipse.persistence.core-2.6.0.jar:/home/zmb/.m2/repository/org/eclipse/persistence/org.eclipse.persistence.asm/2.6.0/org.eclipse.persistence.asm-2.6.0.jar:/home/zmb/.m2/repository/org/glassfish/javax.json/1.0.4/javax.json-1.0.4.jar:/home/zmb/.m2/repository/org/eclipse/persistence/javax.persistence/2.0.0/javax.persistence-2.0.0.jar:/home/zmb/.m2/repository/javax/xml/bind/jaxb-api/2.3.1/jaxb-api-2.3.1.jar:/home/zmb/.m2/repository/javax/activation/javax.activation-api/1.2.0/javax.activation-api-1.2.0.jar:/home/zmb/.m2/repository/org/eclipse/jetty/jetty-util/9.4.12.v20180830/jetty-util-9.4.12.v20180830.jar:/home/zmb/.m2/repository/org/eclipse/jetty/jetty-io/9.4.12.v20180830/jetty-io-9.4.12.v20180830.jar:/home/zmb/.m2/repository/org/aspectj/aspectjrt/1.9.6/aspectjrt-1.9.6.jar:/home/zmb/.m2/repository/org/apache/curator/curator-framework/2.12.0/curator-framework-2.12.0.jar:/home/zmb/.m2/repository/org/apache/curator/curator-client/2.12.0/curator-client-2.12.0.jar:/home/zmb/.m2/repository/org/apache/zookeeper/zookeeper/3.4.8/zookeeper-3.4.8.jar:/home/zmb/.m2/repository/log4j/log4j/1.2.16/log4j-1.2.16.jar:/home/zmb/.m2/repository/jline/jline/0.9.94/jline-0.9.94.jar:/home/zmb/.m2/repository/io/netty/netty/3.7.0.Final/netty-3.7.0.Final.jar:/home/zmb/test/idea/idea-IC-202.7660.26/lib/idea_rt.jar
+11:29:49.741 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:java.library.path=/usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib
+11:29:49.741 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:java.io.tmpdir=/tmp
+11:29:49.741 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:java.compiler=<NA>
+11:29:49.741 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:os.name=Linux
+11:29:49.741 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:os.arch=amd64
+11:29:49.741 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:os.version=5.15.0-46-generic
+11:29:49.741 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:user.name=zmb
+11:29:49.741 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:user.home=/home/zmb
+11:29:49.741 [main] INFO  org.apache.zookeeper.ZooKeeper - Client environment:user.dir=/home/zmb/test/Redit-Benchmark/Special-bug/Redit-Zookeeper-2355
+11:29:49.743 [main] INFO  org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=10.15.0.4:2181,10.15.0.3:2181,10.15.0.2:2181 sessionTimeout=4000 watcher=io.redit.samples.zookeeper2355.SampleTest$$Lambda$36/2124261761@74ad8d05
+11:29:49.744 [main] DEBUG org.apache.zookeeper.ClientCnxn - zookeeper.disableAutoWatchReset is false
+11:29:49.756 [main-SendThread(10.15.0.4:2181)] INFO  org.apache.zookeeper.ClientCnxn - Opening socket connection to server 10.15.0.4/10.15.0.4:2181. Will not attempt to authenticate using SASL (unknown error)
+11:29:49.759 [main-SendThread(10.15.0.4:2181)] INFO  org.apache.zookeeper.ClientCnxn - Socket connection established to 10.15.0.4/10.15.0.4:2181, initiating session
+11:29:49.760 [main-SendThread(10.15.0.4:2181)] DEBUG org.apache.zookeeper.ClientCnxn - Session establishment request sent on 10.15.0.4/10.15.0.4:2181
+11:29:49.781 [main-SendThread(10.15.0.4:2181)] INFO  org.apache.zookeeper.ClientCnxn - Session establishment complete on server 10.15.0.4/10.15.0.4:2181, sessionid = 0x18358f198250000, negotiated timeout = 4000
+11:29:49.799 [main-SendThread(10.15.0.4:2181)] DEBUG org.apache.zookeeper.ClientCnxn - Reading reply sessionid:0x18358f198250000, packet:: clientPath:null serverPath:null finished:false header:: 1,1  replyHeader:: 1,4294967298,0  request:: '/e1,#31,v{s{31,s{'world,'anyone}}},1  response:: '/e1
+11:29:51.123 [main-SendThread(10.15.0.4:2181)] DEBUG org.apache.zookeeper.ClientCnxn - Got ping response for sessionid: 0x18358f198250000 after 1ms
+11:29:51.799 [main] INFO  i.r.samples.zookeeper2355.SampleTest - create ephemeral node on /e1
+11:29:51.800 [main] INFO  i.r.samples.zookeeper2355.SampleTest - otherServer: server2
+11:29:51.801 [main] INFO  i.r.e.NetworkPartitionManager - Applying network partition [server2]-[server1] ...
+11:29:52.457 [main-SendThread(10.15.0.4:2181)] DEBUG org.apache.zookeeper.ClientCnxn - Got ping response for sessionid: 0x18358f198250000 after 0ms
+11:29:53.793 [main-SendThread(10.15.0.4:2181)] DEBUG org.apache.zookeeper.ClientCnxn - Got ping response for sessionid: 0x18358f198250000 after 0ms
+11:29:55.127 [main-SendThread(10.15.0.4:2181)] DEBUG org.apache.zookeeper.ClientCnxn - Got ping response for sessionid: 0x18358f198250000 after 1ms
+11:29:56.462 [main-SendThread(10.15.0.4:2181)] DEBUG org.apache.zookeeper.ClientCnxn - Got ping response for sessionid: 0x18358f198250000 after 0ms
+11:29:57.798 [main-SendThread(10.15.0.4:2181)] DEBUG org.apache.zookeeper.ClientCnxn - Got ping response for sessionid: 0x18358f198250000 after 0ms
+11:29:59.132 [main-SendThread(10.15.0.4:2181)] DEBUG org.apache.zookeeper.ClientCnxn - Got ping response for sessionid: 0x18358f198250000 after 0ms
+11:30:00.469 [main-SendThread(10.15.0.4:2181)] DEBUG org.apache.zookeeper.ClientCnxn - Got ping response for sessionid: 0x18358f198250000 after 0ms
+11:30:01.747 [main-SendThread(10.15.0.4:2181)] INFO  org.apache.zookeeper.ClientCnxn - Unable to read additional data from server sessionid 0x18358f198250000, likely server has closed socket, closing socket connection and attempting reconnect
+11:30:02.085 [main] DEBUG org.apache.zookeeper.ZooKeeper - Closing session: 0x18358f198250000
+11:30:02.085 [main] DEBUG org.apache.zookeeper.ClientCnxn - Closing client for session: 0x18358f198250000
+11:30:02.626 [main] DEBUG org.apache.zookeeper.ClientCnxn - Disconnecting client for session: 0x18358f198250000
+11:30:02.627 [main] INFO  org.apache.zookeeper.ZooKeeper - Session: 0x18358f198250000 closed
+11:30:02.627 [main-EventThread] INFO  org.apache.zookeeper.ClientCnxn - EventThread shut down for session: 0x18358f198250000
+11:30:04.628 [main] INFO  i.r.samples.zookeeper2355.SampleTest - session closed
+11:30:04.628 [main] INFO  i.r.e.NetworkPartitionManager - Removing network partition [server2]-[server1] ...
+11:30:06.890 [main] INFO  i.r.samples.zookeeper2355.SampleTest - network partition stopped
+11:30:06.891 [main] INFO  org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=10.15.0.2:2181 sessionTimeout=4000 watcher=io.redit.samples.zookeeper2355.SampleTest$$Lambda$39/9361871@f72203
+11:30:06.897 [main-SendThread(10.15.0.2:2181)] INFO  org.apache.zookeeper.ClientCnxn - Opening socket connection to server 10.15.0.2/10.15.0.2:2181. Will not attempt to authenticate using SASL (unknown error)
+11:30:06.897 [main-SendThread(10.15.0.2:2181)] INFO  org.apache.zookeeper.ClientCnxn - Socket connection established to 10.15.0.2/10.15.0.2:2181, initiating session
+11:30:06.897 [main-SendThread(10.15.0.2:2181)] DEBUG org.apache.zookeeper.ClientCnxn - Session establishment request sent on 10.15.0.2/10.15.0.2:2181
+11:30:06.910 [main-SendThread(10.15.0.2:2181)] INFO  org.apache.zookeeper.ClientCnxn - Session establishment complete on server 10.15.0.2/10.15.0.2:2181, sessionid = 0x38358f21eac0000, negotiated timeout = 4000
+11:30:06.914 [main-SendThread(10.15.0.2:2181)] DEBUG org.apache.zookeeper.ClientCnxn - Reading reply sessionid:0x38358f21eac0000, packet:: clientPath:null serverPath:null finished:false header:: 1,3  replyHeader:: 1,8589934593,0  request:: '/e1,F  response:: s{4294967298,4294967298,1663644589787,1663644589787,0,0,0,109028610649948160,1,0,4294967298}
+11:30:06.915 [main] INFO  i.r.samples.zookeeper2355.SampleTest - Node have not been deleted from leader: 4294967298,4294967298,1663644589787,1663644589787,0,0,0,109028610649948160,1,0,4294967298
+
+11:30:06.915 [main] INFO  org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=10.15.0.4:2181 sessionTimeout=4000 watcher=io.redit.samples.zookeeper2355.SampleTest$$Lambda$40/753162875@153d4abb
+11:30:06.920 [main-SendThread(10.15.0.4:2181)] INFO  org.apache.zookeeper.ClientCnxn - Opening socket connection to server 10.15.0.4/10.15.0.4:2181. Will not attempt to authenticate using SASL (unknown error)
+11:30:06.921 [main-SendThread(10.15.0.4:2181)] INFO  org.apache.zookeeper.ClientCnxn - Socket connection established to 10.15.0.4/10.15.0.4:2181, initiating session
+11:30:06.921 [main-SendThread(10.15.0.4:2181)] DEBUG org.apache.zookeeper.ClientCnxn - Session establishment request sent on 10.15.0.4/10.15.0.4:2181
+11:30:06.925 [main-SendThread(10.15.0.4:2181)] INFO  org.apache.zookeeper.ClientCnxn - Session establishment complete on server 10.15.0.4/10.15.0.4:2181, sessionid = 0x18358f21ebf0000, negotiated timeout = 4000
+11:30:06.928 [main-SendThread(10.15.0.4:2181)] DEBUG org.apache.zookeeper.ClientCnxn - Reading reply sessionid:0x18358f21ebf0000, packet:: clientPath:null serverPath:null finished:false header:: 1,3  replyHeader:: 1,8589934594,0  request:: '/e1,F  response:: s{4294967298,4294967298,1663644589787,1663644589787,0,0,0,109028610649948160,1,0,4294967298}
+11:30:06.929 [main] INFO  i.r.samples.zookeeper2355.SampleTest - Follower had one extra ephemeral node /e1: 4294967298,4294967298,1663644589787,1663644589787,0,0,0,109028610649948160,1,0,4294967298
+
+11:30:06.937 [main-SendThread(10.15.0.2:2181)] DEBUG org.apache.zookeeper.ClientCnxn - Reading reply sessionid:0x38358f21eac0000, packet:: clientPath:null serverPath:null finished:false header:: 2,1  replyHeader:: 2,8589934595,-110  request:: '/e1,#32,v{s{31,s{'world,'anyone}}},1  response::
+
+org.apache.zookeeper.KeeperException$NodeExistsException: KeeperErrorCode = NodeExists for /e1
+
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:119)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.create(ZooKeeper.java:783)
+	at io.redit.samples.zookeeper2355.SampleTest.test2355(SampleTest.java:115)
+	at io.redit.samples.zookeeper2355.SampleTest.sampleTest(SampleTest.java:63)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:33)
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:220)
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:53)
+

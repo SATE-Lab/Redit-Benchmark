@@ -56,6 +56,16 @@
         <option value="$PROJECT_DIR$/Redit-HDFS-14987/pom.xml" />
         <option value="$PROJECT_DIR$/Special-bug/Redit-HDFS-14987/pom.xml" />
         <option value="$PROJECT_DIR$/Special-bug/Redit-HDFS-16381/pom.xml" />
+        <option value="$PROJECT_DIR$/Special-bug/Redit-Rocketmq-189/pom.xml" />
+        <option value="$PROJECT_DIR$/Special-bug/Redit-Rocketmq-255/pom.xml" />
+        <option value="$PROJECT_DIR$/Special-bug/Redit-Rocketmq-257/pom.xml" />
+        <option value="$PROJECT_DIR$/Special-bug/Redit-Zookeeper-4508/pom.xml" />
+        <option value="$PROJECT_DIR$/Special-bug/Redit-Zookeeper-2355/pom.xml" />
+        <option value="$PROJECT_DIR$/Special-bug/Redit-Zookeeper-2033/pom.xml" />
+        <option value="$PROJECT_DIR$/Special-bug/Redit-Zookeeper-1813/pom.xml" />
+        <option value="$PROJECT_DIR$/Redit-Zookeeper-2033/pom.xml" />
+        <option value="$PROJECT_DIR$/Special-bug/Redit-Zookeeper-3479/pom.xml" />
+        <option value="$PROJECT_DIR$/Redit-Zookeeper-1813/pom.xml" />
       </list>
     </option>
   </component>
