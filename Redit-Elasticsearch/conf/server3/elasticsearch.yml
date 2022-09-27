@@ -1,6 +1,8 @@
 cluster.name: es-clusters
 node.name: node-2
 http.port: 9200
-xpack.security.enabled: true
+network.host: 0.0.0.0
+xpack.security.enabled: false
 cluster.initial_master_nodes: ["master"]
-discovery.seed_hosts: ["10.3.0.4:9300", "10.3.0.3:9300", "10.3.0.2:9300"]
+discovery.seed_hosts: ["10.15.0.4:9300", "10.15.0.3:9300", "10.15.0.2:9300"]
+ingest.geoip.downloader.enabled: false

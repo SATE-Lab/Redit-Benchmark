@@ -21,10 +21,12 @@
         <module name="Redit-Rocketmq-255" />
         <module name="raft-java-admin" />
         <module name="Redit-Hbase-26901" />
+        <module name="Redit-Activemq-8168" />
         <module name="Redit-Hadoop-MapReduce" />
         <module name="Redit-Kafka-8564" />
         <module name="Redit-Zookeeper-1813" />
         <module name="Redit-Kafka-7192" />
+        <module name="Redit-Activemq-6900" />
         <module name="Redit-Hbase-26742" />
         <module name="Redit-Kafka-13852" />
         <module name="Redit-Rocketmq-257" />
@@ -35,9 +37,12 @@
         <module name="Redit-Cassandra-13669" />
         <module name="Redit-Cassandra-17628" />
         <module name="Redit-Zookeeper" />
+        <module name="Redit-Activemq-8050" />
         <module name="Redit-Rocketmq-266" />
         <module name="Redit-Rocketmq-189" />
+        <module name="Redit-Activemq-8252" />
         <module name="Redit-HDFS-16381" />
+        <module name="Redit-Activemq-6430" />
         <module name="Redit-Hazelcast" />
         <module name="Redit-Cassandra-15297" />
         <module name="Redit-Cassandra-14365" />
@@ -55,6 +60,8 @@
         <module name="Redit-Kafka-13909" />
         <module name="Redit-Elasticsearch" />
         <module name="Redit-Zookeeper-4508" />
+        <module name="Redit-Activemq-8346" />
+        <module name="Redit-Activemq-7337" />
         <module name="Redit-Activemq" />
         <module name="Redit-Hbase" />
         <module name="Redit-HDFS-14987" />
@@ -69,6 +76,13 @@
       <module name="raft-java-core" target="1.7" />
       <module name="raft-java-example" target="1.7" />
       <module name="Redit-Activemq" target="8" />
+      <module name="Redit-Activemq-6430" target="8" />
+      <module name="Redit-Activemq-6900" target="8" />
+      <module name="Redit-Activemq-7337" target="8" />
+      <module name="Redit-Activemq-8050" target="8" />
+      <module name="Redit-Activemq-8168" target="8" />
+      <module name="Redit-Activemq-8252" target="8" />
+      <module name="Redit-Activemq-8346" target="8" />
       <module name="Redit-Cassandra" target="8" />
       <module name="Redit-Cassandra-13464" target="8" />
       <module name="Redit-Cassandra-13669" target="8" />

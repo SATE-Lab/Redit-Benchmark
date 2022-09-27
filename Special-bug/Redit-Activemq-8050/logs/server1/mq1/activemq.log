@@ -1,0 +1,143 @@
+2022-09-23 02:33:34,374 | INFO  | Refreshing org.apache.activemq.xbean.XBeanBrokerFactory$1@1a968a59: startup date [Fri Sep 23 02:33:34 UTC 2022]; root of context hierarchy | org.apache.activemq.xbean.XBeanBrokerFactory$1 | main
+2022-09-23 02:33:39,184 | INFO  | Using Persistence Adapter: KahaDBPersistenceAdapter[/activemq/activemq-5.15.3/mq1/data/kahadb] | org.apache.activemq.broker.BrokerService | main
+2022-09-23 02:33:39,515 | INFO  | PListStore:[/activemq/activemq-5.15.3/mq1/data/brokerA/tmp_storage] started | org.apache.activemq.store.kahadb.plist.PListStoreImpl | main
+2022-09-23 02:33:39,876 | INFO  | Apache ActiveMQ 5.15.9 (brokerA, ID:server1-34559-1663900419688-0:1) is starting | org.apache.activemq.broker.BrokerService | main
+2022-09-23 02:33:39,977 | INFO  | Listening for connections at: tcp://server1:61616?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | main
+2022-09-23 02:33:39,992 | INFO  | Connector openwire started | org.apache.activemq.broker.TransportConnector | main
+2022-09-23 02:33:40,007 | INFO  | Listening for connections at: amqp://server1:5672?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | main
+2022-09-23 02:33:40,020 | INFO  | Connector amqp started | org.apache.activemq.broker.TransportConnector | main
+2022-09-23 02:33:40,031 | INFO  | Listening for connections at: stomp://server1:61613?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | main
+2022-09-23 02:33:40,062 | INFO  | Connector stomp started | org.apache.activemq.broker.TransportConnector | main
+2022-09-23 02:33:40,068 | INFO  | Listening for connections at: mqtt://server1:1883?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | main
+2022-09-23 02:33:40,070 | INFO  | Connector mqtt started | org.apache.activemq.broker.TransportConnector | main
+2022-09-23 02:33:40,078 | INFO  | Starting Jetty server | org.apache.activemq.transport.WebTransportServerSupport | main
+2022-09-23 02:33:40,171 | INFO  | Creating Jetty connector | org.apache.activemq.transport.WebTransportServerSupport | main
+2022-09-23 02:33:40,434 | WARN  | ServletContext@o.e.j.s.ServletContextHandler@41ab013{/,null,STARTING} has uncovered http methods for path: / | org.eclipse.jetty.security.SecurityHandler | main
+2022-09-23 02:33:40,595 | INFO  | Listening for connections at ws://server1:61610?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.ws.WSTransportServer | main
+2022-09-23 02:33:40,597 | INFO  | Connector ws started | org.apache.activemq.broker.TransportConnector | main
+2022-09-23 02:33:40,619 | INFO  | Establishing network connection from vm://brokerA to tcp://10.15.0.2:61616 | org.apache.activemq.network.DiscoveryNetworkConnector | main
+2022-09-23 02:33:40,774 | INFO  | Connector vm://brokerA started | org.apache.activemq.broker.TransportConnector | main
+2022-09-23 02:33:40,876 | INFO  | brokerA Shutting down brokerB | org.apache.activemq.network.DemandForwardingBridgeSupport | ActiveMQ BrokerService[brokerA] Task-1
+2022-09-23 02:33:40,879 | WARN  | Could not start network bridge between: vm://brokerA and: tcp://10.15.0.2:61616 due to: Connection refused (Connection refused) | org.apache.activemq.network.DiscoveryNetworkConnector | main
+2022-09-23 02:33:40,888 | INFO  | Establishing network connection from vm://brokerA to tcp://10.15.0.2:61617 | org.apache.activemq.network.DiscoveryNetworkConnector | main
+2022-09-23 02:33:40,934 | INFO  | brokerA Shutting down brokerB | org.apache.activemq.network.DemandForwardingBridgeSupport | ActiveMQ BrokerService[brokerA] Task-4
+2022-09-23 02:33:40,943 | INFO  | brokerA bridge to Unknown stopped | org.apache.activemq.network.DemandForwardingBridgeSupport | ActiveMQ BrokerService[brokerA] Task-1
+2022-09-23 02:33:40,945 | INFO  | Connector vm://brokerA stopped | org.apache.activemq.broker.TransportConnector | ActiveMQ BrokerService[brokerA] Task-4
+2022-09-23 02:33:40,946 | INFO  | brokerA bridge to Unknown stopped | org.apache.activemq.network.DemandForwardingBridgeSupport | ActiveMQ BrokerService[brokerA] Task-4
+2022-09-23 02:33:40,953 | WARN  | Could not start network bridge between: vm://brokerA and: tcp://10.15.0.2:61617 due to: Connection refused (Connection refused) | org.apache.activemq.network.DiscoveryNetworkConnector | main
+2022-09-23 02:33:40,954 | INFO  | Establishing network connection from vm://brokerA to tcp://10.15.0.2:61618 | org.apache.activemq.network.DiscoveryNetworkConnector | main
+2022-09-23 02:33:40,955 | INFO  | Connector vm://brokerA started | org.apache.activemq.broker.TransportConnector | main
+2022-09-23 02:33:40,971 | INFO  | brokerA Shutting down brokerB | org.apache.activemq.network.DemandForwardingBridgeSupport | ActiveMQ BrokerService[brokerA] Task-4
+2022-09-23 02:33:40,973 | INFO  | Connector vm://brokerA stopped | org.apache.activemq.broker.TransportConnector | ActiveMQ BrokerService[brokerA] Task-4
+2022-09-23 02:33:40,974 | INFO  | brokerA bridge to Unknown stopped | org.apache.activemq.network.DemandForwardingBridgeSupport | ActiveMQ BrokerService[brokerA] Task-4
+2022-09-23 02:33:40,975 | INFO  | error with pending local brokerInfo on: vm://brokerA#8 | org.apache.activemq.network.DemandForwardingBridgeSupport | ActiveMQ BrokerService[brokerA] Task-4
+org.apache.activemq.transport.TransportDisposedIOException: peer (vm://brokerA#9) stopped.
+	at org.apache.activemq.transport.vm.VMTransport.stop(VMTransport.java:233)[activemq-broker-5.15.9.jar:5.15.9]
+	at org.apache.activemq.transport.TransportFilter.stop(TransportFilter.java:72)[activemq-client-5.15.9.jar:5.15.9]
+	at org.apache.activemq.transport.TransportFilter.stop(TransportFilter.java:72)[activemq-client-5.15.9.jar:5.15.9]
+	at org.apache.activemq.transport.ResponseCorrelator.stop(ResponseCorrelator.java:132)[activemq-client-5.15.9.jar:5.15.9]
+	at org.apache.activemq.broker.TransportConnection.doStop(TransportConnection.java:1194)[activemq-broker-5.15.9.jar:5.15.9]
+	at org.apache.activemq.broker.TransportConnection$4.run(TransportConnection.java:1160)[activemq-broker-5.15.9.jar:5.15.9]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)[:1.8.0_242]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)[:1.8.0_242]
+	at java.lang.Thread.run(Thread.java:748)[:1.8.0_242]
+2022-09-23 02:33:40,983 | WARN  | Could not start network bridge between: vm://brokerA and: tcp://10.15.0.2:61618 due to: Connection refused (Connection refused) | org.apache.activemq.network.DiscoveryNetworkConnector | main
+2022-09-23 02:33:40,985 | INFO  | Network Connector DiscoveryNetworkConnector:brokerB:BrokerService[brokerA] started | org.apache.activemq.network.NetworkConnector | main
+2022-09-23 02:33:40,993 | INFO  | Apache ActiveMQ 5.15.9 (brokerA, ID:server1-34559-1663900419688-0:1) started | org.apache.activemq.broker.BrokerService | main
+2022-09-23 02:33:40,994 | INFO  | For help or more information please see: http://activemq.apache.org | org.apache.activemq.broker.BrokerService | main
+2022-09-23 02:33:40,996 | WARN  | Store limit is 102400 mb (current store usage is 0 mb). The data directory: /activemq/activemq-5.15.3/mq1/data/kahadb only has 11529 mb of usable space. - resetting to maximum available disk space: 11529 mb | org.apache.activemq.broker.BrokerService | main
+2022-09-23 02:33:40,997 | WARN  | Temporary Store limit is 51200 mb (current store usage is 0 mb). The data directory: /activemq/activemq-5.15.3/mq1/data only has 11529 mb of usable space. - resetting to maximum available disk space: 11529 mb | org.apache.activemq.broker.BrokerService | main
+2022-09-23 02:33:41,913 | INFO  | Establishing network connection from vm://brokerA to tcp://10.15.0.2:61616 | org.apache.activemq.network.DiscoveryNetworkConnector | ActiveMQ Task-1
+2022-09-23 02:33:41,929 | INFO  | Connector vm://brokerA started | org.apache.activemq.broker.TransportConnector | ActiveMQ Task-1
+2022-09-23 02:33:41,962 | INFO  | Establishing network connection from vm://brokerA to tcp://10.15.0.2:61617 | org.apache.activemq.network.DiscoveryNetworkConnector | ActiveMQ Task-2
+2022-09-23 02:33:42,005 | INFO  | brokerA Shutting down brokerB | org.apache.activemq.network.DemandForwardingBridgeSupport | ActiveMQ BrokerService[brokerA] Task-4
+2022-09-23 02:33:42,007 | INFO  | brokerA Shutting down brokerB | org.apache.activemq.network.DemandForwardingBridgeSupport | ActiveMQ BrokerService[brokerA] Task-1
+2022-09-23 02:33:42,009 | WARN  | Could not start network bridge between: vm://brokerA and: tcp://10.15.0.2:61616 due to: Connection refused (Connection refused) | org.apache.activemq.network.DiscoveryNetworkConnector | ActiveMQ Task-1
+2022-09-23 02:33:42,009 | INFO  | Establishing network connection from vm://brokerA to tcp://10.15.0.2:61618 | org.apache.activemq.network.DiscoveryNetworkConnector | ActiveMQ Task-3
+2022-09-23 02:33:42,061 | WARN  | Could not start network bridge between: vm://brokerA and: tcp://10.15.0.2:61617 due to: Connection refused (Connection refused) | org.apache.activemq.network.DiscoveryNetworkConnector | ActiveMQ Task-2
+2022-09-23 02:33:42,061 | INFO  | brokerA bridge to Unknown stopped | org.apache.activemq.network.DemandForwardingBridgeSupport | ActiveMQ BrokerService[brokerA] Task-4
+2022-09-23 02:33:42,092 | INFO  | brokerA bridge to Unknown stopped | org.apache.activemq.network.DemandForwardingBridgeSupport | ActiveMQ BrokerService[brokerA] Task-1
+2022-09-23 02:33:42,093 | INFO  | error with pending local brokerInfo on: vm://brokerA#16 | org.apache.activemq.network.DemandForwardingBridgeSupport | ActiveMQ BrokerService[brokerA] Task-1
+org.apache.activemq.transport.TransportDisposedIOException: peer (vm://brokerA#17) stopped.
+	at org.apache.activemq.transport.vm.VMTransport.stop(VMTransport.java:233)[activemq-broker-5.15.9.jar:5.15.9]
+	at org.apache.activemq.transport.TransportFilter.stop(TransportFilter.java:72)[activemq-client-5.15.9.jar:5.15.9]
+	at org.apache.activemq.transport.TransportFilter.stop(TransportFilter.java:72)[activemq-client-5.15.9.jar:5.15.9]
+	at org.apache.activemq.transport.ResponseCorrelator.stop(ResponseCorrelator.java:132)[activemq-client-5.15.9.jar:5.15.9]
+	at org.apache.activemq.broker.TransportConnection.doStop(TransportConnection.java:1194)[activemq-broker-5.15.9.jar:5.15.9]
+	at org.apache.activemq.broker.TransportConnection$4.run(TransportConnection.java:1160)[activemq-broker-5.15.9.jar:5.15.9]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)[:1.8.0_242]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)[:1.8.0_242]
+	at java.lang.Thread.run(Thread.java:748)[:1.8.0_242]
+2022-09-23 02:33:42,134 | WARN  | Could not start network bridge between: vm://brokerA and: tcp://10.15.0.2:61618 due to: Connection refused (Connection refused) | org.apache.activemq.network.DiscoveryNetworkConnector | ActiveMQ Task-3
+2022-09-23 02:33:42,093 | INFO  | brokerA Shutting down brokerB | org.apache.activemq.network.DemandForwardingBridgeSupport | ActiveMQ BrokerService[brokerA] Task-6
+2022-09-23 02:33:42,151 | INFO  | Connector vm://brokerA stopped | org.apache.activemq.broker.TransportConnector | ActiveMQ BrokerService[brokerA] Task-6
+2022-09-23 02:33:42,152 | INFO  | brokerA bridge to Unknown stopped | org.apache.activemq.network.DemandForwardingBridgeSupport | ActiveMQ BrokerService[brokerA] Task-6
+2022-09-23 02:33:42,161 | INFO  | No Spring WebApplicationInitializer types detected on classpath | /admin | main
+2022-09-23 02:33:42,401 | INFO  | ActiveMQ WebConsole available at http://0.0.0.0:8161/ | org.apache.activemq.web.WebConsoleStarter | main
+2022-09-23 02:33:42,401 | INFO  | ActiveMQ Jolokia REST API available at http://0.0.0.0:8161/api/jolokia/ | org.apache.activemq.web.WebConsoleStarter | main
+2022-09-23 02:33:42,613 | INFO  | Initializing Spring FrameworkServlet 'dispatcher' | /admin | main
+2022-09-23 02:33:42,968 | INFO  | No Spring WebApplicationInitializer types detected on classpath | /api | main
+2022-09-23 02:33:43,137 | INFO  | jolokia-agent: Using policy access restrictor classpath:/jolokia-access.xml | /api | main
+2022-09-23 02:33:44,025 | INFO  | Establishing network connection from vm://brokerA to tcp://10.15.0.2:61616 | org.apache.activemq.network.DiscoveryNetworkConnector | ActiveMQ Task-4
+2022-09-23 02:33:44,028 | INFO  | Connector vm://brokerA started | org.apache.activemq.broker.TransportConnector | ActiveMQ Task-4
+2022-09-23 02:33:44,077 | INFO  | Establishing network connection from vm://brokerA to tcp://10.15.0.2:61617 | org.apache.activemq.network.DiscoveryNetworkConnector | ActiveMQ Task-1
+2022-09-23 02:33:44,095 | INFO  | brokerA Shutting down brokerB | org.apache.activemq.network.DemandForwardingBridgeSupport | ActiveMQ BrokerService[brokerA] Task-2
+2022-09-23 02:33:44,096 | WARN  | Could not start network bridge between: vm://brokerA and: tcp://10.15.0.2:61617 due to: Connection refused (Connection refused) | org.apache.activemq.network.DiscoveryNetworkConnector | ActiveMQ Task-1
+2022-09-23 02:33:44,102 | INFO  | brokerA bridge to Unknown stopped | org.apache.activemq.network.DemandForwardingBridgeSupport | ActiveMQ BrokerService[brokerA] Task-2
+2022-09-23 02:33:44,150 | INFO  | Establishing network connection from vm://brokerA to tcp://10.15.0.2:61618 | org.apache.activemq.network.DiscoveryNetworkConnector | ActiveMQ Task-2
+2022-09-23 02:33:44,160 | INFO  | brokerA Shutting down brokerB | org.apache.activemq.network.DemandForwardingBridgeSupport | ActiveMQ BrokerService[brokerA] Task-7
+2022-09-23 02:33:44,160 | WARN  | Could not start network bridge between: vm://brokerA and: tcp://10.15.0.2:61618 due to: Connection refused (Connection refused) | org.apache.activemq.network.DiscoveryNetworkConnector | ActiveMQ Task-2
+2022-09-23 02:33:44,168 | INFO  | brokerA bridge to Unknown stopped | org.apache.activemq.network.DemandForwardingBridgeSupport | ActiveMQ BrokerService[brokerA] Task-7
+2022-09-23 02:33:44,169 | INFO  | error with pending local brokerInfo on: vm://brokerA#32 | org.apache.activemq.network.DemandForwardingBridgeSupport | ActiveMQ BrokerService[brokerA] Task-7
+org.apache.activemq.transport.TransportDisposedIOException: peer (vm://brokerA#33) stopped.
+	at org.apache.activemq.transport.vm.VMTransport.stop(VMTransport.java:233)[activemq-broker-5.15.9.jar:5.15.9]
+	at org.apache.activemq.transport.TransportFilter.stop(TransportFilter.java:72)[activemq-client-5.15.9.jar:5.15.9]
+	at org.apache.activemq.transport.TransportFilter.stop(TransportFilter.java:72)[activemq-client-5.15.9.jar:5.15.9]
+	at org.apache.activemq.transport.ResponseCorrelator.stop(ResponseCorrelator.java:132)[activemq-client-5.15.9.jar:5.15.9]
+	at org.apache.activemq.broker.TransportConnection.doStop(TransportConnection.java:1194)[activemq-broker-5.15.9.jar:5.15.9]
+	at org.apache.activemq.broker.TransportConnection$4.run(TransportConnection.java:1160)[activemq-broker-5.15.9.jar:5.15.9]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)[:1.8.0_242]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)[:1.8.0_242]
+	at java.lang.Thread.run(Thread.java:748)[:1.8.0_242]
+2022-09-23 02:33:44,249 | INFO  | Network connection between vm://brokerA#24 and tcp:///10.15.0.2:61616@37868 (brokerB) has been established. | org.apache.activemq.network.DemandForwardingBridgeSupport | triggerStartAsyncNetworkBridgeCreation: remoteBroker=tcp:///10.15.0.2:61616@37868, localBroker= vm://brokerA#24
+2022-09-23 02:33:48,098 | INFO  | Establishing network connection from vm://brokerA to tcp://10.15.0.2:61617 | org.apache.activemq.network.DiscoveryNetworkConnector | ActiveMQ Task-4
+2022-09-23 02:33:48,105 | INFO  | brokerA Shutting down brokerB | org.apache.activemq.network.DemandForwardingBridgeSupport | ActiveMQ BrokerService[brokerA] Task-1
+2022-09-23 02:33:48,110 | WARN  | Could not start network bridge between: vm://brokerA and: tcp://10.15.0.2:61617 due to: Connection refused (Connection refused) | org.apache.activemq.network.DiscoveryNetworkConnector | ActiveMQ Task-4
+2022-09-23 02:33:48,121 | INFO  | brokerA bridge to Unknown stopped | org.apache.activemq.network.DemandForwardingBridgeSupport | ActiveMQ BrokerService[brokerA] Task-1
+2022-09-23 02:33:48,122 | INFO  | error with pending local brokerInfo on: vm://brokerA#36 | org.apache.activemq.network.DemandForwardingBridgeSupport | ActiveMQ BrokerService[brokerA] Task-1
+org.apache.activemq.transport.TransportDisposedIOException: peer (vm://brokerA#37) stopped.
+	at org.apache.activemq.transport.vm.VMTransport.stop(VMTransport.java:233)[activemq-broker-5.15.9.jar:5.15.9]
+	at org.apache.activemq.transport.TransportFilter.stop(TransportFilter.java:72)[activemq-client-5.15.9.jar:5.15.9]
+	at org.apache.activemq.transport.TransportFilter.stop(TransportFilter.java:72)[activemq-client-5.15.9.jar:5.15.9]
+	at org.apache.activemq.transport.ResponseCorrelator.stop(ResponseCorrelator.java:132)[activemq-client-5.15.9.jar:5.15.9]
+	at org.apache.activemq.broker.TransportConnection.doStop(TransportConnection.java:1194)[activemq-broker-5.15.9.jar:5.15.9]
+	at org.apache.activemq.broker.TransportConnection$4.run(TransportConnection.java:1160)[activemq-broker-5.15.9.jar:5.15.9]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)[:1.8.0_242]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)[:1.8.0_242]
+	at java.lang.Thread.run(Thread.java:748)[:1.8.0_242]
+2022-09-23 02:33:48,166 | INFO  | Establishing network connection from vm://brokerA to tcp://10.15.0.2:61618 | org.apache.activemq.network.DiscoveryNetworkConnector | ActiveMQ Task-1
+2022-09-23 02:33:48,176 | INFO  | brokerA Shutting down brokerB | org.apache.activemq.network.DemandForwardingBridgeSupport | ActiveMQ BrokerService[brokerA] Task-1
+2022-09-23 02:33:48,179 | WARN  | Could not start network bridge between: vm://brokerA and: tcp://10.15.0.2:61618 due to: Connection refused (Connection refused) | org.apache.activemq.network.DiscoveryNetworkConnector | ActiveMQ Task-1
+2022-09-23 02:33:48,182 | INFO  | brokerA bridge to Unknown stopped | org.apache.activemq.network.DemandForwardingBridgeSupport | ActiveMQ BrokerService[brokerA] Task-1
+2022-09-23 02:33:48,183 | INFO  | error with pending local brokerInfo on: vm://brokerA#40 | org.apache.activemq.network.DemandForwardingBridgeSupport | ActiveMQ BrokerService[brokerA] Task-1
+org.apache.activemq.transport.TransportDisposedIOException: peer (vm://brokerA#41) stopped.
+	at org.apache.activemq.transport.vm.VMTransport.stop(VMTransport.java:233)[activemq-broker-5.15.9.jar:5.15.9]
+	at org.apache.activemq.transport.TransportFilter.stop(TransportFilter.java:72)[activemq-client-5.15.9.jar:5.15.9]
+	at org.apache.activemq.transport.TransportFilter.stop(TransportFilter.java:72)[activemq-client-5.15.9.jar:5.15.9]
+	at org.apache.activemq.transport.ResponseCorrelator.stop(ResponseCorrelator.java:132)[activemq-client-5.15.9.jar:5.15.9]
+	at org.apache.activemq.broker.TransportConnection.doStop(TransportConnection.java:1194)[activemq-broker-5.15.9.jar:5.15.9]
+	at org.apache.activemq.broker.TransportConnection$4.run(TransportConnection.java:1160)[activemq-broker-5.15.9.jar:5.15.9]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)[:1.8.0_242]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)[:1.8.0_242]
+	at java.lang.Thread.run(Thread.java:748)[:1.8.0_242]
+2022-09-23 02:33:51,972 | WARN  | Transport Connection to: tcp://10.15.0.1:39166 failed: java.io.EOFException | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ Transport: tcp:///10.15.0.1:39166@61616
+2022-09-23 02:33:54,238 | WARN  | Network connection between vm://brokerA#24 and tcp:///10.15.0.2:61616@37868 shutdown due to a remote error: {} | org.apache.activemq.network.DemandForwardingBridgeSupport | ActiveMQ Transport: tcp:///10.15.0.2:61616@37868
+java.io.EOFException
+	at java.io.DataInputStream.readInt(DataInputStream.java:392)[:1.8.0_242]
+	at org.apache.activemq.openwire.OpenWireFormat.unmarshal(OpenWireFormat.java:268)[activemq-client-5.15.9.jar:5.15.9]
+	at org.apache.activemq.transport.tcp.TcpTransport.readCommand(TcpTransport.java:240)[activemq-client-5.15.9.jar:5.15.9]
+	at org.apache.activemq.transport.tcp.TcpTransport.doRun(TcpTransport.java:232)[activemq-client-5.15.9.jar:5.15.9]
+	at org.apache.activemq.transport.tcp.TcpTransport.run(TcpTransport.java:215)[activemq-client-5.15.9.jar:5.15.9]
+	at java.lang.Thread.run(Thread.java:748)[:1.8.0_242]
+2022-09-23 02:33:54,250 | INFO  | Connector vm://brokerA stopped | org.apache.activemq.broker.TransportConnector | ActiveMQ BrokerService[brokerA] Task-3
+2022-09-23 02:33:54,252 | INFO  | brokerA bridge to brokerB stopped | org.apache.activemq.network.DemandForwardingBridgeSupport | ActiveMQ BrokerService[brokerA] Task-3

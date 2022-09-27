@@ -1,0 +1,67 @@
+10:31:05.986 [main] INFO  SampleTest - wait for Rocketmq ...
+10:31:05.986 [main] INFO  SampleTest - server1 startServer...
+10:31:08.770 [main] INFO  SampleTest - server2 startServer...
+10:31:21.874 [main] INFO  SampleTest - server1 checkServer...
+10:31:22.199 [main] INFO  SampleTest - server1: cd /activemq/activemq-5.14.0/mq1 && bin/activemq status
+10:31:22.200 [main] INFO  SampleTest - INFO: Loading '/activemq/activemq-5.14.0/mq1//bin/env'
+INFO: Using java '/usr/local/openjdk-8/bin/java'
+ActiveMQ is running (pid '47')
+
+10:31:22.200 [main] INFO  SampleTest - server1: cd /activemq/activemq-5.14.0/mq2 && bin/activemq status
+10:31:22.200 [main] INFO  SampleTest - INFO: Loading '/activemq/activemq-5.14.0/mq2//bin/env'
+INFO: Using java '/usr/local/openjdk-8/bin/java'
+ActiveMQ is running (pid '93')
+
+10:31:22.200 [main] INFO  SampleTest - server1: cd /activemq/activemq-5.14.0/mq3 && bin/activemq status
+10:31:22.200 [main] INFO  SampleTest - INFO: Loading '/activemq/activemq-5.14.0/mq3//bin/env'
+INFO: Using java '/usr/local/openjdk-8/bin/java'
+ActiveMQ is running (pid '140')
+
+10:31:24.200 [main] INFO  SampleTest - server2 checkServer...
+10:31:24.527 [main] INFO  SampleTest - server2: cd /activemq/activemq-5.14.0/mq1 && bin/activemq status
+10:31:24.527 [main] INFO  SampleTest - INFO: Loading '/activemq/activemq-5.14.0/mq1//bin/env'
+INFO: Using java '/usr/local/openjdk-8/bin/java'
+ActiveMQ is running (pid '49')
+
+10:31:24.527 [main] INFO  SampleTest - server2: cd /activemq/activemq-5.14.0/mq2 && bin/activemq status
+10:31:24.527 [main] INFO  SampleTest - INFO: Loading '/activemq/activemq-5.14.0/mq2//bin/env'
+INFO: Using java '/usr/local/openjdk-8/bin/java'
+ActiveMQ is running (pid '94')
+
+10:31:24.527 [main] INFO  SampleTest - server2: cd /activemq/activemq-5.14.0/mq3 && bin/activemq status
+10:31:24.527 [main] INFO  SampleTest - INFO: Loading '/activemq/activemq-5.14.0/mq3//bin/env'
+INFO: Using java '/usr/local/openjdk-8/bin/java'
+ActiveMQ is running (pid '139')
+
+10:31:26.528 [main] INFO  SampleTest - testActiveMQNoLocal ...
+10:31:26.701 [main] DEBUG o.a.a.transport.WireFormatNegotiator - Sending: WireFormatInfo { version=12, properties={StackTraceEnabled=true, PlatformDetails=JVM: 1.8.0_342, 25.342-b07, Private Build, OS: Linux, 5.15.0-46-generic, amd64, CacheEnabled=true, Host=10.21.0.3, TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, ProviderName=ActiveMQ, TightEncodingEnabled=true, MaxFrameSize=9223372036854775807, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000, ProviderVersion=5.14.0}, magic=[A,c,t,i,v,e,M,Q]}
+10:31:26.720 [ActiveMQ Transport: tcp:///10.21.0.3:61616@37306] DEBUG o.a.a.transport.InactivityMonitor - Using min of local: WireFormatInfo { version=12, properties={StackTraceEnabled=true, PlatformDetails=JVM: 1.8.0_342, 25.342-b07, Private Build, OS: Linux, 5.15.0-46-generic, amd64, CacheEnabled=true, Host=10.21.0.3, TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, ProviderName=ActiveMQ, TightEncodingEnabled=true, MaxFrameSize=9223372036854775807, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000, ProviderVersion=5.14.0}, magic=[A,c,t,i,v,e,M,Q]} and remote: WireFormatInfo { version=12, properties={TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, ProviderName=ActiveMQ, StackTraceEnabled=true, PlatformDetails=JVM: 1.8.0_242, 25.242-b08, Oracle Corporation, OS: Linux, 5.15.0-46-generic, amd64, CacheEnabled=true, TightEncodingEnabled=true, MaxFrameSize=104857600, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000, ProviderVersion=5.14.0}, magic=[A,c,t,i,v,e,M,Q]}
+10:31:26.721 [ActiveMQ Transport: tcp:///10.21.0.3:61616@37306] DEBUG o.a.a.transport.WireFormatNegotiator - Received WireFormat: WireFormatInfo { version=12, properties={TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, ProviderName=ActiveMQ, StackTraceEnabled=true, PlatformDetails=JVM: 1.8.0_242, 25.242-b08, Oracle Corporation, OS: Linux, 5.15.0-46-generic, amd64, CacheEnabled=true, TightEncodingEnabled=true, MaxFrameSize=104857600, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000, ProviderVersion=5.14.0}, magic=[A,c,t,i,v,e,M,Q]}
+10:31:26.721 [ActiveMQ Transport: tcp:///10.21.0.3:61616@37306] DEBUG o.a.a.transport.WireFormatNegotiator - tcp:///10.21.0.3:61616@37306 before negotiation: OpenWireFormat{version=12, cacheEnabled=false, stackTraceEnabled=false, tightEncodingEnabled=false, sizePrefixDisabled=false, maxFrameSize=9223372036854775807}
+10:31:26.721 [ActiveMQ Transport: tcp:///10.21.0.3:61616@37306] DEBUG o.a.a.transport.WireFormatNegotiator - tcp:///10.21.0.3:61616@37306 after negotiation: OpenWireFormat{version=12, cacheEnabled=true, stackTraceEnabled=true, tightEncodingEnabled=true, sizePrefixDisabled=false, maxFrameSize=104857600}
+10:31:26.808 [main] DEBUG o.a.a.thread.TaskRunnerFactory - Initialized TaskRunnerFactory[ActiveMQ Session Task] using ExecutorService: java.util.concurrent.ThreadPoolExecutor@6c03fb16[Running, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0]
+message sent:     ID:zmb-virtual-machine-32821-1664245886594-1:1:2:1:1; body: test-message
+10:31:29.843 [main] DEBUG o.a.activemq.ActiveMQMessageConsumer - remove: ID:zmb-virtual-machine-32821-1664245886594-1:1:1:1, lastDeliveredSequenceId: -1
+10:31:29.850 [main] DEBUG o.a.activemq.util.ThreadPoolUtils - Shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@6c03fb16[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 1] is shutdown: true and terminated: true took: 0.001 seconds.
+10:31:29.851 [main] DEBUG o.a.activemq.util.ThreadPoolUtils - Shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@1fcf9739[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0] is shutdown: true and terminated: true took: 0.000 seconds.
+10:31:29.852 [main] DEBUG o.a.a.transport.tcp.TcpTransport - Stopping transport tcp:///10.21.0.3:61616@37306
+10:31:29.852 [main] DEBUG o.a.a.thread.TaskRunnerFactory - Initialized TaskRunnerFactory[ActiveMQ Task] using ExecutorService: java.util.concurrent.ThreadPoolExecutor@2fc2a205[Running, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0]
+10:31:29.853 [ActiveMQ Task-1] DEBUG o.a.a.transport.tcp.TcpTransport - Closed socket Socket[addr=/10.21.0.3,port=61616,localport=37306]
+10:31:29.853 [main] DEBUG o.a.activemq.util.ThreadPoolUtils - Forcing shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@2fc2a205[Running, pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+10:31:34.854 [main] INFO  SampleTest - testActiveMQNoLocal ...
+10:31:34.857 [main] DEBUG o.a.a.transport.WireFormatNegotiator - Sending: WireFormatInfo { version=12, properties={StackTraceEnabled=true, PlatformDetails=JVM: 1.8.0_342, 25.342-b07, Private Build, OS: Linux, 5.15.0-46-generic, amd64, CacheEnabled=true, Host=10.21.0.3, TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, ProviderName=ActiveMQ, TightEncodingEnabled=true, MaxFrameSize=9223372036854775807, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000, ProviderVersion=5.14.0}, magic=[A,c,t,i,v,e,M,Q]}
+10:31:34.858 [ActiveMQ Transport: tcp:///10.21.0.3:61616@37308] DEBUG o.a.a.transport.InactivityMonitor - Using min of local: WireFormatInfo { version=12, properties={StackTraceEnabled=true, PlatformDetails=JVM: 1.8.0_342, 25.342-b07, Private Build, OS: Linux, 5.15.0-46-generic, amd64, CacheEnabled=true, Host=10.21.0.3, TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, ProviderName=ActiveMQ, TightEncodingEnabled=true, MaxFrameSize=9223372036854775807, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000, ProviderVersion=5.14.0}, magic=[A,c,t,i,v,e,M,Q]} and remote: WireFormatInfo { version=12, properties={TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, ProviderName=ActiveMQ, StackTraceEnabled=true, PlatformDetails=JVM: 1.8.0_242, 25.242-b08, Oracle Corporation, OS: Linux, 5.15.0-46-generic, amd64, CacheEnabled=true, TightEncodingEnabled=true, MaxFrameSize=104857600, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000, ProviderVersion=5.14.0}, magic=[A,c,t,i,v,e,M,Q]}
+10:31:34.858 [ActiveMQ Transport: tcp:///10.21.0.3:61616@37308] DEBUG o.a.a.transport.WireFormatNegotiator - Received WireFormat: WireFormatInfo { version=12, properties={TcpNoDelayEnabled=true, SizePrefixDisabled=false, CacheSize=1024, ProviderName=ActiveMQ, StackTraceEnabled=true, PlatformDetails=JVM: 1.8.0_242, 25.242-b08, Oracle Corporation, OS: Linux, 5.15.0-46-generic, amd64, CacheEnabled=true, TightEncodingEnabled=true, MaxFrameSize=104857600, MaxInactivityDuration=30000, MaxInactivityDurationInitalDelay=10000, ProviderVersion=5.14.0}, magic=[A,c,t,i,v,e,M,Q]}
+10:31:34.858 [ActiveMQ Transport: tcp:///10.21.0.3:61616@37308] DEBUG o.a.a.transport.WireFormatNegotiator - tcp:///10.21.0.3:61616@37308 before negotiation: OpenWireFormat{version=12, cacheEnabled=false, stackTraceEnabled=false, tightEncodingEnabled=false, sizePrefixDisabled=false, maxFrameSize=9223372036854775807}
+10:31:34.858 [ActiveMQ Transport: tcp:///10.21.0.3:61616@37308] DEBUG o.a.a.transport.WireFormatNegotiator - tcp:///10.21.0.3:61616@37308 after negotiation: OpenWireFormat{version=12, cacheEnabled=true, stackTraceEnabled=true, tightEncodingEnabled=true, sizePrefixDisabled=false, maxFrameSize=104857600}
+10:31:34.870 [main] DEBUG o.a.a.thread.TaskRunnerFactory - Initialized TaskRunnerFactory[ActiveMQ Session Task] using ExecutorService: java.util.concurrent.ThreadPoolExecutor@2bef09c0[Running, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0]
+message sent:     ID:zmb-virtual-machine-32821-1664245886594-3:1:2:1:1; body: test-message
+incoming message: ID:zmb-virtual-machine-32821-1664245886594-3:1:2:1:1; body: test-message
+10:31:37.879 [main] DEBUG o.a.activemq.ActiveMQMessageConsumer - remove: ID:zmb-virtual-machine-32821-1664245886594-3:1:1:1, lastDeliveredSequenceId: 17
+10:31:37.882 [main] DEBUG o.a.activemq.util.ThreadPoolUtils - Shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@2bef09c0[Shutting down, pool size = 1, active threads = 0, queued tasks = 0, completed tasks = 2] is shutdown: true and terminated: false took: 0.000 seconds.
+10:31:37.883 [main] DEBUG o.a.activemq.util.ThreadPoolUtils - Shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@3fd2322d[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0] is shutdown: true and terminated: true took: 0.000 seconds.
+10:31:37.883 [main] DEBUG o.a.a.transport.tcp.TcpTransport - Stopping transport tcp:///10.21.0.3:61616@37308
+10:31:37.883 [main] DEBUG o.a.a.thread.TaskRunnerFactory - Initialized TaskRunnerFactory[ActiveMQ Task] using ExecutorService: java.util.concurrent.ThreadPoolExecutor@56ac5c80[Running, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0]
+10:31:37.887 [ActiveMQ Task-1] DEBUG o.a.a.transport.tcp.TcpTransport - Closed socket Socket[addr=/10.21.0.3,port=61616,localport=37308]
+10:31:37.887 [main] DEBUG o.a.activemq.util.ThreadPoolUtils - Forcing shutdown of ExecutorService: java.util.concurrent.ThreadPoolExecutor@56ac5c80[Running, pool size = 1, active threads = 0, queued tasks = 0, completed tasks = 1]
+10:31:37.887 [main] INFO  SampleTest - completed !!!

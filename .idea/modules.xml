@@ -4,6 +4,13 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Benchmark/Raft-Java/Raft-Java/Raft-Java.iml" filepath="$PROJECT_DIR$/Benchmark/Raft-Java/Raft-Java/Raft-Java.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Activemq/Redit-Activemq.iml" filepath="$PROJECT_DIR$/Redit-Activemq/Redit-Activemq.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Special-bug/Redit-Activemq-6430/Redit-Activemq-6430.iml" filepath="$PROJECT_DIR$/Special-bug/Redit-Activemq-6430/Redit-Activemq-6430.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Redit-Activemq-6900/Redit-Activemq-6900.iml" filepath="$PROJECT_DIR$/Redit-Activemq-6900/Redit-Activemq-6900.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Special-bug/Redit-Activemq-7337/Redit-Activemq-7337.iml" filepath="$PROJECT_DIR$/Special-bug/Redit-Activemq-7337/Redit-Activemq-7337.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Special-bug/Redit-Activemq-8050/Redit-Activemq-8050.iml" filepath="$PROJECT_DIR$/Special-bug/Redit-Activemq-8050/Redit-Activemq-8050.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Redit-Activemq-8168/Redit-Activemq-8168.iml" filepath="$PROJECT_DIR$/Redit-Activemq-8168/Redit-Activemq-8168.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Redit-Activemq-8252/Redit-Activemq-8252.iml" filepath="$PROJECT_DIR$/Redit-Activemq-8252/Redit-Activemq-8252.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Redit-Activemq-8346/Redit-Activemq-8346.iml" filepath="$PROJECT_DIR$/Redit-Activemq-8346/Redit-Activemq-8346.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Redit-Benchmark.iml" filepath="$PROJECT_DIR$/.idea/Redit-Benchmark.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Cassandra/Redit-Cassandra.iml" filepath="$PROJECT_DIR$/Redit-Cassandra/Redit-Cassandra.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Cassandra-13464/Redit-Cassandra-13464.iml" filepath="$PROJECT_DIR$/Redit-Cassandra-13464/Redit-Cassandra-13464.iml" />

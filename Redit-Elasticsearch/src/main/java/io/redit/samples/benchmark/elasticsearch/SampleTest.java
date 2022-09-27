@@ -61,7 +61,10 @@ public class SampleTest {
         logger.info("wait for Elasticsearch...");
         Thread.sleep(2000);
         startServers();
+
+        Thread.sleep(10000);
         checkJps();
+        runCommands();
 
         getEsRestClient();
         Thread.sleep(2000);
@@ -71,23 +74,41 @@ public class SampleTest {
         logger.info("completed !!!");
     }
 
-    private static void startServers() throws InterruptedException {
+    private void runCommands() throws RuntimeEngineException {
+        String c1 = "curl -X GET http://localhost:9200?pretty";
+        for (int i = 1; i <= ReditHelper.numOfServers; i++) {
+            printResult(runner.runtime().runCommandInNode("server" + i, c1));
+        }
+        System.out.println("--------------");
+    }
+
+    private static void startServers() throws InterruptedException, RuntimeEngineException {
         for(int i = 1; i <= ReditHelper.numOfServers; i++){
             startServer(i);
-            Thread.sleep(30000);
+            Thread.sleep(2000);
+            checkJps();
         }
     }
 
-    private static void startServer(int serverId) {
-        String command = "useradd test && runuser -l test -c '" + ReditHelper.getElasticsearchHomeDir() + "/bin/elasticsearch'";
+    private static void startServer(int serverId) throws RuntimeEngineException, InterruptedException {
+//        String command = "useradd test && runuser -l test -c '" + ReditHelper.getElasticsearchHomeDir() + "/bin/elasticsearch'";
+//        logger.info("server" + serverId + " startServer...");
+//        new Thread(() -> {
+//            try {
+//                runner.runtime().runCommandInNode("server" + serverId, command);
+//            } catch (RuntimeEngineException e) {
+//                e.printStackTrace();
+//            }
+//        }).start();
+
         logger.info("server" + serverId + " startServer...");
-        new Thread(() -> {
-            try {
-                runner.runtime().runCommandInNode("server" + serverId, command);
-            } catch (RuntimeEngineException e) {
-                e.printStackTrace();
-            }
-        }).start();
+        printResult(runner.runtime().runCommandInNode("server"+serverId, "useradd test"));
+        printResult(runner.runtime().runCommandInNode("server"+serverId, "chown -R test /elasticsearch"));
+        Thread.sleep(1000);
+        String command = "runuser -l test -c '" + ReditHelper.getElasticsearchHomeDir() + "/bin/elasticsearch -d'";
+        printResult(runner.runtime().runCommandInNode("server" + serverId, command));
+        Thread.sleep(5000);
+        printResult(runner.runtime().runCommandInNode("server"+serverId, "curl -X GET http://localhost:9200/?pretty"));
     }
 
     private static void getEsRestClient(){
@@ -173,7 +194,7 @@ public class SampleTest {
         }
     }
 
-    private void checkJps() throws RuntimeEngineException {
+    private static void checkJps() throws RuntimeEngineException {
         for(int i = 1; i <= ReditHelper.numOfServers; i++){
             CommandResults commandResults = runner.runtime().runCommandInNode("server" + i, "jps");
             printResult(commandResults);

@@ -1,0 +1,96 @@
+<beans
+  xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+  http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core.xsd">
+
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <value>file:${activemq.conf}/credentials.properties</value>
+        </property>
+    </bean>
+
+    <bean id="logQuery" class="io.fabric8.insight.log.log4j.Log4jLogQuery"
+          lazy-init="false" scope="singleton"
+          init-method="start" destroy-method="stop">
+    </bean>
+
+    <broker xmlns="http://activemq.apache.org/schema/core" brokerName="brokerA" dataDirectory="${activemq.data}">
+
+        <destinationPolicy>
+            <policyMap>
+                <policyEntries>
+                    <policyEntry topic=">" producerFlowControl="true">
+                        <pendingMessageLimitStrategy>
+                            <constantPendingMessageLimitStrategy limit="-1"/>
+                        </pendingMessageLimitStrategy>
+                    </policyEntry>
+                    <policyEntry queue=">" producerFlowControl="true">
+                        <messageGroupMapFactory>
+                            <simpleMessageGroupMapFactory/>
+                        </messageGroupMapFactory>
+                        <deadLetterStrategy>
+                            <sharedDeadLetterStrategy processExpired="true"/>
+                        </deadLetterStrategy>
+                    </policyEntry>
+                </policyEntries>
+            </policyMap>
+        </destinationPolicy>
+
+        <!-- only need change ip address -->
+        <networkConnectors>
+            <networkConnector name="brokerB" uri="static:(tcp://10.20.0.2:61616,tcp://10.20.0.2:61617,tcp://10.20.0.2:61618)" duplex="true" />
+        </networkConnectors>
+
+        <managementContext>
+            <managementContext createConnector="true"/>
+        </managementContext>
+
+        <persistenceAdapter>
+            <kahaDB directory="/activemq/activemq-5.16.1/mq1/data/kahadb" journalMaxFileLength="128mb"/>
+        </persistenceAdapter>
+
+          <systemUsage>
+            <systemUsage>
+                <memoryUsage>
+                    <memoryUsage percentOfJvmHeap="70" />
+                </memoryUsage>
+                <storeUsage>
+                    <storeUsage limit="30 gb"/>
+                </storeUsage>
+                <tempUsage>
+                    <tempUsage limit="10 gb"/>
+                </tempUsage>
+            </systemUsage>
+        </systemUsage>
+
+        <destinationInterceptors>
+            <virtualDestinationInterceptor>
+                <virtualDestinations>
+                    <virtualTopic name=">" prefix="Consumer.*." selectorAware="false"/>
+                    <!-- virtualTopic name="Vendors.Product.>" prefix="LBConsumers.*." / -->
+                </virtualDestinations>
+            </virtualDestinationInterceptor>
+        </destinationInterceptors>
+
+        <transportConnectors>
+            <transportConnector name="openwire" uri="tcp://0.0.0.0:61616?maximumConnections=1000&amp;wireFormat.maxFrameSize=104857600"/>
+            <transportConnector name="amqp" uri="amqp://0.0.0.0:5672?maximumConnections=1000&amp;wireFormat.maxFrameSize=104857600"/>
+            <transportConnector name="stomp" uri="stomp://0.0.0.0:61613?maximumConnections=1000&amp;wireFormat.maxFrameSize=104857600"/>
+            <transportConnector name="mqtt" uri="mqtt://0.0.0.0:1883?maximumConnections=1000&amp;wireFormat.maxFrameSize=104857600"/>
+            <transportConnector name="ws" uri="ws://0.0.0.0:61610?maximumConnections=1000&amp;wireFormat.maxFrameSize=104857600"/>
+        </transportConnectors>
+
+        <shutdownHooks>
+            <bean xmlns="http://www.springframework.org/schema/beans" class="org.apache.activemq.hooks.SpringContextHook" />
+        </shutdownHooks>
+        <plugins>
+            <bean xmlns="http://www.springframework.org/schema/beans" id="subQueueSelectorCacheBroker" class="org.apache.activemq.plugin.SubQueueSelectorCacheBrokerPlugin">
+                <property name="persistFile" value="file:/activemq/activemq-5.16.1/mq1/data/kahadb/selectorcache.dat"/>
+            </bean>
+        </plugins>
+    </broker>
+
+    <import resource="jetty.xml"/>
+
+</beans>

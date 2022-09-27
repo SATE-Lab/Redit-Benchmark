@@ -66,6 +66,14 @@
         <option value="$PROJECT_DIR$/Redit-Zookeeper-2033/pom.xml" />
         <option value="$PROJECT_DIR$/Special-bug/Redit-Zookeeper-3479/pom.xml" />
         <option value="$PROJECT_DIR$/Redit-Zookeeper-1813/pom.xml" />
+        <option value="$PROJECT_DIR$/Special-bug/Redit-Activemq-8050/pom.xml" />
+        <option value="$PROJECT_DIR$/Special-bug/Redit-Activemq-8252/pom.xml" />
+        <option value="$PROJECT_DIR$/Special-bug/Redit-Activemq-6900/pom.xml" />
+        <option value="$PROJECT_DIR$/Special-bug/Redit-Activemq-8168/pom.xml" />
+        <option value="$PROJECT_DIR$/Special-bug/Redit-Activemq-8346/pom.xml" />
+        <option value="$PROJECT_DIR$/Special-bug/Redit-Activemq-7337/pom.xml" />
+        <option value="$PROJECT_DIR$/Redit-Activemq-8346/pom.xml" />
+        <option value="$PROJECT_DIR$/Special-bug/Redit-Activemq-6430/pom.xml" />
       </list>
     </option>
   </component>
