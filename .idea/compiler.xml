@@ -15,6 +15,7 @@
         <module name="Redit-Hbase-26114" />
         <module name="Redit-Kafka-13563" />
         <module name="Redit-Cassandra-13696" />
+        <module name="Redit-Elasticsearch-two-master" />
         <module name="Redit-Kafka-13964" />
         <module name="Redit-Zookeeper-3479" />
         <module name="Redit-Kafka-13407" />
@@ -67,6 +68,7 @@
         <module name="Redit-HDFS-14987" />
         <module name="Redit-Kafka-12866" />
         <module name="Redit-Kafka-13996" />
+        <module name="Redit-Elasticsearch-minimum-master-nodes" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -94,6 +96,8 @@
       <module name="Redit-Cassandra-17628" target="8" />
       <module name="Redit-Distributed-Id" target="8" />
       <module name="Redit-Elasticsearch" target="8" />
+      <module name="Redit-Elasticsearch-minimum-master-nodes" target="8" />
+      <module name="Redit-Elasticsearch-two-master" target="8" />
       <module name="Redit-Hadoop-MapReduce" target="8" />
       <module name="Redit-Hazelcast" target="8" />
       <module name="Redit-Hbase" target="8" />
