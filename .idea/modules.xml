@@ -22,8 +22,9 @@
       <module fileurl="file://$PROJECT_DIR$/Special-bug/Redit-Cassandra-16836/Redit-Cassandra-16836.iml" filepath="$PROJECT_DIR$/Special-bug/Redit-Cassandra-16836/Redit-Cassandra-16836.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Cassandra-17628/Redit-Cassandra-17628.iml" filepath="$PROJECT_DIR$/Redit-Cassandra-17628/Redit-Cassandra-17628.iml" />
       <module fileurl="file://$PROJECT_DIR$/Redit-Elasticsearch/Redit-Elasticsearch.iml" filepath="$PROJECT_DIR$/Redit-Elasticsearch/Redit-Elasticsearch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Special-bug/Redit-Elasticsearch-19269/Redit-Elasticsearch-19269.iml" filepath="$PROJECT_DIR$/Special-bug/Redit-Elasticsearch-19269/Redit-Elasticsearch-19269.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Special-bug/Redit-Elasticsearch-2488/Redit-Elasticsearch-2488.iml" filepath="$PROJECT_DIR$/Special-bug/Redit-Elasticsearch-2488/Redit-Elasticsearch-2488.iml" />
       <module fileurl="file://$PROJECT_DIR$/Special-bug/Redit-Elasticsearch-minimum-master-nodes/Redit-Elasticsearch-minimum-master-nodes.iml" filepath="$PROJECT_DIR$/Special-bug/Redit-Elasticsearch-minimum-master-nodes/Redit-Elasticsearch-minimum-master-nodes.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Special-bug/Redit-Elasticsearch-two-master/Redit-Elasticsearch-two-master.iml" filepath="$PROJECT_DIR$/Special-bug/Redit-Elasticsearch-two-master/Redit-Elasticsearch-two-master.iml" />
       <module fileurl="file://$PROJECT_DIR$/Special-bug/Redit-HDFS-13998/Redit-HDFS-13998.iml" filepath="$PROJECT_DIR$/Special-bug/Redit-HDFS-13998/Redit-HDFS-13998.iml" />
       <module fileurl="file://$PROJECT_DIR$/Special-bug/Redit-HDFS-14987/Redit-HDFS-14987.iml" filepath="$PROJECT_DIR$/Special-bug/Redit-HDFS-14987/Redit-HDFS-14987.iml" />
       <module fileurl="file://$PROJECT_DIR$/Special-bug/Redit-HDFS-16381/Redit-HDFS-16381.iml" filepath="$PROJECT_DIR$/Special-bug/Redit-HDFS-16381/Redit-HDFS-16381.iml" />

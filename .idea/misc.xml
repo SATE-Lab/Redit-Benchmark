@@ -79,6 +79,8 @@
         <option value="$PROJECT_DIR$/Redit-Activemq-8252/pom.xml" />
         <option value="$PROJECT_DIR$/Special-bug/Redit-Elasticsearch-minimum-master-nodes/pom.xml" />
         <option value="$PROJECT_DIR$/Special-bug/Redit-Elasticsearch-two-master/pom.xml" />
+        <option value="$PROJECT_DIR$/Special-bug/Redit-Elasticsearch-2488/pom.xml" />
+        <option value="$PROJECT_DIR$/Special-bug/Redit-Elasticsearch-19269/pom.xml" />
       </list>
     </option>
   </component>
